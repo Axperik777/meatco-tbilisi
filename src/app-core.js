@@ -240,7 +240,7 @@ function homeHoursKey(now=new Date()){
  return hour>=18?'homeAfterHoursNow':'homeAfterHours';
 }
 function renderOperations(){
- for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
+ for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text(el.dataset.minimumOrder||'minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  for(const el of document.querySelectorAll('[data-working-hours]'))el.textContent=config.hours?text('workingHours').replace('{hours}',config.hours):text('workingHoursUnknown');
  for(const el of document.querySelectorAll('[data-home-hours-note]'))el.textContent=text(homeHoursKey());
 }

@@ -66,12 +66,13 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .feed-operations{max-width:800px;margin:var(--space-3) auto 0;display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-4)}
 .feed-operations p{margin:0;font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted)}
 .feed-operations [data-minimum-order]{font-weight:600;color:var(--ink)}
-.feed-operations .operations-strip{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-2);max-width:none}
-.operations-strip>span:not(:last-child):after{content:" ·";padding-left:var(--space-2)}
+.feed-operations .operations-strip{max-width:none;text-wrap:pretty}
+.operations-strip>span:not(:last-child):after{content:" · ";white-space:pre}
 .feed-operations .pickup-line{flex-basis:100%}
 .trust-chips{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-2);margin:var(--space-3) 0 var(--space-6);padding:0;overflow:visible}
 .trust-chips li{display:flex;align-items:center;justify-content:center;min-width:0;text-align:center;font-size:var(--fs-caption);font-weight:600;line-height:1.3;color:var(--ink);padding:var(--space-2) var(--space-1);border:1px solid var(--line);border-radius:2px;background:none;min-height:var(--hit-min)}
 .trust-chips svg{width:var(--space-4);height:var(--space-4);flex:none}
+html[lang=ka] .trust-chips li{font-size:13px;line-height:1.4;word-break:normal}
 .quick-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-3)}
 .quick-categories button{position:relative;display:block;min-width:0;height:var(--category-photo-h);text-align:left;background:var(--ink);border:0;border-radius:var(--radius-m);overflow:hidden;padding:0;color:var(--surface);font:600 var(--fs-ui)/1.2 var(--font-sans)}
 .quick-categories img{display:block;width:100%;height:100%;object-fit:cover;border-radius:0}
@@ -356,4 +357,11 @@ textarea{resize:vertical}
  .home-product-rail,.meat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
  .app-tabbar{width:min(100%,var(--catalog-max));padding-inline:var(--page-pad-x)}
  .app-tabbar>button{flex-direction:row;gap:var(--space-2)}
+}
+@media(min-width:1100px){
+ .counter-hero,.feed-operations,.app-feed>.trust-chips,.app-feed>.quick-categories{max-width:none}
+}
+@media(max-width:639px){
+ html[lang=ka] .trust-chips{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr}
+ html[lang=ka] .trust-chips li:last-child{grid-column:1/-1}
 }
