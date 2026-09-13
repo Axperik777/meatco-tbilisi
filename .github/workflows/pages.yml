@@ -18,6 +18,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Build site
+        run: node build.mjs
       - name: Validate site
         run: node validate.mjs
       - uses: actions/configure-pages@v5

@@ -1,0 +1,309 @@
+{
+  "source": "ICashExport_products_RU_no_price_without_VAT.pdf",
+  "sourceColumn": "Продажная цена",
+  "currency": "GEL",
+  "mapping": [
+    {
+      "product": "pork-flesh",
+      "sku": "19",
+      "sourceName": "свиная мякоть",
+      "retailPrice": 14,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-tenderloin",
+      "sku": "75",
+      "sourceName": "свиная вырезка",
+      "retailPrice": 20,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-leg",
+      "sku": "40",
+      "sourceName": "свиной окорок",
+      "retailPrice": 30,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-hock",
+      "sku": "22",
+      "sourceName": "свиная голяшка",
+      "retailPrice": 8,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-grill",
+      "sku": "20",
+      "sourceName": "свинина для\nшашлыка",
+      "retailPrice": 13,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-bonein",
+      "sku": "21",
+      "sourceName": "свинина на кости",
+      "retailPrice": 12,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-jowl",
+      "sku": "67",
+      "sourceName": "свиная щековина",
+      "retailPrice": 5,
+      "unit": "kg"
+    },
+    {
+      "product": "young-pig",
+      "sku": "70",
+      "sourceName": "подсвинок",
+      "retailPrice": 10,
+      "unit": "kg"
+    },
+    {
+      "product": "beef-shank",
+      "sku": "10",
+      "sourceName": "говяжья голяшка",
+      "retailPrice": 15,
+      "unit": "kg"
+    },
+    {
+      "product": "beef-cheek",
+      "sku": "73",
+      "sourceName": "говяжья щека",
+      "retailPrice": 25,
+      "unit": "kg"
+    },
+    {
+      "product": "beef-diaphragm",
+      "sku": "72",
+      "sourceName": "говяжья диафрагма",
+      "retailPrice": 28,
+      "unit": "kg"
+    },
+    {
+      "product": "beef-bonein",
+      "sku": "4",
+      "sourceName": "говядина на кости",
+      "retailPrice": 27,
+      "unit": "kg"
+    },
+    {
+      "product": "beef-fat",
+      "sku": "69",
+      "sourceName": "говяжий жир",
+      "retailPrice": 5,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-liver",
+      "sku": "24",
+      "sourceName": "свиная печень",
+      "retailPrice": 5,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-beef-liver",
+      "sku": "14",
+      "sourceName": "говяжья печень",
+      "retailPrice": 10,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-veal-liver",
+      "sku": "47",
+      "sourceName": "телячья печень",
+      "retailPrice": 15,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-heart",
+      "sku": "13",
+      "sourceName": "говяжье сердце",
+      "retailPrice": 10,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-tongue",
+      "sku": "1",
+      "sourceName": "язык",
+      "retailPrice": 16,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-kidneys",
+      "sku": "43",
+      "sourceName": "свиная почка",
+      "retailPrice": 10,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-beef-kidneys",
+      "sku": "50",
+      "sourceName": "говяжья почка",
+      "retailPrice": 2,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-feet",
+      "sku": "41",
+      "sourceName": "свиные ножки\nочищенные",
+      "retailPrice": 5,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-head",
+      "sku": "26",
+      "sourceName": "свиная голова",
+      "retailPrice": 2,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-tail",
+      "sku": "25",
+      "sourceName": "свиной хвост",
+      "retailPrice": 3,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-beef-tail",
+      "sku": "11",
+      "sourceName": "говяжий хвост",
+      "retailPrice": 15,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-beef-lungs",
+      "sku": "63",
+      "sourceName": "говяжье легкое",
+      "retailPrice": 3,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-skin",
+      "sku": "49",
+      "sourceName": "свиная шкура",
+      "retailPrice": 1,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork-set",
+      "sku": "34",
+      "sourceName": "комплект свиных\nсубпродуктов",
+      "retailPrice": 2,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-beef-set",
+      "sku": "12",
+      "sourceName": "говяжьи субпродукт\nы",
+      "retailPrice": 7,
+      "unit": "kg"
+    },
+    {
+      "product": "marrow-bone",
+      "sku": "33",
+      "sourceName": "трубчатая кость",
+      "retailPrice": 3,
+      "unit": "kg"
+    },
+    {
+      "product": "stock-bones",
+      "sku": "31",
+      "sourceName": "кость",
+      "retailPrice": 1,
+      "unit": "kg"
+    },
+    {
+      "product": "caul-fat",
+      "sku": "28",
+      "sourceName": "бадекони",
+      "retailPrice": 5,
+      "unit": "piece"
+    },
+    {
+      "product": "mixed-mince",
+      "sku": "29",
+      "sourceName": "смешанный фарш",
+      "retailPrice": 23,
+      "unit": "kg"
+    },
+    {
+      "product": "chicken",
+      "sku": "30",
+      "sourceName": "цыпленок",
+      "retailPrice": 17,
+      "unit": "piece"
+    },
+    {
+      "product": "turkey",
+      "sku": "54",
+      "sourceName": "индейка",
+      "retailPrice": 5,
+      "unit": "kg"
+    },
+    {
+      "product": "lamb",
+      "sku": "18",
+      "sourceName": "ягнятина",
+      "retailPrice": 42,
+      "unit": "kg"
+    },
+    {
+      "product": "offal-pork",
+      "sku": "23",
+      "sourceName": "свиные субпродукты",
+      "retailPrice": 3,
+      "unit": "kg"
+    },
+    {
+      "product": "pork-ribs",
+      "sku": "35",
+      "retailPrice": 20,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    },
+    {
+      "product": "beef-tenderloin",
+      "sku": "64",
+      "retailPrice": 60,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    },
+    {
+      "product": "beef-brisket",
+      "sku": "8",
+      "retailPrice": 26,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    },
+    {
+      "product": "veal",
+      "sku": "56",
+      "retailPrice": 40,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    },
+    {
+      "product": "beef-round",
+      "sku": "2",
+      "retailPrice": 33,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    },
+    {
+      "product": "pork-fat",
+      "sku": "45",
+      "retailPrice": 10,
+      "unit": "kg",
+      "selection": "Highest retail price among duplicate products, as confirmed by the owner"
+    }
+  ],
+  "pending": [],
+  "unpriced": [
+    "pork-trimmings",
+    "beef-trimmings",
+    "offal-tripe",
+    "offal-feet"
+  ],
+  "priceSelection": "Use highest listed retail price for duplicate products. Display prices rounded to 2 decimals."
+}
