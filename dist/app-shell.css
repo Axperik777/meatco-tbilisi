@@ -34,10 +34,16 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .feed-greeting{max-width:640px}
 .feed-greeting h1{font-family:var(--editorial);font-size:46px;line-height:1.15;letter-spacing:-.045em;font-weight:400;white-space:pre-line;color:var(--forest);margin:0 0 14px}
 .feed-subtitle{font-size:14px;line-height:1.65;color:var(--muted);max-width:510px;margin:0}
+.feed-subtitle{color:var(--forest)}
 .trust-chips{list-style:none;display:flex;flex-wrap:nowrap;gap:8px;margin:21px 0 24px;padding:0;overflow-x:auto;scrollbar-width:none}
 .trust-chips::-webkit-scrollbar{display:none}
 .trust-chips li{display:flex;align-items:center;gap:6px;white-space:nowrap;flex:none;font-size:11px;line-height:1.4;color:var(--forest);padding:8px 10px;border:1px solid #D2D6C8;border-radius:99px;background:#F8F6EE}
 .trust-chips svg{width:15px;height:15px;flex:none}
+.trust-chips{margin-block:14px 19px;gap:0;overflow:visible}
+.trust-chips li{padding:0 12px;border:0;border-radius:0;background:none;font-size:11px;min-height:24px}
+.trust-chips li:first-child{padding-left:0}
+.trust-chips li:last-child{padding-right:0}
+.trust-chips li+li{border-left:1px solid var(--line)}
 .quick-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .quick-categories button{display:flex;flex-direction:column;align-items:stretch;min-width:0;text-align:left;background:var(--surface);border:1px solid #DED8CC88;border-radius:22px;overflow:hidden;padding:0;color:var(--forest);font-size:14px;font-weight:700;line-height:1.45}
 .quick-categories img{display:block;width:100%;height:145px;object-fit:cover;border-radius:0}
@@ -59,6 +65,8 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .meat-card h3,html[lang=ka] .meat-card h3{font:600 15px/1.45 var(--body);letter-spacing:-.015em;min-height:44px;margin:0 0 5px}
 .meat-card h3 button{min-height:44px;text-align:left;width:100%;display:block;background:none;border:0;padding:0;color:var(--ink);font:inherit}
 .meat-category{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 16px}
+.meat-category{display:none}
+.meat-card h3{margin-bottom:9px}
 .meat-buy{margin-top:auto}
 .meat-select{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;width:100%;border:1px solid #D7DDCF;border-radius:14px;background:#E9EDDF;color:var(--forest);font-size:13px;font-weight:700;padding:8px}
 .meat-select>span:first-child{font-size:21px;font-weight:400;color:var(--forest)}
@@ -211,15 +219,38 @@ textarea{resize:vertical}
 .cart-toast{position:fixed;bottom:105px;left:50%;right:auto;transform:translateX(-50%);display:flex;align-items:center;gap:14px;width:max-content;max-width:calc(100% - 32px);padding:8px 15px;z-index:36;background:var(--forest);color:var(--surface);border-radius:16px;box-shadow:0 3px 15px #15231810}
 .cart-toast>span{font-size:12px;line-height:1.5}
 .cart-toast>button{min-height:44px;font-size:12px;color:var(--surface)}
+.cart-line{grid-template-columns:64px minmax(0,1fr) 44px;gap:8px 10px;padding-block:14px}
+.cart-line>img{width:64px;height:80px;grid-row:1 / span 2}
+.cart-line-controls{grid-column:2 / -1;gap:8px}
+.cart-quantity{max-width:180px}
+.cart-quantity input[type=text]{width:44px}
+.cart-line-total{font-size:16px;max-width:105px}
+.cart-line-name p{font-size:11px}
+.cart-estimate{padding-top:17px;margin-top:3px}
+.weight-confirmation{padding:0 0 0 12px;border-radius:0;border-left:2px solid #A8B6A0;background:none;margin-bottom:18px}
+.cart-address{margin-bottom:18px}
+.cart-note{margin-bottom:16px}
+.delivery-slots label:has(input:disabled){display:none}
+.cart-dialog:has(#cart-form[hidden]){height:fit-content;min-height:250px}
 .field-error{font-size:12px;line-height:1.5;color:#943822}
 .type-options input:checked+span{background:var(--forest);color:var(--surface);border-color:var(--forest)}
 .app-sheet[open]{animation:sheet-in var(--motion) ease-out}
 @keyframes sheet-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .dish-image:after{display:none}
 @media(min-width:821px){
+ .container,.header-inner,.app-feed,.catalog-browser{max-width:1320px}
+ .app-frame{padding-top:22px}
  .feed-greeting{max-width:none}
- .feed-greeting h1{white-space:normal;font-size:40px}
+ .feed-greeting h1{white-space:normal;font-size:38px;margin-bottom:10px}
  .feed-subtitle{max-width:none}
+ .quick-categories img{height:118px}
+ .quick-categories button{border-radius:18px;border-color:transparent}
+ .quick-categories button>span{min-height:42px;padding-block:8px}
+ .feed-heading{margin:18px 0 12px}
+ .meat-photo{aspect-ratio:6/5}
+ .meat-copy{padding:14px 16px}
+ .catalog-tools{margin-bottom:8px;padding-bottom:12px}
+ .catalog-status{margin-bottom:16px}
 }
 @media(max-width:820px){
  .container{max-width:480px}
@@ -248,36 +279,39 @@ textarea{resize:vertical}
  .header-actions{gap:5px}
  .languages button{min-width:44px;min-height:44px;font-size:10px}
  .app-whatsapp{width:44px;height:44px}
- .app-frame{padding-top:23px}
- .feed-greeting h1{font-size:34px;line-height:1.2;margin-bottom:12px}
- html[lang=ka] .feed-greeting h1{font-size:33px;line-height:1.3}
- .feed-subtitle{font-size:13px;line-height:1.6}
- .trust-chips{gap:6px;margin:18px -16px 22px;padding:0 16px}
- .trust-chips li{padding:7px 9px;font-size:10px;gap:5px}
- .quick-categories img{height:86px}
- .quick-categories button>span{padding:8px 7px;min-height:47px;line-height:1.4;font-size:10px}
- .feed-heading{margin:24px 0 15px;gap:10px}
+ .app-frame{padding-top:14px}
+ .feed-greeting h1{font-size:30px;line-height:1.18;margin-bottom:10px}
+ html[lang=ka] .feed-greeting h1{font-size:30px;line-height:1.24}
+ .feed-subtitle{font-size:13px;line-height:1.55}
+ .trust-chips{gap:0;margin:12px 0 12px;padding:0}
+ .trust-chips li{padding:0 8px;font-size:10px;gap:4px}
+ .trust-chips li:first-child{padding-left:0}
+ .trust-chips svg{width:13px;height:13px}
+ .quick-categories img{height:80px}
+ .quick-categories button{border-radius:17px;border-color:transparent}
+ .quick-categories button>span{padding:7px 6px;min-height:40px;line-height:1.4;font-size:10px}
+ .feed-heading{margin:12px 0 8px;gap:10px}
  .feed-heading h2{font-size:21px}
  .feed-heading>button{font-size:12px;gap:7px}
  .meat-card{border-radius:23px}
- .meat-photo{aspect-ratio:4/4.5}
- .meat-copy{padding:13px 11px 11px}
+ .meat-photo{aspect-ratio:1}
+ .meat-copy{padding:11px}
  .meat-price{font-size:25px;margin-bottom:7px}
  .meat-price span{font-size:11px}
  .meat-price.price-pending{font-size:12px;min-height:30px}
- .meat-card h3,html[lang=ka] .meat-card h3{font-size:13px;line-height:1.5;min-height:44px;margin-bottom:4px}
+ .meat-card h3,html[lang=ka] .meat-card h3{font-size:14px;line-height:1.4;min-height:44px;margin-bottom:8px}
  .meat-category{font-size:10px;line-height:1.4;margin-bottom:12px}
  .meat-select{font-size:12px;min-height:46px;border-radius:13px}
  .card-quantity{border-radius:13px}
  .card-quantity>button{min-width:44px}
  .card-quantity .card-quantity-value{font-size:10px;min-width:0}
  .feed-brand-line{font-size:11px;margin-top:24px}
- .catalog-tools{padding:5px 0 13px;margin-bottom:8px}
+ .catalog-tools{padding:4px 0 10px;margin-bottom:5px}
  .catalog-search{min-height:52px;border-radius:16px;padding-inline:13px;margin-bottom:11px}
  .catalog-tabs{gap:6px;margin-right:-16px;padding-right:16px}
  .catalog-tabs button{padding:9px 15px;font-size:12px;min-height:44px}
  .catalog-heading h1{font-size:24px}
- .catalog-status{font-size:11px;margin-bottom:17px}
+ .catalog-status{font-size:11px;margin-bottom:13px}
  .catalog-status>span{display:block}
  .catalog-more .button{font-size:13px;min-height:48px}
  .help-screen h1{font-size:28px}
@@ -305,11 +339,11 @@ textarea{resize:vertical}
  .cart-dialog{margin:auto 0 0;width:100%;max-width:none;height:94dvh;max-height:94dvh;padding:29px 18px calc(14px + env(safe-area-inset-bottom));border-radius:27px 27px 0 0}
  .cart-dialog:before{content:"";position:absolute;top:9px;left:calc(50% - 18px);width:36px;height:4px;border-radius:9px;background:#CFCABB}
  .cart-dialog>h2{font-size:25px;margin:4px 50px 18px 0}
- .cart-line{grid-template-columns:72px minmax(0,1fr) 44px;gap:10px;padding-block:16px}
- .cart-line>img{width:72px;height:80px}
+ .cart-line{grid-template-columns:60px minmax(0,1fr) 44px;gap:8px 10px;padding-block:13px}
+ .cart-line>img{width:60px;height:80px}
  .cart-line h3{font-size:13px}
- .cart-line-total{font-size:16px;max-width:123px}
- .cart-quantity input{width:47px}
+ .cart-line-total{font-size:15px;max-width:94px}
+ .cart-quantity input[type=text]{width:40px}
  .cart-estimate strong{font-size:25px}
  .cart-estimate>span{font-size:12px}
  .delivery-slots span{padding-inline:12px;font-size:11px}
@@ -319,7 +353,8 @@ textarea{resize:vertical}
 }
 @media(max-width:360px){
  .container{width:calc(100% - 24px)}
- .trust-chips{margin-inline:-12px;padding-inline:12px}
+ .trust-chips{margin-inline:0;padding-inline:0}
+ .trust-chips li{padding-inline:6px;font-size:9px}
  .catalog-tabs{margin-right:-12px;padding-right:12px}
  .brand-logo{width:100px}
  .header-actions{gap:2px}
