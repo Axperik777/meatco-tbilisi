@@ -24,6 +24,11 @@ for(const d of dishes){
 }
 assert.equal(new Set(imageHashes).size,15,'Duplicate dish image content');
 for(const c of cuts)if(c.price!==undefined){assert.ok(c.price>0,'Zero / invalid public price: '+c.id);assert.ok(['kg','piece'].includes(c.unit));}
+for(const c of cuts)for(const image of [c.image,c.image.replace('.webp','-small.webp')])assert.ok(fs.existsSync(path.join(root,image)),c.id+': missing product photo '+image);
+assert.equal(new Set(cuts.map(c=>c.image)).size,41);
+assert.equal((fs.readFileSync(path.join(root,'index.html'),'utf8').match(/data-product-card=/g)||[]).length,8);
+assert.equal((fs.readFileSync(path.join(root,'catalog.html'),'utf8').match(/data-product-card=/g)||[]).length,46);
+assert.ok(!fs.readFileSync(path.join(root,'index.html'),'utf8').includes('id="featured-dishes"'));
 const pages=['index.html','catalog.html','dishes.html'];
 let references=0;
 for(const file of pages){
@@ -44,7 +49,7 @@ for(const file of pages){
  assert.ok(html.includes('995568258118'));
  assert.ok(html.includes('data-page='));
 }
-for(const file of ['style.css','refinements.css','shop.css'])for(const m of fs.readFileSync(path.join(root,file),'utf8').matchAll(/url\(['"]?(\.\/[^)'"]+)/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
+for(const file of ['style.css','refinements.css','shop.css','brand.css'])for(const m of fs.readFileSync(path.join(root,file),'utf8').matchAll(/url\(['"]?(\.\/[^)'"]+)/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
 const mapping=JSON.parse(fs.readFileSync('docs/price-mapping.json','utf8'));
 for(const p of mapping.mapping){
  const cut=cuts.find(c=>c.id===p.product);assert.ok(cut);

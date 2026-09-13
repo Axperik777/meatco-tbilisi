@@ -1,0 +1,171 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "generate",
+  "usage": "Illustrative raw product photography, not photos of actual inventory. Source PNG originals retained outside published assets. Responsive WebP delivery sizes 960 and 480px.",
+  "assets": [
+    {
+      "id": "beef-tenderloin",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. One whole raw beef tenderloin fillet, trimmed, naturally lean red meat with fine muscle grain, elongated tapered cylindrical shape. No steak medallions, no ribeye marbling. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "pork-ribs",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. One raw pork spare rib rack, six visible rib bones with pink meat between them. Correct rib anatomy, uncooked. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "beef-round",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. A compact single boneless raw beef round roast from the hind leg, naturally lean deep red, a small clean fat cap. No bones, no steak marbling. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "pork-flesh",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. Two substantial boneless pieces of raw pork leg meat, soft natural pink color with a little white connective tissue and fat. No bones. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "pork-tenderloin",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. Two whole raw pork tenderloins, slim tapered fillets, naturally light pink and lean, visibly smaller and paler than beef tenderloin. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "beef-brisket",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. One thick raw beef brisket section with an even white fat cap and layered red muscle, no ribs or bones, unrolled. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "mixed-mince",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. Freshly ground raw mixed pork and beef, softly piled in a small rectangular mound on butcher paper, recognizable short strands of pink-red mince. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "liver",
+      "prompt": "Use case: product-mockup. Asset: MeatCO online butcher product photograph. Square 1024x1024. A clean raw liver lobe with recognizable smooth glossy dark reddish-brown surface and irregular flat lobed silhouette. No sliced steak appearance. Place only this raw product centered on a small piece of plain ivory butcher paper on a cool light grey limestone counter, subtle texture. Product fills 70 percent of frame. Three-quarter overhead camera, 70mm commercial food lens, soft daylight from upper left, gentle natural shadow, true lifelike colors. Refined quiet premium butcher catalog, precise and appetizing. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knives, no blood puddles, no decoration. Photograph, not illustration. Complete product visible with safe margins."
+    },
+    {
+      "id": "pork-leg",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One large raw pork hind leg joint, pink muscle with a white fat cap and smooth pale skin on one side. No head or feet. Whole uncooked leg roast. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-hock",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One clean raw pork hock (shank knuckle), pale skin around pink meat, with its cut bone end visible. Compact cylindrical shape, no foot. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-grill",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A small pile of evenly cut raw pork cubes, about 4 cm pieces, light pink with small fat edges, ready for skewering but no skewers, no marinade. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-bonein",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two thick raw bone-in pork chops with pink meat and visible natural curved rib bones. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-jowl",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A slab of raw pork jowl: mostly firm ivory white fat with thin layers of pink cheek meat and a smooth rind. No head. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-trimmings",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A small loose pile of irregular raw pork trimmings, natural light pink pieces mixed with small white fat pieces. Not minced. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-fat",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two rectangular slabs of raw unsalted pork back fat (salo), thick ivory white fat with pale rind and a tiny thin pink meat stripe. No seasoning. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "young-pig",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A whole small raw cleaned butchered young pig carcass prepared as an ordinary food product, pale clean skin, lying on its belly with legs tucked under, side view. No wounds visible, no blood, dignified clinical butcher display. Not a live animal, not cooked. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-shank",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two raw beef shank cross-cut slices, red muscle ring surrounding a round central marrow bone, recognizable ossobuco anatomy. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-cheek",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two raw boneless beef cheek pieces, dark red oval flat muscle portions, some clean connective tissue. No bones or head. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-diaphragm",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A long thin raw beef skirt (diaphragm) steak folded loosely, coarse obvious parallel muscle grain, lean deep red meat. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-bonein",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A raw beef rib-in cut, thick naturally red meat with two visible rib bone ends and light fat. No unrealistic intense marbling. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-trimmings",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A small pile of irregular raw boneless beef trimmings, red meat with a little white fat, not minced. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-fat",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Clean raw beef suet, a few irregular firm ivory-white pieces of fat, minimal meat, no packaging. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "veal",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One raw boneless veal roast and one small slice beside it, pale rose-colored lean meat, a little natural fat. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "heart",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One clean trimmed raw beef heart as a butcher food product, recognizable muscular cone shape and dark red tissue. No vessels protruding, no blood. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "tongue",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One whole clean raw beef tongue, natural pale pink-grey textured upper surface and tapered tip. Recognizable tongue shape, ordinary clean butcher product. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-kidneys",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two clean whole raw pork kidneys, smooth reddish-brown bean-shaped organs, one kidney sliced lengthwise to show anatomy. No blood. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-kidneys",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A single clean raw beef kidney with very characteristic clustered rounded lobes, reddish-brown, natural many-lobed bovine kidney anatomy, not a smooth bean-shaped pork kidney. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "tripe",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Clean raw beef honeycomb tripe folded loosely, cream white color and distinctive honeycomb texture clearly visible. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "feet",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two clean raw pork trotters, pale skin, natural small cloven hoof ends, laid side by side. Clean butcher food presentation, no blood. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-head",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A clean raw pig head prepared for food in a butcher display, side profile, pale skin, closed eye, recognizable snout and ear. Clean uninjured visible surface, no blood, cut surface turned away. Ordinary food product, no dramatic lighting. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-tail",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Three clean raw pork tails, pale pink skin, naturally curled, ordinary butcher food product. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "beef-tail",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Several raw oxtail pieces cut into thick rounds of varying sizes, red meat surrounding ivory circular bone centers and white connective tissue. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "lungs",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One clean raw beef lung lobe, pale pinkish grey and softly spongy lobed appearance, no heart, no liver, no blood. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "pork-skin",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Two clean sheets of raw pork rind, pale pink-beige skin with thin attached white fat, one sheet loosely folded, natural fine pore texture. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "offal-mix",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A clean small assortment of raw butcher offal: one liver lobe, one trimmed heart, two smooth kidneys. Dark red-brown organs with distinct shapes, uncooked, no blood. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "marrow-bone",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. Three thick raw marrow bone sections, clean ivory bone walls, circular center marrow clearly visible, minimal red meat. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "stock-bones",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A small assortment of raw soup bones and joints, ivory bones with a little red meat attached, irregular cross-cut shapes. No offal. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "caul-fat",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. A clean delicate sheet of raw caul fat, fine translucent white lacy net-like membrane, loosely folded and partly spread to show its characteristic web pattern. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "chicken",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One whole raw cleaned plucked chicken, pale natural skin, breast up, wings folded and legs together, no head, no feet, not cooked. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "turkey",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One whole raw cleaned plucked turkey, large elongated breast and substantial legs, natural pale skin, breast up, wings folded, no head, no feet, not cooked. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    },
+    {
+      "id": "lamb",
+      "prompt": "Use case: product-mockup. Asset: MeatCO butcher product catalog photo, square 1024x1024. One raw lamb leg roast section with a natural small bone end, pink-red lean meat and a light ivory fat cap. Clearly smaller than beef leg, no garnish. Only this raw product, centered on a piece of plain ivory butcher paper on a cool light grey limestone counter. Product fills 70 percent of frame with safe margins. Three-quarter overhead camera, refined commercial photography, soft daylight from upper left, subtle natural shadow, true lifelike colors. Same consistent catalog photo setup. No cooked food, no plates, no garnish, no text, no labels, no logos, no hands, no knife, no blood puddles, no dramatic slaughter imagery. Accurate anatomical food product, not an illustration."
+    }
+  ]
+}

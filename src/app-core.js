@@ -8,10 +8,9 @@ const form=$('order-form'), orderDialog=$('order-dialog'), dishDialog=$('dish-di
 const quantity=$('quantity'), district=$('district'), note=$('order-note'), error=$('quantity-error'), status=$('form-status');
 const page=document.body.dataset.page;
 const params=new URLSearchParams(location.search);
-const categories=['pork','beef','offal'];
-const categoryImages={pork:'./assets/meatco-pork-v01.jpg',beef:'./assets/meatco-beef-v01.jpg',offal:'./assets/meatco-offal-v03.webp'};
+const categories=['all','pork','beef','offal','other'];
 const extraKeys={vegetables:'extraVegetables',fruit:'extraFruit',eggs:'extraEggs'};
-let language='ka', category=categories.includes(params.get('category'))?params.get('category'):'pork';
+let language='ka', category=categories.includes(params.get('category'))?params.get('category'):'all', productLimit=12;
 let meatFilter=['pork','beef','offal'].includes(params.get('meat'))?params.get('meat'):'all';
 let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
@@ -86,19 +85,35 @@ function renderExtras(){
  }
  if($('extras-summary'))$('extras-summary').textContent=selected.length?text('extrasSelected')+': '+selected.map(k=>text(extraKeys[k])).join(', '):text('extrasNone');
 }
-function cutRows(cuts){
- return cuts.map(c=>`<article class="cut-row"><div><h3>${esc(c.name[language])}</h3><p>${esc(c.use[language])}</p></div><div class="cut-buy"><span class="cut-price${c.price>0?'':' price-pending'}">${esc(formatPrice(c))}</span><button type="button" class="cut-select" data-order="${c.category}" data-cut="${c.id}" aria-label="${esc(text('cutCta')+': '+c.name[language])}">${esc(text('cutCta'))}<span aria-hidden="true">↗</span></button></div></article>`).join('');
+function renderProductCards(){
+ for(const card of document.querySelectorAll('[data-product-card]')){
+  const c=cutById(card.dataset.productCard);card.querySelector('img').alt=c.name[language];
+  card.querySelector('h3').textContent=c.name[language];
+  card.querySelector('.meat-category').textContent=text(c.category);
+  card.querySelector('.meat-use').textContent=c.use[language];
+  card.querySelector('.meat-price').innerHTML=c.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(c.price)+' ₾ <span>/ '+esc(text(c.unit==='piece'?'perPiece':'perKg'))+'</span>':esc(text('priceAsk'));
+  for(const b of card.querySelectorAll('[data-cut]'))b.setAttribute('aria-label',text('cutCta')+': '+c.name[language]);
+ }
+ const hero=cutById('beef-tenderloin');
+ if(document.querySelector('[data-hero-image]')){
+  document.querySelector('[data-hero-image]').alt=hero.name[language];
+  document.querySelector('.hero-product-name').textContent=hero.name[language];
+  document.querySelector('.hero-product-tag').setAttribute('aria-label',text('cutCta')+': '+hero.name[language]+', '+formatPrice(hero));
+ }
 }
 function renderCatalog(){
- if(!$('cut-list'))return;
+ if(!$('product-grid'))return;
  for(const b of document.querySelectorAll('[data-category]'))b.setAttribute('aria-pressed',String(b.dataset.category===category));
- $('catalog-image').src=categoryImages[category];$('catalog-image').alt=text(category+'Alt');
- $('catalog-category').textContent=text(category);
- $('category-intro').textContent=text('category'+category[0].toUpperCase()+category.slice(1)+'Intro');
- const cuts=content.cuts.filter(c=>(c.group||c.category)===category);
- $('cut-list').innerHTML=cutRows(cuts);
- const count=document.querySelector('.cut-heading>span');if(count)count.textContent=String(cuts.length);
- if($('other-cuts'))$('other-cuts').innerHTML=cutRows(content.cuts.filter(c=>!categories.includes(c.group||c.category)));
+ const query=$('product-search').value.trim().toLocaleLowerCase(language);let count=0;
+ for(const card of $('product-grid').querySelectorAll('[data-product-card]')){
+  const c=cutById(card.dataset.productCard),group=c.group||c.category;
+  const categoryMatch=category==='all'||(category==='other'?!['pork','beef','offal'].includes(group):group===category);
+  const haystack=[...Object.values(c.name),c.use[language],text(c.category)].join(' ').toLocaleLowerCase(language);
+  const match=categoryMatch&&(!query||haystack.includes(query));if(match)count++;
+  card.hidden=!match||count>productLimit;
+ }
+ $('product-count').textContent=text('productCount').replace('{n}',count);
+ $('product-empty').hidden=count!==0;$('more-products').hidden=count<=productLimit;
 }
 function renderDishCards(){
  for(const card of document.querySelectorAll('[data-dish-id]')){
@@ -160,7 +175,7 @@ function setLanguage(next,persist=true){
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderCatalog();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();
+ status.replaceChildren();renderProductCards();renderCatalog();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
 function closeMenu(focus=false){
@@ -169,7 +184,7 @@ function closeMenu(focus=false){
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
  if(el.matches('[data-lang]'))setLanguage(el.dataset.lang);
- if(el.matches('[data-category]')){category=el.dataset.category;renderCatalog();updateUrl('category',category);}
+ if(el.matches('[data-category]')){category=el.dataset.category;productLimit=12;renderCatalog();updateUrl('category',category==='all'?'':category);}
  if(el.matches('[data-meat-filter]')){meatFilter=el.dataset.meatFilter;filterDishes(true);}
  if(el.matches('[data-open-dish]')){
   activeDish=dishById(el.dataset.openDish);$('dish-people').value='';renderDishDetail();showDialog(dishDialog,el);track('meatco_dish_view',{dish:activeDish.id});
@@ -203,6 +218,12 @@ form.addEventListener('submit',e=>{
  const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=text('fallback');status.replaceChildren(link);
  track('meatco_whatsapp_click',{source:'order_form',category:selectedMeat()});window.open(url,'_blank','noopener,noreferrer');
 });
+if($('product-search')){
+ $('product-search').value=(params.get('q')||'').slice(0,100);
+ $('product-search').addEventListener('input',()=>{productLimit=12;renderCatalog();updateUrl('q',$('product-search').value.trim());});
+ $('reset-products').addEventListener('click',()=>{category='all';productLimit=12;$('product-search').value='';renderCatalog();updateUrl('category','');updateUrl('q','');$('product-search').focus();});
+ $('more-products').addEventListener('click',()=>{const before=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')];productLimit+=12;renderCatalog();const next=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')].find(c=>!before.includes(c));next?.querySelector('button').focus();});
+}
 if($('dish-search')){
  $('dish-search').value=(params.get('q')||'').slice(0,100);
  const method=params.get('method');if(['pan','stew','boil','grill','roast','cold'].includes(method))$('dish-method').value=method;

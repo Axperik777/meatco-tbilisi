@@ -439,12 +439,13 @@ window.MEATCO_CONTENT = {
         "en": "Boneless pork"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "შესაწვავად ან მოსაშუშად",
+        "ru": "Для жарки и тушения",
+        "en": "For frying or braising"
       },
       "price": 14,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-flesh.webp"
     },
     {
       "id": "pork-tenderloin",
@@ -455,12 +456,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork tenderloin"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "ტაფაზე ან ღუმელში მოსამზადებლად",
+        "ru": "Для сковороды и духовки",
+        "en": "For the pan or oven"
       },
       "price": 20,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-tenderloin.webp"
     },
     {
       "id": "pork-ribs",
@@ -471,12 +473,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork ribs"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "გრილზე ან ღუმელში მოსამზადებლად",
+        "ru": "Для гриля и запекания",
+        "en": "For grilling or roasting"
       },
       "price": 20,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-ribs.webp"
     },
     {
       "id": "pork-leg",
@@ -487,12 +490,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork leg"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "შესაწვავად ან მოსაშუშად",
+        "ru": "Для запекания и тушения",
+        "en": "For roasting or braising"
       },
       "price": 30,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-leg.webp"
     },
     {
       "id": "pork-hock",
@@ -503,12 +507,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork hock"
       },
       "use": {
-        "ka": "ლაბისთვის ან მუჟუჟისთვის.",
-        "ru": "Для холодца или мужужи.",
-        "en": "For aspic or mujuji."
+        "ka": "მოსახარშად ან ღუმელში შესაწვავად",
+        "ru": "Для варки и запекания",
+        "en": "For simmering or roasting"
       },
       "price": 8,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-hock.webp"
     },
     {
       "id": "pork-grill",
@@ -519,12 +524,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork for mtsvadi"
       },
       "use": {
-        "ka": "მწვადისთვის. ნაჭრის ზომას წინასწარ შევათანხმებთ.",
-        "ru": "Для мцвади. Размер кусков согласуем.",
-        "en": "For mtsvadi. We’ll agree on the piece size."
+        "ka": "მწვადისთვის — დაჭრა შევათანხმოთ",
+        "ru": "Для мцвади — нарезку согласуем",
+        "en": "For mtsvadi — ask about cutting"
       },
       "price": 13,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-grill.webp"
     },
     {
       "id": "pork-bonein",
@@ -535,12 +541,13 @@ window.MEATCO_CONTENT = {
         "en": "Bone-in pork"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
+        "ka": "ბულიონისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для бульона и тушения",
+        "en": "For stock and stews"
       },
       "price": 12,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-bonein.webp"
     },
     {
       "id": "pork-jowl",
@@ -551,12 +558,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork jowl"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
+        "ka": "ხანგრძლივად მოსაშუშად",
+        "ru": "Для медленного тушения",
+        "en": "For slow braising"
       },
       "price": 5,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-jowl.webp"
     },
     {
       "id": "pork-trimmings",
@@ -567,10 +575,11 @@ window.MEATCO_CONTENT = {
         "en": "Pork trimmings"
       },
       "use": {
-        "ka": "შიგთავსისთვის ან ფარშისთვის. დაფქვას წინასწარ შევათანხმებთ.",
-        "ru": "Для начинки или фарша. Измельчение согласуем.",
-        "en": "For fillings or mince. Ask us about mincing."
-      }
+        "ka": "ფარშისა და შიგთავსისთვის",
+        "ru": "Для фарша и начинок",
+        "en": "For mince and fillings"
+      },
+      "image": "./assets/products/pork-trimmings.webp"
     },
     {
       "id": "pork-fat",
@@ -581,28 +590,30 @@ window.MEATCO_CONTENT = {
         "en": "Pork fat"
       },
       "use": {
-        "ka": "თქვენი რეცეპტის მიხედვით — ტიპსა და რაოდენობას დავაზუსტებთ.",
-        "ru": "Под ваш рецепт — вид и количество уточним.",
-        "en": "We’ll confirm the type and amount for your recipe."
+        "ka": "ქონის დასადნობად ან დასამარილებლად",
+        "ru": "Для вытопки и засолки",
+        "en": "For rendering or curing"
       },
       "price": 10,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-fat.webp"
     },
     {
       "id": "young-pig",
       "category": "pork",
       "name": {
-        "ka": "ახალგაზრდა ღორი",
+        "ka": "გოჭი",
         "ru": "Подсвинок",
         "en": "Young pig"
       },
       "use": {
-        "ka": "სასურველი ნაწილი, წონა და ფასი მოგვწერეთ შესათანხმებლად.",
-        "ru": "Часть, вес и цену согласуем при заказе.",
-        "en": "We’ll agree on the cut, weight and price when you order."
+        "ka": "ღუმელში შესაწვავად — წონა შევათანხმოთ",
+        "ru": "Для запекания — вес согласуем",
+        "en": "For roasting — confirm the weight"
       },
       "price": 10,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/young-pig.webp"
     },
     {
       "id": "beef-round",
@@ -613,12 +624,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef round"
       },
       "use": {
-        "ka": "მოსაშუშად, შესაწვავად ან ხორცის შიგთავსისთვის.",
-        "ru": "Для тушения, запекания и мясной начинки.",
-        "en": "For braising, roasting and meat fillings."
+        "ka": "შესაწვავად, მოსაშუშად ან ფარშისთვის",
+        "ru": "Для жарки, тушения и фарша",
+        "en": "For frying, braising or mince"
       },
       "price": 33,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-round.webp"
     },
     {
       "id": "beef-tenderloin",
@@ -629,28 +641,30 @@ window.MEATCO_CONTENT = {
         "en": "Beef tenderloin"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "მედალიონებისა და სტეიკისთვის",
+        "ru": "Для медальонов и стейков",
+        "en": "For medallions and steaks"
       },
       "price": 60,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-tenderloin.webp"
     },
     {
       "id": "beef-brisket",
       "category": "beef",
       "name": {
-        "ka": "საქონლის მკერდის ნაწილი",
+        "ka": "საქონლის მკერდი",
         "ru": "Говяжья грудинка",
         "en": "Beef brisket"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ხანგრძლივად მოსაშუშად ან მოსახარშად",
+        "ru": "Для томления и варки",
+        "en": "For slow cooking and simmering"
       },
       "price": 26,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-brisket.webp"
     },
     {
       "id": "beef-shank",
@@ -661,12 +675,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef shank"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
+        "ka": "ბულიონისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для бульона и тушения",
+        "en": "For stock and braising"
       },
       "price": 15,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-shank.webp"
     },
     {
       "id": "beef-cheek",
@@ -677,12 +692,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef cheek"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
+        "ka": "ხანგრძლივად მოსაშუშად",
+        "ru": "Для медленного тушения",
+        "en": "For slow braising"
       },
       "price": 25,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-cheek.webp"
     },
     {
       "id": "beef-diaphragm",
@@ -693,12 +709,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef diaphragm"
       },
       "use": {
-        "ka": "შესაწვავად ან ღუმელში მოსამზადებლად.",
-        "ru": "Для жарки и запекания.",
-        "en": "For pan-frying or roasting."
+        "ka": "გრილზე მოსამზადებლად",
+        "ru": "Для приготовления на гриле",
+        "en": "For grilling"
       },
       "price": 28,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-diaphragm.webp"
     },
     {
       "id": "beef-bonein",
@@ -709,12 +726,13 @@ window.MEATCO_CONTENT = {
         "en": "Bone-in beef"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ბულიონისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для бульона и тушения",
+        "en": "For stock and stews"
       },
       "price": 27,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-bonein.webp"
     },
     {
       "id": "beef-trimmings",
@@ -725,10 +743,11 @@ window.MEATCO_CONTENT = {
         "en": "Beef trimmings"
       },
       "use": {
-        "ka": "შიგთავსისთვის ან ფარშისთვის. დაფქვას წინასწარ შევათანხმებთ.",
-        "ru": "Для начинки или фарша. Измельчение согласуем.",
-        "en": "For fillings or mince. Ask us about mincing."
-      }
+        "ka": "ფარშისა და შიგთავსისთვის",
+        "ru": "Для фарша и начинок",
+        "en": "For mince and fillings"
+      },
+      "image": "./assets/products/beef-trimmings.webp"
     },
     {
       "id": "beef-fat",
@@ -739,12 +758,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef fat"
       },
       "use": {
-        "ka": "თქვენი რეცეპტის მიხედვით — ტიპსა და რაოდენობას დავაზუსტებთ.",
-        "ru": "Под ваш рецепт — вид и количество уточним.",
-        "en": "We’ll confirm the type and amount for your recipe."
+        "ka": "ქონის დასადნობად",
+        "ru": "Для вытопки",
+        "en": "For rendering"
       },
       "price": 5,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-fat.webp"
     },
     {
       "id": "veal",
@@ -756,12 +776,13 @@ window.MEATCO_CONTENT = {
         "en": "Veal"
       },
       "use": {
-        "ka": "სასურველი ნაწილი, წონა და ფასი მოგვწერეთ შესათანხმებლად.",
-        "ru": "Часть, вес и цену согласуем при заказе.",
-        "en": "We’ll agree on the cut, weight and price when you order."
+        "ka": "შესაწვავად ან მოსაშუშად",
+        "ru": "Для жарки и тушения",
+        "en": "For frying or braising"
       },
       "price": 40,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/veal.webp"
     },
     {
       "id": "offal-pork-liver",
@@ -772,12 +793,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork liver"
       },
       "use": {
-        "ka": "ხახვთან შესაწვავად, პაშტეტისთვის ან კუჭმაჭისთვის.",
-        "ru": "Для жарки с луком, паштета или кучмачи.",
-        "en": "For liver and onions, pâté or kuchmachi."
+        "ka": "შესაწვავად ან პაშტეტისთვის",
+        "ru": "Для жарки и паштетов",
+        "en": "For frying or pâté"
       },
       "price": 5,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/liver.webp"
     },
     {
       "id": "offal-beef-liver",
@@ -788,12 +810,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef liver"
       },
       "use": {
-        "ka": "ხახვთან შესაწვავად, პაშტეტისთვის ან კუჭმაჭისთვის.",
-        "ru": "Для жарки с луком, паштета или кучмачи.",
-        "en": "For liver and onions, pâté or kuchmachi."
+        "ka": "შესაწვავად ან პაშტეტისთვის",
+        "ru": "Для жарки и паштетов",
+        "en": "For frying or pâté"
       },
       "price": 10,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/liver.webp"
     },
     {
       "id": "offal-veal-liver",
@@ -804,12 +827,13 @@ window.MEATCO_CONTENT = {
         "en": "Calf liver"
       },
       "use": {
-        "ka": "ხახვთან შესაწვავად, პაშტეტისთვის ან კუჭმაჭისთვის.",
-        "ru": "Для жарки с луком, паштета или кучмачи.",
-        "en": "For liver and onions, pâté or kuchmachi."
+        "ka": "შესაწვავად ან პაშტეტისთვის",
+        "ru": "Для жарки и паштетов",
+        "en": "For frying or pâté"
       },
       "price": 15,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/liver.webp"
     },
     {
       "id": "offal-heart",
@@ -820,12 +844,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef heart"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
+        "ka": "მოსაშუშად ან მოსახარშად",
+        "ru": "Для тушения и варки",
+        "en": "For braising or simmering"
       },
       "price": 10,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/heart.webp"
     },
     {
       "id": "offal-tongue",
@@ -836,12 +861,13 @@ window.MEATCO_CONTENT = {
         "en": "Tongue"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "მოსახარშად და ცივი კერძებისთვის",
+        "ru": "Для варки и холодных закусок",
+        "en": "For simmering and cold dishes"
       },
       "price": 16,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/tongue.webp"
     },
     {
       "id": "offal-pork-kidneys",
@@ -852,12 +878,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork kidneys"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "დამუშავების შემდეგ — მოსაშუშად",
+        "ru": "Для тушения после подготовки",
+        "en": "For braising after preparation"
       },
       "price": 10,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-kidneys.webp"
     },
     {
       "id": "offal-beef-kidneys",
@@ -868,12 +895,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef kidneys"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "დამუშავების შემდეგ — მოსაშუშად",
+        "ru": "Для тушения после подготовки",
+        "en": "For braising after preparation"
       },
       "price": 2,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-kidneys.webp"
     },
     {
       "id": "offal-tripe",
@@ -884,10 +912,11 @@ window.MEATCO_CONTENT = {
         "en": "Tripe"
       },
       "use": {
-        "ka": "ნელა მოსაშუშად ან მოსახარშად.",
-        "ru": "Для тушения и долгой варки.",
-        "en": "For braising and slow simmering."
-      }
+        "ka": "ხაშისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для хаши и тушения",
+        "en": "For khashi and stews"
+      },
+      "image": "./assets/products/tripe.webp"
     },
     {
       "id": "offal-feet",
@@ -898,10 +927,11 @@ window.MEATCO_CONTENT = {
         "en": "Feet / trotters"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
-      }
+        "ka": "ხაშისა და ლაბისთვის",
+        "ru": "Для хаши и холодца",
+        "en": "For khashi and meat jelly"
+      },
+      "image": "./assets/products/feet.webp"
     },
     {
       "id": "offal-pork-feet",
@@ -912,12 +942,13 @@ window.MEATCO_CONTENT = {
         "en": "Cleaned pork trotters"
       },
       "use": {
-        "ka": "ლაბისთვის ან მუჟუჟისთვის.",
-        "ru": "Для холодца или мужужи.",
-        "en": "For aspic or mujuji."
+        "ka": "ხაშისა და ლაბისთვის",
+        "ru": "Для хаши и холодца",
+        "en": "For khashi and meat jelly"
       },
       "price": 5,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/feet.webp"
     },
     {
       "id": "offal-pork-head",
@@ -928,12 +959,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork head"
       },
       "use": {
-        "ka": "ლაბისთვის ან მუჟუჟისთვის.",
-        "ru": "Для холодца или мужужи.",
-        "en": "For aspic or mujuji."
+        "ka": "მოსახარშად ან ლაბისთვის",
+        "ru": "Для варки и холодца",
+        "en": "For simmering or meat jelly"
       },
       "price": 2,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-head.webp"
     },
     {
       "id": "offal-pork-tail",
@@ -944,12 +976,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork tail"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ბულიონისა და ლაბისთვის",
+        "ru": "Для бульона и холодца",
+        "en": "For stock and meat jelly"
       },
       "price": 3,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-tail.webp"
     },
     {
       "id": "offal-beef-tail",
@@ -960,12 +993,13 @@ window.MEATCO_CONTENT = {
         "en": "Oxtail"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ბულიონისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для бульона и тушения",
+        "en": "For stock and braising"
       },
       "price": 15,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/beef-tail.webp"
     },
     {
       "id": "offal-beef-lungs",
@@ -976,12 +1010,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef lung"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "მოსახარშად და შიგთავსისთვის",
+        "ru": "Для варки и начинок",
+        "en": "For simmering and fillings"
       },
       "price": 3,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/lungs.webp"
     },
     {
       "id": "offal-pork-skin",
@@ -992,12 +1027,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork skin"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "ლაბისა და ბულიონისთვის",
+        "ru": "Для холодца и бульона",
+        "en": "For meat jelly and stock"
       },
       "price": 1,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/pork-skin.webp"
     },
     {
       "id": "offal-pork-set",
@@ -1008,12 +1044,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork offal selection"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "შემადგენლობა შეკვეთისას დააზუსტეთ",
+        "ru": "Состав уточните при заказе",
+        "en": "Confirm the selection when ordering"
       },
       "price": 2,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/offal-mix.webp"
     },
     {
       "id": "offal-beef-set",
@@ -1024,12 +1061,13 @@ window.MEATCO_CONTENT = {
         "en": "Beef offal selection"
       },
       "use": {
-        "ka": "კერძისთვის სასურველ სახეობასა და დამუშავებას შევათანხმებთ.",
-        "ru": "Вид и обработку под ваш рецепт согласуем.",
-        "en": "We’ll confirm the type and preparation for your recipe."
+        "ka": "შემადგენლობა შეკვეთისას დააზუსტეთ",
+        "ru": "Состав уточните при заказе",
+        "en": "Confirm the selection when ordering"
       },
       "price": 7,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/offal-mix.webp"
     },
     {
       "id": "marrow-bone",
@@ -1040,12 +1078,13 @@ window.MEATCO_CONTENT = {
         "en": "Marrow bone"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ბულიონისთვის ან ღუმელში შესაწვავად",
+        "ru": "Для бульона и запекания",
+        "en": "For stock or roasting"
       },
       "price": 3,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/marrow-bone.webp"
     },
     {
       "id": "stock-bones",
@@ -1056,12 +1095,13 @@ window.MEATCO_CONTENT = {
         "en": "Stock bones"
       },
       "use": {
-        "ka": "ბულიონისა და წვნიანისთვის.",
-        "ru": "Для бульонов и супов.",
-        "en": "For stocks and soups."
+        "ka": "ბულიონისთვის",
+        "ru": "Для бульона",
+        "en": "For stock"
       },
       "price": 1,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/stock-bones.webp"
     },
     {
       "id": "caul-fat",
@@ -1072,12 +1112,13 @@ window.MEATCO_CONTENT = {
         "en": "Caul fat"
       },
       "use": {
-        "ka": "თქვენი რეცეპტის მიხედვით — ტიპსა და რაოდენობას დავაზუსტებთ.",
-        "ru": "Под ваш рецепт — вид и количество уточним.",
-        "en": "We’ll confirm the type and amount for your recipe."
+        "ka": "აფხაზურისა და შიგთავსის შესახვევად",
+        "ru": "Для абхазури и обёртывания начинки",
+        "en": "For abkhazuri and wrapping fillings"
       },
       "price": 5,
-      "unit": "piece"
+      "unit": "piece",
+      "image": "./assets/products/caul-fat.webp"
     },
     {
       "id": "mixed-mince",
@@ -1088,12 +1129,13 @@ window.MEATCO_CONTENT = {
         "en": "Mixed mince"
       },
       "use": {
-        "ka": "შიგთავსისთვის ან ფარშისთვის. დაფქვას წინასწარ შევათანხმებთ.",
-        "ru": "Для начинки или фарша. Измельчение согласуем.",
-        "en": "For fillings or mince. Ask us about mincing."
+        "ka": "ღორისა და საქონლის ხორცი — შიგთავსისთვის",
+        "ru": "Свинина и говядина — для начинок",
+        "en": "Pork and beef — for fillings"
       },
       "price": 23,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/mixed-mince.webp"
     },
     {
       "id": "chicken",
@@ -1104,12 +1146,13 @@ window.MEATCO_CONTENT = {
         "en": "Chicken"
       },
       "use": {
-        "ka": "სასურველი ნაწილი, წონა და ფასი მოგვწერეთ შესათანხმებლად.",
-        "ru": "Часть, вес и цену согласуем при заказе.",
-        "en": "We’ll agree on the cut, weight and price when you order."
+        "ka": "შესაწვავად ან მოსახარშად",
+        "ru": "Для запекания и варки",
+        "en": "For roasting or simmering"
       },
       "price": 17,
-      "unit": "piece"
+      "unit": "piece",
+      "image": "./assets/products/chicken.webp"
     },
     {
       "id": "turkey",
@@ -1120,12 +1163,13 @@ window.MEATCO_CONTENT = {
         "en": "Turkey"
       },
       "use": {
-        "ka": "სასურველი ნაწილი, წონა და ფასი მოგვწერეთ შესათანხმებლად.",
-        "ru": "Часть, вес и цену согласуем при заказе.",
-        "en": "We’ll agree on the cut, weight and price when you order."
+        "ka": "შესაწვავად ან მოსაშუშად",
+        "ru": "Для запекания и тушения",
+        "en": "For roasting or braising"
       },
       "price": 5,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/turkey.webp"
     },
     {
       "id": "lamb",
@@ -1136,12 +1180,13 @@ window.MEATCO_CONTENT = {
         "en": "Lamb"
       },
       "use": {
-        "ka": "სასურველი ნაწილი, წონა და ფასი მოგვწერეთ შესათანხმებლად.",
-        "ru": "Часть, вес и цену согласуем при заказе.",
-        "en": "We’ll agree on the cut, weight and price when you order."
+        "ka": "ჩაქაფულისა და ჩაშუშული კერძებისთვის",
+        "ru": "Для чакапули и тушения",
+        "en": "For chakapuli and stews"
       },
       "price": 42,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/lamb.webp"
     },
     {
       "id": "offal-pork",
@@ -1152,12 +1197,13 @@ window.MEATCO_CONTENT = {
         "en": "Pork offal"
       },
       "use": {
-        "ka": "სახეობასა და დამუშავებას შეკვეთისას შევათანხმებთ.",
-        "ru": "Вид и обработку согласуем при заказе.",
-        "en": "We’ll agree on the type and preparation when you order."
+        "ka": "შემადგენლობა შეკვეთისას დააზუსტეთ",
+        "ru": "Состав уточните при заказе",
+        "en": "Confirm the selection when ordering"
       },
       "price": 3,
-      "unit": "kg"
+      "unit": "kg",
+      "image": "./assets/products/offal-mix.webp"
     }
   ]
 };
