@@ -12,6 +12,7 @@ for(const language of ['ka','ru','en']){
  const fields={'cart-district':{value:'Test address 3'},'cart-note':{value:'TEST: no salt'},'cart-photo':{checked:true}};
  const sandbox={
   language,basket:{'pork-ribs':1.5,chicken:2,'offal-tripe':1},
+  MIN_ORDER:50,
   preparationNotes:new Map([['pork-ribs','TEST: thicker cuts']]),
   slotKeys:{'12-14':'slotMidday','16-18':'slotAfternoon','18-21':'slotEvening',tomorrow:'slotTomorrow',chat:'slotUnknown'},
   selectedSlot:()=> 'tomorrow',
@@ -34,6 +35,10 @@ for(const language of ['ka','ru','en']){
  const minimal=vm.runInContext('cartMessage()',sandbox);
  assert.ok(!minimal.includes(locale[language].photoMessage)&&!minimal.includes('TEST:')&&!minimal.includes('Test address'));
  sandbox.selectedSlot=()=>'chat';assert.ok(vm.runInContext('cartMessage()',sandbox).includes(locale[language].slotUnknown));
- scenarios+=7;
+ for(const [basket,remaining] of [[{'pork-ribs':2.49},.2],[{'pork-ribs':2.5},0],[{'beef-round':1.5},.5],[{'beef-round':2},0],[{'offal-tripe':1},null]]){
+  sandbox.basket=basket;assert.equal(vm.runInContext('cartMinimumRemaining()',sandbox),remaining);
+ }
+ sandbox.MIN_ORDER=null;assert.equal(vm.runInContext('cartMinimumRemaining()',sandbox),0);
+ scenarios+=13;
 }
 console.log(`Cart: ${scenarios} multilingual calculation, note, photo and validation checks passed.`);

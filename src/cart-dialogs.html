@@ -7,6 +7,7 @@
 <div class="cart-estimate"><span data-i18n="cartEstimate"></span><strong id="cart-total"></strong></div>
 <p id="cart-unpriced" class="cart-note" data-i18n="cartUnpriced" hidden></p>
 <p class="weight-confirmation" data-i18n="weightConfirm"></p>
+<p id="cart-minimum" class="cart-note" aria-live="polite"></p>
 <div class="cart-address"><label for="cart-district" data-i18n="districtLabel"></label><input id="cart-district" name="address" type="text" autocomplete="street-address" maxlength="250" data-placeholder="addressPlaceholder"></div>
 <fieldset class="delivery-slots"><legend data-i18n="desiredTime"></legend>
 <label><input type="radio" name="cart-slot" value="12-14"><span data-i18n="slotMidday"></span></label>
@@ -19,7 +20,7 @@
 <label class="photo-check"><input type="checkbox" id="cart-photo"><span data-i18n="photoRequest"></span></label>
 <details class="message-preview"><summary data-i18n="previewMessage"></summary><p id="cart-message"></p></details>
 </form>
-<div class="cart-checkout" id="cart-checkout" hidden><button type="submit" form="cart-form" class="button primary" data-i18n="cartSend"></button><p id="cart-status" role="status"></p></div>
+<div class="cart-checkout" id="cart-checkout" hidden><button id="cart-submit" type="submit" form="cart-form" class="button primary" data-i18n="cartSend" aria-describedby="cart-minimum cart-delivery-cost"></button><p id="cart-delivery-cost" class="checkout-note" data-i18n="deliveryCostNote"></p><p id="cart-status" role="status"></p></div>
 </dialog>
 <dialog id="product-dialog" class="product-dialog app-sheet" aria-labelledby="product-title">
 <button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>

@@ -6,6 +6,7 @@ window.MEATCO_CONFIG = {
   previewMode: false,
   defaultLanguage: 'ka',
   deliveryFee: null,
-  minimumOrder: null,
+  minimumOrder: 50,
+  pickupAvailable: true,
   analytics: { enabled: false, consentRequired: true },
 };

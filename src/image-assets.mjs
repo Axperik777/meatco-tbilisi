@@ -26,14 +26,14 @@ export const categorySizes='(max-width:639px) 180px, (max-width:752px) calc((100
 const heroSizes='(max-width:639px) calc(100vw - 32px), (max-width:752px) calc(100vw - 34px), 720px';
 export function productPhoto(image,alt,{view='home',eager=false,high=false}={}){
  const v=imageVariants(image),sizes=view==='hero'?heroSizes:view==='home'?homeSizes:catalogSizes;
- const attributes=v?'src="'+v.src+'" srcset="'+v.srcset+'" sizes="'+sizes+'" width="'+v.width+'" height="'+v.height+'"':'src="'+image+'" width="480" height="480"';
+ const attributes=v?'src="'+v.src+'" data-image-full="'+image+'" data-image-small="'+v.src+'" srcset="'+v.srcset+'" sizes="'+sizes+'" width="'+v.width+'" height="'+v.height+'"':'src="'+image+'" width="480" height="480"';
  const img='<img '+attributes+' loading="'+(eager?'eager':'lazy')+'" fetchpriority="'+(high?'high':'low')+'" decoding="async" alt="'+alt+'">';
  // The mobile source caps downloads at 480px, including 3x displays.
  return v?'<picture><source media="(max-width:639px)" srcset="'+v.src+' '+v.width+'w" sizes="'+sizes+'">'+img+'</picture>':img;
 }
 export function categoryPhoto(image){
  const v=imageVariants(image);
- return '<img src="'+(v?.src||image)+'" '+(v?'srcset="'+v.src+' '+v.width+'w" sizes="'+categorySizes+'"':'')+' width="'+(v?.width||480)+'" height="'+(v?.height||480)+'" loading="lazy" fetchpriority="low" decoding="async" alt="">';
+ return '<img src="'+(v?.src||image)+'" '+(v?'data-image-full="'+image+'" data-image-small="'+v.src+'" srcset="'+v.src+' '+v.width+'w" sizes="'+categorySizes+'"':'')+' width="'+(v?.width||480)+'" height="'+(v?.height||480)+'" loading="lazy" fetchpriority="low" decoding="async" alt="">';
 }
 export function homeImagePreload(image){
  const v=imageVariants(image);

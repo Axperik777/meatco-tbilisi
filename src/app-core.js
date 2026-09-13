@@ -1,4 +1,5 @@
 const config = window.MEATCO_CONFIG || {};
+const MIN_ORDER=typeof config.minimumOrder==='number'&&config.minimumOrder>0?config.minimumOrder:null;
 const content = window.MEATCO_CONTENT || {dishes:[],cuts:[]};
 const supported = ['ka','ru','en'];
 const $ = id => document.getElementById(id);
@@ -17,7 +18,7 @@ const cutById=id=>content.cuts.find(c=>c.id===id);
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
 function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
-function thumbnailAttrs(c,size){const src=photoFor(c,true),v=imageVariants[photoFor(c)];return `src="${src}" ${v?`srcset="${src} ${v.width}w" sizes="${size}px"`:''} width="${size}" height="${size}" loading="lazy" fetchpriority="low" decoding="async"`;}
+function thumbnailAttrs(c,size){const src=photoFor(c,true),v=imageVariants[photoFor(c)];return `src="${src}" data-image-full="${photoFor(c)}" data-image-small="${src}" ${v?`srcset="${src} ${v.width}w" sizes="${size}px"`:''} width="${size}" height="${size}" loading="lazy" fetchpriority="low" decoding="async"`;}
 // Respect a direct #catalog/#help entry after the existing router selects its panel.
 // Only request hints change; routing, filtering and product order stay untouched.
 function prioritizeEntryPhotos(){
@@ -31,7 +32,24 @@ function prioritizeEntryPhotos(){
   });
  });
 }
-document.addEventListener('error',event=>{const img=event.target;if(img.tagName!=='IMG'||!img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories'))return;if(img.src.endsWith('photo-pending.svg'))return;img.closest('picture')?.querySelectorAll('source').forEach(source=>source.remove());img.removeAttribute('srcset');img.src='./assets/products/photo-pending.svg';const label=img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories').querySelector('.photo-pending-label');if(label)label.hidden=false;},true);
+// Recover the same cut from its other local variant, never from another product.
+const failedImages=new WeakMap();
+function recoverProductImage(img){
+ if(img.tagName!=='IMG'||!img.getAttribute('src')||!img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories,.counter-hero-photo'))return;
+ if(img.dataset.imageFallback==='true')return;
+ const failed=failedImages.get(img)||new Set();
+ failed.add(new URL(img.currentSrc||img.src,location.href).href);failedImages.set(img,failed);
+ img.closest('picture')?.querySelectorAll('source').forEach(source=>source.remove());img.removeAttribute('srcset');
+ const next=[img.dataset.imageSmall,img.dataset.imageFull].filter(Boolean).find(src=>!failed.has(new URL(src,location.href).href));
+ if(next){img.src=next;return;}
+ img.dataset.imageFallback='true';
+ img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480"><rect width="480" height="480" fill="#EFE7DB"/><text x="240" y="210" text-anchor="middle" fill="#161513" font-family="Arial,sans-serif" font-size="32" font-weight="700">MEAT CO</text><path d="M170 232h140" stroke="#161513"/></svg>');
+ const label=img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories,.counter-hero-photo').querySelector('.photo-pending-label');
+ if(label){label.hidden=false;label.textContent=img.alt||text('photoSoon');}
+}
+document.addEventListener('error',event=>recoverProductImage(event.target),true);
+// An eager photo can fail before this deferred script starts.
+for(const img of document.images)if(img.complete&&!img.naturalWidth)recoverProductImage(img);
 const dishById=id=>content.dishes.find(d=>d.id===id);
 const findProducts=createProductSearch(content.cuts,content.dishes,strings);
 try {
@@ -99,6 +117,9 @@ function renderProductCards(){
   const c=cutById(card.dataset.productCard);card.querySelector('img').alt=c.name[language];
   (card.querySelector('h3 button')||card.querySelector('h3')).textContent=c.name[language];
   card.querySelector('.meat-category').textContent=text(c.category);
+  card.querySelector('.meat-purpose').textContent=c.use[language];
+  card.querySelector('.meat-pack').textContent=text(c.unit==='piece'?'cardUnitPiece':'cardUnitKg');
+  const pending=card.querySelector('.photo-pending-label');if(!pending.hidden)pending.textContent=c.name[language];
   card.querySelector('.meat-price').innerHTML=c.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(c.price)+' <span>₾ / '+esc(text(c.unit==='piece'?'perPiece':'perKg'))+'</span>':esc(text('priceAsk'));
   for(const b of card.querySelectorAll('[data-cut]'))b.setAttribute('aria-label',text('cutCta')+': '+c.name[language]);
  }
@@ -209,8 +230,12 @@ function setLanguage(next,persist=true){
  for(const a of document.querySelectorAll('[data-event-whatsapp]'))a.href=whatsappUrl(text('eventGreeting'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();
+ status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderOperations();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
+}
+function renderOperations(){
+ for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
+ for(const el of document.querySelectorAll('[data-working-hours]'))el.textContent=config.hours?text('workingHours').replace('{hours}',config.hours):text('workingHoursUnknown');
 }
 function closeMenu(focus=false){
  $('mobile-nav').hidden=true;$('menu-toggle').setAttribute('aria-expanded','false');if(focus)$('menu-toggle').focus();
