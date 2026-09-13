@@ -1,0 +1,15 @@
+{
+  "id": "/meatco-tbilisi/",
+  "name": "MeatCO · Tbilisi",
+  "short_name": "MeatCO",
+  "description": "MeatCO meat delivery · ხორცის მიტანა · Доставка мяса",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F6F3EE",
+  "theme_color": "#F6F3EE",
+  "icons": [
+    {"src":"./assets/brand/meatco-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./assets/brand/meatco-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}

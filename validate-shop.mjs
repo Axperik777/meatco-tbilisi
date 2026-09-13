@@ -26,8 +26,16 @@ assert.equal(new Set(imageHashes).size,15,'Duplicate dish image content');
 for(const c of cuts)if(c.price!==undefined){assert.ok(c.price>0,'Zero / invalid public price: '+c.id);assert.ok(['kg','piece'].includes(c.unit));}
 for(const c of cuts)for(const image of [c.image,c.image.replace('.webp','-small.webp')])assert.ok(fs.existsSync(path.join(root,image)),c.id+': missing product photo '+image);
 assert.equal(new Set(cuts.map(c=>c.image)).size,41);
-assert.equal((fs.readFileSync(path.join(root,'index.html'),'utf8').match(/data-product-card=/g)||[]).length,8);
-assert.equal((fs.readFileSync(path.join(root,'catalog.html'),'utf8').match(/data-product-card=/g)||[]).length,46);
+for(const file of ['index.html','catalog.html']){
+ const html=fs.readFileSync(path.join(root,file),'utf8');
+ assert.equal((html.match(/data-product-card=/g)||[]).length,52,'46 catalog + 6 home products');
+ assert.equal((html.match(/data-app-panel=/g)||[]).length,3,'Home/catalog/help app screens');
+ assert.ok(html.includes('app-tabbar'));
+ assert.ok(html.includes('id="product-weight-range"')&&html.includes('class="product-checkout"'));
+ assert.ok(html.includes('id="cart-district" name="address" type="text"'));
+ assert.ok(!/brand-seal|utility-strip|store-hero/.test(html));
+}
+assert.ok(!/Ваке|Сабуртало|Диди Дигоми|Vake|Saburtalo|Didi Dighomi|ვაკე|საბურთალო|დიდი დიღომი/.test(JSON.stringify(locales)),'District lists removed from all locales');
 assert.ok(!fs.readFileSync(path.join(root,'index.html'),'utf8').includes('id="featured-dishes"'));
 const pages=['index.html','catalog.html','dishes.html'];
 let references=0;
@@ -35,7 +43,7 @@ for(const file of pages){
  const html=fs.readFileSync(path.join(root,file),'utf8');
  const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(ids.length,new Set(ids).size,file+': duplicate ID');
- assert.equal((html.match(/<h1\b/g)||[]).length,1,file+': expected one h1');
+ assert.equal((html.match(/<h1\b/g)||[]).length,file==='dishes.html'?1:3,file+': one h1 for each app screen');
  for(const m of html.matchAll(/data-(?:i18n|alt|aria|placeholder)="([^"]+)"/g))assert.ok(locales.ka[m[1]],file+': untranslated '+m[1]);
  for(const m of html.matchAll(/(?:href|src)="([^"]+)"/g)){
   if(m[1].startsWith('#')){assert.ok(ids.includes(m[1].slice(1)),file+': anchor '+m[1]);continue;}
@@ -49,7 +57,7 @@ for(const file of pages){
  assert.ok(html.includes('995568258118'));
  assert.ok(html.includes('data-page='));
 }
-for(const file of ['style.css','refinements.css','shop.css','brand.css'])for(const m of fs.readFileSync(path.join(root,file),'utf8').matchAll(/url\(['"]?(\.\/[^)'"]+)/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
+for(const file of ['style.css','app-ui.css','app-shell.css'])for(const m of fs.readFileSync(path.join(root,file),'utf8').matchAll(/url\(['"]?(\.\/[^)'"]+)/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
 const mapping=JSON.parse(fs.readFileSync('docs/price-mapping.json','utf8'));
 for(const p of mapping.mapping){
  const cut=cuts.find(c=>c.id===p.product);assert.ok(cut);

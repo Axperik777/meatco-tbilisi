@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const sharp=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp'));
+const source='../Креативы/MeatCO_brand_v06/',dest='dist/assets/brand/';
+fs.mkdirSync(dest,{recursive:true});
+await sharp(source+'meatco-logo-master.png').resize({width:900}).png({compressionLevel:9}).toFile(dest+'meatco-logo.png');
+await sharp(source+'meatco-mark-master.png').resize(160,160,{fit:'contain',background:'#ffffff00'}).png({compressionLevel:9}).toFile(dest+'meatco-mark.png');
+for(const size of [64,192,512])await sharp(source+'meatco-mark-master.png').resize(size,size,{fit:'contain',background:'#ffffff00'}).png({compressionLevel:9}).toFile(dest+`meatco-icon-${size}.png`);
+console.log(JSON.stringify({logo:await sharp(dest+'meatco-logo.png').metadata(),mark:await sharp(dest+'meatco-mark.png').metadata()}));

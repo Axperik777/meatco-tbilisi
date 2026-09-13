@@ -1,0 +1,32 @@
+{
+  "version": 6,
+  "tool": "image_gen.imagegen",
+  "mode": "edit",
+  "date": "2026-09-13",
+  "source": "User-supplied flaming-steak MEAT CO logo",
+  "masterFiles": [
+    "../Креативы/MeatCO_brand_v06/meatco-logo-master.png",
+    "../Креативы/MeatCO_brand_v06/meatco-mark-master.png"
+  ],
+  "webFiles": [
+    "dist/assets/brand/meatco-logo.png",
+    "dist/assets/brand/meatco-mark.png",
+    "dist/assets/brand/meatco-icon-192.png",
+    "dist/assets/brand/meatco-icon-512.png"
+  ],
+  "steps": [
+    {
+      "purpose": "Initial horizontal restoration; checkerboard output superseded",
+      "prompt": "Use case: precise-object-edit. The supplied image is the user's existing brand logo, an edit target. Restore and upscale it with smooth sharp vector-like edges and a genuinely transparent background. Recompose into a compact HORIZONTAL logo for a premium butcher delivery app. Preserve the distinctive red/coral flaming steak symbol exactly in design, with burgundy outline and cream steak inset; put the symbol at LEFT and the original dark-burgundy rounded bold lettering 'MEAT CO' at RIGHT, with the exact smaller uppercase subtitle \"BUTCHER'S PRIDE\" underneath the lettering. Maintain original letterforms and color palette and identity; do not invent new typography or symbols. Symbol and two lines together form one balanced horizontal lockup, ample readable text, transparent background, no white rectangle, no shadows beyond original steak illustration, no mockup, no border, no alternate variants. Export high resolution approximately 1800 by 640 with narrow 5% transparent margins. ONE horizontal logo only."
+    },
+    {
+      "purpose": "Final transparent standalone emblem",
+      "prompt": "Use case: precise-object-edit. Supplied image is the user's existing butcher brand logo, edit target. Isolate ONLY the red flaming steak emblem from the upper part, remove all text below, and restore clean high-resolution smooth vector-like curves. Preserve the original emblem identity, steak shape, red/coral flames, cream rim and round bone and burgundy outline exactly. Center a SINGLE large emblem in a square 1024x1024 image, about 85% of frame, with genuinely transparent background and transparent padding. No lettering, no new elements, no white rectangle, no new shadow, no mockup. It will be a crisp app icon and branded product badge."
+    },
+    {
+      "purpose": "Final horizontal logo on uniform white",
+      "prompt": "Use case: background-extraction. Edit the supplied horizontal MEAT CO logo. It mistakenly contains a drawn grey checkerboard. Remove the entire checkerboard pattern completely, including inside gaps around the flame and lettering. Replace it with a clean PURE WHITE #FFFFFF background, uniform with no texture, grid, shadow or pattern. Keep all logo shapes, colors, lettering MEAT CO and BUTCHER'S PRIDE and their layout unchanged. Preserve high resolution and sharp smooth edges. One horizontal logo, 2103x748 or similar ratio. Do not draw transparency checkerboards."
+    }
+  ],
+  "limitations": "Raster PNG restoration; not a vector redraw. Horizontal master has white background, emblem has real alpha. Original retained."
+}
