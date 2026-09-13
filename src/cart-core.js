@@ -52,6 +52,37 @@ function cartMessage(){
  lines.push(text('messagePhoto')+': '+text($('cart-photo')?.checked?'answerYes':'answerNo'));
  lines.push('',text('cartMessageEnd'),text('messageHours').replace('{hours}',config.hours));return lines.join('\n');
 }
+function cartSuggestions(){
+ const remaining=cartMinimumRemaining();
+ if(!cartHasItems()||!remaining||invalidCart.size||cartUnavailable().length)return [];
+ const eligible=id=>{const c=cutById(id);return cutAvailable(c)&&c.price>0&&c.unit==='kg'&&!basket[id];};
+ let ids=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh'].filter(eligible);
+ if(ids.length<3)ids.push(...['pork-grill','pork-leg','beef-brisket'].filter(eligible));
+ const suggestions=ids.map(id=>{
+  const c=cutById(id),quantity=Math.ceil(remaining/c.price*2)/2;
+  return {id,quantity,amount:lineAmount(c,quantity)};
+ }).sort((a,b)=>a.quantity-b.quantity||a.amount-b.amount);
+ // Prefer household-sized add-ons when at least two reach the minimum.
+ const modest=suggestions.filter(s=>s.quantity<=2.5);
+ return (modest.length>=2?modest:suggestions).slice(0,3);
+}
+function renderCartSuggestions(){
+ const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;
+ $('cart-suggestions-title').textContent=text('cartSuggestionTitle').replace('{amount}',currency(MIN_ORDER||0));
+ $('cart-suggestion-list').innerHTML=suggestions.map(({id,quantity,amount})=>{
+  const c=cutById(id),details=quantityText(c,quantity)+' · +'+currency(amount);
+  return `<button type="button" data-cart-suggestion="${id}" aria-label="${esc(text('addToCart')+': '+c.name[language]+', '+details)}"><span><strong>${esc(c.name[language])}</strong><small>${esc(details)}</small></span><span aria-hidden="true">+</span></button>`;
+ }).join('');
+}
+function renderCheckoutHint(){
+ const hint=$('cart-checkout-hint'),hasItems=cartHasItems(),remaining=cartMinimumRemaining();
+ hint.hidden=!hasItems;document.body.classList.toggle('has-cart-hint',hasItems);
+ const ids=Object.keys(basket),hasPriced=ids.some(id=>cutById(id).price>0),unpriced=ids.some(id=>!cutById(id).price);
+ const money=value=>currency(value).replace(/ ₾$/,'\u00a0₾');
+ const amount=invalidCart.size?'—':hasPriced?money(cartSubtotal())+(unpriced?' +':''):text('priceAsk');
+ $('cart-hint-total').textContent=text('cartHintTotal').replace('{amount}',amount);
+ $('cart-hint-action').textContent=invalidCart.size||cartUnavailable().length?text('cartHintCheck'):remaining?text('cartHintRemaining').replace('{amount}',money(remaining)):text('cartHintCheckout');
+}
 function renderCartControls(){
  const total=cartSubtotal(),hasPriced=Object.keys(basket).some(id=>cutById(id).price>0);
  for(const el of document.querySelectorAll('[data-cart-total]')){el.hidden=!cartHasItems();el.textContent=hasPriced?currency(total)+(Object.keys(basket).some(id=>!cutById(id).price)?' +':''):text('cartNav');}
@@ -85,7 +116,7 @@ function updateCartSummary(){
  $('cart-unavailable').textContent=text('cartUnavailable').replace('{items}',unavailable.map(c=>c.name[language]).join(', '));
  $('cart-submit').disabled=!ids.length||invalidCart.size>0||remaining>0||unavailable.length>0;
  $('cart-form').dataset.preparedUrl=!$('cart-submit').disabled?whatsappUrl(cartMessage()):'';
- for(const link of document.querySelectorAll('[data-whatsapp]'))if(ids.length)link.href=invalidCart.size?'#':whatsappUrl(cartMessage());
+ renderCartSuggestions();renderCheckoutHint();
 }
 function renderCart(){
  const focused=document.activeElement;
@@ -141,6 +172,7 @@ function renderProductDetail(){
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
  $('product-preparation-hint').hidden=!preparableCuts.has(c.id);
  $('product-unit-note').hidden=c.unit==='piece'||!(c.price>0);
+ $('product-question').href=whatsappUrl(questionMessage(c))||'tel:+995568258118';
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
  $('product-submit').disabled=!cutAvailable(c);
@@ -164,6 +196,10 @@ function validateCartInput(input,showError=false){
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
  if(el.matches('[data-add-cut]'))addToBasket(el.dataset.addCut);
+ if(el.matches('[data-cart-suggestion]')){
+  const suggestion=cartSuggestions().find(s=>s.id===el.dataset.cartSuggestion);
+  if(suggestion){addToBasket(suggestion.id,suggestion.quantity);$('cart-submit').focus({preventScroll:true});}
+ }
  if(el.matches('[data-cart-step]'))changeCartQuantity(el.dataset.cartId,Number(el.dataset.cartStep));
  if(el.matches('[data-cart-remove]')){delete basket[el.dataset.cartRemove];preparationNotes.delete(el.dataset.cartRemove);invalidCart.delete(el.dataset.cartRemove);saveBasket();renderCart();updatePreview();}
  if(el.matches('[data-cart-open]'))openCart(el);
@@ -178,7 +214,7 @@ document.addEventListener('click',event=>{
   $('product-quantity').value=String(Math.max(step,Math.min(9999,Math.round((current+Number(el.dataset.productStep)*step)*1000)/1000)));
   $('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');renderProductDetail();
  }
- if(el.matches('[data-whatsapp]')&&cartHasItems()){event.preventDefault();openCart(el);}
+ if(el.matches('#product-question'))track('meatco_whatsapp_click',{source:'product_question',product_id:activeProduct?.id});
 });
 $('product-form').addEventListener('submit',event=>{
  event.preventDefault();const value=$('product-quantity').value.trim();
@@ -202,8 +238,11 @@ $('cart-form').addEventListener('submit',event=>{
  if(cartUnavailable().length){updateCartSummary();$('cart-unavailable').scrollIntoView({block:'nearest'});return;}
  refreshDeliverySlots();updateCartSummary();
  const url=whatsappUrl(cartMessage());if(!url){$('cart-status').textContent=text('phoneError');return;}
- const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=text('fallback');const next=document.createElement('span');next.textContent=text('checkoutNext')+' ';$('cart-status').replaceChildren(next,link);
  track('meatco_whatsapp_click',{source:'basket',items:Object.keys(basket).length});window.open(url,'_blank','noopener,noreferrer');
+ const label=document.createElement('span');label.textContent=text('chatFallback')+' ';
+ const phone=document.createElement('a');phone.href='tel:+995568258118';phone.textContent='+995 568 258 118';
+ const retry=document.createElement('a');retry.href=url;retry.target='_blank';retry.rel='noopener noreferrer';retry.textContent=text('retryWhatsapp');
+ $('cart-status').replaceChildren(label,phone,document.createElement('br'),retry);
 });
 $('product-quantity').addEventListener('input',updateProductEstimate);
 window.addEventListener('storage',event=>{if(event.key===cartKey||event.key===null){basket=readBasket();for(const id of preparationNotes.keys())if(!basket[id])preparationNotes.delete(id);renderCart();updatePreview();}});

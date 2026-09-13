@@ -394,7 +394,19 @@ const strings = {
     "workshopFaq5A": "დიახ. მოგვწერეთ WhatsApp-ში — შევათანხმებთ ხორცის ნაწილებს, რაოდენობას და საბითუმო შეკვეთას მოგიმზადებთ.",
     "cutPreparationHint": "შეგვიძლია გავატაროთ, ცხიმი მოვაცილოთ ან დავჭრათ — სურვილი კომენტარში მიუთითეთ.",
     "priceUnitClarity": "ფასი 1 კგ-ზეა და არა 500 გრამიან შეფუთვაზე.",
-    "cartDirectNote": "უშუალოდ საამქროს უკვეთავთ. მოგვწერეთ WhatsApp-ში — დაგიდასტურებთ მარაგს, ზუსტ წონასა და მიტანის დროს."
+    "cartDirectNote": "WhatsApp-ში თქვენი სია გაიხსნება. გაგზავნეთ შეტყობინება — ასე მოგვაწვდით შეკვეთას.",
+    "cartReplyNote": "10:00–18:00 საათებში 5–10 წუთში გიპასუხებთ. ზუსტ წონას შეკვეთის მომზადებამდე დაგიდასტურებთ.",
+    "cartPreviewTitle": "როგორ გაიგზავნება შეტყობინება",
+    "cartSuggestionTitle": "შეავსეთ შეკვეთა {amount}-მდე",
+    "cartHintTotal": "კალათაში: {amount}",
+    "cartHintRemaining": "მინიმუმამდე კიდევ {amount}",
+    "cartHintCheckout": "შეკვეთის გაფორმება",
+    "cartHintCheck": "შეამოწმეთ კალათა",
+    "questionGreeting": "გამარჯობა! MeatCO-ს შესახებ კითხვა მაქვს:",
+    "questionCta": "კითხვა WhatsApp-ში",
+    "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
+    "chatFallback": "თუ ჩატი არ გაიხსნა:",
+    "retryWhatsapp": "WhatsApp-ის გახსნა"
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -789,7 +801,19 @@ const strings = {
     "workshopFaq5A": "Да. Напишите в WhatsApp — согласуем части, объём и соберём оптовый заказ.",
     "cutPreparationHint": "Можно помолоть, убрать жир или нарезать — напишите в комментарии.",
     "priceUnitClarity": "Цена за 1 кг, не за упаковку 500 г.",
-    "cartDirectNote": "Заказ напрямую в цех. Напишите в WhatsApp — подтвердим наличие, точный вес и слот."
+    "cartDirectNote": "Откроется WhatsApp с вашим списком. Нажмите «Отправить» — это и есть заказ.",
+    "cartReplyNote": "Ответим за 5–10 минут с 10:00 до 18:00. Точный вес подтвердим до сборки.",
+    "cartPreviewTitle": "Как уйдёт сообщение",
+    "cartSuggestionTitle": "Добрать до {amount}",
+    "cartHintTotal": "В корзине {amount}",
+    "cartHintRemaining": "До минимума ещё {amount}",
+    "cartHintCheckout": "Оформить",
+    "cartHintCheck": "Проверить корзину",
+    "questionGreeting": "Здравствуйте! Вопрос по MeatCO:",
+    "questionCta": "Задать вопрос в WhatsApp",
+    "productQuestion": "Спросить об этом куске",
+    "chatFallback": "Если чат не открылся:",
+    "retryWhatsapp": "Открыть WhatsApp"
   },
   "en": {
     "skip": "Skip to content",
@@ -1066,7 +1090,7 @@ const strings = {
     "cartNav": "Cart",
     "cartOpen": "View basket",
     "cartEmpty": "Your basket is empty. Add products from the catalog.",
-    "addToCart": "Add to basket",
+    "addToCart": "Add to cart",
     "addShort": "Add",
     "cartAdded": "Added to basket",
     "cartEstimate": "Estimated total",
@@ -1184,7 +1208,19 @@ const strings = {
     "workshopFaq5A": "Yes. Message us on WhatsApp to agree on cuts and quantities for a wholesale order.",
     "cutPreparationHint": "We can mince, trim fat or slice — leave a note with your preference.",
     "priceUnitClarity": "Price per 1 kg, not a 500 g pack.",
-    "cartDirectNote": "Order directly from the workshop. Message us on WhatsApp to confirm availability, exact weight and a delivery slot."
+    "cartDirectNote": "WhatsApp opens with your list. Tap Send — that’s your order.",
+    "cartReplyNote": "We reply in 5–10 minutes between 10:00 and 18:00. Exact weight confirmed before preparing your order.",
+    "cartPreviewTitle": "How your message will look",
+    "cartSuggestionTitle": "Reach the {amount} minimum",
+    "cartHintTotal": "In your cart: {amount}",
+    "cartHintRemaining": "{amount} to the minimum",
+    "cartHintCheckout": "Checkout",
+    "cartHintCheck": "Check your cart",
+    "questionGreeting": "Hello! A question about MeatCO:",
+    "questionCta": "Ask a question on WhatsApp",
+    "productQuestion": "Ask about this cut",
+    "chatFallback": "If the chat didn’t open:",
+    "retryWhatsapp": "Open WhatsApp"
   }
 };
 const imageVariants = {"./assets/products/pork-flesh.webp":{"src":"./assets/products/pork-flesh-small.webp","width":480},"./assets/products/pork-tenderloin.webp":{"src":"./assets/products/pork-tenderloin-small.webp","width":480},"./assets/products/pork-ribs.webp":{"src":"./assets/products/pork-ribs-small.webp","width":480},"./assets/products/pork-leg.webp":{"src":"./assets/products/pork-leg-small.webp","width":480},"./assets/products/pork-hock.webp":{"src":"./assets/products/pork-hock-small.webp","width":480},"./assets/products/pork-grill.webp":{"src":"./assets/products/pork-grill-small.webp","width":480},"./assets/products/pork-bonein.webp":{"src":"./assets/products/pork-bonein-small.webp","width":480},"./assets/products/pork-jowl.webp":{"src":"./assets/products/pork-jowl-small.webp","width":480},"./assets/products/pork-trimmings.webp":{"src":"./assets/products/pork-trimmings-small.webp","width":480},"./assets/products/pork-fat.webp":{"src":"./assets/products/pork-fat-small.webp","width":480},"./assets/products/young-pig.webp":{"src":"./assets/products/young-pig-small.webp","width":480},"./assets/products/beef-round.webp":{"src":"./assets/products/beef-round-small.webp","width":480},"./assets/products/beef-tenderloin.webp":{"src":"./assets/products/beef-tenderloin-small.webp","width":480},"./assets/products/beef-brisket.webp":{"src":"./assets/products/beef-brisket-small.webp","width":480},"./assets/products/beef-shank.webp":{"src":"./assets/products/beef-shank-small.webp","width":480},"./assets/products/beef-cheek.webp":{"src":"./assets/products/beef-cheek-small.webp","width":480},"./assets/products/beef-diaphragm.webp":{"src":"./assets/products/beef-diaphragm-small.webp","width":480},"./assets/products/beef-bonein.webp":{"src":"./assets/products/beef-bonein-small.webp","width":480},"./assets/products/beef-trimmings.webp":{"src":"./assets/products/beef-trimmings-small.webp","width":480},"./assets/products/beef-fat.webp":{"src":"./assets/products/beef-fat-small.webp","width":480},"./assets/products/veal.webp":{"src":"./assets/products/veal-small.webp","width":480},"./assets/products/liver.webp":{"src":"./assets/products/liver-small.webp","width":480},"./assets/products/beef-liver-v07.webp":{"src":"./assets/products/beef-liver-v07-small.webp","width":480},"./assets/products/veal-liver-v07.webp":{"src":"./assets/products/veal-liver-v07-small.webp","width":480},"./assets/products/heart.webp":{"src":"./assets/products/heart-small.webp","width":480},"./assets/products/tongue.webp":{"src":"./assets/products/tongue-small.webp","width":480},"./assets/products/pork-kidneys.webp":{"src":"./assets/products/pork-kidneys-small.webp","width":480},"./assets/products/beef-kidneys.webp":{"src":"./assets/products/beef-kidneys-small.webp","width":480},"./assets/products/tripe.webp":{"src":"./assets/products/tripe-small.webp","width":480},"./assets/products/feet.webp":{"src":"./assets/products/feet-small.webp","width":480},"./assets/products/pork-trotters-clean-v07.webp":{"src":"./assets/products/pork-trotters-clean-v07-small.webp","width":480},"./assets/products/pork-head.webp":{"src":"./assets/products/pork-head-small.webp","width":480},"./assets/products/pork-tail.webp":{"src":"./assets/products/pork-tail-small.webp","width":480},"./assets/products/beef-tail.webp":{"src":"./assets/products/beef-tail-small.webp","width":480},"./assets/products/lungs.webp":{"src":"./assets/products/lungs-small.webp","width":480},"./assets/products/pork-skin.webp":{"src":"./assets/products/pork-skin-small.webp","width":480},"./assets/products/offal-mix.webp":{"src":"./assets/products/offal-mix-small.webp","width":480},"./assets/products/beef-offal-v07.webp":{"src":"./assets/products/beef-offal-v07-small.webp","width":480},"./assets/products/marrow-bone.webp":{"src":"./assets/products/marrow-bone-small.webp","width":480},"./assets/products/stock-bones.webp":{"src":"./assets/products/stock-bones-small.webp","width":480},"./assets/products/caul-fat.webp":{"src":"./assets/products/caul-fat-small.webp","width":480},"./assets/products/mixed-mince.webp":{"src":"./assets/products/mixed-mince-small.webp","width":480},"./assets/products/chicken.webp":{"src":"./assets/products/chicken-small.webp","width":480},"./assets/products/turkey-v05.webp":{"src":"./assets/products/turkey-v05-small.webp","width":480},"./assets/products/lamb.webp":{"src":"./assets/products/lamb-small.webp","width":480},"./assets/products/pork-offal-v07.webp":{"src":"./assets/products/pork-offal-v07-small.webp","width":480}};
@@ -1320,6 +1356,7 @@ function whatsappUrl(message){
  const phone=String(config.whatsappNumber||'').replace(/\D/g,'');
  return /^[1-9]\d{7,14}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent(message):'';
 }
+function questionMessage(cut){return text('questionGreeting')+(cut?'\n'+text('messageCut')+': '+cut.name[language]:'');}
 const selectedMeat=()=>form.querySelector('input[name="meat"]:checked')?.value||'any';
 const validWeight=value=>!value||(/^\d{1,4}([.,]\d{1,3})?$/.test(value)&&Number(value.replace(',','.'))>0&&Number(value.replace(',','.'))<=9999);
 const pieceOrder=()=>cutById(context.cut)?.unit==='piece';
@@ -1343,7 +1380,7 @@ function updatePreview(){
  form.dataset.preparedUrl=validQuantity(quantity.value.trim())?whatsappUrl(prepared):'';
  document.querySelector('label[for="quantity"]').textContent=text(pieceOrder()?'piecesLabel':'quantityLabel');
  quantity.inputMode=pieceOrder()?'numeric':'decimal';quantity.placeholder=pieceOrder()?'1':'1.5';
- const directMessage=cartHasItems()?cartMessage():context.cut||context.dish?prepared:text('messageGreeting');
+ const directMessage=questionMessage();
  for(const link of document.querySelectorAll('[data-whatsapp]'))link.href=whatsappUrl(directMessage)||'tel:+995568258118';
 }
 function updateUrl(key,value){
@@ -1476,7 +1513,7 @@ function setLanguage(next,persist=true){
  for(const el of document.querySelectorAll('[data-aria]'))el.setAttribute('aria-label',text(el.dataset.aria));
  for(const el of document.querySelectorAll('[data-placeholder]'))el.placeholder=text(el.dataset.placeholder);
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
- for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
+ for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(questionMessage())||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-event-whatsapp]'))a.href=whatsappUrl(text('eventGreeting'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
@@ -1615,6 +1652,37 @@ function cartMessage(){
  lines.push(text('messagePhoto')+': '+text($('cart-photo')?.checked?'answerYes':'answerNo'));
  lines.push('',text('cartMessageEnd'),text('messageHours').replace('{hours}',config.hours));return lines.join('\n');
 }
+function cartSuggestions(){
+ const remaining=cartMinimumRemaining();
+ if(!cartHasItems()||!remaining||invalidCart.size||cartUnavailable().length)return [];
+ const eligible=id=>{const c=cutById(id);return cutAvailable(c)&&c.price>0&&c.unit==='kg'&&!basket[id];};
+ let ids=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh'].filter(eligible);
+ if(ids.length<3)ids.push(...['pork-grill','pork-leg','beef-brisket'].filter(eligible));
+ const suggestions=ids.map(id=>{
+  const c=cutById(id),quantity=Math.ceil(remaining/c.price*2)/2;
+  return {id,quantity,amount:lineAmount(c,quantity)};
+ }).sort((a,b)=>a.quantity-b.quantity||a.amount-b.amount);
+ // Prefer household-sized add-ons when at least two reach the minimum.
+ const modest=suggestions.filter(s=>s.quantity<=2.5);
+ return (modest.length>=2?modest:suggestions).slice(0,3);
+}
+function renderCartSuggestions(){
+ const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;
+ $('cart-suggestions-title').textContent=text('cartSuggestionTitle').replace('{amount}',currency(MIN_ORDER||0));
+ $('cart-suggestion-list').innerHTML=suggestions.map(({id,quantity,amount})=>{
+  const c=cutById(id),details=quantityText(c,quantity)+' · +'+currency(amount);
+  return `<button type="button" data-cart-suggestion="${id}" aria-label="${esc(text('addToCart')+': '+c.name[language]+', '+details)}"><span><strong>${esc(c.name[language])}</strong><small>${esc(details)}</small></span><span aria-hidden="true">+</span></button>`;
+ }).join('');
+}
+function renderCheckoutHint(){
+ const hint=$('cart-checkout-hint'),hasItems=cartHasItems(),remaining=cartMinimumRemaining();
+ hint.hidden=!hasItems;document.body.classList.toggle('has-cart-hint',hasItems);
+ const ids=Object.keys(basket),hasPriced=ids.some(id=>cutById(id).price>0),unpriced=ids.some(id=>!cutById(id).price);
+ const money=value=>currency(value).replace(/ ₾$/,'\u00a0₾');
+ const amount=invalidCart.size?'—':hasPriced?money(cartSubtotal())+(unpriced?' +':''):text('priceAsk');
+ $('cart-hint-total').textContent=text('cartHintTotal').replace('{amount}',amount);
+ $('cart-hint-action').textContent=invalidCart.size||cartUnavailable().length?text('cartHintCheck'):remaining?text('cartHintRemaining').replace('{amount}',money(remaining)):text('cartHintCheckout');
+}
 function renderCartControls(){
  const total=cartSubtotal(),hasPriced=Object.keys(basket).some(id=>cutById(id).price>0);
  for(const el of document.querySelectorAll('[data-cart-total]')){el.hidden=!cartHasItems();el.textContent=hasPriced?currency(total)+(Object.keys(basket).some(id=>!cutById(id).price)?' +':''):text('cartNav');}
@@ -1648,7 +1716,7 @@ function updateCartSummary(){
  $('cart-unavailable').textContent=text('cartUnavailable').replace('{items}',unavailable.map(c=>c.name[language]).join(', '));
  $('cart-submit').disabled=!ids.length||invalidCart.size>0||remaining>0||unavailable.length>0;
  $('cart-form').dataset.preparedUrl=!$('cart-submit').disabled?whatsappUrl(cartMessage()):'';
- for(const link of document.querySelectorAll('[data-whatsapp]'))if(ids.length)link.href=invalidCart.size?'#':whatsappUrl(cartMessage());
+ renderCartSuggestions();renderCheckoutHint();
 }
 function renderCart(){
  const focused=document.activeElement;
@@ -1704,6 +1772,7 @@ function renderProductDetail(){
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
  $('product-preparation-hint').hidden=!preparableCuts.has(c.id);
  $('product-unit-note').hidden=c.unit==='piece'||!(c.price>0);
+ $('product-question').href=whatsappUrl(questionMessage(c))||'tel:+995568258118';
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
  $('product-submit').disabled=!cutAvailable(c);
@@ -1727,6 +1796,10 @@ function validateCartInput(input,showError=false){
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
  if(el.matches('[data-add-cut]'))addToBasket(el.dataset.addCut);
+ if(el.matches('[data-cart-suggestion]')){
+  const suggestion=cartSuggestions().find(s=>s.id===el.dataset.cartSuggestion);
+  if(suggestion){addToBasket(suggestion.id,suggestion.quantity);$('cart-submit').focus({preventScroll:true});}
+ }
  if(el.matches('[data-cart-step]'))changeCartQuantity(el.dataset.cartId,Number(el.dataset.cartStep));
  if(el.matches('[data-cart-remove]')){delete basket[el.dataset.cartRemove];preparationNotes.delete(el.dataset.cartRemove);invalidCart.delete(el.dataset.cartRemove);saveBasket();renderCart();updatePreview();}
  if(el.matches('[data-cart-open]'))openCart(el);
@@ -1741,7 +1814,7 @@ document.addEventListener('click',event=>{
   $('product-quantity').value=String(Math.max(step,Math.min(9999,Math.round((current+Number(el.dataset.productStep)*step)*1000)/1000)));
   $('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');renderProductDetail();
  }
- if(el.matches('[data-whatsapp]')&&cartHasItems()){event.preventDefault();openCart(el);}
+ if(el.matches('#product-question'))track('meatco_whatsapp_click',{source:'product_question',product_id:activeProduct?.id});
 });
 $('product-form').addEventListener('submit',event=>{
  event.preventDefault();const value=$('product-quantity').value.trim();
@@ -1765,8 +1838,11 @@ $('cart-form').addEventListener('submit',event=>{
  if(cartUnavailable().length){updateCartSummary();$('cart-unavailable').scrollIntoView({block:'nearest'});return;}
  refreshDeliverySlots();updateCartSummary();
  const url=whatsappUrl(cartMessage());if(!url){$('cart-status').textContent=text('phoneError');return;}
- const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=text('fallback');const next=document.createElement('span');next.textContent=text('checkoutNext')+' ';$('cart-status').replaceChildren(next,link);
  track('meatco_whatsapp_click',{source:'basket',items:Object.keys(basket).length});window.open(url,'_blank','noopener,noreferrer');
+ const label=document.createElement('span');label.textContent=text('chatFallback')+' ';
+ const phone=document.createElement('a');phone.href='tel:+995568258118';phone.textContent='+995 568 258 118';
+ const retry=document.createElement('a');retry.href=url;retry.target='_blank';retry.rel='noopener noreferrer';retry.textContent=text('retryWhatsapp');
+ $('cart-status').replaceChildren(label,phone,document.createElement('br'),retry);
 });
 $('product-quantity').addEventListener('input',updateProductEstimate);
 window.addEventListener('storage',event=>{if(event.key===cartKey||event.key===null){basket=readBasket();for(const id of preparationNotes.keys())if(!basket[id])preparationNotes.delete(id);renderCart();updatePreview();}});

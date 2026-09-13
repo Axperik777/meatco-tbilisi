@@ -392,7 +392,19 @@
     "workshopFaq5A": "დიახ. მოგვწერეთ WhatsApp-ში — შევათანხმებთ ხორცის ნაწილებს, რაოდენობას და საბითუმო შეკვეთას მოგიმზადებთ.",
     "cutPreparationHint": "შეგვიძლია გავატაროთ, ცხიმი მოვაცილოთ ან დავჭრათ — სურვილი კომენტარში მიუთითეთ.",
     "priceUnitClarity": "ფასი 1 კგ-ზეა და არა 500 გრამიან შეფუთვაზე.",
-    "cartDirectNote": "უშუალოდ საამქროს უკვეთავთ. მოგვწერეთ WhatsApp-ში — დაგიდასტურებთ მარაგს, ზუსტ წონასა და მიტანის დროს."
+    "cartDirectNote": "WhatsApp-ში თქვენი სია გაიხსნება. გაგზავნეთ შეტყობინება — ასე მოგვაწვდით შეკვეთას.",
+    "cartReplyNote": "10:00–18:00 საათებში 5–10 წუთში გიპასუხებთ. ზუსტ წონას შეკვეთის მომზადებამდე დაგიდასტურებთ.",
+    "cartPreviewTitle": "როგორ გაიგზავნება შეტყობინება",
+    "cartSuggestionTitle": "შეავსეთ შეკვეთა {amount}-მდე",
+    "cartHintTotal": "კალათაში: {amount}",
+    "cartHintRemaining": "მინიმუმამდე კიდევ {amount}",
+    "cartHintCheckout": "შეკვეთის გაფორმება",
+    "cartHintCheck": "შეამოწმეთ კალათა",
+    "questionGreeting": "გამარჯობა! MeatCO-ს შესახებ კითხვა მაქვს:",
+    "questionCta": "კითხვა WhatsApp-ში",
+    "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
+    "chatFallback": "თუ ჩატი არ გაიხსნა:",
+    "retryWhatsapp": "WhatsApp-ის გახსნა"
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -787,7 +799,19 @@
     "workshopFaq5A": "Да. Напишите в WhatsApp — согласуем части, объём и соберём оптовый заказ.",
     "cutPreparationHint": "Можно помолоть, убрать жир или нарезать — напишите в комментарии.",
     "priceUnitClarity": "Цена за 1 кг, не за упаковку 500 г.",
-    "cartDirectNote": "Заказ напрямую в цех. Напишите в WhatsApp — подтвердим наличие, точный вес и слот."
+    "cartDirectNote": "Откроется WhatsApp с вашим списком. Нажмите «Отправить» — это и есть заказ.",
+    "cartReplyNote": "Ответим за 5–10 минут с 10:00 до 18:00. Точный вес подтвердим до сборки.",
+    "cartPreviewTitle": "Как уйдёт сообщение",
+    "cartSuggestionTitle": "Добрать до {amount}",
+    "cartHintTotal": "В корзине {amount}",
+    "cartHintRemaining": "До минимума ещё {amount}",
+    "cartHintCheckout": "Оформить",
+    "cartHintCheck": "Проверить корзину",
+    "questionGreeting": "Здравствуйте! Вопрос по MeatCO:",
+    "questionCta": "Задать вопрос в WhatsApp",
+    "productQuestion": "Спросить об этом куске",
+    "chatFallback": "Если чат не открылся:",
+    "retryWhatsapp": "Открыть WhatsApp"
   },
   "en": {
     "skip": "Skip to content",
@@ -1064,7 +1088,7 @@
     "cartNav": "Cart",
     "cartOpen": "View basket",
     "cartEmpty": "Your basket is empty. Add products from the catalog.",
-    "addToCart": "Add to basket",
+    "addToCart": "Add to cart",
     "addShort": "Add",
     "cartAdded": "Added to basket",
     "cartEstimate": "Estimated total",
@@ -1182,6 +1206,18 @@
     "workshopFaq5A": "Yes. Message us on WhatsApp to agree on cuts and quantities for a wholesale order.",
     "cutPreparationHint": "We can mince, trim fat or slice — leave a note with your preference.",
     "priceUnitClarity": "Price per 1 kg, not a 500 g pack.",
-    "cartDirectNote": "Order directly from the workshop. Message us on WhatsApp to confirm availability, exact weight and a delivery slot."
+    "cartDirectNote": "WhatsApp opens with your list. Tap Send — that’s your order.",
+    "cartReplyNote": "We reply in 5–10 minutes between 10:00 and 18:00. Exact weight confirmed before preparing your order.",
+    "cartPreviewTitle": "How your message will look",
+    "cartSuggestionTitle": "Reach the {amount} minimum",
+    "cartHintTotal": "In your cart: {amount}",
+    "cartHintRemaining": "{amount} to the minimum",
+    "cartHintCheckout": "Checkout",
+    "cartHintCheck": "Check your cart",
+    "questionGreeting": "Hello! A question about MeatCO:",
+    "questionCta": "Ask a question on WhatsApp",
+    "productQuestion": "Ask about this cut",
+    "chatFallback": "If the chat didn’t open:",
+    "retryWhatsapp": "Open WhatsApp"
   }
 }

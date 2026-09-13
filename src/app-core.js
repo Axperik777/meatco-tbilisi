@@ -72,6 +72,7 @@ function whatsappUrl(message){
  const phone=String(config.whatsappNumber||'').replace(/\D/g,'');
  return /^[1-9]\d{7,14}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent(message):'';
 }
+function questionMessage(cut){return text('questionGreeting')+(cut?'\n'+text('messageCut')+': '+cut.name[language]:'');}
 const selectedMeat=()=>form.querySelector('input[name="meat"]:checked')?.value||'any';
 const validWeight=value=>!value||(/^\d{1,4}([.,]\d{1,3})?$/.test(value)&&Number(value.replace(',','.'))>0&&Number(value.replace(',','.'))<=9999);
 const pieceOrder=()=>cutById(context.cut)?.unit==='piece';
@@ -95,7 +96,7 @@ function updatePreview(){
  form.dataset.preparedUrl=validQuantity(quantity.value.trim())?whatsappUrl(prepared):'';
  document.querySelector('label[for="quantity"]').textContent=text(pieceOrder()?'piecesLabel':'quantityLabel');
  quantity.inputMode=pieceOrder()?'numeric':'decimal';quantity.placeholder=pieceOrder()?'1':'1.5';
- const directMessage=cartHasItems()?cartMessage():context.cut||context.dish?prepared:text('messageGreeting');
+ const directMessage=questionMessage();
  for(const link of document.querySelectorAll('[data-whatsapp]'))link.href=whatsappUrl(directMessage)||'tel:+995568258118';
 }
 function updateUrl(key,value){
@@ -228,7 +229,7 @@ function setLanguage(next,persist=true){
  for(const el of document.querySelectorAll('[data-aria]'))el.setAttribute('aria-label',text(el.dataset.aria));
  for(const el of document.querySelectorAll('[data-placeholder]'))el.placeholder=text(el.dataset.placeholder);
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
- for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
+ for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(questionMessage())||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-event-whatsapp]'))a.href=whatsappUrl(text('eventGreeting'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');

@@ -69,3 +69,36 @@ for(const [utcHour,disabled] of [[5,[]],[10,['12-14']],[12,['12-14','14-16']],[1
  if(disabled.length)assert.equal(radios[4].checked,true);
 }
 console.log('Pre-launch: product update/add, sold-out guards and Tbilisi workday boundaries passed.');
+
+// Every offered add-on is priced, available, absent from the cart, and its shown
+// half-kilogram quantity actually brings this cart to the minimum in one tap.
+const suggestionCuts=structuredClone(cuts);
+const upsell={basket:{},MIN_ORDER:50,invalidCart:new Set(),cutById:id=>suggestionCuts.find(c=>c.id===id),cutAvailable:c=>!!c&&c.available!==false};
+vm.createContext(upsell);vm.runInContext(cartFunctions,upsell);
+for(const basket of [{'pork-flesh':1},{'beef-round':1.5},{chicken:1},{'mixed-mince':.01,'pork-ribs':.01,'offal-beef-liver':.01,'pork-flesh':.01},{'offal-tripe':1}]){
+ upsell.basket=basket;
+ const suggestions=vm.runInContext('cartSuggestions()',upsell),subtotal=vm.runInContext('cartSubtotal()',upsell);
+ assert.ok(suggestions.length>=2&&suggestions.length<=3);
+ assert.equal(new Set(suggestions.map(s=>s.id)).size,suggestions.length);
+ for(const s of suggestions){
+  const c=upsell.cutById(s.id);assert.ok(!basket[s.id]&&c.available!==false&&c.price>0&&c.unit==='kg');
+  assert.ok(s.quantity>0&&Number.isInteger(s.quantity*2));
+  assert.equal(s.amount,Math.round(c.price*s.quantity*100)/100);
+  assert.ok(subtotal+s.amount>=50);
+ }
+}
+upsell.basket={'pork-ribs':2.5};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
+upsell.basket={};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
+upsell.basket={'pork-flesh':1};upsell.invalidCart.add('pork-flesh');assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);upsell.invalidCart.clear();
+upsell.cutById('mixed-mince').available=false;
+assert.ok(vm.runInContext('cartSuggestions()',upsell).every(s=>s.id!=='mixed-mince'));
+upsell.cutById('pork-flesh').available=false;assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
+const core=fs.readFileSync('src/app-core.js','utf8');
+const questionSource=core.slice(core.indexOf('function questionMessage('),core.indexOf('const selectedMeat='));
+for(const language of ['ka','ru','en']){
+ const ask={language,text:key=>locale[language][key],cut:cuts.find(c=>c.id==='beef-round'),basket:{'pork-flesh':10}};
+ vm.createContext(ask);vm.runInContext(questionSource,ask);
+ assert.equal(vm.runInContext('questionMessage()',ask),locale[language].questionGreeting);
+ assert.equal(vm.runInContext('questionMessage(cut)',ask),locale[language].questionGreeting+'\n'+locale[language].messageCut+': '+ask.cut.name[language]);
+}
+console.log('Conversion: add-on totals, duplicate/stock/invalid guards and three-language question templates passed.');
