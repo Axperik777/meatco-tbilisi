@@ -85,7 +85,7 @@ const strings = {
     "b2bTitle": "ახალი ხორცი თქვენი სამზარეულოსთვის",
     "b2bText": "რესტორნებისა და კაფეებისთვის — მხოლოდ ახალი, ხარისხიანი ხორცი: ღორისა და საქონლის ხორცი, სუბპროდუქტები. შევათანხმებთ სასურველ ნაწილებს, მოცულობას, ფასებსა და მოწოდების გრაფიკს.",
     "b2bCta": "მოწოდების განხილვა",
-    "b2bMessage": "გამარჯობა, MeatCO! მაინტერესებს ხორცის მიწოდება რესტორნის ან კაფესთვის. მსურს განვიხილოთ სასურველი ნაჭრები, მოცულობა, ფასები და მოწოდების გრაფიკი.",
+    "b2bMessage": "გამარჯობა, მსურს ჩემი ობიექტისთვის ფასების სია. უბანი: …",
     "navGuide": "რა მოვამზადოთ?",
     "navB2b": "რესტორნებისთვის",
     "promise1Title": "შერჩევა თქვენი კერძისთვის",
@@ -257,7 +257,7 @@ const strings = {
     "nearbyShort": "მიტანის პირობებს შეკვეთის დადასტურებამდე შევათანხმებთ.",
     "productSearch": "მოძებნეთ პროდუქტი",
     "productCount": "მოიძებნა: {n}",
-    "catalogPriceHint": "ფასი მითითებულია კილოგრამზე ან ცალზე.",
+    "catalogPriceHint": "ფასები 1 კგ-ზეა და არა 500 გრამზე. ცალობით პროდუქტებთან მითითებულია ცალის ფასი.",
     "showMore": "მეტის ნახვა",
     "productNoResults": "პროდუქტი ვერ მოიძებნა",
     "productNoResultsText": "სცადეთ სხვა დასახელება ან კატეგორია.",
@@ -297,7 +297,7 @@ const strings = {
     "heroOffer": "ახალი ხორცი. სახლში მიტანით.",
     "heroOfferText": "ღორისა და საქონლის ხორცი, სუბპროდუქტები — შეარჩიეთ თქვენი შეკვეთა.",
     "appHero": "ხორცის მიტანა\nთბილისში.",
-    "appHeroCopy": "შეფუთვამდე წონას, თანხასა და მიტანას WhatsApp-ში შევათანხმებთ.",
+    "appHeroCopy": "დღეს თქვენთვის სასურველი წონით დავჭრით. ზუსტ წონასა და თანხას შეფუთვამდე WhatsApp-ში შეგითანხმებთ.",
     "appDelivery": "ხორცი მიტანით",
     "appCatalog": "აირჩიეთ ხორცი",
     "fuzzyResults": "მსგავსი პროდუქტები: {n}",
@@ -348,8 +348,8 @@ const strings = {
     "photoMessage": "გთხოვთ, შეფუთვამდე შერჩეული ხორცის ფოტო გამომიგზავნოთ.",
     "slotMidday": "დღეს 12–14",
     "slotAfternoon": "დღეს 14–16",
-    "productDescriptionKg": "აირჩიეთ სასურველი წონა. დაჭრის სურვილი კომენტარში მიუთითეთ.",
-    "productDescriptionPiece": "აირჩიეთ სასურველი რაოდენობა. მომზადების სურვილი კომენტარში მიუთითეთ.",
+    "productDescriptionKg": "აირჩიეთ სასურველი წონა.",
+    "productDescriptionPiece": "აირჩიეთ სასურველი რაოდენობა.",
     "deliveryOperations": "კურიერით მიტანა ან თვითგატანა.",
     "minimumOrder": "მინიმალური შეკვეთა: {amount}",
     "minimumUnknown": "მინიმალური შეკვეთა WhatsApp-ში დააზუსტეთ.",
@@ -360,7 +360,7 @@ const strings = {
     "workshopPickup": "საამქრო · მეველეს ქ. 3 · თვითგატანა 10:00–18:00. სასურველია 30–40 წუთით ადრე შეგვითანხმდეთ.",
     "dailyHours": "ყოველდღე 10:00–18:00",
     "afterHours": "18:00-ის შემდეგ შეკვეთას მივიღებთ და ხვალ 10:00-დან გიპასუხებთ.",
-    "todayOperations": "დღეს თბილისში · მიტანა 18:00-მდე · WhatsApp-ში პასუხი 5–10 წუთში, სამუშაო საათებში.",
+    "todayOperations": "მიტანა დღეს · სამუშაო საათებში WhatsApp-ში 5–10 წუთში გიპასუხებთ.",
     "soldOut": "დღეს არ არის",
     "cartUnavailable": "დღეს არ არის: {items}. შეკვეთის გასაგზავნად ამოიღეთ კალათიდან.",
     "updateCart": "განახლება",
@@ -373,7 +373,27 @@ const strings = {
     "answerYes": "კი",
     "answerNo": "არა",
     "cartMessageEnd": "შეკვეთის მომზადებამდე ზუსტ წონასა და თანხას დაგიდასტურებთ.",
-    "messageHours": "სამუშაო საათები {hours}."
+    "messageHours": "სამუშაო საათები {hours}.",
+    "homeSlots": "მიტანა 18:00-მდე",
+    "homeAfterHours": "18:00-ის შემდეგ ხვალ, 10:00-დან გიპასუხებთ",
+    "homeAfterHoursNow": "სამუშაო საათები დასრულდა. შეკვეთას მივიღებთ და ხვალ, 10:00-დან დაგიდასტურებთ.",
+    "homePickup": "კურიერით ან საამქროდან გატანით · მეველეს ქ. 3.",
+    "trustCut": "სასურველი წონით დაჭრა",
+    "trustDirect": "ლანგრისა და აპის საკომისიოს გარეშე",
+    "trustPhoto": "შეფუთვამდე ფოტო — მოთხოვნით",
+    "workshopFaq1Q": "საიტზე რატომ ვერ ვიხდი?",
+    "workshopFaq1A": "საბოლოო წონა დაჭრისა და აწონვის შემდეგ ზუსტდება. თანხას შეკვეთის მომზადებამდე WhatsApp-ში შეგითანხმებთ.",
+    "workshopFaq2Q": "სუპერმარკეტისგან რით განსხვავდებით?",
+    "workshopFaq2A": "საამქროში შეკვეთის მიხედვით ვჭრით. წონას თქვენ ირჩევთ — წინასწარ დაფასოებული ლანგრით არ ხართ შეზღუდული.",
+    "workshopFaq3Q": "როდის მივიღებ შეკვეთას?",
+    "workshopFaq3A": "თბილისში დღეს: 12–14, 14–16 ან 16–18 საათზე. თავისუფალ ინტერვალს WhatsApp-ში შეგითანხმებთ. 18:00-ის შემდეგ მიტანას არ გპირდებით.",
+    "workshopFaq4Q": "შემიძლია თავად გავიტანო?",
+    "workshopFaq4A": "დიახ, საამქროდან, მეველეს ქ. 3-ში, 10:00–18:00 საათებში. გატანის დრო 30–40 წუთით ადრე შეგვითანხმეთ.",
+    "workshopFaq5Q": "რესტორნებსაც ამარაგებთ?",
+    "workshopFaq5A": "დიახ. მოგვწერეთ WhatsApp-ში — შევათანხმებთ ხორცის ნაწილებს, რაოდენობას და საბითუმო შეკვეთას მოგიმზადებთ.",
+    "cutPreparationHint": "შეგვიძლია გავატაროთ, ცხიმი მოვაცილოთ ან დავჭრათ — სურვილი კომენტარში მიუთითეთ.",
+    "priceUnitClarity": "ფასი 1 კგ-ზეა და არა 500 გრამიან შეფუთვაზე.",
+    "cartDirectNote": "უშუალოდ საამქროს უკვეთავთ. მოგვწერეთ WhatsApp-ში — დაგიდასტურებთ მარაგს, ზუსტ წონასა და მიტანის დროს."
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -459,7 +479,7 @@ const strings = {
     "b2bTitle": "Свежее мясо для вашей кухни",
     "b2bText": "Только свежее качественное мясо для ресторанов и кафе: свинина, говядина и субпродукты. Согласуем нужные части, объёмы, цены и график поставок.",
     "b2bCta": "Обсудить поставки",
-    "b2bMessage": "Здравствуйте, MeatCO! Интересуют поставки мяса для ресторана или кафе. Хочу обсудить нужные части, объёмы, цены и график поставок.",
+    "b2bMessage": "Здравствуйте, хочу прайс для заведения. Район: …",
     "navGuide": "Что приготовить",
     "navB2b": "Ресторанам",
     "promise1Title": "Подбор под ваше блюдо",
@@ -631,7 +651,7 @@ const strings = {
     "nearbyShort": "Условия доставки согласуем до подтверждения заказа.",
     "productSearch": "Найти продукт",
     "productCount": "Найдено: {n}",
-    "catalogPriceHint": "Цена за килограмм или штуку.",
+    "catalogPriceHint": "Цены за 1 кг, не за 500 г. У штучных товаров — за штуку.",
     "showMore": "Ещё мясо",
     "productNoResults": "Ничего не найдено",
     "productNoResultsText": "Попробуйте другое название или категорию.",
@@ -671,7 +691,7 @@ const strings = {
     "heroOffer": "Свежее мясо. С доставкой домой.",
     "heroOfferText": "Свинина, говядина и субпродукты — соберите свой заказ.",
     "appHero": "Мясо с доставкой\nпо Тбилиси.",
-    "appHeroCopy": "Вес, сумму и доставку согласуем в WhatsApp до упаковки.",
+    "appHeroCopy": "Сегодня нарежем под нужный вес. Точные граммы и сумму подтвердим в WhatsApp до упаковки.",
     "appDelivery": "Мясо с доставкой",
     "appCatalog": "Выберите мясо",
     "fuzzyResults": "Похожие товары: {n}",
@@ -722,8 +742,8 @@ const strings = {
     "photoMessage": "Пожалуйста, пришлите фото выбранного мяса до упаковки.",
     "slotMidday": "Сегодня 12–14",
     "slotAfternoon": "Сегодня 14–16",
-    "productDescriptionKg": "Выберите нужный вес. Пожелания к нарезке укажите в комментарии.",
-    "productDescriptionPiece": "Выберите нужное количество. Пожелания к обработке укажите в комментарии.",
+    "productDescriptionKg": "Выберите нужный вес.",
+    "productDescriptionPiece": "Выберите нужное количество.",
     "deliveryOperations": "Курьером или самовывозом.",
     "minimumOrder": "Минимальный заказ: {amount}",
     "minimumUnknown": "Минимальную сумму уточните в WhatsApp.",
@@ -734,7 +754,7 @@ const strings = {
     "workshopPickup": "Цех · Мевеле, 3 · самовывоз 10:00–18:00, лучше согласовать за 30–40 минут.",
     "dailyHours": "Ежедневно 10:00–18:00",
     "afterHours": "После 18:00 заявку примем и ответим завтра с 10:00.",
-    "todayOperations": "Сегодня по Тбилиси · слоты до 18:00 · ответ в WhatsApp за 5–10 минут в рабочие часы.",
+    "todayOperations": "Доставка сегодня · ответ в WhatsApp за 5–10 минут в рабочие часы.",
     "soldOut": "Сегодня нет",
     "cartUnavailable": "Сегодня нет: {items}. Удалите эти позиции для оформления.",
     "updateCart": "Обновить",
@@ -747,7 +767,27 @@ const strings = {
     "answerYes": "да",
     "answerNo": "нет",
     "cartMessageEnd": "Точный вес и сумму подтвердим до сборки.",
-    "messageHours": "Рабочие часы {hours}."
+    "messageHours": "Рабочие часы {hours}.",
+    "homeSlots": "слоты до 18:00",
+    "homeAfterHours": "после 18:00 ответим завтра с 10:00",
+    "homeAfterHoursNow": "Сейчас вне часов. Заказ примем, подтвердим завтра с 10:00.",
+    "homePickup": "Курьером или самовывозом из цеха · Мевеле, 3.",
+    "trustCut": "Режем под ваш вес",
+    "trustDirect": "Без лотка и без комиссии приложения",
+    "trustPhoto": "Фото куска до упаковки — по запросу",
+    "workshopFaq1Q": "Почему нет оплаты на сайте?",
+    "workshopFaq1A": "Вес уточняется после нарезки и взвешивания. Точную сумму согласуем в WhatsApp до сборки заказа.",
+    "workshopFaq2Q": "Чем вы отличаетесь от супермаркета?",
+    "workshopFaq2A": "Мы работаем из цеха и режем под заказ. Вы выбираете нужный вес, а не фиксированный лоток.",
+    "workshopFaq3Q": "Когда приедет заказ?",
+    "workshopFaq3A": "Сегодня по Тбилиси: 12–14, 14–16 или 16–18. Наличие слота согласуем в WhatsApp. После 18:00 рейсов не обещаем.",
+    "workshopFaq4Q": "Можно забрать самому?",
+    "workshopFaq4A": "Да, из цеха на Мевеле, 3, с 10:00 до 18:00. Согласуйте самовывоз за 30–40 минут.",
+    "workshopFaq5Q": "Работаете с ресторанами?",
+    "workshopFaq5A": "Да. Напишите в WhatsApp — согласуем части, объём и соберём оптовый заказ.",
+    "cutPreparationHint": "Можно помолоть, убрать жир или нарезать — напишите в комментарии.",
+    "priceUnitClarity": "Цена за 1 кг, не за упаковку 500 г.",
+    "cartDirectNote": "Заказ напрямую в цех. Напишите в WhatsApp — подтвердим наличие, точный вес и слот."
   },
   "en": {
     "skip": "Skip to content",
@@ -833,7 +873,7 @@ const strings = {
     "b2bTitle": "Fresh meat for your kitchen",
     "b2bText": "Only fresh, quality meat for restaurants and cafés: pork, beef and offal. We’ll agree on the cuts, quantities, prices and supply schedule.",
     "b2bCta": "Discuss supply",
-    "b2bMessage": "Hello, MeatCO! I’m interested in meat supply for a restaurant or café. I’d like to discuss cuts, quantities, prices and delivery schedules.",
+    "b2bMessage": "Hello, I’d like a price list for my restaurant or café. Area: …",
     "navGuide": "Meal ideas",
     "navB2b": "For restaurants",
     "promise1Title": "The right cut for your meal",
@@ -1005,7 +1045,7 @@ const strings = {
     "nearbyShort": "Delivery details are agreed before your order is confirmed.",
     "productSearch": "Search products",
     "productCount": "Found: {n}",
-    "catalogPriceHint": "Prices are per kilogram or per piece.",
+    "catalogPriceHint": "Prices are per 1 kg, not 500 g. Items sold individually show a per-item price.",
     "showMore": "More cuts",
     "productNoResults": "No products found",
     "productNoResultsText": "Try another name or category.",
@@ -1045,7 +1085,7 @@ const strings = {
     "heroOffer": "Fresh meat. Delivered to your door.",
     "heroOfferText": "Pork, beef and offal — build your order.",
     "appHero": "Meat delivered\nin Tbilisi.",
-    "appHeroCopy": "We confirm weight, total and delivery on WhatsApp before packing.",
+    "appHeroCopy": "Cut to your requested weight today. We confirm the exact grams and total on WhatsApp before packing.",
     "appDelivery": "Meat, delivered",
     "appCatalog": "Choose your cuts",
     "fuzzyResults": "Similar products: {n}",
@@ -1096,8 +1136,8 @@ const strings = {
     "photoMessage": "Please send a photo of the selected meat before packing.",
     "slotMidday": "Today 12–14",
     "slotAfternoon": "Today 14–16",
-    "productDescriptionKg": "Choose the weight you need. Add any cutting preferences in the note.",
-    "productDescriptionPiece": "Choose the quantity you need. Add any preparation preferences in the note.",
+    "productDescriptionKg": "Choose the weight you need.",
+    "productDescriptionPiece": "Choose the quantity you need.",
     "deliveryOperations": "Courier delivery or pickup.",
     "minimumOrder": "Minimum order: {amount}",
     "minimumUnknown": "Ask about the minimum order on WhatsApp.",
@@ -1108,7 +1148,7 @@ const strings = {
     "workshopPickup": "Workshop · Mevele St, 3 · pickup 10:00–18:00. Please arrange pickup 30–40 minutes ahead.",
     "dailyHours": "Daily 10:00–18:00",
     "afterHours": "After 18:00, we accept requests and reply tomorrow from 10:00.",
-    "todayOperations": "Today in Tbilisi · delivery slots until 18:00 · WhatsApp replies in 5–10 minutes during working hours.",
+    "todayOperations": "Delivery today · WhatsApp replies in 5–10 minutes during working hours.",
     "soldOut": "Unavailable today",
     "cartUnavailable": "Unavailable today: {items}. Remove these items to continue.",
     "updateCart": "Update",
@@ -1121,7 +1161,27 @@ const strings = {
     "answerYes": "yes",
     "answerNo": "no",
     "cartMessageEnd": "We will confirm the exact weight and total before preparing the order.",
-    "messageHours": "Working hours {hours}."
+    "messageHours": "Working hours {hours}.",
+    "homeSlots": "delivery slots until 18:00",
+    "homeAfterHours": "after 18:00, we reply tomorrow from 10:00",
+    "homeAfterHoursNow": "We’re outside working hours. Place your request; we’ll confirm tomorrow from 10:00.",
+    "homePickup": "Courier or pickup from the workshop · Mevele St, 3.",
+    "trustCut": "Cut to your weight",
+    "trustDirect": "No fixed tray, no app commission",
+    "trustPhoto": "Photo of your cut before packing — on request",
+    "workshopFaq1Q": "Why can’t I pay on the site?",
+    "workshopFaq1A": "The final weight is known after cutting and weighing. We confirm the exact total on WhatsApp before preparing your order.",
+    "workshopFaq2Q": "How is this different from a supermarket?",
+    "workshopFaq2A": "We cut to order in our workshop. You choose the weight you need, rather than a fixed tray pack.",
+    "workshopFaq3Q": "When will my order arrive?",
+    "workshopFaq3A": "Today in Tbilisi: 12–14, 14–16 or 16–18. We confirm an available slot on WhatsApp. We don’t promise deliveries after 18:00.",
+    "workshopFaq4Q": "Can I collect my order?",
+    "workshopFaq4A": "Yes, from our workshop at Mevele St, 3, between 10:00 and 18:00. Please arrange pickup 30–40 minutes ahead.",
+    "workshopFaq5Q": "Do you supply restaurants?",
+    "workshopFaq5A": "Yes. Message us on WhatsApp to agree on cuts and quantities for a wholesale order.",
+    "cutPreparationHint": "We can mince, trim fat or slice — leave a note with your preference.",
+    "priceUnitClarity": "Price per 1 kg, not a 500 g pack.",
+    "cartDirectNote": "Order directly from the workshop. Message us on WhatsApp to confirm availability, exact weight and a delivery slot."
   }
 };
 const imageVariants = {"./assets/products/pork-flesh.webp":{"src":"./assets/products/pork-flesh-small.webp","width":480},"./assets/products/pork-tenderloin.webp":{"src":"./assets/products/pork-tenderloin-small.webp","width":480},"./assets/products/pork-ribs.webp":{"src":"./assets/products/pork-ribs-small.webp","width":480},"./assets/products/pork-leg.webp":{"src":"./assets/products/pork-leg-small.webp","width":480},"./assets/products/pork-hock.webp":{"src":"./assets/products/pork-hock-small.webp","width":480},"./assets/products/pork-grill.webp":{"src":"./assets/products/pork-grill-small.webp","width":480},"./assets/products/pork-bonein.webp":{"src":"./assets/products/pork-bonein-small.webp","width":480},"./assets/products/pork-jowl.webp":{"src":"./assets/products/pork-jowl-small.webp","width":480},"./assets/products/pork-trimmings.webp":{"src":"./assets/products/pork-trimmings-small.webp","width":480},"./assets/products/pork-fat.webp":{"src":"./assets/products/pork-fat-small.webp","width":480},"./assets/products/young-pig.webp":{"src":"./assets/products/young-pig-small.webp","width":480},"./assets/products/beef-round.webp":{"src":"./assets/products/beef-round-small.webp","width":480},"./assets/products/beef-tenderloin.webp":{"src":"./assets/products/beef-tenderloin-small.webp","width":480},"./assets/products/beef-brisket.webp":{"src":"./assets/products/beef-brisket-small.webp","width":480},"./assets/products/beef-shank.webp":{"src":"./assets/products/beef-shank-small.webp","width":480},"./assets/products/beef-cheek.webp":{"src":"./assets/products/beef-cheek-small.webp","width":480},"./assets/products/beef-diaphragm.webp":{"src":"./assets/products/beef-diaphragm-small.webp","width":480},"./assets/products/beef-bonein.webp":{"src":"./assets/products/beef-bonein-small.webp","width":480},"./assets/products/beef-trimmings.webp":{"src":"./assets/products/beef-trimmings-small.webp","width":480},"./assets/products/beef-fat.webp":{"src":"./assets/products/beef-fat-small.webp","width":480},"./assets/products/veal.webp":{"src":"./assets/products/veal-small.webp","width":480},"./assets/products/liver.webp":{"src":"./assets/products/liver-small.webp","width":480},"./assets/products/beef-liver-v07.webp":{"src":"./assets/products/beef-liver-v07-small.webp","width":480},"./assets/products/veal-liver-v07.webp":{"src":"./assets/products/veal-liver-v07-small.webp","width":480},"./assets/products/heart.webp":{"src":"./assets/products/heart-small.webp","width":480},"./assets/products/tongue.webp":{"src":"./assets/products/tongue-small.webp","width":480},"./assets/products/pork-kidneys.webp":{"src":"./assets/products/pork-kidneys-small.webp","width":480},"./assets/products/beef-kidneys.webp":{"src":"./assets/products/beef-kidneys-small.webp","width":480},"./assets/products/tripe.webp":{"src":"./assets/products/tripe-small.webp","width":480},"./assets/products/feet.webp":{"src":"./assets/products/feet-small.webp","width":480},"./assets/products/pork-trotters-clean-v07.webp":{"src":"./assets/products/pork-trotters-clean-v07-small.webp","width":480},"./assets/products/pork-head.webp":{"src":"./assets/products/pork-head-small.webp","width":480},"./assets/products/pork-tail.webp":{"src":"./assets/products/pork-tail-small.webp","width":480},"./assets/products/beef-tail.webp":{"src":"./assets/products/beef-tail-small.webp","width":480},"./assets/products/lungs.webp":{"src":"./assets/products/lungs-small.webp","width":480},"./assets/products/pork-skin.webp":{"src":"./assets/products/pork-skin-small.webp","width":480},"./assets/products/offal-mix.webp":{"src":"./assets/products/offal-mix-small.webp","width":480},"./assets/products/beef-offal-v07.webp":{"src":"./assets/products/beef-offal-v07-small.webp","width":480},"./assets/products/marrow-bone.webp":{"src":"./assets/products/marrow-bone-small.webp","width":480},"./assets/products/stock-bones.webp":{"src":"./assets/products/stock-bones-small.webp","width":480},"./assets/products/caul-fat.webp":{"src":"./assets/products/caul-fat-small.webp","width":480},"./assets/products/mixed-mince.webp":{"src":"./assets/products/mixed-mince-small.webp","width":480},"./assets/products/chicken.webp":{"src":"./assets/products/chicken-small.webp","width":480},"./assets/products/turkey-v05.webp":{"src":"./assets/products/turkey-v05-small.webp","width":480},"./assets/products/lamb.webp":{"src":"./assets/products/lamb-small.webp","width":480},"./assets/products/pork-offal-v07.webp":{"src":"./assets/products/pork-offal-v07-small.webp","width":480}};
@@ -1201,6 +1261,8 @@ let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
 const cutAvailable=c=>!!c&&c.available!==false;
+// Only cuts suited to all three requests: mince, trim and slice. No claim on bones, offal or ready mince.
+const preparableCuts=new Set(['pork-flesh','pork-tenderloin','pork-grill','pork-jowl','beef-round','beef-tenderloin','beef-cheek','beef-diaphragm']);
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
 function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
@@ -1418,10 +1480,18 @@ function setLanguage(next,persist=true){
  status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderOperations();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
+function homeHoursKey(now=new Date()){
+ const hour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',hour:'2-digit',hourCycle:'h23'}).format(now));
+ return hour>=18?'homeAfterHoursNow':'homeAfterHours';
+}
 function renderOperations(){
  for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  for(const el of document.querySelectorAll('[data-working-hours]'))el.textContent=config.hours?text('workingHours').replace('{hours}',config.hours):text('workingHoursUnknown');
+ for(const el of document.querySelectorAll('[data-home-hours-note]'))el.textContent=text(homeHoursKey());
 }
+window.addEventListener('focus',renderOperations);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderOperations();});
+setInterval(()=>{if(!document.hidden)renderOperations();},60000);
 function closeMenu(focus=false){
  $('mobile-nav').hidden=true;$('menu-toggle').setAttribute('aria-expanded','false');if(focus)$('menu-toggle').focus();
 }
@@ -1629,6 +1699,8 @@ function renderProductDetail(){
  const pending=document.querySelector('.product-detail-photo .photo-pending-label');pending.hidden=img.dataset.imageFallback!=='true'&&!photoFor(c).endsWith('.svg');pending.textContent=c.name[language];img.alt=c.name[language];
  $('product-title').textContent=c.name[language];$('product-category').textContent=text(c.category);
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
+ $('product-preparation-hint').hidden=!preparableCuts.has(c.id);
+ $('product-unit-note').hidden=c.unit==='piece'||!(c.price>0);
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
  $('product-submit').disabled=!cutAvailable(c);

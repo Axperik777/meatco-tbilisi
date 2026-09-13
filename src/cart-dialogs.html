@@ -22,12 +22,12 @@
 <label class="photo-check"><input type="checkbox" id="cart-photo"><span data-i18n="photoRequest"></span></label>
 <details class="message-preview"><summary data-i18n="previewMessage"></summary><p id="cart-message"></p></details>
 </form>
-<div class="cart-checkout" id="cart-checkout" hidden><button id="cart-submit" type="submit" form="cart-form" class="button primary" data-i18n="cartSend" aria-describedby="cart-minimum cart-delivery-cost"></button><p id="cart-delivery-cost" class="checkout-note" data-i18n="deliveryCostNote"></p><p id="cart-status" role="status"></p></div>
+<div class="cart-checkout" id="cart-checkout" hidden><p id="cart-direct-note" class="checkout-note" data-i18n="cartDirectNote"></p><button id="cart-submit" type="submit" form="cart-form" class="button primary" data-i18n="cartSend" aria-describedby="cart-minimum cart-direct-note cart-delivery-cost"></button><p id="cart-delivery-cost" class="checkout-note" data-i18n="deliveryCostNote"></p><p id="cart-status" role="status"></p></div>
 </dialog>
 <dialog id="product-dialog" class="product-dialog app-sheet" aria-labelledby="product-title">
 <button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>
 <div class="product-scroll"><div class="product-detail-photo"><img id="product-detail-image" loading="lazy" fetchpriority="low" decoding="async" width="480" height="480" alt=""><span class="photo-pending-label" data-i18n="photoSoon" hidden></span></div>
-<div class="product-detail-copy"><p class="eyebrow" id="product-category"></p><h2 id="product-title"></h2><p id="product-use"></p><p class="meat-price" id="product-price"></p>
+<div class="product-detail-copy"><p class="eyebrow" id="product-category"></p><h2 id="product-title"></h2><p id="product-use"></p><p id="product-preparation-hint" class="product-support-note" data-i18n="cutPreparationHint" hidden></p><p class="meat-price" id="product-price"></p><p id="product-unit-note" class="product-support-note" data-i18n="priceUnitClarity" hidden></p>
 <form id="product-form" novalidate><label for="product-quantity" id="product-quantity-label"></label>
 <div id="product-presets" class="product-presets" role="group" data-aria="weightPresets"></div>
 <div class="product-quantity-control"><button type="button" data-product-step="-1" data-aria="decrease">−</button><input id="product-quantity" type="text" inputmode="decimal" value="1" maxlength="8" aria-describedby="product-quantity-error"><button type="button" data-product-step="1" data-aria="increase">+</button></div><p class="field-error" id="product-quantity-error" hidden></p>

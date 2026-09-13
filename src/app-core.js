@@ -16,6 +16,8 @@ let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
 const cutAvailable=c=>!!c&&c.available!==false;
+// Only cuts suited to all three requests: mince, trim and slice. No claim on bones, offal or ready mince.
+const preparableCuts=new Set(['pork-flesh','pork-tenderloin','pork-grill','pork-jowl','beef-round','beef-tenderloin','beef-cheek','beef-diaphragm']);
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
 function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
@@ -233,10 +235,18 @@ function setLanguage(next,persist=true){
  status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderOperations();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
+function homeHoursKey(now=new Date()){
+ const hour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',hour:'2-digit',hourCycle:'h23'}).format(now));
+ return hour>=18?'homeAfterHoursNow':'homeAfterHours';
+}
 function renderOperations(){
  for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  for(const el of document.querySelectorAll('[data-working-hours]'))el.textContent=config.hours?text('workingHours').replace('{hours}',config.hours):text('workingHoursUnknown');
+ for(const el of document.querySelectorAll('[data-home-hours-note]'))el.textContent=text(homeHoursKey());
 }
+window.addEventListener('focus',renderOperations);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderOperations();});
+setInterval(()=>{if(!document.hidden)renderOperations();},60000);
 function closeMenu(focus=false){
  $('mobile-nav').hidden=true;$('menu-toggle').setAttribute('aria-expanded','false');if(focus)$('menu-toggle').focus();
 }

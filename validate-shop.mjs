@@ -45,6 +45,21 @@ for(const file of ['index.html','catalog.html']){
 }
 for(const lang of ['ka','ru','en'])assert.ok(locales[lang].dailyHours.includes('10:00–18:00'));
 assert.ok(!/18[–-]21/.test(JSON.stringify(locales)));
+// Home uses Tbilisi time, independent of the visitor's device timezone.
+const core=fs.readFileSync('src/app-core.js','utf8');
+const hoursSource=core.slice(core.indexOf('function homeHoursKey('),core.indexOf('function renderOperations('));
+const hoursSandbox={};vm.createContext(hoursSandbox);vm.runInContext(hoursSource,hoursSandbox);
+for(const [date,key] of [
+ ['2026-09-14T13:59:59Z','homeAfterHours'],
+ ['2026-09-14T14:00:00Z','homeAfterHoursNow'],
+ ['2026-09-14T19:59:59Z','homeAfterHoursNow'],
+ ['2026-09-14T20:00:00Z','homeAfterHours']
+])assert.equal(vm.runInContext(`homeHoursKey(new Date('${date}'))`,hoursSandbox),key);
+// Preparation copy is restricted to known suitable cuts, not category-wide.
+vm.runInContext(core.slice(core.indexOf('const preparableCuts='),core.indexOf('const defaultProductOrder=')),hoursSandbox);
+const preparable=vm.runInContext('[...preparableCuts]',hoursSandbox);
+assert.ok(preparable.every(id=>cuts.some(c=>c.id===id)));
+for(const id of ['chicken','marrow-bone','mixed-mince','offal-beef-liver','beef-fat'])assert.ok(!preparable.includes(id));
 vm.runInNewContext(fs.readFileSync(path.join(root,'config.js'),'utf8'),sandbox);
 assert.equal(sandbox.window.MEATCO_CONFIG.hours,'10:00–18:00');
 assert.equal(sandbox.window.MEATCO_CONFIG.minimumOrder,50);

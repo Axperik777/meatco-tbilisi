@@ -66,7 +66,9 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .feed-operations{max-width:800px;margin:var(--space-3) auto 0;display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-4)}
 .feed-operations p{margin:0;font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted)}
 .feed-operations [data-minimum-order]{font-weight:600;color:var(--ink)}
-.feed-operations .after-hours{flex-basis:100%}
+.feed-operations .operations-strip{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-2);max-width:none}
+.operations-strip>span:not(:last-child):after{content:" ·";padding-left:var(--space-2)}
+.feed-operations .pickup-line{flex-basis:100%}
 .trust-chips{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-2);margin:var(--space-3) 0 var(--space-6);padding:0;overflow:visible}
 .trust-chips li{display:flex;align-items:center;justify-content:center;min-width:0;text-align:center;font-size:var(--fs-caption);font-weight:600;line-height:1.3;color:var(--ink);padding:var(--space-2) var(--space-1);border:1px solid var(--line);border-radius:2px;background:none;min-height:var(--hit-min)}
 .trust-chips svg{width:var(--space-4);height:var(--space-4);flex:none}
@@ -139,6 +141,11 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .help-actions>a{display:flex;align-items:center;gap:var(--space-3);min-height:var(--control-h);padding:var(--space-3) var(--space-4);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);color:var(--ink);font:600 var(--fs-ui)/var(--lh-body) var(--font-sans)}
 .help-actions>a>svg{flex:none}
 .help-actions>a>span:last-child{margin-left:auto}
+.workshop-faq{margin-block:var(--space-6)}
+.workshop-faq h2{margin-bottom:var(--space-3)}
+.workshop-faq summary{display:flex;align-items:center;min-height:var(--hit-min);padding:var(--space-3) var(--space-8) var(--space-3) 0;line-height:var(--lh-body)}
+.workshop-faq summary:after{right:0;top:var(--space-3);color:var(--ink)}
+.workshop-faq p{max-width:var(--readable-max);line-height:var(--lh-body);margin:0 0 var(--space-4)}
 .contact-address{display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-3);padding:var(--space-4);border:1px solid var(--line);border-radius:var(--radius-m);color:var(--ink);background:var(--surface)}
 .contact-address>svg{flex:none}
 .contact-address>span:nth-child(2){display:flex;flex-direction:column;gap:var(--space-1);margin-right:auto}
@@ -190,6 +197,7 @@ dialog h2{font:700 var(--fs-section)/var(--lh-title) var(--font-sans);margin:0 0
 .product-detail-copy .eyebrow{font-size:var(--fs-kicker);font-weight:600;color:var(--muted);letter-spacing:var(--ls-kicker);margin:0 0 var(--space-2)}
 .product-detail-copy h2{font:700 var(--fs-title)/var(--lh-title) var(--font-sans);letter-spacing:var(--ls-title);margin:0 0 var(--space-3);overflow-wrap:anywhere}
 #product-use{font-size:var(--fs-body);line-height:var(--lh-body);max-width:var(--readable-max);color:var(--muted);margin:0 0 var(--space-4)}
+.product-support-note{font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted);margin:0 0 var(--space-4)}
 #product-price{font-size:var(--fs-price);font-weight:700;margin:0 0 var(--space-6)}
 #product-form>label{display:block;font-size:var(--fs-ui);line-height:var(--lh-body);margin:var(--space-4) 0 var(--space-2)}
 .product-presets{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:0 0 var(--space-3)}
@@ -256,6 +264,7 @@ textarea{resize:vertical}
 .cart-checkout>.button:hover{background:var(--wine-dark)}
 .cart-checkout>.button:disabled{opacity:.45;cursor:not-allowed;background:var(--wine);border-color:var(--wine)}
 .checkout-note{font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted);margin:var(--space-2) 0 0}
+#cart-direct-note{margin:0 0 var(--space-3)}
 #cart-minimum{padding:var(--space-3);border:1px solid var(--line);border-radius:var(--radius-s);font-size:var(--fs-ui);color:var(--ink)}
 #cart-minimum.minimum-unmet{font-weight:600}
 #cart-status{font-size:var(--fs-caption);line-height:var(--lh-body);margin:var(--space-2) 0 0;max-height:var(--tabbar-h);overflow:auto}

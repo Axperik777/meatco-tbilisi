@@ -139,6 +139,8 @@ function renderProductDetail(){
  const pending=document.querySelector('.product-detail-photo .photo-pending-label');pending.hidden=img.dataset.imageFallback!=='true'&&!photoFor(c).endsWith('.svg');pending.textContent=c.name[language];img.alt=c.name[language];
  $('product-title').textContent=c.name[language];$('product-category').textContent=text(c.category);
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
+ $('product-preparation-hint').hidden=!preparableCuts.has(c.id);
+ $('product-unit-note').hidden=c.unit==='piece'||!(c.price>0);
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
  $('product-submit').disabled=!cutAvailable(c);
