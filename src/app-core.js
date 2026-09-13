@@ -9,7 +9,6 @@ const quantity=$('quantity'), district=$('district'), note=$('order-note'), erro
 const page=document.body.dataset.page;
 const params=new URLSearchParams(location.search);
 const categories=['all','pork','beef','offal','other','favorites'];
-const extraKeys={vegetables:'extraVegetables',fruit:'extraFruit',eggs:'extraEggs'};
 let language='ka', category=categories.includes(params.get('category'))?params.get('category'):'all', productLimit=12;
 let meatFilter=['pork','beef','offal'].includes(params.get('meat'))?params.get('meat'):'all';
 let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
@@ -39,7 +38,6 @@ const validWeight=value=>!value||(/^\d{1,4}([.,]\d{1,3})?$/.test(value)&&Number(
 const pieceOrder=()=>cutById(context.cut)?.unit==='piece';
 const validQuantity=value=>pieceOrder()?(!value||(/^\d{1,4}$/.test(value)&&Number(value)>0)):validWeight(value);
 const formatPrice=cut=>cut?.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(cut.price)+' ₾ / '+text(cut.unit==='piece'?'perPiece':'perKg'):text('priceAsk');
-const chosenExtras=()=>[...form.querySelectorAll('input[name="extra"]:checked')].map(i=>i.value);
 function message(){
  const meat=selectedMeat();
  const lines=[text('messageGreeting'),'',text('messageMeat')+': '+(meat==='any'?text('messageHelp'):text(meat))];
@@ -51,7 +49,6 @@ function message(){
  if(weight&&validQuantity(weight))lines.push(text(pieceOrder()?'messageQuantity':'messageWeight')+': '+weight.replace(',','.')+' '+text(pieceOrder()?'perPiece':'kg'));
  if(district.value)lines.push(text('messageDistrict')+': '+district.value.trim());
  if(note.value.trim())lines.push(text('messageNote')+': '+note.value.trim());
- const extras=chosenExtras();if(extras.length)lines.push(text('messageExtraList')+': '+extras.map(k=>text(extraKeys[k])).join(', '));
  lines.push('',text('messageEnd'));return lines.join('\n');
 }
 function updatePreview(){
@@ -59,7 +56,7 @@ function updatePreview(){
  form.dataset.preparedUrl=validQuantity(quantity.value.trim())?whatsappUrl(prepared):'';
  document.querySelector('label[for="quantity"]').textContent=text(pieceOrder()?'piecesLabel':'quantityLabel');
  quantity.inputMode=pieceOrder()?'numeric':'decimal';quantity.placeholder=pieceOrder()?'1':'1.5';
- const directMessage=cartHasItems()?cartMessage():context.cut||context.dish||chosenExtras().length?prepared:text('messageGreeting');
+ const directMessage=cartHasItems()?cartMessage():context.cut||context.dish?prepared:text('messageGreeting');
  for(const link of document.querySelectorAll('[data-whatsapp]'))link.href=whatsappUrl(directMessage)||'tel:+995568258118';
 }
 function updateUrl(key,value){
@@ -78,13 +75,6 @@ function renderContext(){
  if(context.people)parts.push(context.people+' '+text('peopleUnit'));
  $('order-context').hidden=!parts.length;$('order-context-text').textContent=text('contextLabel')+': '+parts.join(' · ');
  form.querySelector('fieldset').hidden=parts.length>0;
-}
-function renderExtras(){
- const selected=chosenExtras();
- for(const b of document.querySelectorAll('[data-extra-choice]')){
-  const active=selected.includes(b.dataset.extraChoice);b.setAttribute('aria-pressed',String(active));b.querySelector('.extra-checkmark').textContent=active?'✓':'+';
- }
- if($('extras-summary'))$('extras-summary').textContent=selected.length?text('extrasSelected')+': '+selected.map(k=>text(extraKeys[k])).join(', '):text('extrasNone');
 }
 function renderProductCards(){
  for(const card of document.querySelectorAll('[data-product-card]')){
@@ -204,7 +194,7 @@ function setLanguage(next,persist=true){
  for(const a of document.querySelectorAll('[data-video-general]'))a.href=whatsappUrl(text('videoGeneralMessage'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderFavorites();
+ status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderFavorites();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
 function closeMenu(focus=false){
@@ -227,9 +217,6 @@ document.addEventListener('click',event=>{
  if(el.matches('[data-close]'))el.closest('dialog').close();
  if(el.matches('[data-whatsapp]'))track('meatco_whatsapp_click',{source:'direct'});
  if(el.matches('[data-wholesale]'))track('meatco_whatsapp_click',{source:'restaurant_supply',segment:'b2b'});
- if(el.matches('[data-extra-choice]')){
-  const input=form.querySelector('input[name="extra"][value="'+el.dataset.extraChoice+'"]');input.checked=!input.checked;renderExtras();updatePreview();
- }
  if(el.closest('#mobile-nav'))closeMenu();
 });
 $('menu-toggle').addEventListener('click',()=>{const open=$('mobile-nav').hidden;$('mobile-nav').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));});
@@ -245,7 +232,7 @@ $('dish-order').addEventListener('click',()=>{
 });
 $('clear-context').addEventListener('click',()=>{context={cut:'',dish:'',people:''};renderContext();updatePreview();});
 form.addEventListener('input',()=>{status.replaceChildren();if(validQuantity(quantity.value.trim())){error.hidden=true;quantity.removeAttribute('aria-invalid');}updatePreview();});
-form.addEventListener('change',e=>{if(e.target.name==='meat'){context={cut:'',dish:'',people:''};renderContext();error.hidden=true;quantity.removeAttribute('aria-invalid');for(const label of form.querySelectorAll('[data-secondary-type]'))label.hidden=label.dataset.secondaryType!==selectedMeat();}renderExtras();updatePreview();});
+form.addEventListener('change',e=>{if(e.target.name==='meat'){context={cut:'',dish:'',people:''};renderContext();error.hidden=true;quantity.removeAttribute('aria-invalid');for(const label of form.querySelectorAll('[data-secondary-type]'))label.hidden=label.dataset.secondaryType!==selectedMeat();}updatePreview();});
 form.addEventListener('submit',e=>{
  e.preventDefault();if(!validQuantity(quantity.value.trim())){error.textContent=text(pieceOrder()?'piecesError':'quantityError');error.hidden=false;quantity.setAttribute('aria-invalid','true');quantity.focus();updatePreview();return;}
  const url=whatsappUrl(message());if(!url){status.textContent=text('phoneError');return;}
