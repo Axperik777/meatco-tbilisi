@@ -222,7 +222,7 @@
     "faq8A": "მოგვწერეთ სასურველი ზომა ან რისთვის გჭირდებათ ხორცი. დაჭრისა და დაფქვის შესაძლებლობას შეკვეთის დადასტურებამდე შეგატყობინებთ.",
     "footerCatalog": "აირჩიეთ",
     "footerOrder": "შეუკვეთეთ",
-    "goCatalog": "კატალოგის ნახვა",
+    "goCatalog": "კატალოგში",
     "contactText": "მოგვწერეთ თქვენი შეკვეთა ან დასვით კითხვა.",
     "home": "მთავარი",
     "deliveryTerms": "მიტანის პირობები",
@@ -273,7 +273,7 @@
     "cartTitle": "თქვენი კალათა",
     "cartNav": "კალათა",
     "cartOpen": "კალათის ნახვა",
-    "cartEmpty": "კალათა ცარიელია. აირჩიეთ ხორცი — ჩვენ დავჭრით და ავწონით.",
+    "cartEmpty": "კალათა ცარიელია — აირჩიეთ ხორცი კატალოგში.",
     "addToCart": "კალათაში დამატება",
     "addShort": "დამატება",
     "cartAdded": "დამატებულია კალათაში",
@@ -403,7 +403,7 @@
     "questionGreeting": "გამარჯობა! ხორცზე კითხვა მაქვს:",
     "questionCta": "კითხვა WhatsApp-ში",
     "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
-    "chatFallback": "თუ ჩატი არ გაიხსნა:",
+    "chatFallback": "თუ WhatsApp არ გაიხსნა, დაგვირეკეთ ან მოგვწერეთ:",
     "retryWhatsapp": "WhatsApp-ის გახსნა"
   },
   "ru": {
@@ -629,7 +629,7 @@
     "faq8A": "Напишите, какой размер кусков нужен или для чего берёте мясо. Возможность нарезки и измельчения подтвердим до оформления.",
     "footerCatalog": "Выбрать",
     "footerOrder": "Заказать",
-    "goCatalog": "Открыть каталог",
+    "goCatalog": "В каталог",
     "contactText": "Напишите свой заказ или задайте вопрос.",
     "home": "Главная",
     "deliveryTerms": "Условия доставки",
@@ -680,7 +680,7 @@
     "cartTitle": "Ваша корзина",
     "cartNav": "Корзина",
     "cartOpen": "Открыть корзину",
-    "cartEmpty": "Корзина пока пуста. Выберите мясо — мы нарежем и взвесим.",
+    "cartEmpty": "Корзина пока пуста — выберите мясо в каталоге.",
     "addToCart": "В корзину",
     "addShort": "Добавить",
     "cartAdded": "Добавлено в корзину",
@@ -810,7 +810,7 @@
     "questionGreeting": "Рауди! Вопрос по мясу:",
     "questionCta": "Задать вопрос в WhatsApp",
     "productQuestion": "Спросить об этом куске",
-    "chatFallback": "Если чат не открылся:",
+    "chatFallback": "Если WhatsApp не открылся, позвоните или напишите:",
     "retryWhatsapp": "Открыть WhatsApp"
   },
   "en": {
@@ -1036,7 +1036,7 @@
     "faq8A": "Tell us your preferred piece size or what you plan to cook. We’ll confirm whether cutting or mincing is available before you order.",
     "footerCatalog": "Explore",
     "footerOrder": "Order",
-    "goCatalog": "Browse the catalog",
+    "goCatalog": "Go to catalog",
     "contactText": "Send us your order or ask a question.",
     "home": "Home",
     "deliveryTerms": "Delivery details",
@@ -1087,7 +1087,7 @@
     "cartTitle": "Your basket",
     "cartNav": "Cart",
     "cartOpen": "View basket",
-    "cartEmpty": "Your cart is empty. Choose your meat — we’ll cut and weigh it.",
+    "cartEmpty": "Your cart is empty — choose your meat in the catalog.",
     "addToCart": "Add to cart",
     "addShort": "Add",
     "cartAdded": "Added to basket",
@@ -1217,7 +1217,7 @@
     "questionGreeting": "Hi! A question about the meat:",
     "questionCta": "Ask a question on WhatsApp",
     "productQuestion": "Ask about this cut",
-    "chatFallback": "If the chat didn’t open:",
+    "chatFallback": "If WhatsApp didn’t open, call or write to us:",
     "retryWhatsapp": "Open WhatsApp"
   }
 }

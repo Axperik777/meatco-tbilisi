@@ -56,15 +56,14 @@ function cartSuggestions(){
  const remaining=cartMinimumRemaining();
  if(!cartHasItems()||!remaining||invalidCart.size||cartUnavailable().length)return [];
  const eligible=id=>{const c=cutById(id);return cutAvailable(c)&&c.price>0&&c.unit==='kg'&&!basket[id];};
- let ids=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh'].filter(eligible);
- if(ids.length<3)ids.push(...['pork-grill','pork-leg','beef-brisket'].filter(eligible));
+ const preferred=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh','pork-grill','pork-leg','beef-brisket'];
+ const ids=[...preferred,...content.cuts.map(c=>c.id).filter(id=>!preferred.includes(id))].filter(eligible);
  const suggestions=ids.map(id=>{
-  const c=cutById(id),quantity=Math.ceil(remaining/c.price*2)/2;
-  return {id,quantity,amount:lineAmount(c,quantity)};
- }).sort((a,b)=>a.quantity-b.quantity||a.amount-b.amount);
- // Prefer household-sized add-ons when at least two reach the minimum.
- const modest=suggestions.filter(s=>s.quantity<=2.5);
- return (modest.length>=2?modest:suggestions).slice(0,3);
+  const c=cutById(id),quantity=[.5,1].find(q=>lineAmount(c,q)>=remaining);
+  return quantity?{id,quantity,amount:lineAmount(c,quantity)}:null;
+ }).filter(Boolean);
+ // Keep familiar cuts first; never increase an add-on beyond one kilogram.
+ return suggestions.slice(0,3);
 }
 function renderCartSuggestions(){
  const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;
@@ -82,6 +81,17 @@ function renderCheckoutHint(){
  const amount=invalidCart.size?'—':hasPriced?money(cartSubtotal())+(unpriced?' +':''):text('priceAsk');
  $('cart-hint-total').textContent=text('cartHintTotal').replace('{amount}',amount);
  $('cart-hint-action').textContent=invalidCart.size||cartUnavailable().length?text('cartHintCheck'):remaining?text('cartHintRemaining').replace('{amount}',money(remaining)):text('cartHintCheckout');
+ syncCartHintSpace();
+}
+function syncCartHintSpace(){
+ const height=$('cart-checkout-hint').getBoundingClientRect().height;
+ if(height)document.documentElement.style.setProperty('--cart-hint-space',Math.ceil(height+16)+'px');
+}
+function keepCardControlVisible(button){
+ const control=button.closest('.meat-buy'),hint=$('cart-checkout-hint');
+ if(!control||hint.hidden)return;
+ const overlap=control.getBoundingClientRect().bottom-hint.getBoundingClientRect().top+8;
+ if(overlap>0)window.scrollBy({top:overlap,behavior:'instant'});
 }
 function renderCartControls(){
  const total=cartSubtotal(),hasPriced=Object.keys(basket).some(id=>cutById(id).price>0);
@@ -195,12 +205,12 @@ function validateCartInput(input,showError=false){
 }
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
- if(el.matches('[data-add-cut]'))addToBasket(el.dataset.addCut);
+ if(el.matches('[data-add-cut]')){addToBasket(el.dataset.addCut);keepCardControlVisible(el);}
  if(el.matches('[data-cart-suggestion]')){
   const suggestion=cartSuggestions().find(s=>s.id===el.dataset.cartSuggestion);
   if(suggestion){addToBasket(suggestion.id,suggestion.quantity);$('cart-submit').focus({preventScroll:true});}
  }
- if(el.matches('[data-cart-step]'))changeCartQuantity(el.dataset.cartId,Number(el.dataset.cartStep));
+ if(el.matches('[data-cart-step]')){changeCartQuantity(el.dataset.cartId,Number(el.dataset.cartStep));keepCardControlVisible(el);}
  if(el.matches('[data-cart-remove]')){delete basket[el.dataset.cartRemove];preparationNotes.delete(el.dataset.cartRemove);invalidCart.delete(el.dataset.cartRemove);saveBasket();renderCart();updatePreview();}
  if(el.matches('[data-cart-open]'))openCart(el);
  if(el.matches('[data-view-product]')){
@@ -245,6 +255,7 @@ $('cart-form').addEventListener('submit',event=>{
  $('cart-status').replaceChildren(label,phone,document.createElement('br'),retry);
 });
 $('product-quantity').addEventListener('input',updateProductEstimate);
+new ResizeObserver(syncCartHintSpace).observe($('cart-checkout-hint'));
 window.addEventListener('storage',event=>{if(event.key===cartKey||event.key===null){basket=readBasket();for(const id of preparationNotes.keys())if(!basket[id])preparationNotes.delete(id);renderCart();updatePreview();}});
 
 $('product-quantity').addEventListener('input',()=>{for(const button of $('product-presets').querySelectorAll('button'))button.setAttribute('aria-pressed',String(Number($('product-quantity').value.replace(',','.'))===Number(button.dataset.quantityPreset)));});

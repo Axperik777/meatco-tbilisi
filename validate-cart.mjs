@@ -55,6 +55,7 @@ const mutations=source.slice(source.indexOf('function addToBasket'),source.index
 const oneCut={id:'test-cut',price:20,unit:'kg'};
 const edit={basket:{'test-cut':1},invalidCart:new Set(),cartDrafts:new Map(),cutById:()=>oneCut,cutAvailable:c=>!!c&&c.available!==false,validCartQuantity:()=>true,saveBasket(){},renderCart(){},notifyAdded(){},track(){}};
 vm.createContext(edit);vm.runInContext(mutations,edit);
+edit.basket={};vm.runInContext("addToBasket('test-cut')",edit);assert.equal(edit.basket['test-cut'],1);
 vm.runInContext("addToBasket('test-cut',2,true)",edit);assert.equal(edit.basket['test-cut'],2);
 vm.runInContext("addToBasket('test-cut',.5)",edit);assert.equal(edit.basket['test-cut'],2.5);
 oneCut.available=false;vm.runInContext("addToBasket('test-cut',4,true)",edit);assert.equal(edit.basket['test-cut'],2.5);
@@ -74,21 +75,33 @@ console.log('Pre-launch: product update/add, sold-out guards and Tbilisi workday
 // half-kilogram quantity actually brings this cart to the minimum in one tap.
 const suggestionCuts=structuredClone(cuts);
 const upsell={basket:{},MIN_ORDER:50,invalidCart:new Set(),cutById:id=>suggestionCuts.find(c=>c.id===id),cutAvailable:c=>!!c&&c.available!==false};
+upsell.content={cuts:suggestionCuts};
 vm.createContext(upsell);vm.runInContext(cartFunctions,upsell);
 for(const basket of [{'pork-flesh':1},{'beef-round':1.5},{chicken:1},{'mixed-mince':.01,'pork-ribs':.01,'offal-beef-liver':.01,'pork-flesh':.01},{'offal-tripe':1}]){
  upsell.basket=basket;
  const suggestions=vm.runInContext('cartSuggestions()',upsell),subtotal=vm.runInContext('cartSubtotal()',upsell);
- assert.ok(suggestions.length>=2&&suggestions.length<=3);
+ assert.ok(suggestions.length>=1&&suggestions.length<=3);
  assert.equal(new Set(suggestions.map(s=>s.id)).size,suggestions.length);
  for(const s of suggestions){
   const c=upsell.cutById(s.id);assert.ok(!basket[s.id]&&c.available!==false&&c.price>0&&c.unit==='kg');
-  assert.ok(s.quantity>0&&Number.isInteger(s.quantity*2));
+  assert.ok([.5,1].includes(s.quantity));
+  if(s.quantity===1)assert.ok(subtotal+Math.round(c.price*.5*100)/100<50,'Use 0.5 kg whenever it reaches the minimum');
   assert.equal(s.amount,Math.round(c.price*s.quantity*100)/100);
   assert.ok(subtotal+s.amount>=50);
  }
 }
 upsell.basket={'pork-ribs':2.5};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
 upsell.basket={};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
+for(const [qty,expected] of [[1.5,.5],[1,1]]){
+ upsell.basket={'beef-round':qty};
+ const suggestion=vm.runInContext('cartSuggestions()',upsell).find(s=>s.id==='mixed-mince');
+ assert.ok(suggestion);assert.equal(suggestion.quantity,expected);
+}
+// If no remaining kilogram-sized cut reaches the threshold, offer no misleading add-on.
+upsell.basket={'offal-tripe':1};
+for(const c of suggestionCuts)if(c.price>=50)c.available=false;
+assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
+for(const c of suggestionCuts)delete c.available;
 upsell.basket={'pork-flesh':1};upsell.invalidCart.add('pork-flesh');assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);upsell.invalidCart.clear();
 upsell.cutById('mixed-mince').available=false;
 assert.ok(vm.runInContext('cartSuggestions()',upsell).every(s=>s.id!=='mixed-mince'));
@@ -102,3 +115,21 @@ for(const language of ['ka','ru','en']){
  assert.equal(vm.runInContext('questionMessage(cut)',ask),locale[language].questionGreeting+'\n'+locale[language].messageCut+': '+ask.cut.name[language]);
 }
 console.log('Conversion: add-on totals, duplicate/stock/invalid guards and three-language question templates passed.');
+
+// Exercise the real submit handler without opening an external chat.
+const submitSource=source.slice(source.indexOf("$('cart-form').addEventListener('submit'"),source.indexOf("$('product-quantity').addEventListener('input',updateProductEstimate)"));
+for(const language of ['ka','ru','en']){
+ let submit,opened,remaining=0;
+ const status={replaceChildren(...children){this.children=children;}};
+ const fields={'cart-form':{addEventListener(type,handler){submit=handler;}},'cart-items':{querySelectorAll:()=>[]},'cart-status':status,'cart-minimum':{scrollIntoView(){}}};
+ const payload='MeatCO\n• '+cuts[0].name[language]+' — 1 кг\n50 ₾';
+ const checkout={basket:{[cuts[0].id]:1},invalidCart:new Set(),$:id=>fields[id],cartHasItems:()=>true,cartMinimumRemaining:()=>remaining,cartUnavailable:()=>[],refreshDeliverySlots(){},updateCartSummary(){},cartMessage:()=>payload,whatsappUrl:body=>'https://wa.me/995568258118?text='+encodeURIComponent(body),text:key=>locale[language][key],track(){},window:{open(url){opened=url;}},document:{createElement:tag=>({tag})}};
+ vm.runInNewContext(submitSource,checkout);submit({preventDefault(){}});
+ assert.equal(new URL(opened).searchParams.get('text'),payload);
+ assert.equal(status.children[0].textContent,locale[language].chatFallback+' ');
+ assert.equal(status.children[1].href,'tel:+995568258118');
+ assert.equal(status.children[1].textContent,'+995 568 258 118');
+ assert.equal(status.children[3].href,opened);
+ opened=null;remaining=1;submit({preventDefault(){}});assert.equal(opened,null);
+}
+console.log('Checkout: non-empty payload, after-open call/retry fallback and minimum guard passed in ka/ru/en.');
