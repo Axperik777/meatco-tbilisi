@@ -1,0 +1,59 @@
+{
+  "version": 7,
+  "tool": "image_gen.imagegen",
+  "mode": "generate",
+  "date": "2026-09-13",
+  "purpose": "Replace repeated images across different catalog products",
+  "items": [
+    {
+      "id": "beef-liver-v07",
+      "source": "C:\\Users\\Mylaptop\\.codex\\generated_images\\01a097b6-35f8-79c0-a4d8-7d5b70ef9742\\exec-b24738d4-ceb3-4d49-b42b-96b94af5608b.png",
+      "workspaceMaster": "../Креативы/MeatCO_product_assets_v07/beef-liver-v07.png",
+      "prompt": "Use case: product-mockup. Create one premium butcher catalog photograph, square 1024x1024, realistic raw fresh edible offal displayed hygienically on off-white unprinted butcher parchment on light warm grey limestone. Soft daylight from upper left, natural moist texture, no blood pools. Fill about 80 percent of the frame, high three-quarter view, sharp product detail, clean commercial photography matching a cream/forest premium meat shop. NO text, logo, watermark, packaging, plates, vegetables, herbs, utensils, collage or graphic labels. One single product photograph. Subject: ONE large whole BEEF LIVER, a broad flat elongated dark mahogany-brown lobe, with the anatomical shape of bovine liver. Lie it diagonally from lower left to upper right, smooth darker glossy convex surface, broad thin edge facing foreground. Show a wide, substantially elongated silhouette with a small separate upper lobe, not three plump rounded chunks. This must look clearly different from a small pork liver with deeply divided lobes and from sliced pale calf liver.",
+      "outputs": [
+        "dist/assets/products/beef-liver-v07.webp",
+        "dist/assets/products/beef-liver-v07-small.webp"
+      ]
+    },
+    {
+      "id": "veal-liver-v07",
+      "source": "C:\\Users\\Mylaptop\\.codex\\generated_images\\01a097b6-35f8-79c0-a4d8-7d5b70ef9742\\exec-87fad593-f974-4f79-92c3-eff674517dac.png",
+      "workspaceMaster": "../Креативы/MeatCO_product_assets_v07/veal-liver-v07.png",
+      "prompt": "Use case: product-mockup. Create one premium butcher catalog photograph, square 1024x1024, realistic raw fresh edible offal displayed hygienically on off-white unprinted butcher parchment on light warm grey limestone. Soft daylight from upper left, natural moist texture, no blood pools. Fill about 80 percent of the frame, high three-quarter view, sharp product detail, clean commercial photography matching a cream/forest premium meat shop. NO text, logo, watermark, packaging, plates, vegetables, herbs, utensils, collage or graphic labels. One single product photograph. Subject: raw CALF LIVER in three thick broad slices gently fanned in the foreground, with a small unsliced lobe behind. Warm reddish-brown delicate calf-liver color, smooth cut faces and thin outer skin, softly tapered irregular oval shapes, not a marbled steak. The camera shows the cut faces, arranged horizontally left to right. Distinct composition from a whole beef liver or a multi-lobed whole pork liver.",
+      "outputs": [
+        "dist/assets/products/veal-liver-v07.webp",
+        "dist/assets/products/veal-liver-v07-small.webp"
+      ]
+    },
+    {
+      "id": "beef-offal-v07",
+      "source": "C:\\Users\\Mylaptop\\.codex\\generated_images\\01a097b6-35f8-79c0-a4d8-7d5b70ef9742\\exec-2dbbda07-27f9-47ae-838c-b3bfbeacdfcb.png",
+      "workspaceMaster": "../Креативы/MeatCO_product_assets_v07/beef-offal-v07.png",
+      "prompt": "Use case: product-mockup. Create one premium butcher catalog photograph, square 1024x1024, realistic raw fresh edible offal displayed hygienically on off-white unprinted butcher parchment on light warm grey limestone. Soft daylight from upper left, natural moist texture, no blood pools. Fill about 80 percent of the frame, high three-quarter view, sharp product detail, clean commercial photography matching a cream/forest premium meat shop. NO text, logo, watermark, packaging, plates, vegetables, herbs, utensils, collage or graphic labels. One single product photograph. Subject: selection of raw BEEF OFFAL arranged as three separate recognizable pieces: ONE large beef heart upright on its side in the left rear, ONE clearly lobulated bovine kidney (cluster of small rounded lobules) at front right, and ONE broad flat dark liver slab at back right. Arrange these with space between them, the heart dominant in the left half. Correct relative anatomical shapes. No pork bean-shaped kidneys, no extra unidentified organs. This represents a loose assortment, no container.",
+      "outputs": [
+        "dist/assets/products/beef-offal-v07.webp",
+        "dist/assets/products/beef-offal-v07-small.webp"
+      ]
+    },
+    {
+      "id": "pork-offal-v07",
+      "source": "C:\\Users\\Mylaptop\\.codex\\generated_images\\01a097b6-35f8-79c0-a4d8-7d5b70ef9742\\exec-dc0dffd7-cbd0-4280-aad5-445f8c45c732.png",
+      "workspaceMaster": "../Креативы/MeatCO_product_assets_v07/pork-offal-v07.png",
+      "prompt": "Use case: product-mockup. Create one premium butcher catalog photograph, square 1024x1024, realistic raw fresh edible offal displayed hygienically on off-white unprinted butcher parchment on light warm grey limestone. Soft daylight from upper left, natural moist texture, no blood pools. Fill about 80 percent of the frame, high three-quarter view, sharp product detail, clean commercial photography matching a cream/forest premium meat shop. NO text, logo, watermark, packaging, plates, vegetables, herbs, utensils, collage or graphic labels. One single product photograph. Subject: selection of raw PORK OFFAL laid out in a horizontal triangular composition: a pale pink small pork lung portion in the rear left, a small deep-red pig heart lying sideways in the rear right, and two thin dark reddish-brown pork liver slices in the foreground. Make the lung texture soft and naturally lobed, heart compact and tapered, liver smooth. Only these three types, clearly separate, photographed from a steeper near-overhead angle. Not the common liver-heart-two-kidneys composition.",
+      "outputs": [
+        "dist/assets/products/pork-offal-v07.webp",
+        "dist/assets/products/pork-offal-v07-small.webp"
+      ]
+    },
+    {
+      "id": "pork-trotters-clean-v07",
+      "source": "C:\\Users\\Mylaptop\\.codex\\generated_images\\01a097b6-35f8-79c0-a4d8-7d5b70ef9742\\exec-8fd67bbd-2f7b-4b85-a803-5eb44e207809.png",
+      "workspaceMaster": "../Креативы/MeatCO_product_assets_v07/pork-trotters-clean-v07.png",
+      "prompt": "Use case: product-mockup. One new photograph for the product 'cleaned pork trotters' in a premium butcher catalog. Show THREE cleaned raw PORK trotters, whole short feet including cloven toes and modest ankle sections, carefully depilated pale ivory-pink skin with natural fine folds. Arrange three whole feet in a loose fan, toe tips pointing left/down/right, with one foot partly behind the other two. Distinct near-overhead composition, not a parallel pair aligned upper-left to lower-right. On off-white unprinted butcher paper over warm light grey limestone, soft daylight from upper left, hygienic raw butcher presentation, no blood pools. Square 1024x1024 photo, fill 80 percent of frame, faithful pig-foot anatomy and realistic surface texture. No text, logo, watermark, tray, vegetables, herbs, utensils, cooked food or collage.",
+      "outputs": [
+        "dist/assets/products/pork-trotters-clean-v07.webp",
+        "dist/assets/products/pork-trotters-clean-v07-small.webp"
+      ]
+    }
+  ]
+}

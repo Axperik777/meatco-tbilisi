@@ -1,7 +1,6 @@
 let appScreen='home';
 const appPanels=Array.from(document.querySelectorAll('[data-app-panel]'));
 const appScrollPositions={home:0,catalog:0,help:0};
-const storyAsset=path=>typeof path==='string'&&/^\.\/assets\/stories\/[a-zA-Z0-9/_-]+\.(mp4|webm|vtt)$/.test(path)?path:'';
 function switchAppScreen(next,{push=true,anchor='',focus=false}={}){
  if(!['home','catalog','help'].includes(next))return;
  if(!appPanels.length){
@@ -31,11 +30,6 @@ function updateProductEstimate(){
  document.querySelector('label[for="product-weight-range"]').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
 }
 function initializeAppShell(){
- for(const button of document.querySelectorAll('[data-story]')){
-  if(storyAsset(config.stories?.[button.dataset.story]?.src)){
-   const label=button.querySelector('small');label.dataset.i18n='storyWatch';label.textContent=text('storyWatch');
-  }
- }
  if($('sheet-filters')&&document.querySelector('.catalog-tabs'))$('sheet-filters').innerHTML=document.querySelector('.catalog-tabs').innerHTML;
  renderCatalog();
  if(appPanels.length){
@@ -55,21 +49,6 @@ document.addEventListener('click',event=>{
  if(el.matches('[data-app-business]'))switchAppScreen('help',{anchor:'restaurants'});
  if(el.matches('[data-open-privacy]'))showDialog($('privacy-dialog'),el);
  if(el.matches('[data-filter-open]'))showDialog($('filter-dialog'),el);
- if(el.matches('[data-story]')){
-  const story={fresh:['storyFresh','beef-tenderloin','storyFreshMessage'],cut:['storyCut','pork-ribs','storyCutMessage'],weight:['storyWeight','beef-round','storyWeightMessage']}[el.dataset.story];
-  $('story-title').textContent=text(story[0]);$('story-image').src=cutById(story[1]).image;$('story-image').alt=cutById(story[1]).name[language];
-  const media=config.stories?.[el.dataset.story],source=storyAsset(media?.src),video=$('story-video');
-  video.pause();video.replaceChildren();video.removeAttribute('src');video.hidden=!source;$('story-image').hidden=!!source;
-  if(source){
-   video.poster=cutById(story[1]).image;video.src=source;video.setAttribute('aria-label',text(story[0]));
-   for(const lang of supported){
-    const caption=storyAsset(media.captions?.[lang]);if(!caption)continue;
-    const track=document.createElement('track');track.kind='captions';track.srclang=lang;track.label={ka:'ქართული',ru:'Русский',en:'English'}[lang];track.src=caption;track.default=lang===language;video.append(track);
-   }
-   video.load();
-  }
-  $('story-request').href=whatsappUrl(text(story[2]));showDialog($('story-dialog'),el);
- }
  if(el.matches('[data-install-open]'))showDialog($('install-dialog'),el);
  if(el.matches('[data-install-dismiss]')){$('install-hint').hidden=true;try{localStorage.setItem('meatco:install-dismissed','1');}catch{}}
  if(el.matches('a[data-local]')&&appPanels.length){
@@ -81,8 +60,6 @@ document.addEventListener('click',event=>{
   switchAppScreen(next,{anchor:['delivery','restaurants','faq'].includes(anchor)?anchor:'',focus:true});
  }
 });
-$('story-dialog').addEventListener('close',()=>{$('story-video').pause();});
-$('story-video').addEventListener('error',()=>{$('story-video').hidden=true;$('story-image').hidden=false;});
 $('product-weight-range').addEventListener('input',()=>{
  $('product-quantity').value=$('product-weight-range').value;$('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');renderProductDetail();
 });

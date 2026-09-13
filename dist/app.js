@@ -82,8 +82,8 @@ const strings = {
     "messageEnd": "გთხოვთ, დამიზუსტოთ ხელმისაწვდომობა, ფასი და მიტანის პირობები.",
     "kg": "კგ",
     "b2bEyebrow": "რესტორნებისა და კაფეებისთვის",
-    "b2bTitle": "MeatCO თქვენი სამზარეულოსთვის",
-    "b2bText": "ღორისა და საქონლის ხორცი, სუბპროდუქტები — თქვენი მენიუსთვის. ერთად განვიხილოთ სასურველი ნაწილები, მოცულობა, ფასები და მიწოდების გრაფიკი.",
+    "b2bTitle": "ახალი ხორცი თქვენი სამზარეულოსთვის",
+    "b2bText": "რესტორნებისა და კაფეებისთვის — მხოლოდ ახალი, ხარისხიანი ხორცი: ღორისა და საქონლის ხორცი, სუბპროდუქტები. შევათანხმებთ სასურველ ნაწილებს, მოცულობას, ფასებსა და მოწოდების გრაფიკს.",
     "b2bCta": "მოწოდების განხილვა",
     "b2bMessage": "გამარჯობა, MeatCO! მაინტერესებს ხორცის მიწოდება რესტორნის ან კაფესთვის. მსურს განვიხილოთ სასურველი ნაჭრები, მოცულობა, ფასები და მოწოდების გრაფიკი.",
     "navGuide": "რა მოვამზადოთ?",
@@ -327,15 +327,6 @@ const strings = {
     "appHome": "მთავარი",
     "appHelp": "დახმარება",
     "appHomeTitle": "ხორცი თქვენი სუფრისთვის",
-    "storyTitle": "ნახეთ შეკვეთამდე",
-    "storyFresh": "თქვენი ხორცი",
-    "storyCut": "სასურველი ნაჭერი",
-    "storyWeight": "ზუსტი წონა",
-    "storyRequest": "ვიდეოს მოთხოვნა",
-    "storyDescription": "შეკვეთის დადასტურებამდე მოითხოვეთ ხორცის ვიდეო WhatsApp-ში.",
-    "storyFreshMessage": "გამარჯობა, MeatCO! გთხოვთ, ვიდეოზე მაჩვენოთ ხორცი, რომლის შეკვეთაც ახლა შემიძლია.",
-    "storyCutMessage": "გამარჯობა, MeatCO! დამეხმარეთ ნაჭრის შერჩევაში და გთხოვთ, ვიდეოზეც მაჩვენოთ.",
-    "storyWeightMessage": "გამარჯობა, MeatCO! შეიძლება შეკვეთის დადასტურებამდე ვიდეოზე ვნახო შერჩეული ხორცი და მისი წონა?",
     "homeSelection": "MeatCO-ს არჩევანი",
     "homeCategories": "რას შევუკვეთავთ?",
     "brandSmall": "თქვენ ირჩევთ. MeatCO მოგიტანთ.",
@@ -364,7 +355,16 @@ const strings = {
     "privacyOpen": "კონფიდენციალურობა",
     "filterIntro": "აირჩიეთ კატეგორია ან რჩეული პროდუქტები.",
     "slotUnknown": "WhatsApp-ში დავაზუსტებთ",
-    "storyWatch": "ვიდეოს ნახვა"
+    "eventEyebrow": "ბანკეტები · დაბადების დღეები",
+    "eventTitle": "ხორცი თქვენი დღესასწაულისთვის",
+    "eventCopy": "ბანკეტი, დაბადების დღე თუ ოჯახური დღესასწაული — ხორცი სასურველ თარიღზე წინასწარ შეგვიკვეთეთ. დეტალებს WhatsApp-ში შევათანხმებთ.",
+    "eventCta": "შეკვეთის განხილვა",
+    "eventGreeting": "გამარჯობა, MeatCO! მსურს ბანკეტისთვის ან დღესასწაულისთვის ხორცის შეკვეთა კონკრეტულ თარიღზე. გთხოვთ, მომწეროთ ვარიანტები და პირობები.",
+    "videoTrustTitle": "ხორცი თავად ნახეთ",
+    "videoTrustCopy": "შეკვეთის დადასტურებამდე შერჩეულ ხორცს WhatsApp-ში ვიდეოთი გაჩვენებთ.",
+    "videoTrustCta": "ვიდეოს მოთხოვნა",
+    "contactAddressLabel": "ჩვენი მისამართი",
+    "contactAddress": "თბილისი, მეველეს ქუჩა 3"
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -447,8 +447,8 @@ const strings = {
     "messageEnd": "Подскажите наличие, цену и условия доставки.",
     "kg": "кг",
     "b2bEyebrow": "Для ресторанов и кафе",
-    "b2bTitle": "MeatCO для вашей кухни",
-    "b2bText": "Свинина, говядина и субпродукты под ваше меню. Обсудим нужные части, объём, цены и график поставок.",
+    "b2bTitle": "Свежее мясо для вашей кухни",
+    "b2bText": "Только свежее качественное мясо для ресторанов и кафе: свинина, говядина и субпродукты. Согласуем нужные части, объёмы, цены и график поставок.",
     "b2bCta": "Обсудить поставки",
     "b2bMessage": "Здравствуйте, MeatCO! Интересуют поставки мяса для ресторана или кафе. Хочу обсудить нужные части, объёмы, цены и график поставок.",
     "navGuide": "Что приготовить",
@@ -692,15 +692,6 @@ const strings = {
     "appHome": "Главная",
     "appHelp": "Помощь",
     "appHomeTitle": "Мясо к вашему столу",
-    "storyTitle": "Посмотрите перед заказом",
-    "storyFresh": "Ваше мясо",
-    "storyCut": "Нужная часть",
-    "storyWeight": "Точный вес",
-    "storyRequest": "Запросить видео",
-    "storyDescription": "Попросите показать мясо в WhatsApp перед подтверждением заказа.",
-    "storyFreshMessage": "Здравствуйте, MeatCO! Покажите, пожалуйста, на видео мясо, которое сейчас можно заказать.",
-    "storyCutMessage": "Здравствуйте, MeatCO! Помогите выбрать часть и покажите её, пожалуйста, на видео.",
-    "storyWeightMessage": "Здравствуйте, MeatCO! Можно увидеть выбранное мясо и его вес на видео перед подтверждением заказа?",
     "homeSelection": "Выбор MeatCO",
     "homeCategories": "Что закажем?",
     "brandSmall": "Вы выбираете. MeatCO доставляет.",
@@ -729,7 +720,16 @@ const strings = {
     "privacyOpen": "Конфиденциальность",
     "filterIntro": "Выберите категорию или сохранённые товары.",
     "slotUnknown": "Уточним в WhatsApp",
-    "storyWatch": "Смотреть видео"
+    "eventEyebrow": "Банкеты · Дни рождения",
+    "eventTitle": "Мясо к вашему празднику",
+    "eventCopy": "Банкеты, дни рождения и семейные праздники — принимаем заказы на мясо к нужной дате. Детали согласуем в WhatsApp.",
+    "eventCta": "Обсудить заказ",
+    "eventGreeting": "Здравствуйте, MeatCO! Хочу заказать мясо для банкета или праздника к определённой дате. Подскажите варианты и условия.",
+    "videoTrustTitle": "Посмотрите мясо своими глазами",
+    "videoTrustCopy": "Покажем выбранный кусок на видео в WhatsApp до подтверждения заказа.",
+    "videoTrustCta": "Попросить видео",
+    "contactAddressLabel": "Наш адрес",
+    "contactAddress": "Тбилиси, улица Мевеле, 3"
   },
   "en": {
     "skip": "Skip to content",
@@ -812,8 +812,8 @@ const strings = {
     "messageEnd": "Please confirm availability, prices and delivery details.",
     "kg": "kg",
     "b2bEyebrow": "For restaurants and cafés",
-    "b2bTitle": "MeatCO for your kitchen",
-    "b2bText": "Pork, beef and offal for your menu. Let’s discuss the cuts, volumes, prices and delivery schedule you need.",
+    "b2bTitle": "Fresh meat for your kitchen",
+    "b2bText": "Only fresh, quality meat for restaurants and cafés: pork, beef and offal. We’ll agree on the cuts, quantities, prices and supply schedule.",
     "b2bCta": "Discuss supply",
     "b2bMessage": "Hello, MeatCO! I’m interested in meat supply for a restaurant or café. I’d like to discuss cuts, quantities, prices and delivery schedules.",
     "navGuide": "Meal ideas",
@@ -1057,15 +1057,6 @@ const strings = {
     "appHome": "Home",
     "appHelp": "Help",
     "appHomeTitle": "Meat for your table",
-    "storyTitle": "See it before you order",
-    "storyFresh": "Your meat",
-    "storyCut": "Your cut",
-    "storyWeight": "Exact weight",
-    "storyRequest": "Request a video",
-    "storyDescription": "Ask to see the meat on WhatsApp before confirming your order.",
-    "storyFreshMessage": "Hello, MeatCO! Please show me a video of the meat available to order now.",
-    "storyCutMessage": "Hello, MeatCO! Please help me choose a cut and show it to me on video.",
-    "storyWeightMessage": "Hello, MeatCO! Could I see the selected meat and its weight on video before confirming my order?",
     "homeSelection": "The MeatCO selection",
     "homeCategories": "What shall we bring?",
     "brandSmall": "You choose. MeatCO delivers.",
@@ -1094,7 +1085,16 @@ const strings = {
     "privacyOpen": "Privacy",
     "filterIntro": "Choose a category or your saved products.",
     "slotUnknown": "Agree on WhatsApp",
-    "storyWatch": "Watch video"
+    "eventEyebrow": "Banquets · Birthdays",
+    "eventTitle": "Meat for your celebration",
+    "eventCopy": "Banquets, birthdays and family celebrations — preorder meat for the date you need. We’ll agree on the details on WhatsApp.",
+    "eventCta": "Discuss your order",
+    "eventGreeting": "Hello, MeatCO! I’d like to order meat for a banquet or celebration on a specific date. Please let me know the options and arrangements.",
+    "videoTrustTitle": "See the meat for yourself",
+    "videoTrustCopy": "We’ll show you the selected cut on video in WhatsApp before you confirm your order.",
+    "videoTrustCta": "Ask for a video",
+    "contactAddressLabel": "Our address",
+    "contactAddress": "3 Mevele Street, Tbilisi"
   }
 };
 function createProductSearch(cuts,dishes,locales){
@@ -1349,6 +1349,7 @@ function setLanguage(next,persist=true){
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-video-general]'))a.href=whatsappUrl(text('videoGeneralMessage'));
+ for(const a of document.querySelectorAll('[data-event-whatsapp]'))a.href=whatsappUrl(text('eventGreeting'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
  status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderFavorites();
@@ -1619,7 +1620,6 @@ $('product-quantity').addEventListener('input',()=>{for(const button of $('produ
 let appScreen='home';
 const appPanels=Array.from(document.querySelectorAll('[data-app-panel]'));
 const appScrollPositions={home:0,catalog:0,help:0};
-const storyAsset=path=>typeof path==='string'&&/^\.\/assets\/stories\/[a-zA-Z0-9/_-]+\.(mp4|webm|vtt)$/.test(path)?path:'';
 function switchAppScreen(next,{push=true,anchor='',focus=false}={}){
  if(!['home','catalog','help'].includes(next))return;
  if(!appPanels.length){
@@ -1649,11 +1649,6 @@ function updateProductEstimate(){
  document.querySelector('label[for="product-weight-range"]').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
 }
 function initializeAppShell(){
- for(const button of document.querySelectorAll('[data-story]')){
-  if(storyAsset(config.stories?.[button.dataset.story]?.src)){
-   const label=button.querySelector('small');label.dataset.i18n='storyWatch';label.textContent=text('storyWatch');
-  }
- }
  if($('sheet-filters')&&document.querySelector('.catalog-tabs'))$('sheet-filters').innerHTML=document.querySelector('.catalog-tabs').innerHTML;
  renderCatalog();
  if(appPanels.length){
@@ -1673,21 +1668,6 @@ document.addEventListener('click',event=>{
  if(el.matches('[data-app-business]'))switchAppScreen('help',{anchor:'restaurants'});
  if(el.matches('[data-open-privacy]'))showDialog($('privacy-dialog'),el);
  if(el.matches('[data-filter-open]'))showDialog($('filter-dialog'),el);
- if(el.matches('[data-story]')){
-  const story={fresh:['storyFresh','beef-tenderloin','storyFreshMessage'],cut:['storyCut','pork-ribs','storyCutMessage'],weight:['storyWeight','beef-round','storyWeightMessage']}[el.dataset.story];
-  $('story-title').textContent=text(story[0]);$('story-image').src=cutById(story[1]).image;$('story-image').alt=cutById(story[1]).name[language];
-  const media=config.stories?.[el.dataset.story],source=storyAsset(media?.src),video=$('story-video');
-  video.pause();video.replaceChildren();video.removeAttribute('src');video.hidden=!source;$('story-image').hidden=!!source;
-  if(source){
-   video.poster=cutById(story[1]).image;video.src=source;video.setAttribute('aria-label',text(story[0]));
-   for(const lang of supported){
-    const caption=storyAsset(media.captions?.[lang]);if(!caption)continue;
-    const track=document.createElement('track');track.kind='captions';track.srclang=lang;track.label={ka:'ქართული',ru:'Русский',en:'English'}[lang];track.src=caption;track.default=lang===language;video.append(track);
-   }
-   video.load();
-  }
-  $('story-request').href=whatsappUrl(text(story[2]));showDialog($('story-dialog'),el);
- }
  if(el.matches('[data-install-open]'))showDialog($('install-dialog'),el);
  if(el.matches('[data-install-dismiss]')){$('install-hint').hidden=true;try{localStorage.setItem('meatco:install-dismissed','1');}catch{}}
  if(el.matches('a[data-local]')&&appPanels.length){
@@ -1699,8 +1679,6 @@ document.addEventListener('click',event=>{
   switchAppScreen(next,{anchor:['delivery','restaurants','faq'].includes(anchor)?anchor:'',focus:true});
  }
 });
-$('story-dialog').addEventListener('close',()=>{$('story-video').pause();});
-$('story-video').addEventListener('error',()=>{$('story-video').hidden=true;$('story-image').hidden=false;});
 $('product-weight-range').addEventListener('input',()=>{
  $('product-quantity').value=$('product-weight-range').value;$('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');renderProductDetail();
 });

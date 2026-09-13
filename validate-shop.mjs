@@ -25,7 +25,7 @@ for(const d of dishes){
 assert.equal(new Set(imageHashes).size,15,'Duplicate dish image content');
 for(const c of cuts)if(c.price!==undefined){assert.ok(c.price>0,'Zero / invalid public price: '+c.id);assert.ok(['kg','piece'].includes(c.unit));}
 for(const c of cuts)for(const image of [c.image,c.image.replace('.webp','-small.webp')])assert.ok(fs.existsSync(path.join(root,image)),c.id+': missing product photo '+image);
-assert.equal(new Set(cuts.map(c=>c.image)).size,41);
+assert.equal(new Set(cuts.map(c=>c.image)).size,cuts.length);
 for(const file of ['index.html','catalog.html']){
  const html=fs.readFileSync(path.join(root,file),'utf8');
  assert.equal((html.match(/data-product-card=/g)||[]).length,52,'46 catalog + 6 home products');
@@ -36,6 +36,10 @@ for(const file of ['index.html','catalog.html']){
  assert.ok(!/brand-seal|utility-strip|store-hero/.test(html));
 }
 assert.ok(!/Ваке|Сабуртало|Диди Дигоми|Vake|Saburtalo|Didi Dighomi|ვაკე|საბურთალო|დიდი დიღომი/.test(JSON.stringify(locales)),'District lists removed from all locales');
+for(const suffix of ['','-small']){
+ const hashes=cuts.map(c=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,c.image.replace('.webp',suffix+'.webp')))).digest('hex'));
+ assert.equal(new Set(hashes).size,cuts.length,'Different products must not share identical image content');
+}
 assert.ok(!fs.readFileSync(path.join(root,'index.html'),'utf8').includes('id="featured-dishes"'));
 const pages=['index.html','catalog.html','dishes.html'];
 let references=0;

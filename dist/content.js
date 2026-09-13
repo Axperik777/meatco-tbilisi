@@ -816,7 +816,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 10,
       "unit": "kg",
-      "image": "./assets/products/liver.webp"
+      "image": "./assets/products/beef-liver-v07.webp"
     },
     {
       "id": "offal-veal-liver",
@@ -833,7 +833,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 15,
       "unit": "kg",
-      "image": "./assets/products/liver.webp"
+      "image": "./assets/products/veal-liver-v07.webp"
     },
     {
       "id": "offal-heart",
@@ -922,9 +922,9 @@ window.MEATCO_CONTENT = {
       "id": "offal-feet",
       "category": "offal",
       "name": {
-        "ka": "ფეხები",
-        "ru": "Ножки",
-        "en": "Feet / trotters"
+        "ka": "ღორის ფეხები",
+        "ru": "Свиные ножки",
+        "en": "Pork trotters"
       },
       "use": {
         "ka": "ხაშისა და ლაბისთვის",
@@ -948,7 +948,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 5,
       "unit": "kg",
-      "image": "./assets/products/feet.webp"
+      "image": "./assets/products/pork-trotters-clean-v07.webp"
     },
     {
       "id": "offal-pork-head",
@@ -1067,7 +1067,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 7,
       "unit": "kg",
-      "image": "./assets/products/offal-mix.webp"
+      "image": "./assets/products/beef-offal-v07.webp"
     },
     {
       "id": "marrow-bone",
@@ -1203,7 +1203,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 3,
       "unit": "kg",
-      "image": "./assets/products/offal-mix.webp"
+      "image": "./assets/products/pork-offal-v07.webp"
     }
   ]
 };
