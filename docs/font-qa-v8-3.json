@@ -1,0 +1,210 @@
+[
+  {
+    "source": "ka-390.json",
+    "viewport": 390,
+    "paints": [
+      {
+        "name": "first-paint",
+        "time": 1108
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1108
+      }
+    ],
+    "totalCLS": 0,
+    "fontTimedCLS": 0,
+    "rectanglesStable": true,
+    "fonts": [
+      {
+        "family": "Manrope",
+        "weight": "400",
+        "status": "unloaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "600",
+        "status": "unloaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "700",
+        "status": "unloaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "400",
+        "status": "loaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "700",
+        "status": "loaded"
+      },
+      {
+        "family": "Prata",
+        "weight": "400",
+        "status": "unloaded"
+      }
+    ],
+    "resources": [
+      {
+        "name": "fonts.css?v=109712d4b3",
+        "ms": 589.2999999970198,
+        "bytes": 28547
+      }
+    ]
+  },
+  {
+    "source": "isolated-ru-390.json",
+    "viewport": 390,
+    "paints": [
+      {
+        "name": "first-paint",
+        "time": 232
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 232
+      }
+    ],
+    "totalCLS": 0.13352825539258628,
+    "fontTimedCLS": 0.00006212892043455148,
+    "rectanglesStable": true,
+    "fonts": [
+      {
+        "family": "Manrope",
+        "weight": "400",
+        "status": "loaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "600",
+        "status": "loaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "700",
+        "status": "loaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "400",
+        "status": "unloaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "700",
+        "status": "unloaded"
+      },
+      {
+        "family": "Prata",
+        "weight": "400",
+        "status": "loaded"
+      }
+    ],
+    "resources": [
+      {
+        "name": "fonts.css?v=109712d4b3",
+        "ms": 18.600000008940697,
+        "bytes": 28547
+      },
+      {
+        "name": "manrope-400.woff2",
+        "ms": 3023.9000000059605,
+        "bytes": 17208
+      },
+      {
+        "name": "manrope-600.woff2",
+        "ms": 3024.5,
+        "bytes": 17576
+      },
+      {
+        "name": "prata-400.woff2",
+        "ms": 3025.2999999970198,
+        "bytes": 3164
+      },
+      {
+        "name": "manrope-700.woff2",
+        "ms": 3059.9000000059605,
+        "bytes": 17720
+      }
+    ]
+  },
+  {
+    "source": "isolated-en-390.json",
+    "viewport": 390,
+    "paints": [
+      {
+        "name": "first-paint",
+        "time": 240
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 240
+      }
+    ],
+    "totalCLS": 0.14147947457379664,
+    "fontTimedCLS": 0.00008686724616847481,
+    "rectanglesStable": true,
+    "fonts": [
+      {
+        "family": "Manrope",
+        "weight": "400",
+        "status": "loaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "600",
+        "status": "loaded"
+      },
+      {
+        "family": "Manrope",
+        "weight": "700",
+        "status": "loaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "400",
+        "status": "unloaded"
+      },
+      {
+        "family": "NotoGeo",
+        "weight": "700",
+        "status": "unloaded"
+      },
+      {
+        "family": "Prata",
+        "weight": "400",
+        "status": "loaded"
+      }
+    ],
+    "resources": [
+      {
+        "name": "fonts.css?v=109712d4b3",
+        "ms": 27.600000008940697,
+        "bytes": 28547
+      },
+      {
+        "name": "manrope-400.woff2",
+        "ms": 3029.6000000089407,
+        "bytes": 17208
+      },
+      {
+        "name": "prata-400.woff2",
+        "ms": 3018.2999999970198,
+        "bytes": 3164
+      },
+      {
+        "name": "manrope-600.woff2",
+        "ms": 3030.3999999910593,
+        "bytes": 17576
+      },
+      {
+        "name": "manrope-700.woff2",
+        "ms": 3033.2999999970198,
+        "bytes": 17720
+      }
+    ]
+  }
+]

@@ -1,7 +1,6 @@
-@font-face{font-family:Prata;src:url("./assets/prata.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"Noto Serif Georgian";src:url("./assets/notoserifgeorgian.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
+/* Legacy visual layer; font loading is centralized in fonts.css. */
 :root{--wine:#641e2c;--wine-dark:#4f1723;--forest:#213b31;--paper:#f7f8f4;--warm:#e8e9e1;--ink:#222b25;--muted:#60695f;--line:#d9ddd4;--display:Prata,Georgia,serif}
-html[lang=ka]{--display:"Noto Serif Georgian",Georgia,serif}
+html[lang=ka]{--display:"NotoGeo","Noto Sans Georgian",Arial,sans-serif}
 html{scroll-padding-top:115px}body{background:var(--paper);color:var(--ink)}
 .container{width:min(1360px,calc(100% - 96px))}
 h1,h2{font-family:var(--display);font-weight:400;letter-spacing:-.04em}html[lang=ka] h1,html[lang=ka] h2{letter-spacing:-.025em;font-weight:450}

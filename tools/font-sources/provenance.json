@@ -1,0 +1,30 @@
+{
+  "sha": "fb629caaa15ad25c051089c98f09cf6c8e30a86b",
+  "downloaded": [
+    {
+      "file": "Manrope-variable.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/fb629caaa15ad25c051089c98f09cf6c8e30a86b/ofl/manrope/Manrope%5Bwght%5D.ttf",
+      "bytes": 165420
+    },
+    {
+      "file": "Manrope-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/fb629caaa15ad25c051089c98f09cf6c8e30a86b/ofl/manrope/OFL.txt",
+      "bytes": 4384
+    },
+    {
+      "file": "Manrope-FONTLOG.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/fb629caaa15ad25c051089c98f09cf6c8e30a86b/ofl/manrope/FONTLOG.txt",
+      "bytes": 3075
+    },
+    {
+      "file": "Prata-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/fb629caaa15ad25c051089c98f09cf6c8e30a86b/ofl/prata/OFL.txt",
+      "bytes": 4476
+    },
+    {
+      "file": "NotoSansGeorgian-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/fb629caaa15ad25c051089c98f09cf6c8e30a86b/ofl/notosansgeorgian/OFL.txt",
+      "bytes": 4384
+    }
+  ]
+}

@@ -1,11 +1,8 @@
-@font-face{font-family:Prata;src:url('./assets/prata.ttf') format('truetype');font-weight:400;font-display:swap}
-@font-face{font-family:"Noto Serif Georgian";src:url('./assets/notoserifgeorgian.ttf') format('truetype');font-weight:100 900;font-display:swap}
-
 /* One type and spacing scale for all three locales. */
 :root{
  --paper:#F4EFE6;--surface:#FFFBF6;--ink:#1A1A17;--forest:#1C3A2C;--wine:#6E1F2A;--wine-dark:#541621;--muted:#69685F;--line:#DCD7CC;--warm:#ECE6DA;
- --font-serif:"Prata","Noto Serif Georgian",Georgia,serif;
- --font-sans:"Manrope","NotoGeo","Noto Sans Georgian",Arial,sans-serif;
+ --font-serif:"Prata","Prata Georgia","Prata Times",Georgia,"Times New Roman",serif;
+ --font-sans:"Manrope","Manrope Segoe","Manrope Roboto","Manrope Arial","NotoGeo","NotoGeo System","Segoe UI",Roboto,Arial,sans-serif;
  --fs-kicker:11px;--fs-caption:12px;--fs-body:15px;--fs-ui:14px;--fs-title:18px;--fs-section:20px;--fs-price:22px;--fs-hero:clamp(32px,7vw,44px);
  --lh-tight:1.15;--lh-title:1.25;--lh-body:1.45;
  --ls-hero:-0.03em;--ls-title:-0.02em;--ls-kicker:0.12em;
@@ -17,7 +14,8 @@
  --card-pad-bottom:14px;--cart-image:64px;--category-width:136px;--category-photo-h:96px;--motion:200ms;
  --body:var(--font-sans);--display:var(--font-sans);--editorial:var(--font-serif);--header-height:var(--header-h);
 }
-html[lang=ka]{--body:var(--font-sans);--display:var(--font-sans);--editorial:var(--font-serif)}
+html[lang=ka]{--font-sans:"NotoGeo","NotoGeo System","Noto Sans Georgian",Arial,sans-serif;--font-serif:var(--font-sans);--body:var(--font-sans);--display:var(--font-sans);--editorial:var(--font-serif);--ls-hero:0;--ls-title:0}
+html[lang=ka] :is(h1,h2,h3,button){letter-spacing:0}
 html{scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top) + var(--space-4))}
 body{--canvas-max:var(--catalog-max);margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-body)/var(--lh-body) var(--font-sans);padding-bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--space-4))}
 body:has([data-app-panel="home"]:not([hidden])),body:has([data-app-panel="help"]:not([hidden])){--canvas-max:var(--home-max)}
@@ -195,7 +193,7 @@ dialog h2{font:700 var(--fs-section)/var(--lh-title) var(--font-sans);margin:0 0
 .cart-line{display:grid;grid-template-columns:var(--cart-image) minmax(0,1fr) var(--hit-min);gap:var(--space-2) var(--space-3);padding:var(--space-4) 0;border-top:1px solid var(--line)}
 .cart-line:first-child{border-top:0;padding-top:0}
 .cart-line>img{width:var(--cart-image);height:80px;object-fit:cover;border-radius:var(--radius-s);grid-row:1 / span 2}
-.cart-line h3{font:650 var(--fs-body)/var(--lh-title) var(--font-sans);letter-spacing:var(--ls-title);margin:0 0 var(--space-1)}
+.cart-line h3{font:600 var(--fs-body)/var(--lh-title) var(--font-sans);letter-spacing:var(--ls-title);margin:0 0 var(--space-1)}
 .cart-line-name p{font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted);margin:0}
 .cart-line-name .cart-preparation{margin-top:var(--space-2);color:var(--forest);font-size:var(--fs-caption)}
 .cart-remove{display:grid;place-items:center;align-self:start;width:var(--hit-min);min-width:var(--hit-min);min-height:var(--hit-min);border:0;background:none;color:var(--muted);font-size:var(--fs-price);padding:0}
@@ -280,3 +278,26 @@ textarea{resize:vertical}
  .cart-dialog>h2{margin:0 var(--space-12) var(--space-6) 0}
 }
 @media(prefers-reduced-motion:reduce){.app-sheet[open]{animation:none}*{scroll-behavior:auto!important}}
+/* Mobile font policy: shared desktop sizes above remain unchanged. */
+@media(max-width:639px){
+ :root{
+  --fs-kicker:11px;--fs-caption:12px;--fs-ui:13px;--fs-body:15px;
+  --fs-title:16px;--fs-section:18px;--fs-price:20px;--fs-hero:clamp(28px,8vw,34px);
+  --ls-hero:-0.02em;
+ }
+ .feed-greeting h1{
+  line-height:1.18;min-block-size:calc(2*var(--fs-hero)*1.18);padding-bottom:var(--space-1);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;
+ }
+ .feed-heading h2,.catalog-heading h1{line-height:1.25;overflow-wrap:break-word}
+ .meat-card h3,html[lang=ka] .meat-card h3{height:var(--hit-min);min-height:var(--hit-min);line-height:1.25}
+ .meat-card h3 button{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+  overflow:hidden;text-overflow:ellipsis;min-height:var(--hit-min);height:var(--hit-min);
+  word-break:normal;overflow-wrap:break-word;
+ }
+ .button,.meat-select,.catalog-tabs button,.delivery-slots span,.product-presets button,.languages button{line-height:1;min-height:var(--hit-min)}
+ .app-tabbar>button{font-size:var(--fs-caption);line-height:1.25;word-break:normal;overflow-wrap:break-word}
+ .quick-categories button>span,.product-detail-copy h2,.cart-line-name{word-break:normal;overflow-wrap:break-word}
+ .card-quantity .card-quantity-value{font-size:var(--fs-ui);line-height:1.25}
+}
