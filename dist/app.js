@@ -132,8 +132,8 @@ const strings = {
     "control1Text": "დაამატეთ სასურველი ხორცი კალათაში და მიუთითეთ რაოდენობა.",
     "control2Title": "შევათანხმოთ დეტალები",
     "control2Text": "გადავამოწმებთ ხელმისაწვდომობას და დავაზუსტებთ წონას, მისამართსა და სრულ ღირებულებას.",
-    "control3Title": "სახლში მოგიტანთ",
-    "control3Text": "ჩვენი კურიერი შეკვეთას შეთანხმებულ დროს მოგიტანთ.",
+    "control3Title": "მიიღეთ შეკვეთა",
+    "control3Text": "კურიერით მოგიტანთ ან თვითგატანისთვის მოგიმზადებთ შეთანხმებულ დროს.",
     "deliveryText": "შეკვეთის დადასტურებამდე მიტანის მისამართს, დროსა და ღირებულებას შევათანხმებთ.",
     "checkAddress": "მისამართის გადამოწმება",
     "b2b1Title": "სასურველი ნაჭრები",
@@ -303,7 +303,7 @@ const strings = {
     "fuzzyResults": "მსგავსი პროდუქტები: {n}",
     "addressLabel": "მიტანის მისამართი · სურვილისამებრ",
     "addressPlaceholder": "ქუჩა, სახლის ნომერი, ბინა",
-    "messageAddress": "მიტანის მისამართი",
+    "messageAddress": "მისამართი",
     "helpBenefit": "შევარჩიოთ ხორცი თქვენი კერძისთვის",
     "weightPresets": "რაოდენობის სწრაფი არჩევა",
     "appHome": "მთავარი",
@@ -318,13 +318,13 @@ const strings = {
     "callUs": "დაგვირეკეთ",
     "desiredTime": "როდის გაწყობთ?",
     "slotAny": "რაც შეიძლება მალე",
-    "slotEvening": "დღეს 18–21",
+    "slotEvening": "დღეს 16–18",
     "slotTomorrow": "ხვალ",
     "slotNote": "სასურველი დროა. მიტანის შესაძლებლობასა და ღირებულებას WhatsApp-ში დაგიდასტურებთ.",
     "messageSlot": "სასურველი დრო",
     "productEstimate": "სავარაუდო ფასი",
     "weightConfirm": "შეფუთვამდე ზუსტ წონასა და საბოლოო თანხას WhatsApp-ში შევათანხმებთ.",
-    "checkoutNext": "შეკვეთა მზადაა. გაგზავნეთ შეტყობინება WhatsApp-ში — შეფუთვამდე ზუსტ წონასა და თანხას დაგიდასტურებთ.",
+    "checkoutNext": "შეტყობინება მზადაა. გაგზავნეთ WhatsApp-ში — სამუშაო საათებში 5–10 წუთში ზუსტ წონას დაგიდასტურებთ.",
     "dismiss": "დამალვა",
     "customWeight": "სხვა წონის მითითება",
     "privacyOpen": "კონფიდენციალურობა",
@@ -344,23 +344,36 @@ const strings = {
     "photoSoon": "ფოტო დროებით მიუწვდომელია",
     "preparationLabel": "როგორ მოვამზადოთ · სურვილისამებრ",
     "preparationPlaceholder": "გატარება, ცხიმის მოცილება, სქელი სტეიკები…",
-    "photoRequest": "შეფუთვამდე შერჩეული ხორცის ფოტო მსურს",
+    "photoRequest": "ფოტო შეფუთვამდე",
     "photoMessage": "გთხოვთ, შეფუთვამდე შერჩეული ხორცის ფოტო გამომიგზავნოთ.",
     "slotMidday": "დღეს 12–14",
-    "slotAfternoon": "დღეს 16–18",
-    "cardUnitKg": "დამატება: 1 კგ",
-    "cardUnitPiece": "დამატება: 1 ცალი",
+    "slotAfternoon": "დღეს 14–16",
     "productDescriptionKg": "აირჩიეთ სასურველი წონა. დაჭრის სურვილი კომენტარში მიუთითეთ.",
     "productDescriptionPiece": "აირჩიეთ სასურველი რაოდენობა. მომზადების სურვილი კომენტარში მიუთითეთ.",
-    "deliveryOperations": "კურიერით მიტანა ან თვითგატანა — დროს WhatsApp-ში შევათანხმებთ.",
+    "deliveryOperations": "კურიერით მიტანა ან თვითგატანა.",
     "minimumOrder": "მინიმალური შეკვეთა: {amount}",
     "minimumUnknown": "მინიმალური შეკვეთა WhatsApp-ში დააზუსტეთ.",
     "minimumRemaining": "მინიმალური შეკვეთა {minimum} — დაამატეთ კიდევ {amount}.",
     "deliveryCostNote": "მიტანის საფასურს WhatsApp-ში შევათანხმებთ.",
-    "workingHours": "სამუშაო საათები: {hours}",
+    "workingHours": "ყოველდღე {hours}",
     "workingHoursUnknown": "სამუშაო საათები და თვითგატანის დრო WhatsApp-ში დააზუსტეთ.",
-    "workshopPickup": "ხორცის საამქრო · მეველეს ქ. 3 · თვითგატანა",
-    "minimumUnpriced": "მინიმალური შეკვეთა: {minimum}. ზოგიერთი ფასი დასაზუსტებელია — თანხას WhatsApp-ში შევათანხმებთ."
+    "workshopPickup": "საამქრო · მეველეს ქ. 3 · თვითგატანა 10:00–18:00. სასურველია 30–40 წუთით ადრე შეგვითანხმდეთ.",
+    "dailyHours": "ყოველდღე 10:00–18:00",
+    "afterHours": "18:00-ის შემდეგ შეკვეთას მივიღებთ და ხვალ 10:00-დან გიპასუხებთ.",
+    "todayOperations": "დღეს თბილისში · მიტანა 18:00-მდე · WhatsApp-ში პასუხი 5–10 წუთში, სამუშაო საათებში.",
+    "soldOut": "დღეს არ არის",
+    "cartUnavailable": "დღეს არ არის: {items}. შეკვეთის გასაგზავნად ამოიღეთ კალათიდან.",
+    "updateCart": "განახლება",
+    "cartUpdated": "კალათა განახლდა",
+    "messageEstimate": "სავარაუდო თანხა",
+    "messageTbc": "დავაზუსტებთ",
+    "messageTime": "მიტანის დრო",
+    "messageComment": "კომენტარი",
+    "messagePhoto": "ფოტო შეფუთვამდე",
+    "answerYes": "კი",
+    "answerNo": "არა",
+    "cartMessageEnd": "შეკვეთის მომზადებამდე ზუსტ წონასა და თანხას დაგიდასტურებთ.",
+    "messageHours": "სამუშაო საათები {hours}."
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -493,8 +506,8 @@ const strings = {
     "control1Text": "Добавьте нужные части в корзину и укажите количество.",
     "control2Title": "Согласуем детали",
     "control2Text": "Проверим наличие, уточним точный вес, адрес и полную стоимость.",
-    "control3Title": "Привезём домой",
-    "control3Text": "Наш курьер доставит заказ в согласованное время.",
+    "control3Title": "Получите заказ",
+    "control3Text": "Доставим курьером или подготовим к самовывозу в согласованное время.",
     "deliveryText": "Адрес, время и стоимость доставки согласуем перед подтверждением заказа.",
     "checkAddress": "Уточнить доставку по адресу",
     "b2b1Title": "Части и требования",
@@ -664,7 +677,7 @@ const strings = {
     "fuzzyResults": "Похожие товары: {n}",
     "addressLabel": "Адрес доставки · необязательно",
     "addressPlaceholder": "Улица, дом, квартира",
-    "messageAddress": "Адрес доставки",
+    "messageAddress": "Адрес",
     "helpBenefit": "Подскажем часть под ваше блюдо",
     "weightPresets": "Быстрый выбор количества",
     "appHome": "Главная",
@@ -679,13 +692,13 @@ const strings = {
     "callUs": "Позвонить",
     "desiredTime": "Когда вам удобно?",
     "slotAny": "Как можно раньше",
-    "slotEvening": "Сегодня 18–21",
+    "slotEvening": "Сегодня 16–18",
     "slotTomorrow": "Завтра",
     "slotNote": "Желаемое время. Возможность и стоимость доставки подтвердим в WhatsApp.",
     "messageSlot": "Желаемое время",
     "productEstimate": "Предварительно",
     "weightConfirm": "Точный вес и итоговую сумму согласуем в WhatsApp до упаковки.",
-    "checkoutNext": "Заказ подготовлен. Отправьте сообщение в WhatsApp — подтвердим точный вес и сумму до упаковки.",
+    "checkoutNext": "Сообщение подготовлено. Отправьте его в WhatsApp — в рабочие часы ответим за 5–10 минут с точным весом.",
     "dismiss": "Скрыть",
     "customWeight": "Указать другой вес",
     "privacyOpen": "Конфиденциальность",
@@ -705,23 +718,36 @@ const strings = {
     "photoSoon": "Фото временно недоступно",
     "preparationLabel": "Как подготовить · необязательно",
     "preparationPlaceholder": "Фарш, убрать жир, стейки потолще…",
-    "photoRequest": "Нужно фото выбранного мяса до упаковки",
+    "photoRequest": "Нужно фото до упаковки",
     "photoMessage": "Пожалуйста, пришлите фото выбранного мяса до упаковки.",
     "slotMidday": "Сегодня 12–14",
-    "slotAfternoon": "Сегодня 16–18",
-    "cardUnitKg": "В корзину: 1 кг",
-    "cardUnitPiece": "В корзину: 1 шт.",
+    "slotAfternoon": "Сегодня 14–16",
     "productDescriptionKg": "Выберите нужный вес. Пожелания к нарезке укажите в комментарии.",
     "productDescriptionPiece": "Выберите нужное количество. Пожелания к обработке укажите в комментарии.",
-    "deliveryOperations": "Курьером или самовывозом — время согласуем в WhatsApp.",
+    "deliveryOperations": "Курьером или самовывозом.",
     "minimumOrder": "Минимальный заказ: {amount}",
     "minimumUnknown": "Минимальную сумму уточните в WhatsApp.",
     "minimumRemaining": "До минимального заказа {minimum} осталось {amount}.",
     "deliveryCostNote": "Стоимость доставки согласуем в WhatsApp.",
-    "workingHours": "Часы работы: {hours}",
+    "workingHours": "Ежедневно {hours}",
     "workingHoursUnknown": "Часы работы и время самовывоза уточните в WhatsApp.",
-    "workshopPickup": "Цех · Мевеле, 3 · самовывоз",
-    "minimumUnpriced": "Минимум {minimum}. Часть цен требует уточнения — сумму согласуем в WhatsApp."
+    "workshopPickup": "Цех · Мевеле, 3 · самовывоз 10:00–18:00, лучше согласовать за 30–40 минут.",
+    "dailyHours": "Ежедневно 10:00–18:00",
+    "afterHours": "После 18:00 заявку примем и ответим завтра с 10:00.",
+    "todayOperations": "Сегодня по Тбилиси · слоты до 18:00 · ответ в WhatsApp за 5–10 минут в рабочие часы.",
+    "soldOut": "Сегодня нет",
+    "cartUnavailable": "Сегодня нет: {items}. Удалите эти позиции для оформления.",
+    "updateCart": "Обновить",
+    "cartUpdated": "Корзина обновлена",
+    "messageEstimate": "Предварительно",
+    "messageTbc": "уточним",
+    "messageTime": "Слот",
+    "messageComment": "Комментарий",
+    "messagePhoto": "Фото до упаковки",
+    "answerYes": "да",
+    "answerNo": "нет",
+    "cartMessageEnd": "Точный вес и сумму подтвердим до сборки.",
+    "messageHours": "Рабочие часы {hours}."
   },
   "en": {
     "skip": "Skip to content",
@@ -854,8 +880,8 @@ const strings = {
     "control1Text": "Add the cuts you want and choose your quantities.",
     "control2Title": "Confirm the details",
     "control2Text": "We’ll check availability and agree on the exact weight, address and full price.",
-    "control3Title": "Delivered to your door",
-    "control3Text": "Our courier will bring your order at the agreed time.",
+    "control3Title": "Receive your order",
+    "control3Text": "We deliver by courier or prepare your pickup for the agreed time.",
     "deliveryText": "We’ll agree on the delivery address, time and fee before confirming your order.",
     "checkAddress": "Check your delivery address",
     "b2b1Title": "Cuts and specifications",
@@ -1025,7 +1051,7 @@ const strings = {
     "fuzzyResults": "Similar products: {n}",
     "addressLabel": "Delivery address · optional",
     "addressPlaceholder": "Street, building, apartment",
-    "messageAddress": "Delivery address",
+    "messageAddress": "Address",
     "helpBenefit": "Find the right cut for your meal",
     "weightPresets": "Quick quantity selection",
     "appHome": "Home",
@@ -1040,13 +1066,13 @@ const strings = {
     "callUs": "Call us",
     "desiredTime": "When suits you?",
     "slotAny": "As soon as possible",
-    "slotEvening": "Today 18–21",
+    "slotEvening": "Today 16–18",
     "slotTomorrow": "Tomorrow",
     "slotNote": "Your preferred time. We’ll confirm delivery availability and cost on WhatsApp.",
     "messageSlot": "Preferred time",
     "productEstimate": "Estimated price",
     "weightConfirm": "We’ll agree on the exact weight and final total on WhatsApp before packing.",
-    "checkoutNext": "Your order is ready to send. Send the message in WhatsApp — we will confirm the exact weight and total before packing.",
+    "checkoutNext": "Message prepared. Send it in WhatsApp — during working hours we will reply in 5–10 minutes with the exact weight.",
     "dismiss": "Dismiss",
     "customWeight": "Enter another weight",
     "privacyOpen": "Privacy",
@@ -1066,23 +1092,36 @@ const strings = {
     "photoSoon": "Photo temporarily unavailable",
     "preparationLabel": "Preparation · optional",
     "preparationPlaceholder": "Mince, trim the fat, thicker steaks…",
-    "photoRequest": "I’d like a photo of the selected meat before packing",
+    "photoRequest": "Photo before packing",
     "photoMessage": "Please send a photo of the selected meat before packing.",
     "slotMidday": "Today 12–14",
-    "slotAfternoon": "Today 16–18",
-    "cardUnitKg": "Add: 1 kg",
-    "cardUnitPiece": "Add: 1 piece",
+    "slotAfternoon": "Today 14–16",
     "productDescriptionKg": "Choose the weight you need. Add any cutting preferences in the note.",
     "productDescriptionPiece": "Choose the quantity you need. Add any preparation preferences in the note.",
-    "deliveryOperations": "Courier delivery or pickup — arrange the time on WhatsApp.",
+    "deliveryOperations": "Courier delivery or pickup.",
     "minimumOrder": "Minimum order: {amount}",
     "minimumUnknown": "Ask about the minimum order on WhatsApp.",
     "minimumRemaining": "Add {amount} to reach the {minimum} minimum.",
     "deliveryCostNote": "Delivery cost is confirmed on WhatsApp.",
-    "workingHours": "Working hours: {hours}",
+    "workingHours": "Daily {hours}",
     "workingHoursUnknown": "Confirm working hours and pickup time on WhatsApp.",
-    "workshopPickup": "Workshop · Mevele St, 3 · pickup",
-    "minimumUnpriced": "Minimum: {minimum}. Some prices need checking — we will confirm the total on WhatsApp."
+    "workshopPickup": "Workshop · Mevele St, 3 · pickup 10:00–18:00. Please arrange pickup 30–40 minutes ahead.",
+    "dailyHours": "Daily 10:00–18:00",
+    "afterHours": "After 18:00, we accept requests and reply tomorrow from 10:00.",
+    "todayOperations": "Today in Tbilisi · delivery slots until 18:00 · WhatsApp replies in 5–10 minutes during working hours.",
+    "soldOut": "Unavailable today",
+    "cartUnavailable": "Unavailable today: {items}. Remove these items to continue.",
+    "updateCart": "Update",
+    "cartUpdated": "Basket updated",
+    "messageEstimate": "Estimated total",
+    "messageTbc": "to confirm",
+    "messageTime": "Time slot",
+    "messageComment": "Comment",
+    "messagePhoto": "Photo before packing",
+    "answerYes": "yes",
+    "answerNo": "no",
+    "cartMessageEnd": "We will confirm the exact weight and total before preparing the order.",
+    "messageHours": "Working hours {hours}."
   }
 };
 const imageVariants = {"./assets/products/pork-flesh.webp":{"src":"./assets/products/pork-flesh-small.webp","width":480},"./assets/products/pork-tenderloin.webp":{"src":"./assets/products/pork-tenderloin-small.webp","width":480},"./assets/products/pork-ribs.webp":{"src":"./assets/products/pork-ribs-small.webp","width":480},"./assets/products/pork-leg.webp":{"src":"./assets/products/pork-leg-small.webp","width":480},"./assets/products/pork-hock.webp":{"src":"./assets/products/pork-hock-small.webp","width":480},"./assets/products/pork-grill.webp":{"src":"./assets/products/pork-grill-small.webp","width":480},"./assets/products/pork-bonein.webp":{"src":"./assets/products/pork-bonein-small.webp","width":480},"./assets/products/pork-jowl.webp":{"src":"./assets/products/pork-jowl-small.webp","width":480},"./assets/products/pork-trimmings.webp":{"src":"./assets/products/pork-trimmings-small.webp","width":480},"./assets/products/pork-fat.webp":{"src":"./assets/products/pork-fat-small.webp","width":480},"./assets/products/young-pig.webp":{"src":"./assets/products/young-pig-small.webp","width":480},"./assets/products/beef-round.webp":{"src":"./assets/products/beef-round-small.webp","width":480},"./assets/products/beef-tenderloin.webp":{"src":"./assets/products/beef-tenderloin-small.webp","width":480},"./assets/products/beef-brisket.webp":{"src":"./assets/products/beef-brisket-small.webp","width":480},"./assets/products/beef-shank.webp":{"src":"./assets/products/beef-shank-small.webp","width":480},"./assets/products/beef-cheek.webp":{"src":"./assets/products/beef-cheek-small.webp","width":480},"./assets/products/beef-diaphragm.webp":{"src":"./assets/products/beef-diaphragm-small.webp","width":480},"./assets/products/beef-bonein.webp":{"src":"./assets/products/beef-bonein-small.webp","width":480},"./assets/products/beef-trimmings.webp":{"src":"./assets/products/beef-trimmings-small.webp","width":480},"./assets/products/beef-fat.webp":{"src":"./assets/products/beef-fat-small.webp","width":480},"./assets/products/veal.webp":{"src":"./assets/products/veal-small.webp","width":480},"./assets/products/liver.webp":{"src":"./assets/products/liver-small.webp","width":480},"./assets/products/beef-liver-v07.webp":{"src":"./assets/products/beef-liver-v07-small.webp","width":480},"./assets/products/veal-liver-v07.webp":{"src":"./assets/products/veal-liver-v07-small.webp","width":480},"./assets/products/heart.webp":{"src":"./assets/products/heart-small.webp","width":480},"./assets/products/tongue.webp":{"src":"./assets/products/tongue-small.webp","width":480},"./assets/products/pork-kidneys.webp":{"src":"./assets/products/pork-kidneys-small.webp","width":480},"./assets/products/beef-kidneys.webp":{"src":"./assets/products/beef-kidneys-small.webp","width":480},"./assets/products/tripe.webp":{"src":"./assets/products/tripe-small.webp","width":480},"./assets/products/feet.webp":{"src":"./assets/products/feet-small.webp","width":480},"./assets/products/pork-trotters-clean-v07.webp":{"src":"./assets/products/pork-trotters-clean-v07-small.webp","width":480},"./assets/products/pork-head.webp":{"src":"./assets/products/pork-head-small.webp","width":480},"./assets/products/pork-tail.webp":{"src":"./assets/products/pork-tail-small.webp","width":480},"./assets/products/beef-tail.webp":{"src":"./assets/products/beef-tail-small.webp","width":480},"./assets/products/lungs.webp":{"src":"./assets/products/lungs-small.webp","width":480},"./assets/products/pork-skin.webp":{"src":"./assets/products/pork-skin-small.webp","width":480},"./assets/products/offal-mix.webp":{"src":"./assets/products/offal-mix-small.webp","width":480},"./assets/products/beef-offal-v07.webp":{"src":"./assets/products/beef-offal-v07-small.webp","width":480},"./assets/products/marrow-bone.webp":{"src":"./assets/products/marrow-bone-small.webp","width":480},"./assets/products/stock-bones.webp":{"src":"./assets/products/stock-bones-small.webp","width":480},"./assets/products/caul-fat.webp":{"src":"./assets/products/caul-fat-small.webp","width":480},"./assets/products/mixed-mince.webp":{"src":"./assets/products/mixed-mince-small.webp","width":480},"./assets/products/chicken.webp":{"src":"./assets/products/chicken-small.webp","width":480},"./assets/products/turkey-v05.webp":{"src":"./assets/products/turkey-v05-small.webp","width":480},"./assets/products/lamb.webp":{"src":"./assets/products/lamb-small.webp","width":480},"./assets/products/pork-offal-v07.webp":{"src":"./assets/products/pork-offal-v07-small.webp","width":480}};
@@ -1161,6 +1200,7 @@ let meatFilter=['pork','beef','offal'].includes(params.get('meat'))?params.get('
 let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
+const cutAvailable=c=>!!c&&c.available!==false;
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
 function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
@@ -1264,7 +1304,6 @@ function renderProductCards(){
   (card.querySelector('h3 button')||card.querySelector('h3')).textContent=c.name[language];
   card.querySelector('.meat-category').textContent=text(c.category);
   card.querySelector('.meat-purpose').textContent=c.use[language];
-  card.querySelector('.meat-pack').textContent=text(c.unit==='piece'?'cardUnitPiece':'cardUnitKg');
   const pending=card.querySelector('.photo-pending-label');if(!pending.hidden)pending.textContent=c.name[language];
   card.querySelector('.meat-price').innerHTML=c.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(c.price)+' <span>₾ / '+esc(text(c.unit==='piece'?'perPiece':'perKg'))+'</span>':esc(text('priceAsk'));
   for(const b of card.querySelectorAll('[data-cut]'))b.setAttribute('aria-label',text('cutCta')+': '+c.name[language]);
@@ -1452,12 +1491,12 @@ if($('dish-search')){
 const cartKey='meatco:basket:v1',cartDialog=$('cart-dialog'),productDialog=$('product-dialog');
 let basket=readBasket(),invalidCart=new Set(),cartDrafts=new Map(),activeProduct=null,toastTimer;
 const preparationNotes=new Map();
-const slotKeys={'12-14':'slotMidday','16-18':'slotAfternoon','18-21':'slotEvening',tomorrow:'slotTomorrow',chat:'slotUnknown'};
+const slotKeys={'12-14':'slotMidday','14-16':'slotAfternoon','16-18':'slotEvening',tomorrow:'slotTomorrow',chat:'slotUnknown'};
 const selectedSlot=()=>document.querySelector('input[name="cart-slot"]:checked')?.value||'chat';
 function refreshDeliverySlots(){
  const hour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',hour:'2-digit',hourCycle:'h23'}).format(new Date()));
  for(const radio of document.querySelectorAll('input[name="cart-slot"]')){
-  const end={'12-14':14,'16-18':18,'18-21':21}[radio.value];
+  const end={'12-14':14,'14-16':16,'16-18':18}[radio.value];
   radio.disabled=!!end&&hour>=end;
   if(radio.disabled&&radio.checked)document.querySelector('input[name="cart-slot"][value="chat"]').checked=true;
  }
@@ -1484,26 +1523,24 @@ const quantityText=(c,q)=>new Intl.NumberFormat(language,{maximumFractionDigits:
 const lineAmount=(c,q)=>Math.round(((c.price||0)*q+Number.EPSILON)*100)/100;
 const cartSubtotal=()=>Object.entries(basket).reduce((sum,[id,q])=>sum+lineAmount(cutById(id),q),0);
 function cartMinimumRemaining(){
- if(!MIN_ORDER)return 0;
- const remaining=Math.max(0,Math.round((MIN_ORDER-cartSubtotal())*100)/100);
- // An unknown price is not zero. The manager must verify this minimum in chat.
- return remaining&&Object.keys(basket).some(id=>!cutById(id).price)?null:remaining;
+ return MIN_ORDER?Math.max(0,Math.round((MIN_ORDER-cartSubtotal())*100)/100):0;
 }
+const cartUnavailable=()=>Object.keys(basket).map(cutById).filter(c=>!cutAvailable(c));
 function cartMessage(){
- const lines=[text('cartGreeting'),''];
- Object.entries(basket).forEach(([id,q],i)=>{
-  const c=cutById(id);lines.push(`${i+1}. ${c.name[language]}`,`   ${quantityText(c,q)} · ${formatPrice(c)}${c.price>0?' = '+currency(lineAmount(c,q)):''}`);
+ const lines=['MeatCO',''];
+ Object.entries(basket).forEach(([id,q])=>{
+  const c=cutById(id);lines.push(`• ${c.name[language]} — ${quantityText(c,q)} × ${formatPrice(c)}`);
   if(preparationNotes.has(id))lines.push('   '+text('messageNote')+': '+preparationNotes.get(id));
  });
  const unpriced=Object.keys(basket).map(cutById).filter(c=>!c.price);
- if(Object.keys(basket).some(id=>cutById(id).price>0))lines.push('',text('cartEstimate')+': '+currency(cartSubtotal()));
+ lines.push('',text('messageEstimate')+': '+(Object.keys(basket).some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk')));
  if(unpriced.length)lines.push(text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', ')));
  if(unpriced.length&&MIN_ORDER)lines.push(text('minimumOrder').replace('{amount}',currency(MIN_ORDER)));
- if($('cart-district').value)lines.push(text('messageDistrict')+': '+$('cart-district').value.trim());
- lines.push(text('messageSlot')+': '+text(slotKeys[selectedSlot()]));
- if($('cart-note').value.trim())lines.push(text('messageNote')+': '+$('cart-note').value.trim());
- if($('cart-photo')?.checked)lines.push(text('photoMessage'));
- lines.push('',text('messageEnd'));return lines.join('\n');
+ lines.push(text('messageAddress')+': '+($('cart-district').value.trim()||text('messageTbc')));
+ lines.push(text('messageTime')+': '+text(slotKeys[selectedSlot()]||'slotUnknown'));
+ lines.push(text('messageComment')+': '+($('cart-note').value.trim()||'—'));
+ lines.push(text('messagePhoto')+': '+text($('cart-photo')?.checked?'answerYes':'answerNo'));
+ lines.push('',text('cartMessageEnd'),text('messageHours').replace('{hours}',config.hours));return lines.join('\n');
 }
 function renderCartControls(){
  const total=cartSubtotal(),hasPriced=Object.keys(basket).some(id=>cutById(id).price>0);
@@ -1515,7 +1552,9 @@ function renderCartControls(){
  for(const card of document.querySelectorAll('[data-product-card]')){
   const id=card.dataset.productCard,c=cutById(id),qty=basket[id]||0;
   const add=card.querySelector('[data-add-cut]'),control=card.querySelector('[data-card-quantity]');
-  add.hidden=qty>0;control.hidden=!qty;
+  const available=cutAvailable(c);card.classList.toggle('is-unavailable',!available);
+  card.querySelector('[data-stock-status]').hidden=available;
+  add.hidden=qty>0&&available;control.hidden=!qty||!available;add.disabled=!available;
   add.setAttribute('aria-label',text('addToCart')+': '+c.name[language]);
   card.querySelector('.meat-photo').setAttribute('aria-label',c.name[language]);
   const value=control.querySelector('.card-quantity-value');value.textContent=quantityText(c,qty);value.setAttribute('aria-label',text('cartOpen')+': '+c.name[language]+', '+quantityText(c,qty));
@@ -1530,9 +1569,11 @@ function updateCartSummary(){
  $('cart-unpriced').textContent=text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', '));
  $('cart-message').textContent=cartMessage();
  const remaining=cartMinimumRemaining();
- $('cart-minimum').textContent=remaining===null?text('minimumUnpriced').replace('{minimum}',currency(MIN_ORDER)):remaining?text('minimumRemaining').replace('{amount}',currency(remaining)).replace('{minimum}',currency(MIN_ORDER)):MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
+ $('cart-minimum').textContent=remaining?text('minimumRemaining').replace('{amount}',currency(remaining)).replace('{minimum}',currency(MIN_ORDER)):MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  $('cart-minimum').classList.toggle('minimum-unmet',remaining>0);
- $('cart-submit').disabled=!ids.length||invalidCart.size>0||remaining>0;
+ const unavailable=cartUnavailable();$('cart-unavailable').hidden=!unavailable.length;
+ $('cart-unavailable').textContent=text('cartUnavailable').replace('{items}',unavailable.map(c=>c.name[language]).join(', '));
+ $('cart-submit').disabled=!ids.length||invalidCart.size>0||remaining>0||unavailable.length>0;
  $('cart-form').dataset.preparedUrl=!$('cart-submit').disabled?whatsappUrl(cartMessage()):'';
  for(const link of document.querySelectorAll('[data-whatsapp]'))if(ids.length)link.href=invalidCart.size?'#':whatsappUrl(cartMessage());
 }
@@ -1556,17 +1597,18 @@ function renderCart(){
   (replacement||$('cart-items').querySelector('button')||$('cart-empty').querySelector('a')).focus({preventScroll:true});
  }
 }
-function notifyAdded(c){
- clearTimeout(toastTimer);$('cart-toast-text').textContent=text('cartAdded')+': '+c.name[language];$('cart-toast').hidden=false;
+function notifyAdded(c,updated=false){
+ clearTimeout(toastTimer);$('cart-toast-text').textContent=text(updated?'cartUpdated':'cartAdded')+': '+c.name[language];$('cart-toast').hidden=false;
  toastTimer=setTimeout(()=>{$('cart-toast').hidden=true;},3500);
 }
-function addToBasket(id,qty=1){
- const c=cutById(id);if(!c||!validCartQuantity(c,qty))return;
- basket[id]=Math.min(9999,Math.round(((basket[id]||0)+Number(qty))*1000)/1000);
- saveBasket();renderCart();notifyAdded(c);track('meatco_add_to_cart',{product_id:id,quantity:qty});
+function addToBasket(id,qty=1,replace=false){
+ const c=cutById(id);if(!cutAvailable(c)||!validCartQuantity(c,qty))return;
+ const updated=replace&&!!basket[id];
+ basket[id]=Math.min(9999,Math.round(((replace?0:basket[id]||0)+Number(qty))*1000)/1000);
+ invalidCart.delete(id);cartDrafts.delete(id);saveBasket();renderCart();notifyAdded(c,updated);track(updated?'meatco_update_cart':'meatco_add_to_cart',{product_id:id,quantity:qty});
 }
 function changeCartQuantity(id,direction){
- const c=cutById(id);if(!c||!basket[id])return;
+ const c=cutById(id);if(!c||!basket[id]||direction>0&&!cutAvailable(c))return;
  const next=Math.round((basket[id]+direction*(c.unit==='piece'?1:.5))*1000)/1000;
  if(next<=0){delete basket[id];preparationNotes.delete(id);}else basket[id]=Math.min(9999,next);
  invalidCart.delete(id);cartDrafts.delete(id);saveBasket();renderCart();updatePreview();
@@ -1589,6 +1631,8 @@ function renderProductDetail(){
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
+ $('product-submit').disabled=!cutAvailable(c);
+ $('product-submit').textContent=text(!cutAvailable(c)?'soldOut':basket[c.id]?'updateCart':'addToCart');
  const focusedPreset=document.activeElement?.dataset.quantityPreset;
  $('product-presets').innerHTML=(c.unit==='piece'?[1,2,3]:[.5,1,1.5,2]).map(q=>`<button type="button" data-quantity-preset="${q}" aria-pressed="${Number($('product-quantity').value.replace(',','.'))===q}">${quantityText(c,q)}</button>`).join('');
  if(focusedPreset)$('product-presets').querySelector(`[data-quantity-preset="${focusedPreset}"]`)?.focus({preventScroll:true});
@@ -1613,7 +1657,7 @@ document.addEventListener('click',event=>{
  if(el.matches('[data-cart-open]'))openCart(el);
  if(el.matches('[data-view-product]')){
   activeProduct=cutById(el.dataset.viewProduct);if(!activeProduct)return;
-  $('product-note').value=preparationNotes.get(activeProduct.id)||'';$('product-quantity').value='1';$('product-quantity').removeAttribute('aria-invalid');$('product-quantity-error').hidden=true;
+  $('product-note').value=preparationNotes.get(activeProduct.id)||'';$('product-quantity').value=String(basket[activeProduct.id]||1);$('product-quantity').removeAttribute('aria-invalid');$('product-quantity-error').hidden=true;
   renderProductDetail();showDialog(productDialog,el);
  }
  if(el.matches('[data-quantity-preset]')){$('product-quantity').value=el.dataset.quantityPreset;$('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');renderProductDetail();}
@@ -1626,9 +1670,10 @@ document.addEventListener('click',event=>{
 });
 $('product-form').addEventListener('submit',event=>{
  event.preventDefault();const value=$('product-quantity').value.trim();
+ if(!cutAvailable(activeProduct))return;
  if(!validCartQuantity(activeProduct,value)){$('product-quantity').setAttribute('aria-invalid','true');$('product-quantity-error').textContent=text(activeProduct.unit==='piece'?'piecesError':'quantityError');$('product-quantity-error').hidden=false;$('product-quantity').focus();return;}
  const preparation=$('product-note').value.trim();if(preparation)preparationNotes.set(activeProduct.id,preparation);else preparationNotes.delete(activeProduct.id);
- addToBasket(activeProduct.id,Number(value.replace(',','.')));productDialog.close();
+ addToBasket(activeProduct.id,Number(value.replace(',','.')),true);productDialog.close();
 });
 $('cart-form').addEventListener('input',event=>{
  $('cart-status').replaceChildren();
@@ -1642,6 +1687,7 @@ $('cart-form').addEventListener('submit',event=>{
  for(const input of $('cart-items').querySelectorAll('[data-cart-quantity]'))validateCartInput(input,true);
  if(invalidCart.size){$('cart-status').textContent=text('cartInvalid');$('cart-items').querySelector('[aria-invalid="true"]').focus();return;}
  if(cartMinimumRemaining()>0){updateCartSummary();$('cart-minimum').scrollIntoView({block:'nearest'});return;}
+ if(cartUnavailable().length){updateCartSummary();$('cart-unavailable').scrollIntoView({block:'nearest'});return;}
  refreshDeliverySlots();updateCartSummary();
  const url=whatsappUrl(cartMessage());if(!url){$('cart-status').textContent=text('phoneError');return;}
  const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=text('fallback');const next=document.createElement('span');next.textContent=text('checkoutNext')+' ';$('cart-status').replaceChildren(next,link);

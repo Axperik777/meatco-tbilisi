@@ -15,6 +15,7 @@ let meatFilter=['pork','beef','offal'].includes(params.get('meat'))?params.get('
 let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
+const cutAvailable=c=>!!c&&c.available!==false;
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
 function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
@@ -118,7 +119,6 @@ function renderProductCards(){
   (card.querySelector('h3 button')||card.querySelector('h3')).textContent=c.name[language];
   card.querySelector('.meat-category').textContent=text(c.category);
   card.querySelector('.meat-purpose').textContent=c.use[language];
-  card.querySelector('.meat-pack').textContent=text(c.unit==='piece'?'cardUnitPiece':'cardUnitKg');
   const pending=card.querySelector('.photo-pending-label');if(!pending.hidden)pending.textContent=c.name[language];
   card.querySelector('.meat-price').innerHTML=c.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(c.price)+' <span>₾ / '+esc(text(c.unit==='piece'?'perPiece':'perKg'))+'</span>':esc(text('priceAsk'));
   for(const b of card.querySelectorAll('[data-cut]'))b.setAttribute('aria-label',text('cutCta')+': '+c.name[language]);

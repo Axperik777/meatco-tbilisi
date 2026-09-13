@@ -36,10 +36,18 @@ for(const file of ['index.html','catalog.html']){
  assert.ok(!/data-favorite|favorite-toggle|data-story|data-video|cart-video|product-video|card-brand|product-sort|filter-dialog|install-hint/.test(html),'Removed UI must not return');
  assert.equal((html.match(/data-category=/g)||[]).length,5);
  assert.equal((html.match(/name="cart-slot"/g)||[]).length,5);
+ assert.deepEqual([...html.matchAll(/name="cart-slot" value="([^"]+)"/g)].map(m=>m[1]),['12-14','14-16','16-18','tomorrow','chat']);
+ assert.ok(!/18[–-]21|meat-pack|cardUnitKg|cardUnitPiece/.test(html),'No late slots or pre-add weight preview');
+ assert.ok(html.includes('data-i18n="dailyHours"'));
  assert.ok(html.includes('id="cart-photo"'));
  assert.ok(html.includes('id="cart-district" name="address" type="text"'));
  assert.ok(!/brand-seal|utility-strip|store-hero/.test(html));
 }
+for(const lang of ['ka','ru','en'])assert.ok(locales[lang].dailyHours.includes('10:00–18:00'));
+assert.ok(!/18[–-]21/.test(JSON.stringify(locales)));
+vm.runInNewContext(fs.readFileSync(path.join(root,'config.js'),'utf8'),sandbox);
+assert.equal(sandbox.window.MEATCO_CONFIG.hours,'10:00–18:00');
+assert.equal(sandbox.window.MEATCO_CONFIG.minimumOrder,50);
 assert.ok(!/Ваке|Сабуртало|Диди Дигоми|Vake|Saburtalo|Didi Dighomi|ვაკე|საბურთალო|დიდი დიღომი/.test(JSON.stringify(locales)),'District lists removed from all locales');
 for(const suffix of ['','-small']){
  const hashes=photographed.map(c=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,c.image.replace('.webp',suffix+'.webp')))).digest('hex'));
