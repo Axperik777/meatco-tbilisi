@@ -1,0 +1,458 @@
+[
+  {
+    "run": "before-ka-1",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lcp": {
+      "ms": 3808,
+      "render": 3808,
+      "load": 3794.2000000029802,
+      "size": 26732,
+      "tag": "IMG",
+      "product": "pork-flesh",
+      "url": "http://127.0.0.1:4188/assets/products/pork-flesh-small.webp",
+      "loading": "eager",
+      "priority": "auto"
+    },
+    "totalCLS": 0,
+    "imageTransferBytes": 479756,
+    "imageRequests": [
+      {
+        "file": "meatco-logo.png",
+        "bytes": 200954,
+        "start": 452.5,
+        "end": 5380.20000000298
+      },
+      {
+        "file": "beef-liver-v07-small.webp",
+        "bytes": 33738,
+        "start": 452.59999999403954,
+        "end": 2962.0999999940395
+      },
+      {
+        "file": "pork-ribs-small.webp",
+        "bytes": 42878,
+        "start": 452.59999999403954,
+        "end": 3276.2000000029802
+      },
+      {
+        "file": "beef-tenderloin-small.webp",
+        "bytes": 44718,
+        "start": 452.59999999403954,
+        "end": 3336
+      },
+      {
+        "file": "chicken-small.webp",
+        "bytes": 26062,
+        "start": 452.70000000298023,
+        "end": 2796.7999999970198
+      },
+      {
+        "file": "pork-flesh-small.webp",
+        "bytes": 39830,
+        "start": 452.70000000298023,
+        "end": 3793.4000000059605
+      },
+      {
+        "file": "beef-round-small.webp",
+        "bytes": 43780,
+        "start": 453.79999999701977,
+        "end": 4377
+      },
+      {
+        "file": "mixed-mince-small.webp",
+        "bytes": 47796,
+        "start": 1274.0999999940395,
+        "end": 4520.20000000298
+      },
+      {
+        "file": "meatco-icon-64.png",
+        "bytes": 6562,
+        "start": 5383.70000000298,
+        "end": 5841
+      }
+    ],
+    "shifts": []
+  },
+  {
+    "run": "final-ka",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lcp": {
+      "ms": 1684,
+      "render": 1684,
+      "load": 1650.199999988079,
+      "size": 26732,
+      "tag": "IMG",
+      "product": "pork-flesh",
+      "url": "http://127.0.0.1:4189/assets/products/pork-flesh-small.webp",
+      "loading": "eager",
+      "priority": "high"
+    },
+    "totalCLS": 0,
+    "imageTransferBytes": 188716,
+    "imageRequests": [
+      {
+        "file": "pork-flesh-small.webp",
+        "bytes": 26180,
+        "start": 433,
+        "end": 1524.8999999910593
+      },
+      {
+        "file": "meatco-logo-small.webp",
+        "bytes": 8324,
+        "start": 458.3999999910593,
+        "end": 1962.8999999910593
+      },
+      {
+        "file": "beef-round-small.webp",
+        "bytes": 29596,
+        "start": 458.79999999701977,
+        "end": 1695.5
+      },
+      {
+        "file": "pork-ribs-small.webp",
+        "bytes": 27838,
+        "start": 1663.7999999970198,
+        "end": 2882.5
+      },
+      {
+        "file": "beef-tenderloin-small.webp",
+        "bytes": 30426,
+        "start": 1663.7999999970198,
+        "end": 2930.5
+      },
+      {
+        "file": "chicken-small.webp",
+        "bytes": 15596,
+        "start": 1664,
+        "end": 2596.2999999970198
+      },
+      {
+        "file": "beef-liver-v07-small.webp",
+        "bytes": 19502,
+        "start": 1664,
+        "end": 2695.0999999940395
+      },
+      {
+        "file": "mixed-mince-small.webp",
+        "bytes": 31254,
+        "start": 1664.199999988079,
+        "end": 3007.3999999910593
+      }
+    ],
+    "shifts": []
+  },
+  {
+    "run": "final-ru",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lcp": {
+      "ms": 1800,
+      "render": 1800,
+      "load": 1757.0999999940395,
+      "size": 26732,
+      "tag": "IMG",
+      "product": "pork-flesh",
+      "url": "http://127.0.0.1:4189/assets/products/pork-flesh-small.webp",
+      "loading": "eager",
+      "priority": "high"
+    },
+    "totalCLS": 0.13266708360474083,
+    "imageTransferBytes": 188716,
+    "imageRequests": [
+      {
+        "file": "pork-flesh-small.webp",
+        "bytes": 26180,
+        "start": 436.8999999910593,
+        "end": 1706.5999999940395
+      },
+      {
+        "file": "meatco-logo-small.webp",
+        "bytes": 8324,
+        "start": 468.20000000298023,
+        "end": 2359.5999999940395
+      },
+      {
+        "file": "beef-round-small.webp",
+        "bytes": 29596,
+        "start": 469.5,
+        "end": 2260.2000000029802
+      },
+      {
+        "file": "beef-tenderloin-small.webp",
+        "bytes": 30426,
+        "start": 1777.7999999970198,
+        "end": 3120.7999999970198
+      },
+      {
+        "file": "chicken-small.webp",
+        "bytes": 15596,
+        "start": 1777.8999999910593,
+        "end": 3270.2999999970198
+      },
+      {
+        "file": "beef-liver-v07-small.webp",
+        "bytes": 19502,
+        "start": 1777.8999999910593,
+        "end": 3310
+      },
+      {
+        "file": "pork-ribs-small.webp",
+        "bytes": 27838,
+        "start": 1777.8999999910593,
+        "end": 3369.5
+      },
+      {
+        "file": "mixed-mince-small.webp",
+        "bytes": 31254,
+        "start": 1778,
+        "end": 3529.7999999970198
+      }
+    ],
+    "shifts": [
+      {
+        "ms": 3091.2000000029802,
+        "value": 0.13266708360474083,
+        "sources": [
+          {
+            "tag": "DIV",
+            "class": "home-product-rail",
+            "text": "Фото скоро14 ₾ / кгСвиная мякотьСви"
+          },
+          {
+            "tag": "DIV",
+            "class": "quick-categories",
+            "text": "ГовядинаСвининаСубпродуктыЕщё"
+          },
+          {
+            "tag": "DIV",
+            "class": "feed-heading",
+            "text": "Выбор MeatCOКаталог→"
+          },
+          {
+            "tag": "LI",
+            "class": "",
+            "text": "Без регистрации"
+          },
+          {
+            "tag": "LI",
+            "class": "",
+            "text": "Точный вес"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run": "final-en",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lcp": {
+      "ms": 1884,
+      "render": 1884,
+      "load": 1834.699999988079,
+      "size": 26732,
+      "tag": "IMG",
+      "product": "pork-flesh",
+      "url": "http://127.0.0.1:4189/assets/products/pork-flesh-small.webp",
+      "loading": "eager",
+      "priority": "high"
+    },
+    "totalCLS": 0.14399543333483075,
+    "imageTransferBytes": 188716,
+    "imageRequests": [
+      {
+        "file": "pork-flesh-small.webp",
+        "bytes": 26180,
+        "start": 433,
+        "end": 1768.8999999910593
+      },
+      {
+        "file": "meatco-logo-small.webp",
+        "bytes": 8324,
+        "start": 456.8999999910593,
+        "end": 2481.699999988079
+      },
+      {
+        "file": "beef-round-small.webp",
+        "bytes": 29596,
+        "start": 459.29999999701977,
+        "end": 2390.699999988079
+      },
+      {
+        "file": "beef-tenderloin-small.webp",
+        "bytes": 30426,
+        "start": 1860.8999999910593,
+        "end": 3392.0999999940395
+      },
+      {
+        "file": "beef-liver-v07-small.webp",
+        "bytes": 19502,
+        "start": 1860.8999999910593,
+        "end": 3561
+      },
+      {
+        "file": "pork-ribs-small.webp",
+        "bytes": 27838,
+        "start": 1860.8999999910593,
+        "end": 3622.5999999940395
+      },
+      {
+        "file": "chicken-small.webp",
+        "bytes": 15596,
+        "start": 1861,
+        "end": 3511.199999988079
+      },
+      {
+        "file": "mixed-mince-small.webp",
+        "bytes": 31254,
+        "start": 1861.0999999940395,
+        "end": 3797.3999999910593
+      }
+    ],
+    "shifts": [
+      {
+        "ms": 3345.3999999910593,
+        "value": 0.14399543333483075,
+        "sources": [
+          {
+            "tag": "DIV",
+            "class": "home-product-rail",
+            "text": "Photo soon14 ₾ / kgBoneless porkPor"
+          },
+          {
+            "tag": "DIV",
+            "class": "quick-categories",
+            "text": "BeefPorkOffalMore"
+          },
+          {
+            "tag": "DIV",
+            "class": "feed-heading",
+            "text": "MeatCO selectionCatalog→"
+          },
+          {
+            "tag": "LI",
+            "class": "",
+            "text": "No sign-up"
+          },
+          {
+            "tag": "LI",
+            "class": "",
+            "text": "Exact weight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run": "after-catalog-ru",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lcp": {
+      "ms": 3032,
+      "render": 3032,
+      "load": 3018.7999999970198,
+      "size": 26732,
+      "tag": "IMG",
+      "product": "pork-ribs",
+      "url": "http://127.0.0.1:4189/assets/products/pork-ribs-small.webp",
+      "loading": "eager",
+      "priority": "low"
+    },
+    "totalCLS": 0.005105970590657593,
+    "imageTransferBytes": 192948,
+    "imageRequests": [
+      {
+        "file": "meatco-logo-small.webp",
+        "bytes": 28152,
+        "start": 435.5,
+        "end": 1632.7999999970198
+      },
+      {
+        "file": "pork-flesh-small.webp",
+        "bytes": 26180,
+        "start": 462.29999999701977,
+        "end": 2082.4000000059605
+      },
+      {
+        "file": "beef-round-small.webp",
+        "bytes": 29596,
+        "start": 462.40000000596046,
+        "end": 2172.4000000059605
+      },
+      {
+        "file": "pork-ribs-small.webp",
+        "bytes": 27838,
+        "start": 462.6000000089407,
+        "end": 3018.2999999970198
+      },
+      {
+        "file": "beef-tenderloin-small.webp",
+        "bytes": 30426,
+        "start": 462.6000000089407,
+        "end": 3312.9000000059605
+      },
+      {
+        "file": "beef-liver-v07-small.webp",
+        "bytes": 19502,
+        "start": 1753.5,
+        "end": 3200
+      },
+      {
+        "file": "mixed-mince-small.webp",
+        "bytes": 31254,
+        "start": 1753.5,
+        "end": 3362.6000000089407
+      }
+    ],
+    "shifts": [
+      {
+        "ms": 2831.2000000029802,
+        "value": 0.005105970590657593,
+        "sources": [
+          {
+            "tag": "BUTTON",
+            "class": "",
+            "text": "Говядина"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "",
+            "text": "Свинина"
+          },
+          {
+            "tag": "SPAN",
+            "class": "",
+            "text": "Помощь"
+          },
+          {
+            "tag": "SPAN",
+            "class": "",
+            "text": "Каталог"
+          },
+          {
+            "tag": "SPAN",
+            "class": "",
+            "text": "Главная"
+          }
+        ]
+      }
+    ]
+  }
+]

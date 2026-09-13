@@ -1,0 +1,472 @@
+[
+  {
+    "id": "pork-flesh",
+    "file": "assets/products/pork-flesh-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 39530,
+    "bytes": 25880,
+    "sha256": "0cfbf644fc4ed93548b372b3d5362918cf01774ab7b77c9a6f4733179131f1d4"
+  },
+  {
+    "id": "pork-tenderloin",
+    "file": "assets/products/pork-tenderloin-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 28088,
+    "bytes": 17736,
+    "sha256": "f989d82024e3b00b1455c5e1a1c9af604206b8b42d34a0b7de11359f04ead346"
+  },
+  {
+    "id": "pork-ribs",
+    "file": "assets/products/pork-ribs-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 42578,
+    "bytes": 27538,
+    "sha256": "82299cea1cb55e1588b850a240f804c524646251bbd987aaaf2da21d74b86a6b"
+  },
+  {
+    "id": "pork-leg",
+    "file": "assets/products/pork-leg-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 26338,
+    "bytes": 16030,
+    "sha256": "e8886ef7bb363742f59a7e63c79c9e550ef533179df46c46c2ea989c05ac1392"
+  },
+  {
+    "id": "pork-hock",
+    "file": "assets/products/pork-hock-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 26658,
+    "bytes": 15726,
+    "sha256": "bf2d4415c5a6027a0eca7dc8e7ab41fa45384dfc271408803ffa7d6524611d4a"
+  },
+  {
+    "id": "pork-grill",
+    "file": "assets/products/pork-grill-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 34780,
+    "bytes": 22342,
+    "sha256": "807b2a671a631f3fa67c1ca147b7e76f59b68fba3ec54322e363a92f16b9f093"
+  },
+  {
+    "id": "pork-bonein",
+    "file": "assets/products/pork-bonein-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 39304,
+    "bytes": 25808,
+    "sha256": "8f778aec41d67ce9a8d66e4a4f437168ca7c2e7a0ccc8ea208ed4e5a9fea588f"
+  },
+  {
+    "id": "pork-jowl",
+    "file": "assets/products/pork-jowl-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 27522,
+    "bytes": 16432,
+    "sha256": "e6b83473606bac33f8283c16fbe89fe1273db5c1aa8ff1e204aaba562bc9c0d3"
+  },
+  {
+    "id": "pork-trimmings",
+    "file": "assets/products/pork-trimmings-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 36282,
+    "bytes": 23756,
+    "sha256": "9985e3a108c15df9f233295e0d4106e8ef738adc137df442dc119155f31b157f"
+  },
+  {
+    "id": "pork-fat",
+    "file": "assets/products/pork-fat-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 24984,
+    "bytes": 14352,
+    "sha256": "af036343b861106da0e3829ad583c82e1ab6b55aaefc908334c4bf722dbabba3"
+  },
+  {
+    "id": "young-pig",
+    "file": "assets/products/young-pig-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 22048,
+    "bytes": 12822,
+    "sha256": "cf2ba1aa9bb5c5682ed2b3e3b1432daa257b3c2d11b935e4cfedb16f25fc7f45"
+  },
+  {
+    "id": "beef-round",
+    "file": "assets/products/beef-round-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 43480,
+    "bytes": 29296,
+    "sha256": "bfe248fbfc0d0f4c8a6b93e092eda3fa2ea29ea526409abf33c9222bf2a06880"
+  },
+  {
+    "id": "beef-tenderloin",
+    "file": "assets/products/beef-tenderloin-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 44418,
+    "bytes": 30126,
+    "sha256": "3e6818addbe6d2f5a5311f2f1d233d2adb5ec452ef73357eb554dfa75fc49191"
+  },
+  {
+    "id": "beef-brisket",
+    "file": "assets/products/beef-brisket-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 42804,
+    "bytes": 27370,
+    "sha256": "96627fcbe0159c608e33ad879805d74093e07cb14d29a02b635bccfa901977f2"
+  },
+  {
+    "id": "beef-shank",
+    "file": "assets/products/beef-shank-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 44174,
+    "bytes": 29566,
+    "sha256": "76e4bb41f36774d5bbfe48c925a320bb0ea1d7a809f55f9b813deff8afc771b2"
+  },
+  {
+    "id": "beef-cheek",
+    "file": "assets/products/beef-cheek-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 39010,
+    "bytes": 26024,
+    "sha256": "5aaf5ce5b0da08de05e30e57cb45b775297ec7c3d289516242ea9b9c612516de"
+  },
+  {
+    "id": "beef-diaphragm",
+    "file": "assets/products/beef-diaphragm-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 49058,
+    "bytes": 33580,
+    "sha256": "95fb2f9bd520f5ac9e0e27853f999eee11ef8bec62d329fb8b240cd0568b7769"
+  },
+  {
+    "id": "beef-bonein",
+    "file": "assets/products/beef-bonein-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 44006,
+    "bytes": 28860,
+    "sha256": "6ff6f54c4662d36542fc4fb403ae75c9a73abb2a2c5da396dc96de5c56b92c3c"
+  },
+  {
+    "id": "beef-trimmings",
+    "file": "assets/products/beef-trimmings-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 46646,
+    "bytes": 32240,
+    "sha256": "f9270904705f0a7b88674d3e5195b6d3c2cd21dde96235e45da50b766406a7f0"
+  },
+  {
+    "id": "beef-fat",
+    "file": "assets/products/beef-fat-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 25542,
+    "bytes": 15318,
+    "sha256": "cd1bc6f81392174d70c24f7d437becf97c4413b217cdea46d626bf8d17a168e1"
+  },
+  {
+    "id": "veal",
+    "file": "assets/products/veal-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 31224,
+    "bytes": 19402,
+    "sha256": "b53508f4319adcc70b992560e51531c669fdf579d792f3476c5b046467d56749"
+  },
+  {
+    "id": "offal-pork-liver",
+    "file": "assets/products/liver-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 31824,
+    "bytes": 19768,
+    "sha256": "1e8a6174fcff785c27c782b97862758993421491b4dc7e8585426bd125ea1c4a"
+  },
+  {
+    "id": "offal-beef-liver",
+    "file": "assets/products/beef-liver-v07-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 33438,
+    "bytes": 19202,
+    "sha256": "ca177156f18c85953acf79fd309fdcec6c24c40047ef653087931c30f8d03a85"
+  },
+  {
+    "id": "offal-veal-liver",
+    "file": "assets/products/veal-liver-v07-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 36968,
+    "bytes": 21174,
+    "sha256": "5fb210106212b28e2b1e33beafcbec18dd05188d83716dbcef801b92f5b9270b"
+  },
+  {
+    "id": "offal-heart",
+    "file": "assets/products/heart-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 38256,
+    "bytes": 24914,
+    "sha256": "e61fdda942d4314f508bbdd14928a70c4154082769bbc512ab49ec0b2238f239"
+  },
+  {
+    "id": "offal-tongue",
+    "file": "assets/products/tongue-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 28858,
+    "bytes": 18000,
+    "sha256": "52c65e3427b19918d0d96264546e1d6287b479160830b6354966217a5640fd7a"
+  },
+  {
+    "id": "offal-pork-kidneys",
+    "file": "assets/products/pork-kidneys-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 27960,
+    "bytes": 17528,
+    "sha256": "3c1541302fcee4293c6bf6bf1bd5a4167b52cb2a1f082332d3a7d5343a6ec1c9"
+  },
+  {
+    "id": "offal-beef-kidneys",
+    "file": "assets/products/beef-kidneys-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 25590,
+    "bytes": 15852,
+    "sha256": "50d8788ea588045319e88e90b4792048be9da8bf37bf9f1c7e0153b88957a72d"
+  },
+  {
+    "id": "offal-tripe",
+    "file": "assets/products/tripe-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 36446,
+    "bytes": 22182,
+    "sha256": "d760203373213955815b316c7b8028f53b050fbf3b14ebd2c32420303b5580fb"
+  },
+  {
+    "id": "offal-feet",
+    "file": "assets/products/feet-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 23998,
+    "bytes": 13688,
+    "sha256": "3fd3cd0300a6b778e8b0d0a673dbf1e15330e4442c3545eddc1810de9390ac93"
+  },
+  {
+    "id": "offal-pork-feet",
+    "file": "assets/products/pork-trotters-clean-v07-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 26254,
+    "bytes": 13930,
+    "sha256": "b11fe678902bcb53e5d94412e4dc8947084be1aff0ab90103858c45652e81f64"
+  },
+  {
+    "id": "offal-pork-head",
+    "file": "assets/products/pork-head-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 23202,
+    "bytes": 13430,
+    "sha256": "e3af37d951a045c9fe86120c97318bc3e20bf026ac9c31ad63655137ee2603ed"
+  },
+  {
+    "id": "offal-pork-tail",
+    "file": "assets/products/pork-tail-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 25158,
+    "bytes": 15200,
+    "sha256": "1eedc4c09ceff658410772563d0069c10ea00dd789b8844514b8f92c0d2f9a7a"
+  },
+  {
+    "id": "offal-beef-tail",
+    "file": "assets/products/beef-tail-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 45548,
+    "bytes": 30734,
+    "sha256": "625c795916d9fe408ad852202f0481e290103a9dd4d2806b19cc50818c049664"
+  },
+  {
+    "id": "offal-beef-lungs",
+    "file": "assets/products/lungs-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 28598,
+    "bytes": 17792,
+    "sha256": "d17d5ee1d157e1a689ead5c63ea8c981eddbb058a95c7ca76a06b6f1038cfd2c"
+  },
+  {
+    "id": "offal-pork-skin",
+    "file": "assets/products/pork-skin-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 29842,
+    "bytes": 17626,
+    "sha256": "e07994890e28058ae4ec7e37a3177905b228c5750b3e3c895c9071e6cb332977"
+  },
+  {
+    "id": "offal-pork-set",
+    "file": "assets/products/offal-mix-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 30410,
+    "bytes": 19140,
+    "sha256": "bd61fc77bb69f26b07c91fd63b38b75180a6825d282e91a16fceb53100f926a5"
+  },
+  {
+    "id": "offal-beef-set",
+    "file": "assets/products/beef-offal-v07-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 47682,
+    "bytes": 29136,
+    "sha256": "930ad1f8ea69d16b051cd58b97770e57ca9a09ab6e6180dd750b761c622dcddb"
+  },
+  {
+    "id": "marrow-bone",
+    "file": "assets/products/marrow-bone-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 24764,
+    "bytes": 15120,
+    "sha256": "97e555a2301b2efc63b2ce29ffb754cd1cf0215eb18a393570794c452ace4a74"
+  },
+  {
+    "id": "stock-bones",
+    "file": "assets/products/stock-bones-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 36498,
+    "bytes": 24006,
+    "sha256": "844a2002fa403a7d8c68a6d475a44d8b1c1d6c1cf655c20980911a56e39e1fbe"
+  },
+  {
+    "id": "caul-fat",
+    "file": "assets/products/caul-fat-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 39666,
+    "bytes": 25522,
+    "sha256": "1182f8501f861b05dc341634608501b744bdb79d9a7a058db12695efe01f4ae5"
+  },
+  {
+    "id": "mixed-mince",
+    "file": "assets/products/mixed-mince-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 47496,
+    "bytes": 30954,
+    "sha256": "fae18c98a67ee5dcf8260b4fa56a3cdb0bad7398464a72ac3a5d035cf577f1c6"
+  },
+  {
+    "id": "chicken",
+    "file": "assets/products/chicken-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 25762,
+    "bytes": 15296,
+    "sha256": "f021e77ef604734256d488162994d5628381ed5a4825bb18fbdbba8740afa97c"
+  },
+  {
+    "id": "turkey",
+    "file": "assets/products/turkey-v05-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 22770,
+    "bytes": 14128,
+    "sha256": "7bd230b4e02adca8860d3c0f3bbc754505f6c4e90b46cf77eb0a7b8e319243ef"
+  },
+  {
+    "id": "lamb",
+    "file": "assets/products/lamb-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 28418,
+    "bytes": 17352,
+    "sha256": "317f1f079e78dee3be63e193dd24bea4e072b88278514b30e956cb64ab615fb1"
+  },
+  {
+    "id": "offal-pork",
+    "file": "assets/products/pork-offal-v07-small.webp",
+    "width": 480,
+    "height": 480,
+    "quality": 73,
+    "beforeBytes": 34876,
+    "bytes": 19888,
+    "sha256": "a7c9992802002d23d5874c255c9614e0c62ae3f014fb18ec2f25b88d460079db"
+  },
+  {
+    "id": "logo",
+    "file": "assets/brand/meatco-logo-small.webp",
+    "width": 360,
+    "height": 128,
+    "beforeBytes": 200654,
+    "bytes": 8024,
+    "sha256": "cbec5fc968f2bb8fc40f719e5d6535f50a10dc8a235abd6ab1438f3d1ee9ac78",
+    "quality": 90
+  }
+]

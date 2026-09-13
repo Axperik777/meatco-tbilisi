@@ -16,8 +16,20 @@ const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
 const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
 const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
-function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small&&image.endsWith('.webp')?image.replace('.webp','-small.webp'):image;}
-document.addEventListener('error',event=>{const img=event.target;if(img.tagName!=='IMG'||!img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories'))return;if(img.src.endsWith('photo-pending.svg'))return;img.removeAttribute('srcset');img.src='./assets/products/photo-pending.svg';const label=img.parentElement.querySelector('.photo-pending-label');if(label)label.hidden=false;},true);
+function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small?(imageVariants[image]?.src||image):image;}
+function thumbnailAttrs(c,size){const src=photoFor(c,true),v=imageVariants[photoFor(c)];return `src="${src}" ${v?`srcset="${src} ${v.width}w" sizes="${size}px"`:''} width="${size}" height="${size}" loading="lazy" fetchpriority="low" decoding="async"`;}
+// Respect a direct #catalog/#help entry after the existing router selects its panel.
+// Only request hints change; routing, filtering and product order stay untouched.
+function prioritizeEntryPhotos(){
+ document.querySelectorAll('[data-app-panel]').forEach(panel=>{
+  const active=!panel.hidden,count=panel.dataset.appPanel==='catalog'?4:2;
+  panel.querySelectorAll('.meat-photo img').forEach((img,index)=>{
+   img.loading=active&&index<count?'eager':'lazy';
+   img.fetchPriority=active&&index<2?'high':'low';
+  });
+ });
+}
+document.addEventListener('error',event=>{const img=event.target;if(img.tagName!=='IMG'||!img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories'))return;if(img.src.endsWith('photo-pending.svg'))return;img.closest('picture')?.querySelectorAll('source').forEach(source=>source.remove());img.removeAttribute('srcset');img.src='./assets/products/photo-pending.svg';const label=img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories').querySelector('.photo-pending-label');if(label)label.hidden=false;},true);
 const dishById=id=>content.dishes.find(d=>d.id===id);
 const findProducts=createProductSearch(content.cuts,content.dishes,strings);
 try {
@@ -129,7 +141,7 @@ function renderQuickSearch(){
  $('quick-language').value=language;
  if(!query){$('quick-products').replaceChildren();return;}
  $('quick-count').textContent=text('searchResults').replace('{n}',matches.length);
- $('quick-products').innerHTML=matches.slice(0,4).map(c=>`<article class="quick-product"><button type="button" data-view-product="${c.id}" aria-label="${esc(c.name[language])}"><img src="${c.image.replace('.webp','-small.webp')}" width="58" height="58" alt=""><span><strong>${esc(c.name[language])}</strong><span>${esc(formatPrice(c))}</span></span></button><button type="button" class="quick-add" data-add-cut="${c.id}" aria-label="${esc(text('addToCart')+': '+c.name[language])}">+</button></article>`).join('');
+ $('quick-products').innerHTML=matches.slice(0,4).map(c=>`<article class="quick-product"><button type="button" data-view-product="${c.id}" aria-label="${esc(c.name[language])}"><img ${thumbnailAttrs(c,58)} alt=""><span><strong>${esc(c.name[language])}</strong><span>${esc(formatPrice(c))}</span></span></button><button type="button" class="quick-add" data-add-cut="${c.id}" aria-label="${esc(text('addToCart')+': '+c.name[language])}">+</button></article>`).join('');
  $('quick-empty').hidden=matches.length!==0;$('quick-all').hidden=!matches.length;
  $('quick-all').textContent=text('searchAll').replace('{n}',matches.length)+' ↗';
  const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.searchParams.set('q',query);$('quick-all').href=url.href;
@@ -268,4 +280,4 @@ if($('dish-search')){
 let initial=config.defaultLanguage||'ka';
 try{const saved=localStorage.getItem('meatco:language');if(supported.includes(saved))initial=saved;}catch{}
 if(supported.includes(params.get('lang')))initial=params.get('lang');
-setLanguage(initial,false);initializeAppShell();$('year').textContent=String(new Date().getFullYear());
+setLanguage(initial,false);initializeAppShell();prioritizeEntryPhotos();$('year').textContent=String(new Date().getFullYear());
