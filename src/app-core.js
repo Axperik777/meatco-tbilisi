@@ -16,6 +16,7 @@ let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
 const dishById=id=>content.dishes.find(d=>d.id===id);
+const findProducts=createProductSearch(content.cuts,content.dishes,strings);
 try {
  const saved=JSON.parse(sessionStorage.getItem('meatco:attribution')||'{}');
  if(saved&&typeof saved==='object'&&!Array.isArray(saved)) attribution=saved;
@@ -58,7 +59,7 @@ function updatePreview(){
  form.dataset.preparedUrl=validQuantity(quantity.value.trim())?whatsappUrl(prepared):'';
  document.querySelector('label[for="quantity"]').textContent=text(pieceOrder()?'piecesLabel':'quantityLabel');
  quantity.inputMode=pieceOrder()?'numeric':'decimal';quantity.placeholder=pieceOrder()?'1':'1.5';
- const directMessage=context.cut||context.dish||chosenExtras().length?prepared:text('messageGreeting');
+ const directMessage=cartHasItems()?cartMessage():context.cut||context.dish||chosenExtras().length?prepared:text('messageGreeting');
  for(const link of document.querySelectorAll('[data-whatsapp]'))link.href=whatsappUrl(directMessage)||'tel:+995568258118';
 }
 function updateUrl(key,value){
@@ -97,23 +98,36 @@ function renderProductCards(){
  const hero=cutById('beef-tenderloin');
  if(document.querySelector('[data-hero-image]')){
   document.querySelector('[data-hero-image]').alt=hero.name[language];
-  document.querySelector('.hero-product-name').textContent=hero.name[language];
-  document.querySelector('.hero-product-tag').setAttribute('aria-label',text('cutCta')+': '+hero.name[language]+', '+formatPrice(hero));
+
  }
 }
 function renderCatalog(){
  if(!$('product-grid'))return;
  for(const b of document.querySelectorAll('[data-category]'))b.setAttribute('aria-pressed',String(b.dataset.category===category));
- const query=$('product-search').value.trim().toLocaleLowerCase(language);let count=0;
+ const query=$('product-search').value.trim(),matches=new Set(findProducts(query).map(c=>c.id));let count=0;
  for(const card of $('product-grid').querySelectorAll('[data-product-card]')){
   const c=cutById(card.dataset.productCard),group=c.group||c.category;
   const categoryMatch=category==='all'||(category==='other'?!['pork','beef','offal'].includes(group):group===category);
-  const haystack=[...Object.values(c.name),c.use[language],text(c.category)].join(' ').toLocaleLowerCase(language);
-  const match=categoryMatch&&(!query||haystack.includes(query));if(match)count++;
+  const match=categoryMatch&&matches.has(c.id);if(match)count++;
   card.hidden=!match||count>productLimit;
  }
  $('product-count').textContent=text('productCount').replace('{n}',count);
  $('product-empty').hidden=count!==0;$('more-products').hidden=count<=productLimit;
+ $('clear-product-search').hidden=!query;
+ $('search-all-categories').hidden=!!count||category==='all'||!matches.size;
+}
+function renderQuickSearch(){
+ if(!$('quick-search'))return;
+ const query=$('quick-search').value.trim(),matches=findProducts(query);
+ $('quick-results').hidden=!query;$('clear-quick-search').hidden=!query;
+ document.querySelector('.quick-finder .category-rail').hidden=!!query;
+ $('quick-language').value=language;
+ if(!query){$('quick-products').replaceChildren();return;}
+ $('quick-count').textContent=text('searchResults').replace('{n}',matches.length);
+ $('quick-products').innerHTML=matches.slice(0,4).map(c=>`<article class="quick-product"><button type="button" data-view-product="${c.id}" aria-label="${esc(c.name[language])}"><img src="${c.image.replace('.webp','-small.webp')}" width="58" height="58" alt=""><span><strong>${esc(c.name[language])}</strong><span>${esc(formatPrice(c))}</span></span></button><button type="button" class="quick-add" data-add-cut="${c.id}" aria-label="${esc(text('addToCart')+': '+c.name[language])}">+</button></article>`).join('');
+ $('quick-empty').hidden=matches.length!==0;$('quick-all').hidden=!matches.length;
+ $('quick-all').textContent=text('searchAll').replace('{n}',matches.length)+' ↗';
+ const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.searchParams.set('q',query);$('quick-all').href=url.href;
 }
 function renderDishCards(){
  for(const card of document.querySelectorAll('[data-dish-id]')){
@@ -175,7 +189,7 @@ function setLanguage(next,persist=true){
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderProductCards();renderCatalog();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();
+ status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
 function closeMenu(focus=false){
@@ -190,6 +204,11 @@ document.addEventListener('click',event=>{
   activeDish=dishById(el.dataset.openDish);$('dish-people').value='';renderDishDetail();showDialog(dishDialog,el);track('meatco_dish_view',{dish:activeDish.id});
  }
  if(el.matches('[data-order]'))openOrder(el);
+ if(el.matches('[data-find]')){
+  const field=$('quick-search')||$('product-search');
+  if(field){field.scrollIntoView({block:'center'});field.focus({preventScroll:true});}
+  else{const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.hash='product-search';location.assign(url);}
+ }
  if(el.matches('[data-close]'))el.closest('dialog').close();
  if(el.matches('[data-whatsapp]'))track('meatco_whatsapp_click',{source:'direct'});
  if(el.matches('[data-wholesale]'))track('meatco_whatsapp_click',{source:'restaurant_supply',segment:'b2b'});
@@ -222,7 +241,18 @@ if($('product-search')){
  $('product-search').value=(params.get('q')||'').slice(0,100);
  $('product-search').addEventListener('input',()=>{productLimit=12;renderCatalog();updateUrl('q',$('product-search').value.trim());});
  $('reset-products').addEventListener('click',()=>{category='all';productLimit=12;$('product-search').value='';renderCatalog();updateUrl('category','');updateUrl('q','');$('product-search').focus();});
+ $('clear-product-search').addEventListener('click',()=>{$('product-search').value='';productLimit=12;renderCatalog();updateUrl('q','');$('product-search').focus();});
+ $('search-all-categories').addEventListener('click',()=>{category='all';productLimit=12;renderCatalog();updateUrl('category','');$('catalog-tools').scrollIntoView({block:'start'});$('product-search').focus({preventScroll:true});});
  $('more-products').addEventListener('click',()=>{const before=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')];productLimit+=12;renderCatalog();const next=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')].find(c=>!before.includes(c));next?.querySelector('button').focus();});
+}
+if($('quick-search')){
+ $('quick-search').addEventListener('input',renderQuickSearch);
+ $('quick-search').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){$('quick-search').value='';renderQuickSearch();}
+  if(e.key==='ArrowDown'&&$('quick-products').firstElementChild){e.preventDefault();$('quick-products').querySelector('button').focus();}
+ });
+ $('clear-quick-search').addEventListener('click',()=>{$('quick-search').value='';renderQuickSearch();$('quick-search').focus();});
+ $('quick-find-form').addEventListener('submit',e=>{e.preventDefault();const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);const query=$('quick-search').value.trim();if(query)url.searchParams.set('q',query);location.assign(url);});
 }
 if($('dish-search')){
  $('dish-search').value=(params.get('q')||'').slice(0,100);
@@ -231,6 +261,7 @@ if($('dish-search')){
  $('clear-search').addEventListener('click',()=>{$('dish-search').value='';filterDishes(true);$('dish-search').focus();});
  $('reset-filters').addEventListener('click',()=>{meatFilter='all';$('dish-search').value='';$('dish-method').value='';filterDishes(true);$('dish-search').focus();});
 }
+// CART_MODULE
 let initial=config.defaultLanguage||'ka';
 try{const saved=localStorage.getItem('meatco:language');if(supported.includes(saved))initial=saved;}catch{}
 if(supported.includes(params.get('lang')))initial=params.get('lang');

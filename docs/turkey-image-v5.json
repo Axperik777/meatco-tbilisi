@@ -1,0 +1,13 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "generate, then precise-object-edit",
+  "source": "../Креативы/MeatCO_product_assets_v04/turkey-v05.png",
+  "outputs": [
+    "dist/assets/products/turkey-v05.webp",
+    "dist/assets/products/turkey-v05-small.webp"
+  ],
+  "originalPrompt": "Use case: product photography. Create a NEW replacement catalog photo for MeatCO. Square 1024x1024. A large whole raw uncooked TURKEY, with anatomically accurate very broad high breast, massive thick long drumsticks spread apart and NOT tied together, coarse pale ivory-pink turkey skin, long strong wings. Low three-quarter SIDE view at 35 degrees, body placed diagonally and clearly distinguishable from a small compact chicken photographed from overhead. Plain ivory butcher paper on cool light grey limestone counter. The complete turkey fills 75% of the frame, show its large long body and heavy limbs naturally, softly lit upper-left daylight, honest natural texture, premium quiet butcher catalog. No head, no feathers, no blood puddles or slaughter, no cooked food, no garnish, no plate, no text or logo, no extra objects. Do not make the compact trussed chicken silhouette. Adult domestic turkey ready for cooking.",
+  "finalPrompt": "Use case: precise-object-edit. Asset type: MeatCO turkey catalog image. Input image is the edit target. Remove ONLY the small chicken in the lower right corner completely, replace its entire area and its shadow with continuous empty ivory butcher paper matching surrounding texture, folds, perspective and light. Preserve the single large raw turkey exactly: proportions, position, detailed skin, two long drumsticks, two wings, natural ivory-pink color and shadow. Preserve camera, square composition, stone background, paper and soft daylight. Final image must contain exactly ONE bird, the large turkey; absolutely no second bird or miniature bird. No text, logos, labels, garnishes, or extra objects.",
+  "qa": "Visually inspected: one whole adult turkey, long spread drumsticks, coarse skin and diagonal side view. Small second bird removed. Generated illustration, not a photo of actual inventory."
+}

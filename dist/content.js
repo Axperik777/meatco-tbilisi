@@ -1169,7 +1169,7 @@ window.MEATCO_CONTENT = {
       },
       "price": 5,
       "unit": "kg",
-      "image": "./assets/products/turkey.webp"
+      "image": "./assets/products/turkey-v05.webp"
     },
     {
       "id": "lamb",

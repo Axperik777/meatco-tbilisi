@@ -69,7 +69,7 @@ const strings = {
     "previewMessage": "შეტყობინების ნახვა",
     "formHint": "WhatsApp-ში ტექსტს გაგზავნამდე ნახავთ. შეკვეთა მხოლოდ დეტალების შეთანხმების შემდეგ დასტურდება.",
     "continueWhatsApp": "გაგრძელება WhatsApp-ში",
-    "privacyText": "ფორმის შევსება MeatCO-ს მონაცემებს ავტომატურად არ უგზავნის. WhatsApp-ში გადასვლისას ტექსტი გადაეცემა WhatsApp-ს, სადაც გაგზავნამდე მის შეცვლას შეძლებთ. ბრაუზერი ინახავს ენის არჩევანს და, მიმდინარე სესიის განმავლობაში, სარეკლამო ბმულის პარამეტრებს. ფორმის ტექსტი ბრაუზერის საცავში არ ინახება. სარეკლამო ანალიტიკა გამორთულია. შეკითხვებისთვის: +995 568 258 118.",
+    "privacyText": "ფორმის შევსება MeatCO-ს მონაცემებს ავტომატურად არ უგზავნის. WhatsApp-ში გადასვლისას ტექსტი გადაეცემა WhatsApp-ს, სადაც გაგზავნამდე მის შეცვლას შეძლებთ. ბრაუზერი ინახავს ენის არჩევანს და, მიმდინარე სესიის განმავლობაში, სარეკლამო ბმულის პარამეტრებს. ფორმის ტექსტი ბრაუზერის საცავში არ ინახება. სარეკლამო ანალიტიკა გამორთულია. შეკითხვებისთვის: +995 568 258 118. კალათის შემადგენლობა და რაოდენობები ამ ბრაუზერში ინახება. კალათაში მითითებული უბანი და კომენტარი არ ინახება.",
     "whatsappPrivacy": "WhatsApp-ის კონფიდენციალურობის პოლიტიკა",
     "close": "დახურვა",
     "porkAlt": "ღორის ხორცი პერგამენტზე — საილუსტრაციო ფოტო",
@@ -225,7 +225,7 @@ const strings = {
     "dishNoResultsText": "შეცვალეთ ფილტრი ან მოგვწერეთ, რის მომზადებას აპირებთ.",
     "resetFilters": "ფილტრების გასუფთავება",
     "dishView": "ხორცის შერჩევა",
-    "dishPhotoNote": "მომზადების იდეა · საილუსტრაციო ფოტო",
+    "dishPhotoNote": "მომზადების იდეა",
     "dishCutsLabel": "რომელი ხორცი დაგჭირდებათ",
     "dishPeople": "რამდენი ადამიანისთვის ამზადებთ?",
     "peopleUnknown": "ჯერ არ ვიცი",
@@ -286,7 +286,45 @@ const strings = {
     "productNoResults": "პროდუქტი ვერ მოიძებნა",
     "productNoResultsText": "სცადეთ სხვა დასახელება ან კატეგორია.",
     "helpsChoose": "არჩევაში დაგეხმარებათ",
-    "priceNote": "ფოტოები საილუსტრაციოა. ხელმისაწვდომობას, ზუსტ წონას, საბოლოო თანხასა და მიტანის პირობებს შეკვეთის დადასტურებამდე შევათანხმებთ."
+    "priceNote": "ხელმისაწვდომობას, ზუსტ წონას, საბოლოო თანხასა და მიტანის პირობებს შეკვეთის დადასტურებამდე შევათანხმებთ.",
+    "quickFindLabel": "იპოვეთ სასურველი ხორცი",
+    "quickFindPlaceholder": "ხორცი ან კერძი",
+    "searchAction": "ძებნა",
+    "searchResults": "ნაპოვნია: {n}",
+    "searchAll": "ყველა შედეგი ({n})",
+    "searchEmpty": "ვერ მოიძებნა. შეცვალეთ სიტყვა ან მოგვწერეთ — არჩევაში დაგეხმარებით.",
+    "orderMore": "კომენტარი და დამატებითი პროდუქტები",
+    "searchBeyondCategory": "სხვა კატეგორიებშიც მოძებნეთ",
+    "clearProductSearch": "ძებნის გასუფთავება",
+    "cartTitle": "თქვენი კალათა",
+    "cartNav": "კალათა",
+    "cartOpen": "კალათის ნახვა",
+    "cartEmpty": "კალათა ცარიელია. აირჩიეთ პროდუქტები კატალოგიდან.",
+    "addToCart": "კალათაში დამატება",
+    "addShort": "დამატება",
+    "cartAdded": "დამატებულია კალათაში",
+    "cartEstimate": "პროდუქტების სავარაუდო ფასი",
+    "cartUnpriced": "ფასი დასაზუსტებელია: {items}. ეს პროდუქტები თანხაში არ შედის.",
+    "cartDeliveryNote": "მიტანის ფასი და საბოლოო წონა WhatsApp-ში დაზუსტდება.",
+    "cartDetails": "უბანი, კომენტარი და სხვა პროდუქტები",
+    "cartNoteLabel": "კომენტარი · სურვილისამებრ",
+    "cartConfirmNote": "შეკვეთას დეტალების შეთანხმების შემდეგ დავადასტურებთ.",
+    "cartSend": "შეკვეთა WhatsApp-ში",
+    "cartGreeting": "გამარჯობა, MeatCO! მსურს შეკვეთა მიტანით:",
+    "cartRemove": "წაშლა",
+    "decrease": "შემცირება",
+    "increase": "გაზრდა",
+    "quantityKg": "წონა, კგ",
+    "quantityPiece": "რაოდენობა, ცალი",
+    "cartInvalid": "შეამოწმეთ მონიშნული რაოდენობა.",
+    "cartLineQuantity": "რაოდენობა: {name}",
+    "heroOffer": "ახალი ხორცი. სახლში მიტანით.",
+    "heroOfferText": "ღორისა და საქონლის ხორცი, სუბპროდუქტები — შეარჩიეთ თქვენი შეკვეთა.",
+    "videoRequest": "ხორცის ვიდეოს ნახვა მსურს",
+    "videoCta": "ამ პროდუქტის ვიდეოს მოთხოვნა",
+    "videoService": "შეკვეთამდე ხორცის ნახვა გსურთ? მოგვწერეთ WhatsApp-ში — ვიდეოზე გაჩვენებთ.",
+    "videoMessage": "შეკვეთის დადასტურებამდე, გთხოვთ, შერჩეული ხორცი ვიდეოზე მაჩვენოთ.",
+    "videoProductMessage": "გამარჯობა, MeatCO! გთხოვთ, ეს პროდუქტი ვიდეოზე მაჩვენოთ:"
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -356,7 +394,7 @@ const strings = {
     "previewMessage": "Посмотреть сообщение",
     "formHint": "В WhatsApp вы увидите текст перед отправкой. Заказ подтверждается после согласования деталей.",
     "continueWhatsApp": "Продолжить в WhatsApp",
-    "privacyText": "Заполнение формы не отправляет данные MeatCO автоматически. При переходе в WhatsApp текст передаётся WhatsApp; его можно изменить перед отправкой. Браузер сохраняет выбранный язык и, на время текущей сессии, параметры рекламной ссылки. Текст формы в хранилище браузера не сохраняется. Рекламная аналитика отключена. По вопросам: +995 568 258 118.",
+    "privacyText": "Заполнение формы не отправляет данные MeatCO автоматически. При переходе в WhatsApp текст передаётся WhatsApp; его можно изменить перед отправкой. Браузер сохраняет выбранный язык и, на время текущей сессии, параметры рекламной ссылки. Текст формы в хранилище браузера не сохраняется. Рекламная аналитика отключена. По вопросам: +995 568 258 118. Состав корзины и количество товаров сохраняются в этом браузере. Район и комментарий корзины не сохраняются.",
     "whatsappPrivacy": "Политика конфиденциальности WhatsApp",
     "close": "Закрыть",
     "porkAlt": "Свинина на пергаменте — иллюстративное фото",
@@ -512,7 +550,7 @@ const strings = {
     "dishNoResultsText": "Измените фильтр или напишите нам, что хотите приготовить.",
     "resetFilters": "Сбросить фильтры",
     "dishView": "Какое мясо выбрать",
-    "dishPhotoNote": "Идея приготовления · иллюстративное фото",
+    "dishPhotoNote": "Идея приготовления",
     "dishCutsLabel": "Какое мясо понадобится",
     "dishPeople": "На сколько человек готовите?",
     "peopleUnknown": "Пока не знаю",
@@ -573,7 +611,45 @@ const strings = {
     "productNoResults": "Ничего не найдено",
     "productNoResultsText": "Попробуйте другое название или категорию.",
     "helpsChoose": "поможет выбрать",
-    "priceNote": "Фотографии иллюстративные. Наличие, точный вес, итоговую сумму и условия доставки согласуем до подтверждения заказа."
+    "priceNote": "Наличие, точный вес, итоговую сумму и условия доставки согласуем до подтверждения заказа.",
+    "quickFindLabel": "Найдите нужное мясо",
+    "quickFindPlaceholder": "Название мяса или блюда",
+    "searchAction": "Поиск",
+    "searchResults": "Найдено: {n}",
+    "searchAll": "Все результаты ({n})",
+    "searchEmpty": "Не нашли. Попробуйте другое название или напишите — поможем выбрать.",
+    "orderMore": "Комментарий и другие продукты",
+    "searchBeyondCategory": "Искать во всех категориях",
+    "clearProductSearch": "Очистить поиск",
+    "cartTitle": "Ваша корзина",
+    "cartNav": "Корзина",
+    "cartOpen": "Открыть корзину",
+    "cartEmpty": "Корзина пока пуста. Добавьте продукты из каталога.",
+    "addToCart": "В корзину",
+    "addShort": "Добавить",
+    "cartAdded": "Добавлено в корзину",
+    "cartEstimate": "Предварительно за товары",
+    "cartUnpriced": "Цена уточняется: {items}. Эти позиции пока не включены в сумму.",
+    "cartDeliveryNote": "Доставку и окончательный вес уточним в WhatsApp.",
+    "cartDetails": "Район, комментарий и другие продукты",
+    "cartNoteLabel": "Комментарий · необязательно",
+    "cartConfirmNote": "Заказ подтвердим после согласования деталей.",
+    "cartSend": "Заказать в WhatsApp",
+    "cartGreeting": "Здравствуйте, MeatCO! Хочу заказать с доставкой:",
+    "cartRemove": "Удалить",
+    "decrease": "Уменьшить",
+    "increase": "Увеличить",
+    "quantityKg": "Вес, кг",
+    "quantityPiece": "Количество, шт.",
+    "cartInvalid": "Проверьте выделенное количество.",
+    "cartLineQuantity": "Количество: {name}",
+    "heroOffer": "Свежее мясо. С доставкой домой.",
+    "heroOfferText": "Свинина, говядина и субпродукты — соберите свой заказ.",
+    "videoRequest": "Хочу увидеть мясо на видео",
+    "videoCta": "Запросить видео этого продукта",
+    "videoService": "Хотите увидеть мясо перед заказом? Напишите в WhatsApp — покажем на видео.",
+    "videoMessage": "Перед подтверждением заказа, пожалуйста, покажите выбранное мясо на видео.",
+    "videoProductMessage": "Здравствуйте, MeatCO! Покажите, пожалуйста, на видео этот продукт:"
   },
   "en": {
     "skip": "Skip to content",
@@ -643,7 +719,7 @@ const strings = {
     "previewMessage": "Preview your message",
     "formHint": "You can review the text in WhatsApp before sending. Your order is confirmed after we agree on the details.",
     "continueWhatsApp": "Continue to WhatsApp",
-    "privacyText": "Completing this form does not automatically send your details to MeatCO. Opening WhatsApp shares the prepared text with WhatsApp; you can edit it before sending. Your browser stores your language choice and, for the current session, advertising link parameters. Form content is not saved in browser storage. Advertising analytics are disabled. Questions: +995 568 258 118.",
+    "privacyText": "Completing this form does not automatically send your details to MeatCO. Opening WhatsApp shares the prepared text with WhatsApp; you can edit it before sending. Your browser stores your language choice and, for the current session, advertising link parameters. Form content is not saved in browser storage. Advertising analytics are disabled. Questions: +995 568 258 118. Basket products and quantities are saved in this browser. The basket delivery area and note are not saved.",
     "whatsappPrivacy": "WhatsApp privacy policy",
     "close": "Close",
     "porkAlt": "Pork on parchment — illustrative photo",
@@ -799,7 +875,7 @@ const strings = {
     "dishNoResultsText": "Change your filters or tell us what you’d like to cook.",
     "resetFilters": "Reset filters",
     "dishView": "Find the right meat",
-    "dishPhotoNote": "Cooking inspiration · illustrative photo",
+    "dishPhotoNote": "Cooking inspiration",
     "dishCutsLabel": "Meat for this dish",
     "dishPeople": "How many are you cooking for?",
     "peopleUnknown": "Not sure yet",
@@ -860,9 +936,76 @@ const strings = {
     "productNoResults": "No products found",
     "productNoResultsText": "Try another name or category.",
     "helpsChoose": "helps you choose",
-    "priceNote": "Photos are illustrative. Availability, exact weight, total cost and delivery terms are confirmed before you place your order."
+    "priceNote": "Availability, exact weight, total cost and delivery terms are confirmed before you place your order.",
+    "quickFindLabel": "Find your meat",
+    "quickFindPlaceholder": "Meat or dish name",
+    "searchAction": "Search",
+    "searchResults": "Found: {n}",
+    "searchAll": "All results ({n})",
+    "searchEmpty": "No matches. Try another name or message us for help.",
+    "orderMore": "Note and extra products",
+    "searchBeyondCategory": "Search all categories",
+    "clearProductSearch": "Clear search",
+    "cartTitle": "Your basket",
+    "cartNav": "Basket",
+    "cartOpen": "View basket",
+    "cartEmpty": "Your basket is empty. Add products from the catalog.",
+    "addToCart": "Add to basket",
+    "addShort": "Add",
+    "cartAdded": "Added to basket",
+    "cartEstimate": "Estimated product total",
+    "cartUnpriced": "Price to confirm: {items}. These products are not included in the total yet.",
+    "cartDeliveryNote": "Delivery cost and final weight will be confirmed on WhatsApp.",
+    "cartDetails": "Area, note and extra products",
+    "cartNoteLabel": "Note · optional",
+    "cartConfirmNote": "Your order is confirmed after we agree on the details.",
+    "cartSend": "Order on WhatsApp",
+    "cartGreeting": "Hello, MeatCO! I’d like to order for delivery:",
+    "cartRemove": "Remove",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "quantityKg": "Weight, kg",
+    "quantityPiece": "Quantity, items",
+    "cartInvalid": "Check the highlighted quantity.",
+    "cartLineQuantity": "Quantity: {name}",
+    "heroOffer": "Fresh meat. Delivered to your door.",
+    "heroOfferText": "Pork, beef and offal — build your order.",
+    "videoRequest": "I’d like to see the meat on video",
+    "videoCta": "Request a video of this product",
+    "videoService": "Want to see the meat before ordering? Message us on WhatsApp — we can show it on video.",
+    "videoMessage": "Before confirming the order, please show me the selected meat on video.",
+    "videoProductMessage": "Hello, MeatCO! Could you show me this product on video:"
   }
 };
+function createProductSearch(cuts,dishes,locales){
+ const normalize=value=>String(value).normalize('NFKC').toLocaleLowerCase().replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+ const aliases={
+  'pork-grill':'шашлык шашлыка шашлычный мцвади barbecue bbq mtsvadi მწვადი სამწვადე',
+  'beef-tenderloin':'стейк стейки steak steaks სტეიკი',
+  'mixed-mince':'фарш mince ground ხორცის ფარში',
+  'chicken':'курица курятина chicken ქათამი ქათმის',
+  'turkey':'индюшка индюшатина turkey ინდაურის',
+  'offal-tripe':'рубец требуха tripe ფაშვი',
+  'caul-fat':'жировая сетка сальник бадекони caul fat ბადექონი'
+ };
+ const entries=cuts.map(c=>{
+  const names=Object.values(c.name).join(' ');
+  const related=dishes.filter(d=>d.cuts.includes(c.id)).flatMap(d=>['ka','ru','en'].map(lang=>d[lang][0])).join(' ');
+  let species='';
+  if(/(^pork-|^young-pig$|^offal-pork)/.test(c.id))species='свинина pork ღორის';
+  if(/(^beef-|^offal-beef)/.test(c.id))species='говядина beef საქონლის';
+  if(c.id.includes('liver'))species+=' печенка liver ღვიძლი';
+  const category=['ka','ru','en'].map(lang=>locales[lang][c.category]||'').join(' ');
+  return {cut:c,names:normalize(names),text:normalize([names,...Object.values(c.use),category,species,aliases[c.id]||'',related].join(' '))};
+ });
+ return query=>{
+  const clean=normalize(query),words=clean.split(' ').filter(Boolean);
+  return entries.filter(e=>words.every(word=>e.text.includes(word)))
+   .sort((a,b)=>Number(b.names.includes(clean))-Number(a.names.includes(clean)))
+   .map(e=>e.cut);
+ };
+}
+
 const config = window.MEATCO_CONFIG || {};
 const content = window.MEATCO_CONTENT || {dishes:[],cuts:[]};
 const supported = ['ka','ru','en'];
@@ -881,6 +1024,7 @@ let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
 const dishById=id=>content.dishes.find(d=>d.id===id);
+const findProducts=createProductSearch(content.cuts,content.dishes,strings);
 try {
  const saved=JSON.parse(sessionStorage.getItem('meatco:attribution')||'{}');
  if(saved&&typeof saved==='object'&&!Array.isArray(saved)) attribution=saved;
@@ -923,7 +1067,7 @@ function updatePreview(){
  form.dataset.preparedUrl=validQuantity(quantity.value.trim())?whatsappUrl(prepared):'';
  document.querySelector('label[for="quantity"]').textContent=text(pieceOrder()?'piecesLabel':'quantityLabel');
  quantity.inputMode=pieceOrder()?'numeric':'decimal';quantity.placeholder=pieceOrder()?'1':'1.5';
- const directMessage=context.cut||context.dish||chosenExtras().length?prepared:text('messageGreeting');
+ const directMessage=cartHasItems()?cartMessage():context.cut||context.dish||chosenExtras().length?prepared:text('messageGreeting');
  for(const link of document.querySelectorAll('[data-whatsapp]'))link.href=whatsappUrl(directMessage)||'tel:+995568258118';
 }
 function updateUrl(key,value){
@@ -962,23 +1106,36 @@ function renderProductCards(){
  const hero=cutById('beef-tenderloin');
  if(document.querySelector('[data-hero-image]')){
   document.querySelector('[data-hero-image]').alt=hero.name[language];
-  document.querySelector('.hero-product-name').textContent=hero.name[language];
-  document.querySelector('.hero-product-tag').setAttribute('aria-label',text('cutCta')+': '+hero.name[language]+', '+formatPrice(hero));
+
  }
 }
 function renderCatalog(){
  if(!$('product-grid'))return;
  for(const b of document.querySelectorAll('[data-category]'))b.setAttribute('aria-pressed',String(b.dataset.category===category));
- const query=$('product-search').value.trim().toLocaleLowerCase(language);let count=0;
+ const query=$('product-search').value.trim(),matches=new Set(findProducts(query).map(c=>c.id));let count=0;
  for(const card of $('product-grid').querySelectorAll('[data-product-card]')){
   const c=cutById(card.dataset.productCard),group=c.group||c.category;
   const categoryMatch=category==='all'||(category==='other'?!['pork','beef','offal'].includes(group):group===category);
-  const haystack=[...Object.values(c.name),c.use[language],text(c.category)].join(' ').toLocaleLowerCase(language);
-  const match=categoryMatch&&(!query||haystack.includes(query));if(match)count++;
+  const match=categoryMatch&&matches.has(c.id);if(match)count++;
   card.hidden=!match||count>productLimit;
  }
  $('product-count').textContent=text('productCount').replace('{n}',count);
  $('product-empty').hidden=count!==0;$('more-products').hidden=count<=productLimit;
+ $('clear-product-search').hidden=!query;
+ $('search-all-categories').hidden=!!count||category==='all'||!matches.size;
+}
+function renderQuickSearch(){
+ if(!$('quick-search'))return;
+ const query=$('quick-search').value.trim(),matches=findProducts(query);
+ $('quick-results').hidden=!query;$('clear-quick-search').hidden=!query;
+ document.querySelector('.quick-finder .category-rail').hidden=!!query;
+ $('quick-language').value=language;
+ if(!query){$('quick-products').replaceChildren();return;}
+ $('quick-count').textContent=text('searchResults').replace('{n}',matches.length);
+ $('quick-products').innerHTML=matches.slice(0,4).map(c=>`<article class="quick-product"><button type="button" data-view-product="${c.id}" aria-label="${esc(c.name[language])}"><img src="${c.image.replace('.webp','-small.webp')}" width="58" height="58" alt=""><span><strong>${esc(c.name[language])}</strong><span>${esc(formatPrice(c))}</span></span></button><button type="button" class="quick-add" data-add-cut="${c.id}" aria-label="${esc(text('addToCart')+': '+c.name[language])}">+</button></article>`).join('');
+ $('quick-empty').hidden=matches.length!==0;$('quick-all').hidden=!matches.length;
+ $('quick-all').textContent=text('searchAll').replace('{n}',matches.length)+' ↗';
+ const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.searchParams.set('q',query);$('quick-all').href=url.href;
 }
 function renderDishCards(){
  for(const card of document.querySelectorAll('[data-dish-id]')){
@@ -1040,7 +1197,7 @@ function setLanguage(next,persist=true){
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderProductCards();renderCatalog();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();
+ status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderExtras();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
 function closeMenu(focus=false){
@@ -1055,6 +1212,11 @@ document.addEventListener('click',event=>{
   activeDish=dishById(el.dataset.openDish);$('dish-people').value='';renderDishDetail();showDialog(dishDialog,el);track('meatco_dish_view',{dish:activeDish.id});
  }
  if(el.matches('[data-order]'))openOrder(el);
+ if(el.matches('[data-find]')){
+  const field=$('quick-search')||$('product-search');
+  if(field){field.scrollIntoView({block:'center'});field.focus({preventScroll:true});}
+  else{const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.hash='product-search';location.assign(url);}
+ }
  if(el.matches('[data-close]'))el.closest('dialog').close();
  if(el.matches('[data-whatsapp]'))track('meatco_whatsapp_click',{source:'direct'});
  if(el.matches('[data-wholesale]'))track('meatco_whatsapp_click',{source:'restaurant_supply',segment:'b2b'});
@@ -1087,7 +1249,18 @@ if($('product-search')){
  $('product-search').value=(params.get('q')||'').slice(0,100);
  $('product-search').addEventListener('input',()=>{productLimit=12;renderCatalog();updateUrl('q',$('product-search').value.trim());});
  $('reset-products').addEventListener('click',()=>{category='all';productLimit=12;$('product-search').value='';renderCatalog();updateUrl('category','');updateUrl('q','');$('product-search').focus();});
+ $('clear-product-search').addEventListener('click',()=>{$('product-search').value='';productLimit=12;renderCatalog();updateUrl('q','');$('product-search').focus();});
+ $('search-all-categories').addEventListener('click',()=>{category='all';productLimit=12;renderCatalog();updateUrl('category','');$('catalog-tools').scrollIntoView({block:'start'});$('product-search').focus({preventScroll:true});});
  $('more-products').addEventListener('click',()=>{const before=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')];productLimit+=12;renderCatalog();const next=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')].find(c=>!before.includes(c));next?.querySelector('button').focus();});
+}
+if($('quick-search')){
+ $('quick-search').addEventListener('input',renderQuickSearch);
+ $('quick-search').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){$('quick-search').value='';renderQuickSearch();}
+  if(e.key==='ArrowDown'&&$('quick-products').firstElementChild){e.preventDefault();$('quick-products').querySelector('button').focus();}
+ });
+ $('clear-quick-search').addEventListener('click',()=>{$('quick-search').value='';renderQuickSearch();$('quick-search').focus();});
+ $('quick-find-form').addEventListener('submit',e=>{e.preventDefault();const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);const query=$('quick-search').value.trim();if(query)url.searchParams.set('q',query);location.assign(url);});
 }
 if($('dish-search')){
  $('dish-search').value=(params.get('q')||'').slice(0,100);
@@ -1096,6 +1269,173 @@ if($('dish-search')){
  $('clear-search').addEventListener('click',()=>{$('dish-search').value='';filterDishes(true);$('dish-search').focus();});
  $('reset-filters').addEventListener('click',()=>{meatFilter='all';$('dish-search').value='';$('dish-method').value='';filterDishes(true);$('dish-search').focus();});
 }
+const cartKey='meatco:basket:v1',cartDialog=$('cart-dialog'),productDialog=$('product-dialog');
+let basket=readBasket(),invalidCart=new Set(),cartDrafts=new Map(),activeProduct=null,toastTimer;
+function validCartQuantity(c,value){
+ const input=String(value).trim();return !!input&&(c.unit==='piece'?/^\d{1,4}$/.test(input)&&Number(input)>0:validWeight(input));
+}
+function readBasket(){
+ const result={};
+ try{
+  const saved=JSON.parse(localStorage.getItem(cartKey)||'{}');
+  if(saved.version!==1||!Array.isArray(saved.items))return result;
+  for(const item of saved.items.slice(0,content.cuts.length)){
+   const c=cutById(item.id);
+   if(c&&typeof item.quantity==='number'&&Number.isFinite(item.quantity)&&validCartQuantity(c,item.quantity))result[c.id]=item.quantity;
+  }
+ }catch{}
+ return result;
+}
+function saveBasket(){try{localStorage.setItem(cartKey,JSON.stringify({version:1,items:Object.entries(basket).map(([id,quantity])=>({id,quantity}))}));}catch{}}
+const cartHasItems=()=>Object.keys(basket).length>0;
+const currency=value=>new Intl.NumberFormat(language,{maximumFractionDigits:2,minimumFractionDigits:0}).format(value)+' ₾';
+const quantityText=(c,q)=>new Intl.NumberFormat(language,{maximumFractionDigits:3}).format(q)+' '+text(c.unit==='piece'?'perPiece':'perKg');
+const lineAmount=(c,q)=>Math.round(((c.price||0)*q+Number.EPSILON)*100)/100;
+const cartSubtotal=()=>Object.entries(basket).reduce((sum,[id,q])=>sum+lineAmount(cutById(id),q),0);
+function cartMessage(){
+ const lines=[text('cartGreeting'),''];
+ Object.entries(basket).forEach(([id,q],i)=>{
+  const c=cutById(id);lines.push(`${i+1}. ${c.name[language]} — ${quantityText(c,q)} · ${formatPrice(c)}${c.price>0?' = '+currency(lineAmount(c,q)):''}`);
+ });
+ const unpriced=Object.keys(basket).map(cutById).filter(c=>!c.price);
+ if(Object.keys(basket).some(id=>cutById(id).price>0))lines.push('',text('cartEstimate')+': '+currency(cartSubtotal()));
+ if(unpriced.length)lines.push(text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', ')));
+ if($('cart-district').value)lines.push(text('messageDistrict')+': '+text($('cart-district').value==='nearby'?'otherDistrict':$('cart-district').value));
+ if($('cart-note').value.trim())lines.push(text('messageNote')+': '+$('cart-note').value.trim());
+ const extras=chosenExtras();if(extras.length)lines.push(text('messageExtraList')+': '+extras.map(k=>text(extraKeys[k])).join(', '));
+ if($('cart-video')?.checked)lines.push(text('videoMessage'));
+ lines.push('',text('messageEnd'));return lines.join('\n');
+}
+function renderCartControls(){
+ const count=Object.keys(basket).length;
+ for(const el of document.querySelectorAll('[data-cart-count]')){el.textContent=String(count);el.classList.toggle('has-items',count>0);}
+ for(const card of document.querySelectorAll('[data-product-card]')){
+  const id=card.dataset.productCard,c=cutById(id),qty=basket[id]||0;
+  const add=card.querySelector('[data-add-cut]'),control=card.querySelector('[data-card-quantity]');
+  add.hidden=qty>0;control.hidden=!qty;
+  add.setAttribute('aria-label',text('addToCart')+': '+c.name[language]);
+  card.querySelector('.meat-photo').setAttribute('aria-label',c.name[language]);
+  const value=control.querySelector('.card-quantity-value');value.textContent=quantityText(c,qty);value.setAttribute('aria-label',text('cartOpen')+': '+c.name[language]+', '+quantityText(c,qty));
+  for(const button of control.querySelectorAll('[data-cart-step]'))button.setAttribute('aria-label',text(button.dataset.cartStep==='1'?'increase':'decrease')+': '+c.name[language]);
+ }
+}
+function updateCartSummary(){
+ const ids=Object.keys(basket),unpriced=ids.map(cutById).filter(c=>!c.price),extras=chosenExtras();
+ $('cart-total').textContent=invalidCart.size?'—':ids.some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk');
+ $('cart-total').classList.toggle('is-unpriced',!ids.some(id=>cutById(id).price>0));
+ $('cart-unpriced').hidden=!unpriced.length;
+ $('cart-unpriced').textContent=text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', '));
+ $('cart-message').textContent=cartMessage();
+ $('cart-form').dataset.preparedUrl=ids.length&&!invalidCart.size?whatsappUrl(cartMessage()):'';
+ $('cart-extras-summary').hidden=!extras.length;
+ $('cart-extras-summary').textContent=text('extrasSelected')+': '+extras.map(k=>text(extraKeys[k])).join(', ');
+ for(const input of document.querySelectorAll('[name="cart-extra"]'))input.checked=extras.includes(input.value);
+ for(const link of document.querySelectorAll('[data-whatsapp]'))if(ids.length)link.href=invalidCart.size?'#':whatsappUrl(cartMessage());
+}
+function renderCart(){
+ const focused=document.activeElement;
+ const focusId=focused?.dataset.cartId,focusStep=focused?.dataset.cartStep,wasInCart=!!focused?.closest('#cart-items');
+ const ids=Object.keys(basket);
+ $('cart-empty').hidden=!!ids.length;$('cart-form').hidden=!ids.length;
+ $('cart-items').innerHTML=ids.map(id=>{
+  const c=cutById(id),qty=basket[id];return `<article class="cart-line" data-cart-line="${id}"><img src="${c.image.replace('.webp','-small.webp')}" alt="" width="64" height="64"><div class="cart-line-name"><h3>${esc(c.name[language])}</h3><p>${esc(formatPrice(c))}</p></div><button type="button" class="cart-remove" data-cart-remove="${id}" aria-label="${esc(text('cartRemove')+': '+c.name[language])}">×</button><div class="cart-line-controls"><div class="cart-quantity"><button type="button" data-cart-id="${id}" data-cart-step="-1" aria-label="${esc(text('decrease')+': '+c.name[language])}">−</button><label class="sr-only" for="cart-q-${id}">${esc(text('cartLineQuantity').replace('{name}',c.name[language]))}</label><input id="cart-q-${id}" data-cart-quantity="${id}" value="${qty}" maxlength="8" type="text" inputmode="${c.unit==='piece'?'numeric':'decimal'}" aria-describedby="cart-error-${id}"><span>${esc(text(c.unit==='piece'?'perPiece':'perKg'))}</span><button type="button" data-cart-id="${id}" data-cart-step="1" aria-label="${esc(text('increase')+': '+c.name[language])}">+</button></div><strong class="cart-line-total">${c.price>0?esc(currency(c.price*qty)):esc(text('priceAsk'))}</strong></div><p class="field-error" id="cart-error-${id}" hidden></p></article>`;
+ }).join('');
+ for(const id of [...invalidCart])if(!ids.includes(id)){invalidCart.delete(id);cartDrafts.delete(id);}
+ for(const id of invalidCart){
+  const input=$('cart-q-'+id),c=cutById(id);
+  input.value=cartDrafts.get(id)||'';input.setAttribute('aria-invalid','true');
+  $('cart-error-'+id).textContent=text(c.unit==='piece'?'piecesError':'quantityError');$('cart-error-'+id).hidden=false;
+ }
+ $('cart-status').replaceChildren();renderCartControls();updateCartSummary();
+ if(wasInCart){
+  const replacement=focusId&&focusStep?$('cart-items').querySelector(`[data-cart-id="${focusId}"][data-cart-step="${focusStep}"]`):null;
+  (replacement||$('cart-items').querySelector('button')||$('cart-empty').querySelector('a')).focus({preventScroll:true});
+ }
+}
+function notifyAdded(c){
+ clearTimeout(toastTimer);$('cart-toast-text').textContent=text('cartAdded')+': '+c.name[language];$('cart-toast').hidden=false;
+ toastTimer=setTimeout(()=>{$('cart-toast').hidden=true;},3500);
+}
+function addToBasket(id,qty=1){
+ const c=cutById(id);if(!c||!validCartQuantity(c,qty))return;
+ basket[id]=Math.min(9999,Math.round(((basket[id]||0)+Number(qty))*1000)/1000);
+ saveBasket();renderCart();notifyAdded(c);track('meatco_add_to_cart',{product_id:id,quantity:qty});
+}
+function changeCartQuantity(id,direction){
+ const c=cutById(id);if(!c||!basket[id])return;
+ const next=Math.round((basket[id]+direction*(c.unit==='piece'?1:.5))*1000)/1000;
+ if(next<=0)delete basket[id];else basket[id]=Math.min(9999,next);
+ invalidCart.delete(id);cartDrafts.delete(id);saveBasket();renderCart();updatePreview();
+}
+function openCart(opener){
+ $('cart-toast').hidden=true;renderCart();
+ if(!cartDialog.open)showDialog(cartDialog,opener);
+ $('cart-form').scrollTop=0;
+}
+function renderProductDetail(){
+ if(!activeProduct)return;
+ const c=activeProduct;
+ $('product-detail-image').src=c.image.replace('.webp','-small.webp');$('product-detail-image').alt=c.name[language];
+ $('product-title').textContent=c.name[language];$('product-category').textContent=text(c.category);
+ $('product-use').textContent=c.use[language];$('product-price').textContent=formatPrice(c);
+ $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
+ $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
+ const video=$('product-video');if(video)video.href=whatsappUrl(text('videoProductMessage')+' '+c.name[language]);
+}
+function validateCartInput(input,showError=false){
+ const id=input.dataset.cartQuantity,c=cutById(id),value=input.value.trim(),valid=validCartQuantity(c,value);
+ if(valid){
+  basket[id]=Number(value.replace(',','.'));invalidCart.delete(id);cartDrafts.delete(id);saveBasket();input.removeAttribute('aria-invalid');$('cart-error-'+id).hidden=true;
+  input.closest('.cart-line').querySelector('.cart-line-total').textContent=c.price>0?currency(c.price*basket[id]):text('priceAsk');
+ }else{
+  invalidCart.add(id);cartDrafts.set(id,input.value);
+  if(showError){input.setAttribute('aria-invalid','true');$('cart-error-'+id).textContent=text(c.unit==='piece'?'piecesError':'quantityError');$('cart-error-'+id).hidden=false;}
+ }
+ renderCartControls();updateCartSummary();return valid;
+}
+document.addEventListener('click',event=>{
+ const el=event.target.closest('button,a');if(!el)return;
+ if(el.matches('[data-add-cut]'))addToBasket(el.dataset.addCut);
+ if(el.matches('[data-cart-step]'))changeCartQuantity(el.dataset.cartId,Number(el.dataset.cartStep));
+ if(el.matches('[data-cart-remove]')){delete basket[el.dataset.cartRemove];invalidCart.delete(el.dataset.cartRemove);saveBasket();renderCart();updatePreview();}
+ if(el.matches('[data-cart-open]'))openCart(el);
+ if(el.matches('[data-view-product]')){
+  activeProduct=cutById(el.dataset.viewProduct);if(!activeProduct)return;
+  $('product-quantity').value='1';$('product-quantity').removeAttribute('aria-invalid');$('product-quantity-error').hidden=true;
+  renderProductDetail();showDialog(productDialog,el);
+ }
+ if(el.matches('[data-product-step]')&&activeProduct){
+  const current=Number($('product-quantity').value.replace(',','.'))||1,step=activeProduct.unit==='piece'?1:.5;
+  $('product-quantity').value=String(Math.max(step,Math.min(9999,Math.round((current+Number(el.dataset.productStep)*step)*1000)/1000)));
+  $('product-quantity-error').hidden=true;$('product-quantity').removeAttribute('aria-invalid');
+ }
+ if(el.matches('[data-whatsapp]')&&cartHasItems()){event.preventDefault();openCart(el);}
+});
+$('product-form').addEventListener('submit',event=>{
+ event.preventDefault();const value=$('product-quantity').value.trim();
+ if(!validCartQuantity(activeProduct,value)){$('product-quantity').setAttribute('aria-invalid','true');$('product-quantity-error').textContent=text(activeProduct.unit==='piece'?'piecesError':'quantityError');$('product-quantity-error').hidden=false;$('product-quantity').focus();return;}
+ addToBasket(activeProduct.id,Number(value.replace(',','.')));productDialog.close();
+});
+$('cart-form').addEventListener('input',event=>{
+ $('cart-status').replaceChildren();
+ if(event.target.matches('[data-cart-quantity]'))validateCartInput(event.target);else if(event.target.name!=='cart-extra')updateCartSummary();
+});
+$('cart-form').addEventListener('change',event=>{
+ if(event.target.matches('[data-cart-quantity]'))validateCartInput(event.target,true);
+ if(event.target.name==='cart-extra'){
+  form.querySelector(`input[name="extra"][value="${event.target.value}"]`).checked=event.target.checked;renderExtras();updatePreview();updateCartSummary();
+ }
+});
+$('cart-form').addEventListener('submit',event=>{
+ event.preventDefault();if(!cartHasItems())return;
+ for(const input of $('cart-items').querySelectorAll('[data-cart-quantity]'))validateCartInput(input,true);
+ if(invalidCart.size){$('cart-status').textContent=text('cartInvalid');$('cart-items').querySelector('[aria-invalid="true"]').focus();return;}
+ const url=whatsappUrl(cartMessage());if(!url){$('cart-status').textContent=text('phoneError');return;}
+ const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=text('fallback');$('cart-status').replaceChildren(link);
+ track('meatco_whatsapp_click',{source:'basket',items:Object.keys(basket).length});window.open(url,'_blank','noopener,noreferrer');
+});
+window.addEventListener('storage',event=>{if(event.key===cartKey||event.key===null){basket=readBasket();renderCart();updatePreview();}});
+
 let initial=config.defaultLanguage||'ka';
 try{const saved=localStorage.getItem('meatco:language');if(supported.includes(saved))initial=saved;}catch{}
 if(supported.includes(params.get('lang')))initial=params.get('lang');
