@@ -1,23 +1,34 @@
 <dialog id="cart-dialog" class="cart-dialog app-sheet" aria-labelledby="cart-title">
 <button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>
-<img class="dialog-brand" src="./assets/brand/meatco-logo.png" width="180" height="64" alt="MEAT CO — Butcher's Pride"><h2 id="cart-title" data-i18n="cartTitle">თქვენი კალათა</h2>
-<div id="cart-empty"><p data-i18n="cartEmpty">კალათა ცარიელია</p><a class="button primary" data-local href="./catalog.html" data-i18n="goCatalog">კატალოგის ნახვა</a></div>
+<h2 id="cart-title" data-i18n="cartTitle"></h2>
+<div id="cart-empty"><p data-i18n="cartEmpty"></p><a class="button primary" data-local href="./catalog.html" data-i18n="goCatalog"></a></div>
 <form id="cart-form" novalidate hidden>
 <div id="cart-items"></div>
-<div class="cart-estimate"><span data-i18n="cartEstimate">სავარაუდო ღირებულება</span><strong id="cart-total"></strong></div>
+<div class="cart-estimate"><span data-i18n="cartEstimate"></span><strong id="cart-total"></strong></div>
 <p id="cart-unpriced" class="cart-note" data-i18n="cartUnpriced" hidden></p>
-<p class="cart-note" data-i18n="weightConfirm"></p><label class="video-check"><input type="checkbox" id="cart-video"><span data-i18n="videoRequest"></span></label>
-<div class="cart-address"><label for="cart-district" data-i18n="districtLabel"></label><input id="cart-district" name="address" type="text" autocomplete="street-address" maxlength="250" data-placeholder="addressPlaceholder" placeholder=""></div><label class="slot-label" for="cart-slot" data-i18n="desiredTime"></label><select id="cart-slot"><option value="" data-i18n="slotUnknown"></option><option value="asap" data-i18n="slotAny"></option><option value="evening" data-i18n="slotEvening"></option><option value="tomorrow" data-i18n="slotTomorrow"></option></select><p class="cart-note" data-i18n="slotNote"></p><details class="cart-more" id="cart-more"><summary data-i18n="cartDetails"></summary>
-
-<label for="cart-note" data-i18n="cartNoteLabel"></label><textarea id="cart-note" rows="2" maxlength="500"></textarea>
-</details>
+<p class="weight-confirmation" data-i18n="weightConfirm"></p>
+<div class="cart-address"><label for="cart-district" data-i18n="districtLabel"></label><input id="cart-district" name="address" type="text" autocomplete="street-address" maxlength="250" data-placeholder="addressPlaceholder"></div>
+<fieldset class="delivery-slots"><legend data-i18n="desiredTime"></legend>
+<label><input type="radio" name="cart-slot" value="12-14"><span data-i18n="slotMidday"></span></label>
+<label><input type="radio" name="cart-slot" value="16-18"><span data-i18n="slotAfternoon"></span></label>
+<label><input type="radio" name="cart-slot" value="18-21"><span data-i18n="slotEvening"></span></label>
+<label><input type="radio" name="cart-slot" value="tomorrow"><span data-i18n="slotTomorrow"></span></label>
+<label><input type="radio" name="cart-slot" value="chat" checked><span data-i18n="slotUnknown"></span></label>
+</fieldset><p class="cart-note" data-i18n="slotNote"></p>
+<div class="cart-comment"><label for="cart-note" data-i18n="cartNoteLabel"></label><textarea id="cart-note" rows="2" maxlength="500" data-placeholder="preparationPlaceholder"></textarea></div>
+<label class="photo-check"><input type="checkbox" id="cart-photo"><span data-i18n="photoRequest"></span></label>
 <details class="message-preview"><summary data-i18n="previewMessage"></summary><p id="cart-message"></p></details>
-<div class="cart-checkout"><p data-i18n="cartConfirmNote"></p><button type="submit" class="button primary" data-i18n="cartSend"></button><p id="cart-status" role="status"></p></div>
-</form></dialog>
-<dialog id="product-dialog" class="product-dialog" aria-labelledby="product-title"><button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>
-<div class="product-scroll"><div class="product-detail-photo"><img id="product-detail-image" width="480" height="480" alt=""><span class="card-brand"><img src="./assets/brand/meatco-mark.png" width="40" height="40" alt=""></span></div>
+</form>
+<div class="cart-checkout" id="cart-checkout" hidden><button type="submit" form="cart-form" class="button primary" data-i18n="cartSend"></button><p id="cart-status" role="status"></p></div>
+</dialog>
+<dialog id="product-dialog" class="product-dialog app-sheet" aria-labelledby="product-title">
+<button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>
+<div class="product-scroll"><div class="product-detail-photo"><img id="product-detail-image" width="480" height="480" alt=""><span class="photo-pending-label" data-i18n="photoSoon" hidden></span></div>
 <div class="product-detail-copy"><p class="eyebrow" id="product-category"></p><h2 id="product-title"></h2><p id="product-use"></p><p class="meat-price" id="product-price"></p>
-<form id="product-form" novalidate><label for="product-quantity" id="product-quantity-label"></label><div id="product-presets" class="product-presets" role="group" data-aria="weightPresets" aria-label=""></div><label class="sr-only" for="product-weight-range" data-i18n="quantityKg"></label><input type="range" id="product-weight-range" min=".5" max="5" step=".5" value="1">
-<div class="product-quantity-control"><button type="button" data-product-step="-1" data-aria="decrease" aria-label="შემცირება">−</button><input id="product-quantity" type="text" inputmode="decimal" value="1" maxlength="8" aria-describedby="product-quantity-error"><button type="button" data-product-step="1" data-aria="increase" aria-label="გაზრდა">+</button></div><p class="field-error" id="product-quantity-error" hidden></p></form><p class="product-weight-note" data-i18n="weightConfirm"></p><a id="product-video" class="text-button" href="https://wa.me/995568258118" target="_blank" rel="noopener noreferrer"><span data-i18n="videoCta"></span><span aria-hidden="true">↗</span></a></div></div>
+<form id="product-form" novalidate><label for="product-quantity" id="product-quantity-label"></label>
+<div id="product-presets" class="product-presets" role="group" data-aria="weightPresets"></div>
+<div class="product-quantity-control"><button type="button" data-product-step="-1" data-aria="decrease">−</button><input id="product-quantity" type="text" inputmode="decimal" value="1" maxlength="8" aria-describedby="product-quantity-error"><button type="button" data-product-step="1" data-aria="increase">+</button></div><p class="field-error" id="product-quantity-error" hidden></p>
+<label for="product-note" data-i18n="preparationLabel"></label><input id="product-note" type="text" maxlength="160" data-placeholder="preparationPlaceholder">
+</form><p class="product-weight-note" data-i18n="weightConfirm"></p></div></div>
 <div class="product-checkout"><div><span data-i18n="productEstimate"></span><strong id="product-live-total"></strong><small id="product-live-quantity"></small></div><button type="submit" form="product-form" class="button primary" data-i18n="addToCart"></button></div></dialog>
 <div class="cart-toast" id="cart-toast" role="status" hidden><span id="cart-toast-text"></span><button type="button" data-cart-open data-i18n="cartOpen"></button></div>

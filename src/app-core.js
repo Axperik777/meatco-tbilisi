@@ -8,12 +8,16 @@ const form=$('order-form'), orderDialog=$('order-dialog'), dishDialog=$('dish-di
 const quantity=$('quantity'), district=$('district'), note=$('order-note'), error=$('quantity-error'), status=$('form-status');
 const page=document.body.dataset.page;
 const params=new URLSearchParams(location.search);
-const categories=['all','pork','beef','offal','other','favorites'];
-let language='ka', category=categories.includes(params.get('category'))?params.get('category'):'all', productLimit=12;
+const categories=['all','beef','pork','offal','other'];
+let language='ka', category=categories.includes(params.get('category'))?params.get('category'):'all', productLimit=6;
 let meatFilter=['pork','beef','offal'].includes(params.get('meat'))?params.get('meat'):'all';
 let activeDish=null, context={cut:'',dish:'',people:''}, attribution={};
 const openers=new WeakMap();
 const cutById=id=>content.cuts.find(c=>c.id===id);
+const defaultProductOrder=Array.from(document.querySelectorAll('#product-grid [data-product-card]'),card=>card.dataset.productCard);
+const imageCounts=new Map();for(const c of content.cuts)if(c.image)imageCounts.set(c.image,(imageCounts.get(c.image)||0)+1);
+function photoFor(c,small=false){const image=c?.image&&c.photoStatus!=='pending'&&imageCounts.get(c.image)===1?c.image:'./assets/products/photo-pending.svg';return small&&image.endsWith('.webp')?image.replace('.webp','-small.webp'):image;}
+document.addEventListener('error',event=>{const img=event.target;if(img.tagName!=='IMG'||!img.closest('.meat-photo,.product-detail-photo,.cart-line,.quick-categories'))return;if(img.src.endsWith('photo-pending.svg'))return;img.removeAttribute('srcset');img.src='./assets/products/photo-pending.svg';const label=img.parentElement.querySelector('.photo-pending-label');if(label)label.hidden=false;},true);
 const dishById=id=>content.dishes.find(d=>d.id===id);
 const findProducts=createProductSearch(content.cuts,content.dishes,strings);
 try {
@@ -81,7 +85,6 @@ function renderProductCards(){
   const c=cutById(card.dataset.productCard);card.querySelector('img').alt=c.name[language];
   (card.querySelector('h3 button')||card.querySelector('h3')).textContent=c.name[language];
   card.querySelector('.meat-category').textContent=text(c.category);
-  card.querySelector('.meat-use').textContent=c.use[language];
   card.querySelector('.meat-price').innerHTML=c.price>0?new Intl.NumberFormat(language,{maximumFractionDigits:2}).format(c.price)+' ₾ <span>/ '+esc(text(c.unit==='piece'?'perPiece':'perKg'))+'</span>':esc(text('priceAsk'));
   for(const b of card.querySelectorAll('[data-cut]'))b.setAttribute('aria-label',text('cutCta')+': '+c.name[language]);
  }
@@ -96,26 +99,24 @@ function renderCatalog(){
  if(!$('product-grid'))return;
  for(const b of document.querySelectorAll('[data-category]'))b.setAttribute('aria-pressed',String(b.dataset.category===category));
  const query=$('product-search').value.trim(),found=findProducts(query),matches=new Set(found.map(c=>c.id));let count=0;
- const sort=$('product-sort')?.value||'default';
  const cards=Array.from($('product-grid').querySelectorAll('[data-product-card]'));
  cards.sort((a,b)=>{
   const ca=cutById(a.dataset.productCard),cb=cutById(b.dataset.productCard);
-  if(sort==='name')return ca.name[language].localeCompare(cb.name[language],language);
-  if(sort==='price'){const pa=ca.unit==='kg'&&ca.price?ca.price:Infinity,pb=cb.unit==='kg'&&cb.price?cb.price:Infinity;if(pa!==pb)return pa-pb;}
-  if(query&&sort==='default')return found.indexOf(ca)-found.indexOf(cb);
+  if(query)return found.indexOf(ca)-found.indexOf(cb);
   return defaultProductOrder.indexOf(ca.id)-defaultProductOrder.indexOf(cb.id);
  });
  $('product-grid').append(...cards);
  for(const card of cards){
   const c=cutById(card.dataset.productCard),group=c.group||c.category;
-  const categoryMatch=category==='all'||(category==='favorites'?favoriteIds.has(c.id):category==='other'?!['pork','beef','offal'].includes(group):group===category);
+  const categoryMatch=category==='all'||(category==='other'?!['pork','beef','offal'].includes(group):group===category);
   const match=categoryMatch&&matches.has(c.id);if(match)count++;
   card.hidden=!match||count>productLimit;
  }
+ $('product-count').hidden=!query;
  $('product-count').textContent=text(found.fuzzy?'fuzzyResults':'productCount').replace('{n}',count);
- if($('catalog-title'))$('catalog-title').textContent=text(category==='all'?'appCatalog':category);
- if($('catalog-empty-title'))$('catalog-empty-title').textContent=text(category==='favorites'&&!query?'favoritesEmpty':'productNoResults');
- if($('catalog-empty-description'))$('catalog-empty-description').textContent=text(category==='favorites'&&!query?'favoritesEmptyText':'productNoResultsText');
+ if($('catalog-title'))$('catalog-title').textContent=text(category==='all'?'appCatalog':category==='other'?'categoryMore':category);
+ if($('catalog-empty-title'))$('catalog-empty-title').textContent=text('productNoResults');
+ if($('catalog-empty-description'))$('catalog-empty-description').textContent=text('productNoResultsText');
  $('product-empty').hidden=count!==0;$('more-products').hidden=count<=productLimit;
  $('clear-product-search').hidden=!query;
  $('search-all-categories').hidden=!!count||category==='all'||!matches.size;
@@ -191,11 +192,10 @@ function setLanguage(next,persist=true){
  for(const el of document.querySelectorAll('[data-placeholder]'))el.placeholder=text(el.dataset.placeholder);
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(text('messageGreeting'))||'tel:+995568258118';
- for(const a of document.querySelectorAll('[data-video-general]'))a.href=whatsappUrl(text('videoGeneralMessage'));
  for(const a of document.querySelectorAll('[data-event-whatsapp]'))a.href=whatsappUrl(text('eventGreeting'));
  for(const a of document.querySelectorAll('[data-wholesale]'))a.href=whatsappUrl(text('b2bMessage'))||'tel:+995568258118';
  if(!error.hidden)error.textContent=text(pieceOrder()?'piecesError':'quantityError');
- status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();renderFavorites();
+ status.replaceChildren();renderProductCards();renderCatalog();renderQuickSearch();renderDishCards();renderDishDetail();renderContext();filterDishes();updatePreview();localLinks();renderCart();renderProductDetail();
  if(persist){try{localStorage.setItem('meatco:language',language);}catch{}updateUrl('lang',language);}
 }
 function closeMenu(focus=false){
@@ -204,7 +204,7 @@ function closeMenu(focus=false){
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
  if(el.matches('[data-lang]'))setLanguage(el.dataset.lang);
- if(el.matches('[data-category]')){category=el.dataset.category;productLimit=12;renderCatalog();updateUrl('category',category==='all'?'':category);}
+ if(el.matches('[data-category]')){category=el.dataset.category;productLimit=6;renderCatalog();updateUrl('category',category==='all'?'':category);}
  if(el.matches('[data-meat-filter]')){meatFilter=el.dataset.meatFilter;filterDishes(true);}
  if(el.matches('[data-open-dish]')){
   activeDish=dishById(el.dataset.openDish);$('dish-people').value='';renderDishDetail();showDialog(dishDialog,el);track('meatco_dish_view',{dish:activeDish.id});
@@ -242,11 +242,11 @@ form.addEventListener('submit',e=>{
 });
 if($('product-search')){
  $('product-search').value=(params.get('q')||'').slice(0,100);
- $('product-search').addEventListener('input',()=>{productLimit=12;renderCatalog();updateUrl('q',$('product-search').value.trim());});
- $('reset-products').addEventListener('click',()=>{category='all';productLimit=12;$('product-search').value='';renderCatalog();updateUrl('category','');updateUrl('q','');$('product-search').focus();});
- $('clear-product-search').addEventListener('click',()=>{$('product-search').value='';productLimit=12;renderCatalog();updateUrl('q','');$('product-search').focus();});
- $('search-all-categories').addEventListener('click',()=>{category='all';productLimit=12;renderCatalog();updateUrl('category','');$('catalog-tools').scrollIntoView({block:'start'});$('product-search').focus({preventScroll:true});});
- $('more-products').addEventListener('click',()=>{const before=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')];productLimit+=12;renderCatalog();const next=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')].find(c=>!before.includes(c));next?.querySelector('button').focus();});
+ $('product-search').addEventListener('input',()=>{productLimit=6;renderCatalog();updateUrl('q',$('product-search').value.trim());});
+ $('reset-products').addEventListener('click',()=>{category='all';productLimit=6;$('product-search').value='';renderCatalog();updateUrl('category','');updateUrl('q','');$('product-search').focus();});
+ $('clear-product-search').addEventListener('click',()=>{$('product-search').value='';productLimit=6;renderCatalog();updateUrl('q','');$('product-search').focus();});
+ $('search-all-categories').addEventListener('click',()=>{category='all';productLimit=6;renderCatalog();updateUrl('category','');$('catalog-tools').scrollIntoView({block:'start'});$('product-search').focus({preventScroll:true});});
+ $('more-products').addEventListener('click',()=>{const before=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')];productLimit+=6;renderCatalog();const next=[...$('product-grid').querySelectorAll('[data-product-card]:not([hidden])')].find(c=>!before.includes(c));next?.querySelector('button').focus();});
 }
 if($('quick-search')){
  $('quick-search').addEventListener('input',renderQuickSearch);
