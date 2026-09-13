@@ -40,6 +40,17 @@ Direct catalog RU was additionally checked: four eager product images, only two 
 
 Raw compact evidence: [lcp-qa-v8-4.json](lcp-qa-v8-4.json). Asset sizes, quality settings and hashes: [image-assets-v8-4.json](image-assets-v8-4.json).
 
+## Public mobile Lighthouse result
+
+After publishing code commit 2727771, [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-axperik777-github-io-meatco-tbilisi-index-html/ritn3j5ldp?form_factor=mobile) completed successfully via its web UI on 2026-09-13 at 23:54 GMT+4. It tested Home EN with Moto G Power emulation, slow 4G, HeadlessChromium 151 and Lighthouse 13.4.1.
+
+- Performance 95/100; FCP 1.697s; LCP 2.297s; TBT 0ms; CLS 0; Speed Index 4.219s.
+- The LCP element is the first pork-flesh-small.webp photo, with eager/high/async attributes. The report confirms the 25,880-byte small file, not the 960px original.
+- Its LCP breakdown reports 160ms resource load delay, 140ms resource loading and 2,050ms element render delay. The report also flags render-blocking resources; the remaining bottleneck is predominantly rendering after image delivery. These diagnostic phase timings are reported separately from the simulated headline metric and should not be added to reconstruct it.
+- The external mobile <2s goal is **not met** in this run. The local 1.68–1.88s figures above must not be substituted for this external result. Further CSS/render-path work is outside this image-only task.
+- Lighthouse still suggests smaller image derivatives for its particular device pixel ratio. The requested 480px small variant is retained for 390px high-density phones; full originals are not fetched on mobile.
+- All 57 published HTML/CSS/JS and changed image files were checked against local hashes and matched; the GitHub Pages build and validation completed successfully.
+
 ## Validation and maintenance
 
 - node build.mjs and node validate.mjs pass: existing locale/catalog/price checks, 19 search cases, 21 cart/message cases, 350 font-preload cases and image-specific assertions.
@@ -47,6 +58,6 @@ Raw compact evidence: [lcp-qa-v8-4.json](lcp-qa-v8-4.json). Asset sizes, quality
 - Product-photo tap still opens the full image in the product sheet; cart thumbnail is small/lazy/low and the calculated test total remains 33 ₾. The test item was removed; no WhatsApp message was sent.
 - Home and Catalog were visually checked at 1440px: square photo boxes and the existing centered canvases are preserved, with no horizontal overflow or browser errors.
 - tools/optimize-images.py regenerates small images with Pillow from current catalog originals; it requires Node and Pillow. Normal CI only uses committed assets.
-- The public PageSpeed API request returned HTTP 429 (shared project daily quota), so these local results are not a Lighthouse score.
+- The initial PageSpeed API request returned HTTP 429 (shared project daily quota). The subsequent web UI report succeeded; its separate result is recorded above.
 
 Implementation follows [web.dev LCP optimization](https://web.dev/articles/optimize-lcp) for early discovery and priority, and [responsive image preloading](https://web.dev/articles/preload-responsive-images) for matching the preload candidate to the displayed image.
