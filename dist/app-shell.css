@@ -276,13 +276,15 @@ textarea{resize:vertical}
 .message-preview p{padding:var(--space-4);background:var(--paper);border-radius:var(--radius-s);line-height:var(--lh-body);font-size:var(--fs-body);white-space:pre-wrap;overflow-wrap:anywhere}
 .cart-message-preview{margin:0 0 var(--space-3)}
 #cart-preview-title{font-size:var(--fs-caption);font-weight:600;color:var(--muted);margin:0 0 var(--space-1)}
-#cart-message{box-sizing:content-box;margin:0;padding:var(--space-2) var(--space-3);font-size:var(--fs-caption);line-height:var(--lh-body);height:calc(var(--fs-caption)*var(--lh-body)*5);overflow:auto;overscroll-behavior:contain;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--paper);border-radius:var(--radius-s);scrollbar-width:thin}
+#cart-message{margin:0;padding:var(--space-2) var(--space-3);font-size:var(--fs-caption);line-height:var(--lh-body);overflow-wrap:anywhere;background:var(--paper);border-radius:var(--radius-s)}
+#cart-message p{margin:0;font:inherit;color:inherit;max-width:none}
+#cart-preview-items{max-height:calc(var(--fs-caption)*var(--lh-body)*3);overflow:auto;overscroll-behavior:contain;white-space:pre-wrap;scrollbar-width:thin}
+#cart-message #cart-preview-total{margin-top:var(--space-2);font-weight:600}
 .cart-checkout{position:static;flex:none;z-index:2;padding:var(--space-4) 0 0;background:var(--surface);border-top:1px solid var(--line)}
 .cart-checkout>.button{width:100%;min-height:var(--control-h);background:var(--wine);border-color:var(--wine);color:#fff;font-size:var(--fs-ui)}
 .cart-checkout>.button:hover{background:var(--wine-dark)}
 .cart-checkout>.button:disabled{opacity:1;cursor:not-allowed;background:var(--forest-wash);border-color:var(--forest-wash);color:var(--forest)}
 .checkout-note{font-size:var(--fs-caption);line-height:var(--lh-body);color:var(--muted);margin:var(--space-2) 0 0}
-#cart-direct-note{margin:0 0 var(--space-3)}
 #cart-minimum{padding:var(--space-3);border:1px solid var(--line);border-radius:var(--radius-s);font-size:var(--fs-ui);color:var(--ink)}
 #cart-minimum.minimum-unmet{font-weight:600}
 .cart-suggestions{margin:0 0 var(--space-6)}

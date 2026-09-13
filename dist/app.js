@@ -393,19 +393,19 @@ const strings = {
     "workshopFaq5Q": "რესტორნებსაც ამარაგებთ?",
     "workshopFaq5A": "დიახ, რესტორნებისა და კაფეებისთვის საბითუმო შეკვეთებს ვიღებთ. მოგვწერეთ, რომელი ნაწილები და რა რაოდენობით გჭირდებათ — ფასებს გამოგიგზავნით და შეკვეთას შევათანხმებთ.",
     "cutPreparationHint": "გავატაროთ, ცხიმი მოვაცილოთ თუ სამწვადედ დავჭრათ? კომენტარში მოგვწერეთ, როგორ გირჩევნიათ.",
-    "priceUnitClarity": "ფასი 1 კგ-ზეა და არა 500 გრამიან შეფუთვაზე.",
+    "priceUnitClarity": "ფასი 1 კგ-ზეა, არა 500 გრამზე.",
     "cartDirectNote": "დააჭირეთ — WhatsApp გაიხსნება სიით.",
-    "cartReplyNote": "10:00–18:00 გიპასუხებთ 5–10 წუთში. წონას შეფუთვამდე დაგიდასტურებთ.",
+    "cartReplyNote": "დააჭირეთ — WhatsApp გაიხსნება სიით. წონას შეფუთვამდე დაგიდასტურებთ.",
     "cartPreviewTitle": "თქვენი შეტყობინება",
     "cartSuggestionTitle": "დაამატეთ, რომ {amount} შეგროვდეს",
     "cartHintTotal": "კალათაში {amount}",
     "cartHintRemaining": "კიდევ {amount}",
     "cartHintCheckout": "WhatsApp",
     "cartHintCheck": "შეამოწმეთ კალათა",
-    "questionGreeting": "გამარჯობა! ხორცზე კითხვა მაქვს:",
+    "questionGreeting": "გამარჯობა! ხორცზე მკითხავ:",
     "questionCta": "კითხვა WhatsApp-ში",
     "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
-    "chatFallback": "თუ WhatsApp არ გაიხსნა, დაგვირეკეთ ან მოგვწერეთ:",
+    "chatFallback": "თუ ჩატი არ გაიხსნა:",
     "retryWhatsapp": "WhatsApp-ის გახსნა"
   },
   "ru": {
@@ -800,9 +800,9 @@ const strings = {
     "workshopFaq5Q": "Работаете с ресторанами?",
     "workshopFaq5A": "Да, принимаем оптовые заказы для ресторанов и кафе. Напишите, какие части и сколько нужно, — пришлём прайс и согласуем заказ.",
     "cutPreparationHint": "Нужен фарш, меньше жира или кусочки для мцвади? Напишите, как нарезать, в комментарии.",
-    "priceUnitClarity": "Цена за 1 кг, не за упаковку 500 г.",
+    "priceUnitClarity": "Цена за 1 кг, не за 500 г.",
     "cartDirectNote": "Нажмите — откроется WhatsApp со списком.",
-    "cartReplyNote": "С 10:00 до 18:00 ответим за 5–10 минут. Вес подтвердим до сборки.",
+    "cartReplyNote": "Нажмите — откроется WhatsApp со списком. Вес подтвердим до сборки.",
     "cartPreviewTitle": "Ваше сообщение",
     "cartSuggestionTitle": "Добавить, чтобы набрать {amount}",
     "cartHintTotal": "В корзине {amount}",
@@ -812,7 +812,7 @@ const strings = {
     "questionGreeting": "Рауди! Вопрос по мясу:",
     "questionCta": "Задать вопрос в WhatsApp",
     "productQuestion": "Спросить об этом куске",
-    "chatFallback": "Если WhatsApp не открылся, позвоните или напишите:",
+    "chatFallback": "Если чат не открылся:",
     "retryWhatsapp": "Открыть WhatsApp"
   },
   "en": {
@@ -1207,9 +1207,9 @@ const strings = {
     "workshopFaq5Q": "Do you supply restaurants?",
     "workshopFaq5A": "Yes, we take wholesale orders for restaurants and cafés. Tell us which cuts you need and how much — we’ll send prices and arrange your order.",
     "cutPreparationHint": "Need mince, less fat or pieces for mtsvadi? Tell us how you’d like it prepared in the notes.",
-    "priceUnitClarity": "Price per 1 kg, not a 500 g pack.",
+    "priceUnitClarity": "Price per 1 kg, not 500 g.",
     "cartDirectNote": "Tap — WhatsApp opens with your list.",
-    "cartReplyNote": "From 10:00 to 18:00 we reply in 5–10 minutes. We confirm weight before packing.",
+    "cartReplyNote": "Tap — WhatsApp opens with your list. We’ll confirm the weight before packing.",
     "cartPreviewTitle": "Your message",
     "cartSuggestionTitle": "Add this to reach {amount}",
     "cartHintTotal": "In your cart: {amount}",
@@ -1219,7 +1219,7 @@ const strings = {
     "questionGreeting": "Hi! A question about the meat:",
     "questionCta": "Ask a question on WhatsApp",
     "productQuestion": "Ask about this cut",
-    "chatFallback": "If WhatsApp didn’t open, call or write to us:",
+    "chatFallback": "If the chat didn’t open:",
     "retryWhatsapp": "Open WhatsApp"
   }
 };
@@ -1636,18 +1636,24 @@ function cartMinimumRemaining(){
  return MIN_ORDER?Math.max(0,Math.round((MIN_ORDER-cartSubtotal())*100)/100):0;
 }
 const cartUnavailable=()=>Object.keys(basket).map(cutById).filter(c=>!cutAvailable(c));
-function cartMessage(){
- const lines=['MeatCO',''];
+function cartMessageItems(){
+ const lines=[];
  Object.entries(basket).forEach(([id,q])=>{
   const c=cutById(id);lines.push(`• ${c.name[language]} — ${quantityText(c,q)} × ${formatPrice(c)}`);
   if(preparationNotes.has(id))lines.push('   '+text('messageNote')+': '+preparationNotes.get(id));
  });
+ return lines;
+}
+const cartMessageEstimate=()=>text('messageEstimate')+': '+(Object.keys(basket).some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk'));
+const cartMessageSlot=()=>text('messageTime')+': '+text(slotKeys[selectedSlot()]||'slotUnknown');
+function cartMessage(){
+ const lines=['MeatCO','',...cartMessageItems()];
  const unpriced=Object.keys(basket).map(cutById).filter(c=>!c.price);
- lines.push('',text('messageEstimate')+': '+(Object.keys(basket).some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk')));
+ lines.push('',cartMessageEstimate());
  if(unpriced.length)lines.push(text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', ')));
  if(unpriced.length&&MIN_ORDER)lines.push(text('minimumOrder').replace('{amount}',currency(MIN_ORDER)));
  lines.push(text('messageAddress')+': '+($('cart-district').value.trim()||text('messageTbc')));
- lines.push(text('messageTime')+': '+text(slotKeys[selectedSlot()]||'slotUnknown'));
+ lines.push(cartMessageSlot());
  lines.push(text('messageComment')+': '+($('cart-note').value.trim()||'—'));
  lines.push(text('messagePhoto')+': '+text($('cart-photo')?.checked?'answerYes':'answerNo'));
  lines.push('',text('cartMessageEnd'),text('messageHours').replace('{hours}',config.hours));return lines.join('\n');
@@ -1718,7 +1724,9 @@ function updateCartSummary(){
  $('cart-total').classList.toggle('is-unpriced',!ids.some(id=>cutById(id).price>0));
  $('cart-unpriced').hidden=!unpriced.length;
  $('cart-unpriced').textContent=text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', '));
- $('cart-message').textContent=cartMessage();
+ $('cart-preview-items').textContent=cartMessageItems().join('\n');
+ $('cart-preview-total').textContent=cartMessageEstimate();
+ $('cart-preview-slot').textContent=cartMessageSlot();
  const remaining=cartMinimumRemaining();
  $('cart-minimum').textContent=remaining?text('minimumRemaining').replace('{amount}',currency(remaining)).replace('{minimum}',currency(MIN_ORDER)):MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  $('cart-minimum').classList.toggle('minimum-unmet',remaining>0);

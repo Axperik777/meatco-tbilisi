@@ -36,18 +36,24 @@ function cartMinimumRemaining(){
  return MIN_ORDER?Math.max(0,Math.round((MIN_ORDER-cartSubtotal())*100)/100):0;
 }
 const cartUnavailable=()=>Object.keys(basket).map(cutById).filter(c=>!cutAvailable(c));
-function cartMessage(){
- const lines=['MeatCO',''];
+function cartMessageItems(){
+ const lines=[];
  Object.entries(basket).forEach(([id,q])=>{
   const c=cutById(id);lines.push(`• ${c.name[language]} — ${quantityText(c,q)} × ${formatPrice(c)}`);
   if(preparationNotes.has(id))lines.push('   '+text('messageNote')+': '+preparationNotes.get(id));
  });
+ return lines;
+}
+const cartMessageEstimate=()=>text('messageEstimate')+': '+(Object.keys(basket).some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk'));
+const cartMessageSlot=()=>text('messageTime')+': '+text(slotKeys[selectedSlot()]||'slotUnknown');
+function cartMessage(){
+ const lines=['MeatCO','',...cartMessageItems()];
  const unpriced=Object.keys(basket).map(cutById).filter(c=>!c.price);
- lines.push('',text('messageEstimate')+': '+(Object.keys(basket).some(id=>cutById(id).price>0)?currency(cartSubtotal()):text('priceAsk')));
+ lines.push('',cartMessageEstimate());
  if(unpriced.length)lines.push(text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', ')));
  if(unpriced.length&&MIN_ORDER)lines.push(text('minimumOrder').replace('{amount}',currency(MIN_ORDER)));
  lines.push(text('messageAddress')+': '+($('cart-district').value.trim()||text('messageTbc')));
- lines.push(text('messageTime')+': '+text(slotKeys[selectedSlot()]||'slotUnknown'));
+ lines.push(cartMessageSlot());
  lines.push(text('messageComment')+': '+($('cart-note').value.trim()||'—'));
  lines.push(text('messagePhoto')+': '+text($('cart-photo')?.checked?'answerYes':'answerNo'));
  lines.push('',text('cartMessageEnd'),text('messageHours').replace('{hours}',config.hours));return lines.join('\n');
@@ -118,7 +124,9 @@ function updateCartSummary(){
  $('cart-total').classList.toggle('is-unpriced',!ids.some(id=>cutById(id).price>0));
  $('cart-unpriced').hidden=!unpriced.length;
  $('cart-unpriced').textContent=text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', '));
- $('cart-message').textContent=cartMessage();
+ $('cart-preview-items').textContent=cartMessageItems().join('\n');
+ $('cart-preview-total').textContent=cartMessageEstimate();
+ $('cart-preview-slot').textContent=cartMessageSlot();
  const remaining=cartMinimumRemaining();
  $('cart-minimum').textContent=remaining?text('minimumRemaining').replace('{amount}',currency(remaining)).replace('{minimum}',currency(MIN_ORDER)):MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  $('cart-minimum').classList.toggle('minimum-unmet',remaining>0);

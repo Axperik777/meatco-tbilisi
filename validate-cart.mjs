@@ -23,6 +23,7 @@ for(const language of ['ka','ru','en']){
  };
  vm.createContext(sandbox);vm.runInContext(quantityValidation+cartFunctions,sandbox);
  const message=vm.runInContext('cartMessage()',sandbox);
+ for(const line of vm.runInContext('[...cartMessageItems(),cartMessageEstimate(),cartMessageSlot()]',sandbox))assert.ok(message.includes(line),'The visible preview must use the exact outgoing order values');
  assert.equal(vm.runInContext('cartSubtotal()',sandbox),64);
  assert.ok(message.includes(cuts.find(c=>c.id==='pork-ribs').name[language]));
  assert.ok(message.startsWith('MeatCO\n'));
@@ -41,6 +42,7 @@ for(const language of ['ka','ru','en']){
  assert.ok(minimal.includes(locale[language].messageComment+': —'));
  assert.ok(!minimal.includes('TEST:')&&!minimal.includes('Test address'));
  sandbox.selectedSlot=()=>'chat';assert.ok(vm.runInContext('cartMessage()',sandbox).includes(locale[language].slotUnknown));
+ assert.equal(vm.runInContext('cartMessageSlot()',sandbox),locale[language].messageTime+': '+locale[language].slotUnknown);
  for(const [basket,remaining] of [[{'pork-ribs':2.49},.2],[{'pork-ribs':2.5},0],[{'beef-round':1.5},.5],[{'beef-round':2},0],[{'offal-tripe':1},50]]){
   sandbox.basket=basket;assert.equal(vm.runInContext('cartMinimumRemaining()',sandbox),remaining);
  }
