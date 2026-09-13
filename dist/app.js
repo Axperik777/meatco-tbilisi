@@ -1129,10 +1129,12 @@ function thumbnailAttrs(c,size){const src=photoFor(c,true),v=imageVariants[photo
 // Only request hints change; routing, filtering and product order stay untouched.
 function prioritizeEntryPhotos(){
  document.querySelectorAll('[data-app-panel]').forEach(panel=>{
-  const active=!panel.hidden,count=panel.dataset.appPanel==='catalog'?4:2;
+  const active=!panel.hidden,isCatalog=panel.dataset.appPanel==='catalog',count=isCatalog?4:2;
+  const hero=panel.querySelector('.counter-hero-photo img');
+  if(hero){hero.loading=active?'eager':'lazy';hero.fetchPriority=active?'high':'low';}
   panel.querySelectorAll('.meat-photo img').forEach((img,index)=>{
    img.loading=active&&index<count?'eager':'lazy';
-   img.fetchPriority=active&&index<2?'high':'low';
+   img.fetchPriority=active&&index<(isCatalog?2:1)?'high':'low';
   });
  });
 }

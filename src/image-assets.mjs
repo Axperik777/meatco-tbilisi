@@ -20,11 +20,12 @@ export function imageVariants(image){
  cache.set(image,variant);return variant;
 }
 // Match the existing phone, Home and catalog canvases; do not guess a four-column mobile category row.
-export const homeSizes='(max-width:462px) calc((100vw - 44px) / 2), (max-width:639px) 209px, (max-width:672px) calc((100vw - 48px) / 2), 312px';
-export const catalogSizes='(max-width:462px) calc((100vw - 44px) / 2), (max-width:639px) 209px, (max-width:1112px) calc((100vw - 64px) / 3), 349px';
-export const categorySizes='(max-width:639px) 134px, (max-width:672px) calc((100vw - 68px) / 4), 149px';
+export const homeSizes='(max-width:639px) calc((100vw - 44px) / 2), (max-width:752px) calc((100vw - 46px) / 2), 351px';
+export const catalogSizes='(max-width:639px) calc((100vw - 44px) / 2), (max-width:1120px) calc((100vw - 60px) / 3), 354px';
+export const categorySizes='(max-width:639px) 180px, (max-width:752px) calc((100vw - 68px) / 4), 171px';
+const heroSizes='(max-width:639px) calc(100vw - 32px), (max-width:752px) calc(100vw - 34px), 720px';
 export function productPhoto(image,alt,{view='home',eager=false,high=false}={}){
- const v=imageVariants(image),sizes=view==='home'?homeSizes:catalogSizes;
+ const v=imageVariants(image),sizes=view==='hero'?heroSizes:view==='home'?homeSizes:catalogSizes;
  const attributes=v?'src="'+v.src+'" srcset="'+v.srcset+'" sizes="'+sizes+'" width="'+v.width+'" height="'+v.height+'"':'src="'+image+'" width="480" height="480"';
  const img='<img '+attributes+' loading="'+(eager?'eager':'lazy')+'" fetchpriority="'+(high?'high':'low')+'" decoding="async" alt="'+alt+'">';
  // The mobile source caps downloads at 480px, including 3x displays.

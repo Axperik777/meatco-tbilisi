@@ -17,16 +17,21 @@ for(const file of ['index.html','catalog.html']){
   const products=tags.filter(tag=>!tag.includes('alt=""'));
   assert.equal(products.filter(tag=>attr(tag,'loading')==='eager').length,active?count:0);
   for(const [index,tag] of products.entries()){
-   assert.equal(attr(tag,'fetchpriority'),active&&index<2?'high':'low');
+   const highCount=tags===home?1:2;
+   assert.equal(attr(tag,'fetchpriority'),active&&index<highCount?'high':'low');
    assert.equal(attr(tag,'decoding'),'async');
    assert(+attr(tag,'width')>0&&+attr(tag,'height')>0);
    assert(/-small\.webp$/.test(attr(tag,'src')));
   }
  }
- for(const tag of home.filter(tag=>tag.includes('alt=""'))){assert.equal(attr(tag,'loading'),'lazy');assert.equal(attr(tag,'fetchpriority'),'low');}
+ const hero=home[0];
+ assert.equal(attr(hero,'src'),'./assets/products/beef-round-small.webp');
+ assert.equal(attr(hero,'loading'),file==='index.html'?'eager':'lazy');
+ assert.equal(attr(hero,'fetchpriority'),file==='index.html'?'high':'low');
+ for(const tag of home.slice(1).filter(tag=>tag.includes('alt=""'))){assert.equal(attr(tag,'loading'),'lazy');assert.equal(attr(tag,'fetchpriority'),'low');}
  const preloads=[...html.matchAll(/<link\b[^>]*as="image"[^>]*>/g)].map(m=>m[0]);
  assert.equal(preloads.length,file==='index.html'?1:0);
- if(preloads.length){assert.equal(attr(preloads[0],'href'),'./assets/products/pork-flesh-small.webp');assert.equal(attr(preloads[0],'media'),'(max-width:639px)');}
+ if(preloads.length){assert.equal(attr(preloads[0],'href'),'./assets/products/beef-round-small.webp');assert.equal(attr(preloads[0],'media'),'(max-width:639px)');}
  for(const tag of [...images,...[...html.matchAll(/<source\b[^>]*>/g)].map(m=>m[0])]){
   for(const candidate of (attr(tag,'srcset')||'').split(',').filter(Boolean))assert(fs.existsSync(path.join('dist',candidate.trim().split(/\s+/)[0])));
  }
