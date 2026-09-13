@@ -67,9 +67,10 @@ function cartSuggestions(){
  const suggestions=ids.map(id=>{
   const c=cutById(id),quantity=[.5,1].find(q=>lineAmount(c,q)>=remaining);
   return quantity?{id,quantity,amount:lineAmount(c,quantity)}:null;
- }).filter(Boolean);
- // Keep familiar cuts first; never increase an add-on beyond one kilogram.
- return suggestions.slice(0,3);
+ }).filter(Boolean).sort((a,b)=>a.amount-b.amount);
+ // Lowest extra cost first; keep familiar cuts ahead when costs are equal.
+ const closeToThreshold=suggestions.filter(s=>s.amount-remaining<=20);
+ return (closeToThreshold.length>=2?closeToThreshold:suggestions).slice(0,3);
 }
 function renderCartSuggestions(){
  const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;

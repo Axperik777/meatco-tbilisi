@@ -401,7 +401,7 @@
     "cartHintCheckout": "WhatsApp",
     "cartHintCheck": "შეამოწმეთ კალათა",
     "questionGreeting": "გამარჯობა! ხორცზე მკითხავ:",
-    "questionCta": "კითხვა WhatsApp-ში",
+    "questionCta": "WhatsApp-კითხვა",
     "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
     "chatFallback": "თუ ჩატი არ გაიხსნა:",
     "retryWhatsapp": "WhatsApp-ის გახსნა"
@@ -808,7 +808,7 @@
     "cartHintCheckout": "написать в WhatsApp",
     "cartHintCheck": "Проверить корзину",
     "questionGreeting": "Рауди! Вопрос по мясу:",
-    "questionCta": "Задать вопрос в WhatsApp",
+    "questionCta": "Вопрос в WhatsApp",
     "productQuestion": "Спросить об этом куске",
     "chatFallback": "Если чат не открылся:",
     "retryWhatsapp": "Открыть WhatsApp"
@@ -1215,7 +1215,7 @@
     "cartHintCheckout": "Message on WhatsApp",
     "cartHintCheck": "Check your cart",
     "questionGreeting": "Hi! A question about the meat:",
-    "questionCta": "Ask a question on WhatsApp",
+    "questionCta": "WhatsApp question",
     "productQuestion": "Ask about this cut",
     "chatFallback": "If the chat didn’t open:",
     "retryWhatsapp": "Open WhatsApp"

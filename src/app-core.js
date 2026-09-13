@@ -227,6 +227,7 @@ function setLanguage(next,persist=true){
  for(const el of document.querySelectorAll('[data-i18n]'))el.textContent=text(el.dataset.i18n);
  for(const el of document.querySelectorAll('[data-alt]'))el.alt=text(el.dataset.alt);
  for(const el of document.querySelectorAll('[data-aria]'))el.setAttribute('aria-label',text(el.dataset.aria));
+ for(const el of document.querySelectorAll('[data-title]'))el.title=text(el.dataset.title);
  for(const el of document.querySelectorAll('[data-placeholder]'))el.placeholder=text(el.dataset.placeholder);
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(questionMessage())||'tel:+995568258118';

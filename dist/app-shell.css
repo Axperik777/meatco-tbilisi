@@ -18,7 +18,7 @@
 }
 html[lang=ka]{--font-sans:"NotoGeo","NotoGeo System","Noto Sans Georgian",Arial,sans-serif;--font-serif:var(--font-sans);--body:var(--font-sans);--display:var(--font-sans);--editorial:var(--font-serif);--ls-hero:0;--ls-title:0}
 html[lang=ka] :is(h1,h2,h3,button){letter-spacing:0}
-html{scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top) + var(--space-4))}
+html{background:var(--paper);scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top) + var(--space-4))}
 body{--canvas-max:var(--catalog-max);margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-body)/var(--lh-body) var(--font-sans);padding-bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--space-4))}
 body:has([data-app-panel="home"]:not([hidden])),body:has([data-app-panel="help"]:not([hidden])){--canvas-max:var(--catalog-max)}
 button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -51,6 +51,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .languages button[aria-pressed=true]{background:transparent;color:var(--forest);box-shadow:none}
 .languages button[aria-pressed=true]:before{background:var(--surface)}
 .app-whatsapp{display:grid;place-items:center;width:var(--hit-min);height:var(--hit-min);background:transparent;border:1px solid var(--forest-line);border-radius:var(--radius-s);color:var(--surface);flex:none}
+.app-whatsapp>span{display:none}
 .header :focus-visible,.app-tabbar :focus-visible{outline-color:var(--surface)}
 ::selection{background:var(--forest);color:var(--surface)}
 .menu-toggle,.desktop-nav{display:none!important}
@@ -64,7 +65,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .product-visual>.meat-price span{color:var(--paper);opacity:.8}
 .product-visual>.meat-price.price-pending{font-size:var(--fs-caption);min-height:0;line-height:1.35}
 
-.app-frame{padding-block:var(--space-3) var(--space-6)}
+.app-frame{padding-block:var(--space-3) var(--space-6);background:var(--paper)}
 .app-feed{max-width:var(--home-max);padding-bottom:var(--space-4)}
 .feed-greeting{position:relative;z-index:1;align-self:end;justify-self:start;max-width:var(--readable-max);padding:var(--space-4) var(--space-5);color:var(--surface);text-align:left}
 .feed-greeting h1{font:400 var(--fs-hero)/1.15 var(--font-serif);letter-spacing:var(--ls-hero);white-space:pre-line;color:var(--surface);margin:0 0 var(--space-2);overflow-wrap:break-word;max-width:20ch}
@@ -374,7 +375,7 @@ body.has-cart-hint .cart-toast{display:none}
 /* The desktop canvas is a counter, not a stretched phone. */
 @media(min-width:640px){
  body{background:var(--paper)}
- #main{max-width:var(--catalog-max);min-height:calc(100dvh - var(--header-h));margin-inline:auto;background:transparent;border:0}
+ #main{max-width:var(--catalog-max);min-height:calc(100dvh - var(--header-h));margin-inline:auto;background:var(--paper);border:0}
  .app-frame{padding-top:var(--space-3)}
  .quick-categories button{font-size:var(--fs-body)}
 }
@@ -390,6 +391,8 @@ body.has-cart-hint .cart-toast{display:none}
 
 @media(min-width:1024px){
  .header{max-width:var(--catalog-max);margin-inline:auto;border-inline:0}
+ .app-whatsapp{display:flex;align-items:center;gap:var(--space-2);width:auto;padding-inline:var(--space-3);font-size:var(--fs-ui);font-weight:600;white-space:nowrap}
+ .app-whatsapp>span{display:inline}
  .app-feed{max-width:var(--catalog-max)}
  .counter-hero,.app-feed>.trust-chips,.app-feed>.quick-categories{max-width:800px;margin-inline:auto}
  .home-product-rail,.meat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}

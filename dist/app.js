@@ -403,7 +403,7 @@ const strings = {
     "cartHintCheckout": "WhatsApp",
     "cartHintCheck": "შეამოწმეთ კალათა",
     "questionGreeting": "გამარჯობა! ხორცზე მკითხავ:",
-    "questionCta": "კითხვა WhatsApp-ში",
+    "questionCta": "WhatsApp-კითხვა",
     "productQuestion": "ამ ნაჭერზე კითხვა მაქვს",
     "chatFallback": "თუ ჩატი არ გაიხსნა:",
     "retryWhatsapp": "WhatsApp-ის გახსნა"
@@ -810,7 +810,7 @@ const strings = {
     "cartHintCheckout": "написать в WhatsApp",
     "cartHintCheck": "Проверить корзину",
     "questionGreeting": "Рауди! Вопрос по мясу:",
-    "questionCta": "Задать вопрос в WhatsApp",
+    "questionCta": "Вопрос в WhatsApp",
     "productQuestion": "Спросить об этом куске",
     "chatFallback": "Если чат не открылся:",
     "retryWhatsapp": "Открыть WhatsApp"
@@ -1217,7 +1217,7 @@ const strings = {
     "cartHintCheckout": "Message on WhatsApp",
     "cartHintCheck": "Check your cart",
     "questionGreeting": "Hi! A question about the meat:",
-    "questionCta": "Ask a question on WhatsApp",
+    "questionCta": "WhatsApp question",
     "productQuestion": "Ask about this cut",
     "chatFallback": "If the chat didn’t open:",
     "retryWhatsapp": "Open WhatsApp"
@@ -1511,6 +1511,7 @@ function setLanguage(next,persist=true){
  for(const el of document.querySelectorAll('[data-i18n]'))el.textContent=text(el.dataset.i18n);
  for(const el of document.querySelectorAll('[data-alt]'))el.alt=text(el.dataset.alt);
  for(const el of document.querySelectorAll('[data-aria]'))el.setAttribute('aria-label',text(el.dataset.aria));
+ for(const el of document.querySelectorAll('[data-title]'))el.title=text(el.dataset.title);
  for(const el of document.querySelectorAll('[data-placeholder]'))el.placeholder=text(el.dataset.placeholder);
  for(const b of document.querySelectorAll('[data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===language));
  for(const a of document.querySelectorAll('[data-whatsapp]'))a.href=whatsappUrl(questionMessage())||'tel:+995568258118';
@@ -1667,9 +1668,10 @@ function cartSuggestions(){
  const suggestions=ids.map(id=>{
   const c=cutById(id),quantity=[.5,1].find(q=>lineAmount(c,q)>=remaining);
   return quantity?{id,quantity,amount:lineAmount(c,quantity)}:null;
- }).filter(Boolean);
- // Keep familiar cuts first; never increase an add-on beyond one kilogram.
- return suggestions.slice(0,3);
+ }).filter(Boolean).sort((a,b)=>a.amount-b.amount);
+ // Lowest extra cost first; keep familiar cuts ahead when costs are equal.
+ const closeToThreshold=suggestions.filter(s=>s.amount-remaining<=20);
+ return (closeToThreshold.length>=2?closeToThreshold:suggestions).slice(0,3);
 }
 function renderCartSuggestions(){
  const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;

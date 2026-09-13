@@ -84,6 +84,9 @@ for(const basket of [{'pork-flesh':1},{'beef-round':1.5},{chicken:1},{'mixed-min
  const suggestions=vm.runInContext('cartSuggestions()',upsell),subtotal=vm.runInContext('cartSubtotal()',upsell);
  assert.ok(suggestions.length>=1&&suggestions.length<=3);
  assert.equal(new Set(suggestions.map(s=>s.id)).size,suggestions.length);
+ assert.deepEqual(Array.from(suggestions,s=>s.amount),Array.from(suggestions,s=>s.amount).sort((a,b)=>a-b),'Cheapest increment must come first');
+ const cheapest=suggestionCuts.filter(c=>c.available!==false&&c.price>0&&c.unit==='kg'&&!basket[c.id]).flatMap(c=>[.5,1].map(q=>Math.round(c.price*q*100)/100).filter(amount=>subtotal+amount>=50));
+ assert.equal(suggestions[0].amount,Math.min(...cheapest),'Do not skip a cheaper eligible increment');
  for(const s of suggestions){
   const c=upsell.cutById(s.id);assert.ok(!basket[s.id]&&c.available!==false&&c.price>0&&c.unit==='kg');
   assert.ok([.5,1].includes(s.quantity));
@@ -94,11 +97,16 @@ for(const basket of [{'pork-flesh':1},{'beef-round':1.5},{chicken:1},{'mixed-min
 }
 upsell.basket={'pork-ribs':2.5};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
 upsell.basket={};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
-for(const [qty,expected] of [[1.5,.5],[1,1]]){
- upsell.basket={'beef-round':qty};
- const suggestion=vm.runInContext('cartSuggestions()',upsell).find(s=>s.id==='mixed-mince');
- assert.ok(suggestion);assert.equal(suggestion.quantity,expected);
-}
+// Controlled prices make ranking and overshoot regressions explicit.
+const rankingCuts=[{id:'seed',price:33,unit:'kg'},...suggestionCuts.filter(c=>['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh','beef-tenderloin'].includes(c.id)).map(c=>({...c}))];
+const ranking={basket:{seed:1},MIN_ORDER:50,invalidCart:new Set(),content:{cuts:rankingCuts},cutById:id=>rankingCuts.find(c=>c.id===id),cutAvailable:c=>!!c&&c.available!==false};
+vm.createContext(ranking);vm.runInContext(cartFunctions,ranking);
+assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-ribs',1,20],['mixed-mince',1,23],['beef-tenderloin',.5,30]]);
+rankingCuts[0].price=43;
+assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-flesh',.5,7],['pork-ribs',.5,10],['offal-beef-liver',1,10]]);
+rankingCuts[0].price=44;
+for(const id of ['mixed-mince','offal-beef-liver'])ranking.cutById(id).available=false;
+assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-flesh',.5,7],['pork-ribs',.5,10]],'Omit a >20 GEL overshoot when two cheaper cuts close the gap');
 // If no remaining kilogram-sized cut reaches the threshold, offer no misleading add-on.
 upsell.basket={'offal-tripe':1};
 for(const c of suggestionCuts)if(c.price>=50)c.available=false;
