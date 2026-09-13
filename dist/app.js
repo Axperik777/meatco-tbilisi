@@ -9,27 +9,27 @@ const strings = {
     "location": "ხორცის მიტანა · თბილისი",
     "hero1": "ხორცი.",
     "hero2": "თქვენს კართან.",
-    "heroDescription": "ღორისა და საქონლის ხორცი თქვენი კერძებისთვის. შეარჩიეთ სასურველი ხორცი — შეკვეთას WhatsApp-ში შევათანხმებთ.",
+    "heroDescription": "ვახშამი ოჯახისთვის თუ სუფრა სტუმრებისთვის — ხორცი თქვენი კერძისთვის შეარჩიეთ. სასურველ ნაჭერს, წონას და მიტანას WhatsApp-ში შევათანხმებთ.",
     "orderWhatsApp": "შეკვეთა WhatsApp-ში",
-    "viewCatalog": "ასორტიმენტის ნახვა",
+    "viewCatalog": "ხორცის არჩევა",
     "zones": "ვაკე · საბურთალო · დიდი დიღომი",
     "heroPhotoLabel": "ღორისა და საქონლის ხორცი",
-    "catalogEyebrow": "აირჩიეთ თქვენი გემოვნებით",
-    "catalogTitle": "რა ხორცი გჭირდებათ?",
-    "catalogIntro": "აირჩიეთ სახეობა. სასურველ ნაჭერს, წონასა და ფასს მიმოწერაში დავაზუსტებთ.",
+    "catalogEyebrow": "ღორისა და საქონლის ხორცი",
+    "catalogTitle": "ყველაფერი კარგი კერძით იწყება",
+    "catalogIntro": "იცით, რომელი ნაჭერი გჭირდებათ? აირჩიეთ ქვემოთ. თუ ჯერ ვერ გადაწყვიტეთ, კერძის მიხედვით დაგეხმარებით.",
     "pork": "ღორის ხორცი",
     "beef": "საქონლის ხორცი",
     "porkDescription": "შესაწვავად, მოსაშუშად თუ ღუმელში მოსამზადებლად — გვითხარით, რა გჭირდებათ.",
     "beefDescription": "სადილისთვის თუ განსაკუთრებული კერძისთვის — დაგეხმარებით შესაბამისი ნაჭრის შერჩევაში.",
     "choosePork": "ღორის ხორცის არჩევა",
     "chooseBeef": "საქონლის ხორცის არჩევა",
-    "catalogNote": "ფასი და ხელმისაწვდომობა დასტურდება შეკვეთისას. ფოტოები საილუსტრაციოა.",
+    "catalogNote": "კონკრეტული ნაჭრის ხელმისაწვდომობასა და ფასს შეკვეთისას დავაზუსტებთ. ფოტოები საილუსტრაციოა.",
     "extrasEyebrow": "იმავე შეკვეთაში",
-    "extrasTitle": "ბოსტნეული, ხილი და კვერცხი",
-    "extrasText": "ხორცთან ერთად სხვა პროდუქტებიც გჭირდებათ? სასურველი პროდუქტები მოგვწერეთ WhatsApp-ში.",
-    "extrasCta": "შეკვეთაში დამატება",
-    "deliveryEyebrow": "შეარჩიეთ. მოგვწერეთ. მიიღეთ.",
-    "deliveryTitle": "მიტანა თქვენს უბანში",
+    "extrasTitle": "კიდევ რა გჭირდებათ სახლში?",
+    "extrasText": "მონიშნეთ სასურველი პროდუქტები. ასორტიმენტსა და ფასებს ხორცის შეკვეთასთან ერთად დავაზუსტებთ.",
+    "extrasCta": "არჩეულის შესახებ კითხვა",
+    "deliveryEyebrow": "თბილისი · მიტანა სახლში",
+    "deliveryTitle": "თქვენთანაც მოვიტანთ",
     "vake": "ვაკე",
     "saburtalo": "საბურთალო",
     "didi": "დიდი დიღომი",
@@ -95,7 +95,86 @@ const strings = {
     "b2bTitle": "ხორცი თქვენი სამზარეულოსთვის",
     "b2bText": "ღორისა და საქონლის ხორცი თქვენი ბიზნესისთვის. განვიხილოთ სასურველი ნაჭრები, მოცულობა, ფასები და მოწოდების გრაფიკი.",
     "b2bCta": "მოწოდების განხილვა",
-    "b2bMessage": "გამარჯობა, MeatCO! მაინტერესებს ხორცის მიწოდება რესტორნის ან კაფესთვის. მსურს განვიხილოთ სასურველი ნაჭრები, მოცულობა, ფასები და მოწოდების გრაფიკი."
+    "b2bMessage": "გამარჯობა, MeatCO! მაინტერესებს ხორცის მიწოდება რესტორნის ან კაფესთვის. მსურს განვიხილოთ სასურველი ნაჭრები, მოცულობა, ფასები და მოწოდების გრაფიკი.",
+    "navGuide": "რა მოვამზადოთ?",
+    "navB2b": "ბიზნესისთვის",
+    "promise1Title": "შერჩევა თქვენი კერძისთვის",
+    "promise1Text": "გვითხარით, რას ამზადებთ",
+    "promise2Title": "სრული ფასი წინასწარ",
+    "promise2Text": "შევათანხმებთ დადასტურებამდე",
+    "promise3Title": "მიტანა თქვენს უბანში",
+    "promise3Text": "ვაკე · საბურთალო · დიდი დიღომი",
+    "cutsPrompt": "იკითხეთ სასურველი ნაჭრის შესახებ",
+    "cutPorkNeck": "კისერი",
+    "cutPorkShoulder": "ბეჭი",
+    "cutPorkRibs": "ღორის ნეკნები",
+    "cutBeefFlesh": "უძვლო ხორცი",
+    "cutBeefBrisket": "მკერდი",
+    "cutBeefRibs": "საქონლის ნეკნები",
+    "guideEyebrow": "ხორცი კერძის მიხედვით",
+    "guideTitle": "რას ამზადებთ?",
+    "guideIntro": "კარგად ნაცნობი კერძი გქონდეთ მხედველობაში — ხორცის შერჩევაში ჩვენ დაგეხმარებით.",
+    "guideOjakhuri": "ოჯახური",
+    "guideStew": "ჩაშუშული",
+    "guideGrill": "გრილზე",
+    "guideOwn": "სხვა კერძი",
+    "guideOjakhuriTitle": "ოჯახური თქვენი სუფრისთვის",
+    "guideOjakhuriText": "ღორის ხორცის შესაფერისი ნაჭერი შეარჩიეთ. კარტოფილისა და ხახვის დამატებაც შეგიძლიათ ითხოვოთ — ხელმისაწვდომობას მიმოწერაში დავაზუსტებთ.",
+    "guideOjakhuriNeed": "ღორის ხორცი · შესაწვავად",
+    "guideStewTitle": "ხორცი ჩაშუშულისთვის",
+    "guideStewText": "მოგვწერეთ, რომ საქონლის ხორცი ჩაშუშულისთვის გჭირდებათ. შესაფერის ნაჭერსა და სასურველ რაოდენობას ერთად შევარჩევთ.",
+    "guideStewNeed": "საქონლის ხორცი · მოსაშუშად",
+    "guideGrillTitle": "თქვენ მოამზადეთ გრილი",
+    "guideGrillText": "ღორის ხორცი გირჩევნიათ თუ საქონლის? მოგვწერეთ, როგორ აპირებთ მომზადებას — ნაჭრის შერჩევაში დაგეხმარებით.",
+    "guideGrillNeed": "ღორის ან საქონლის ხორცი · გრილისთვის",
+    "guideOwnTitle": "თქვენი რეცეპტი, თქვენი არჩევანი",
+    "guideOwnText": "ნაჭრის სახელის ცოდნა აუცილებელი არ არის. უბრალოდ მოგვწერეთ, რას ამზადებთ და რამდენი ადამიანისთვის.",
+    "guideOwnNeed": "კერძის მიხედვით შეგირჩევთ",
+    "guidePeople": "რამდენი ადამიანისთვის?",
+    "guideCta": "ამ კერძისთვის ხორცის შერჩევა",
+    "guideImageAlt": "ოჯახურის, სალათისა და პურის საილუსტრაციო ფოტო",
+    "guideCaption": "მომზადების იდეა. MeatCO-სგან ნედლ ხორცს უკვეთავთ.",
+    "guideHint": "ეს მზა კერძის ან ფიქსირებული ნაკრების შეკვეთა არ არის.",
+    "peopleUnit": "ადამიანი",
+    "extraVegetables": "ბოსტნეული",
+    "extraFruit": "ხილი",
+    "extraEggs": "კვერცხი",
+    "extraVegetablesText": "სალათისთვის ან გარნირისთვის",
+    "extraFruitText": "სუფრასთან თუ შემდეგისთვის",
+    "extraEggsText": "საუზმისა და სახლის მარაგისთვის",
+    "extrasNone": "აირჩიეთ, რისი დამატება გსურთ",
+    "extrasSelected": "არჩეულია",
+    "extrasLegend": "ხორცთან ერთად · სურვილისამებრ",
+    "controlEyebrow": "შეკვეთა თქვენს ხელშია",
+    "controlTitle": "ჯერ შევათანხმოთ, შემდეგ გამოგიგზავნოთ",
+    "control1Title": "ნაჭერი და რაოდენობა",
+    "control1Text": "გვითხარით, რომელი ხორცი გჭირდებათ. თუ სასურველი ნაჭერი არ არის, ალტერნატივას თქვენთან შევათანხმებთ.",
+    "control2Title": "წონა და ფასი",
+    "control2Text": "ფასს კილოგრამზე წინასწარ გაიგებთ. აწონვის შემდეგ საბოლოო თანხას დავაზუსტებთ.",
+    "control3Title": "მიტანა და სრული თანხა",
+    "control3Text": "მისამართს, მიტანის დროსა და სრულ ღირებულებას შეკვეთის დადასტურებამდე შევათანხმებთ.",
+    "deliveryText": "ჩვენი კურიერები შეკვეთებს ვაკეში, საბურთალოსა და დიდ დიღომში აწვდიან. ახლომდებარე მისამართებზე მიტანა წინასწარ შეათანხმეთ.",
+    "checkAddress": "მისამართის გადამოწმება",
+    "b2b1Title": "სასურველი ნაჭრები",
+    "b2b1Text": "თქვენი მენიუსა და მოთხოვნების მიხედვით",
+    "b2b2Title": "მოცულობა და სიხშირე",
+    "b2b2Text": "ერთჯერადი ან პერიოდული საჭიროება",
+    "b2b3Title": "პირობები წინასწარ",
+    "b2b3Text": "ფასი, გრაფიკი და პირველი მოწოდება",
+    "faq4Q": "თუ ნაჭრის სახელი არ ვიცი?",
+    "faq4A": "მოგვწერეთ კერძის სახელი ან მომზადების გზა და რამდენი ადამიანისთვის ამზადებთ. შესაფერისი ხორცის შერჩევაში დაგეხმარებით.",
+    "faq5Q": "ხორცთან ერთად სხვა პროდუქტებიც შემიძლია შევუკვეთო?",
+    "faq5A": "დიახ, შეგიძლიათ მოითხოვოთ ბოსტნეული, ხილი და კვერცხი. ხელმისაწვდომობას, რაოდენობასა და ფასს თქვენთან შევათანხმებთ.",
+    "faq6Q": "საიტზე რეგისტრაცია მჭირდება?",
+    "faq6A": "არა. შეგიძლიათ პირდაპირ WhatsApp-ში მოგვწეროთ. საიტზე შერჩეული დეტალები შეტყობინებაში გადავა, რომელსაც გაგზავნამდე ნახავთ.",
+    "closingTitle": "დავიწყოთ თქვენი კერძით",
+    "closingText": "მოგვწერეთ, რას ამზადებთ. ხორცსა და მიტანაზე ერთად შევთანხმდებით.",
+    "contextLabel": "თქვენი არჩევანი",
+    "clearContext": "არჩევანის გაუქმება",
+    "messageCut": "სასურველი ნაჭერი",
+    "messageDish": "კერძი",
+    "messagePeople": "ადამიანების რაოდენობა",
+    "messageExtraList": "ასევე მაინტერესებს"
   },
   "ru": {
     "skip": "Перейти к содержимому",
@@ -105,27 +184,27 @@ const strings = {
     "location": "Доставка мяса · Тбилиси",
     "hero1": "Мясо.",
     "hero2": "Прямо к двери.",
-    "heroDescription": "Свинина и говядина для ваших блюд. Выбирайте мясо — детали заказа согласуем в WhatsApp.",
+    "heroDescription": "Домашний ужин или стол для гостей — выбирайте мясо под своё блюдо. Нужный кусок, вес и доставку согласуем в WhatsApp.",
     "orderWhatsApp": "Заказать в WhatsApp",
-    "viewCatalog": "Посмотреть ассортимент",
+    "viewCatalog": "Выбрать мясо",
     "zones": "Ваке · Сабуртало · Диди Дигоми",
     "heroPhotoLabel": "Свинина и говядина",
-    "catalogEyebrow": "Выбирайте на свой вкус",
-    "catalogTitle": "Какое мясо вам нужно?",
-    "catalogIntro": "Выберите категорию. Нужный кусок, вес и цену уточним в переписке.",
+    "catalogEyebrow": "Свинина и говядина",
+    "catalogTitle": "Всё начинается с хорошего блюда",
+    "catalogIntro": "Знаете, какой кусок нужен? Выберите ниже. Если ещё не определились, поможем подобрать мясо под блюдо.",
     "pork": "Свинина",
     "beef": "Говядина",
     "porkDescription": "Для жарки, тушения или запекания — напишите, какое мясо вам нужно.",
     "beefDescription": "Для домашнего ужина или особенного блюда — поможем подобрать подходящий кусок.",
     "choosePork": "Выбрать свинину",
     "chooseBeef": "Выбрать говядину",
-    "catalogNote": "Цены и наличие уточняются при заказе. Фотографии иллюстративные.",
+    "catalogNote": "Наличие конкретной части и цену уточним при заказе. Фотографии иллюстративные.",
     "extrasEyebrow": "В ту же доставку",
-    "extrasTitle": "Овощи, фрукты и яйца",
-    "extrasText": "Нужно что-то ещё к мясу? Напишите в WhatsApp, какие продукты добавить к заказу.",
-    "extrasCta": "Добавить к заказу",
-    "deliveryEyebrow": "Выберите. Напишите. Получите.",
-    "deliveryTitle": "Доставляем в ваш район",
+    "extrasTitle": "Что ещё нужно домой?",
+    "extrasText": "Отметьте нужные продукты. Ассортимент и цены уточним вместе с заказом мяса.",
+    "extrasCta": "Уточнить выбранное",
+    "deliveryEyebrow": "Тбилиси · доставка домой",
+    "deliveryTitle": "Привезём в ваш район",
     "vake": "Ваке",
     "saburtalo": "Сабуртало",
     "didi": "Диди Дигоми",
@@ -191,7 +270,86 @@ const strings = {
     "b2bTitle": "Мясо для вашей кухни",
     "b2bText": "Свинина и говядина для вашего бизнеса. Обсудим нужные части, объёмы, цены и график поставок.",
     "b2bCta": "Обсудить поставки",
-    "b2bMessage": "Здравствуйте, MeatCO! Интересуют поставки мяса для ресторана или кафе. Хочу обсудить нужные части, объёмы, цены и график поставок."
+    "b2bMessage": "Здравствуйте, MeatCO! Интересуют поставки мяса для ресторана или кафе. Хочу обсудить нужные части, объёмы, цены и график поставок.",
+    "navGuide": "Что приготовить",
+    "navB2b": "Для бизнеса",
+    "promise1Title": "Подбор под ваше блюдо",
+    "promise1Text": "Расскажите, что готовите",
+    "promise2Title": "Полная стоимость заранее",
+    "promise2Text": "Согласуем до подтверждения",
+    "promise3Title": "Доставка в ваш район",
+    "promise3Text": "Ваке · Сабуртало · Диди Дигоми",
+    "cutsPrompt": "Уточните нужную часть",
+    "cutPorkNeck": "Шея",
+    "cutPorkShoulder": "Лопатка",
+    "cutPorkRibs": "Свиные рёбра",
+    "cutBeefFlesh": "Мякоть",
+    "cutBeefBrisket": "Грудинка",
+    "cutBeefRibs": "Говяжьи рёбра",
+    "guideEyebrow": "Выбор под ваше блюдо",
+    "guideTitle": "Что будете готовить?",
+    "guideIntro": "Начните со знакомого блюда — с выбором мяса поможем.",
+    "guideOjakhuri": "Оджахури",
+    "guideStew": "Чашушули",
+    "guideGrill": "На мангал",
+    "guideOwn": "Своё блюдо",
+    "guideOjakhuriTitle": "Оджахури для домашнего стола",
+    "guideOjakhuriText": "Подберём подходящую свинину. К заказу можно попросить картофель и лук — наличие уточним в переписке.",
+    "guideOjakhuriNeed": "Свинина · для жарки",
+    "guideStewTitle": "Мясо для чашушули",
+    "guideStewText": "Скажите, что нужна говядина для тушения. Подберём подходящий кусок и обсудим количество для вашего блюда.",
+    "guideStewNeed": "Говядина · для тушения",
+    "guideGrillTitle": "Готовите на огне?",
+    "guideGrillText": "Свинина или говядина — расскажите, как собираетесь готовить. Поможем выбрать подходящий кусок.",
+    "guideGrillNeed": "Свинина или говядина · для мангала",
+    "guideOwnTitle": "Ваш рецепт, ваш выбор",
+    "guideOwnText": "Необязательно знать названия отрубов. Напишите, что готовите и на сколько человек, — разберёмся вместе.",
+    "guideOwnNeed": "Подберём под ваше блюдо",
+    "guidePeople": "На сколько человек?",
+    "guideCta": "Подобрать мясо для блюда",
+    "guideImageAlt": "Иллюстрация подачи оджахури с салатом и хлебом",
+    "guideCaption": "Идея подачи. У MeatCO вы заказываете сырое мясо.",
+    "guideHint": "Это подбор мяса, а не заказ готового блюда или фиксированного набора.",
+    "peopleUnit": "человек",
+    "extraVegetables": "Овощи",
+    "extraFruit": "Фрукты",
+    "extraEggs": "Яйца",
+    "extraVegetablesText": "Для салата или гарнира",
+    "extraFruitText": "К столу или на потом",
+    "extraEggsText": "На завтрак и про запас",
+    "extrasNone": "Выберите, что хотите добавить",
+    "extrasSelected": "Выбрано",
+    "extrasLegend": "Вместе с мясом · необязательно",
+    "controlEyebrow": "Вы контролируете заказ",
+    "controlTitle": "Сначала согласуем. Потом доставим.",
+    "control1Title": "Кусок и количество",
+    "control1Text": "Вы выбираете нужное мясо. Если подходящей части нет, согласуем с вами альтернативу.",
+    "control2Title": "Вес и цена",
+    "control2Text": "Вы заранее знаете цену за килограмм. После взвешивания уточняем итоговую сумму.",
+    "control3Title": "Доставка и полный итог",
+    "control3Text": "Адрес, время и полную стоимость с доставкой согласуем до подтверждения заказа.",
+    "deliveryText": "Наши курьеры доставляют заказы в Ваке, Сабуртало и Диди Дигоми. Соседние адреса проверяем перед оформлением.",
+    "checkAddress": "Уточнить доставку по адресу",
+    "b2b1Title": "Части и требования",
+    "b2b1Text": "Под ваше меню и спецификацию",
+    "b2b2Title": "Объём и частота",
+    "b2b2Text": "Разовая или регулярная потребность",
+    "b2b3Title": "Условия заранее",
+    "b2b3Text": "Цена, график и первая поставка",
+    "faq4Q": "Что делать, если не знаю названия частей?",
+    "faq4A": "Напишите название блюда или способ приготовления и на сколько человек готовите. Поможем подобрать подходящее мясо.",
+    "faq5Q": "Можно добавить к мясу другие продукты?",
+    "faq5A": "Да, можно запросить овощи, фрукты и яйца. Наличие, количество и цену согласуем с вами.",
+    "faq6Q": "Нужно регистрироваться на сайте?",
+    "faq6A": "Нет. Можно сразу написать в WhatsApp. Выбранные на сайте детали попадут в сообщение, которое вы увидите перед отправкой.",
+    "closingTitle": "Начнём с вашего блюда",
+    "closingText": "Напишите, что готовите. Мясо и доставку обсудим вместе.",
+    "contextLabel": "Ваш выбор",
+    "clearContext": "Сбросить выбор",
+    "messageCut": "Нужная часть",
+    "messageDish": "Блюдо",
+    "messagePeople": "Количество человек",
+    "messageExtraList": "Также интересуют"
   },
   "en": {
     "skip": "Skip to content",
@@ -201,26 +359,26 @@ const strings = {
     "location": "Meat delivery · Tbilisi",
     "hero1": "Your meat.",
     "hero2": "At your door.",
-    "heroDescription": "Pork and beef for the meals you love. Choose your meat and arrange your order with us on WhatsApp.",
+    "heroDescription": "A family dinner or a table full of guests — choose meat for the meal you have in mind. We’ll confirm the cut, weight and delivery on WhatsApp.",
     "orderWhatsApp": "Order on WhatsApp",
-    "viewCatalog": "Explore our meat",
+    "viewCatalog": "Choose your meat",
     "zones": "Vake · Saburtalo · Didi Dighomi",
     "heroPhotoLabel": "Pork and beef",
-    "catalogEyebrow": "Choose what you love",
-    "catalogTitle": "What are you cooking?",
-    "catalogIntro": "Choose a category. We’ll help you find a cut and confirm the weight and price in our chat.",
+    "catalogEyebrow": "Pork and beef",
+    "catalogTitle": "Every good meal starts here",
+    "catalogIntro": "Know which cut you need? Choose below. Still deciding? We’ll help you find the right meat for your dish.",
     "pork": "Pork",
     "beef": "Beef",
     "porkDescription": "For frying, slow cooking or roasting — tell us what you have in mind.",
     "beefDescription": "For a family dinner or a special meal — we’ll help you choose a suitable cut.",
     "choosePork": "Choose pork",
     "chooseBeef": "Choose beef",
-    "catalogNote": "Prices and availability are confirmed when ordering. Images are illustrative.",
+    "catalogNote": "We’ll confirm the availability and price of your chosen cut when you order. Images are illustrative.",
     "extrasEyebrow": "In the same delivery",
-    "extrasTitle": "Vegetables, fruit and eggs",
-    "extrasText": "Need a few extras with your meat? Tell us on WhatsApp what you would like to add.",
-    "extrasCta": "Add to your order",
-    "deliveryEyebrow": "Choose. Message. Enjoy.",
+    "extrasTitle": "What else do you need at home?",
+    "extrasText": "Select a few extras. We’ll confirm the range and prices along with your meat order.",
+    "extrasCta": "Ask about your selection",
+    "deliveryEyebrow": "Tbilisi · delivered home",
     "deliveryTitle": "Delivered to your neighbourhood",
     "vake": "Vake",
     "saburtalo": "Saburtalo",
@@ -287,7 +445,86 @@ const strings = {
     "b2bTitle": "Meat for your kitchen",
     "b2bText": "Pork and beef for your business. Let’s discuss the cuts, quantities, prices and delivery schedule you need.",
     "b2bCta": "Discuss supply",
-    "b2bMessage": "Hello, MeatCO! I’m interested in meat supply for a restaurant or café. I’d like to discuss cuts, quantities, prices and delivery schedules."
+    "b2bMessage": "Hello, MeatCO! I’m interested in meat supply for a restaurant or café. I’d like to discuss cuts, quantities, prices and delivery schedules.",
+    "navGuide": "Meal ideas",
+    "navB2b": "For businesses",
+    "promise1Title": "The right cut for your meal",
+    "promise1Text": "Tell us what you’re cooking",
+    "promise2Title": "Know the full cost",
+    "promise2Text": "Agreed before you confirm",
+    "promise3Title": "Delivery to your area",
+    "promise3Text": "Vake · Saburtalo · Didi Dighomi",
+    "cutsPrompt": "Ask about a cut",
+    "cutPorkNeck": "Neck",
+    "cutPorkShoulder": "Shoulder",
+    "cutPorkRibs": "Pork ribs",
+    "cutBeefFlesh": "Boneless beef",
+    "cutBeefBrisket": "Brisket",
+    "cutBeefRibs": "Beef ribs",
+    "guideEyebrow": "Choose by the meal",
+    "guideTitle": "What’s cooking?",
+    "guideIntro": "Start with a dish you love. We’ll help you choose the meat.",
+    "guideOjakhuri": "Ojakhuri",
+    "guideStew": "Chashushuli",
+    "guideGrill": "For the grill",
+    "guideOwn": "Your own dish",
+    "guideOjakhuriTitle": "Ojakhuri for your table",
+    "guideOjakhuriText": "Let’s choose pork for this comforting dish of meat and potatoes. You can ask to add potatoes and onions; we’ll confirm availability in our chat.",
+    "guideOjakhuriNeed": "Pork · for pan-frying",
+    "guideStewTitle": "Beef for chashushuli",
+    "guideStewText": "Planning a Georgian beef stew? Tell us you need beef for slow cooking. We’ll help with the cut and quantity.",
+    "guideStewNeed": "Beef · for stewing",
+    "guideGrillTitle": "Fire up the grill",
+    "guideGrillText": "Pork or beef? Tell us how you plan to cook it and we’ll help you choose a suitable cut.",
+    "guideGrillNeed": "Pork or beef · for grilling",
+    "guideOwnTitle": "Your recipe, your choice",
+    "guideOwnText": "You don’t need to know the name of every cut. Tell us what you’re cooking and how many people you’re feeding.",
+    "guideOwnNeed": "Let’s find a cut for your dish",
+    "guidePeople": "How many people?",
+    "guideCta": "Find meat for this meal",
+    "guideImageAlt": "Illustrative serving suggestion of ojakhuri with salad and bread",
+    "guideCaption": "Serving suggestion. MeatCO delivers raw meat.",
+    "guideHint": "This helps you choose meat. It is not an order for a cooked meal or a fixed box.",
+    "peopleUnit": "people",
+    "extraVegetables": "Vegetables",
+    "extraFruit": "Fruit",
+    "extraEggs": "Eggs",
+    "extraVegetablesText": "For a salad or a side",
+    "extraFruitText": "For the table or later",
+    "extraEggsText": "For breakfast and the fridge",
+    "extrasNone": "Choose what you’d like to add",
+    "extrasSelected": "Selected",
+    "extrasLegend": "With your meat · optional",
+    "controlEyebrow": "You’re in control of your order",
+    "controlTitle": "Agreed first. Delivered next.",
+    "control1Title": "Your cut and quantity",
+    "control1Text": "Choose the meat you need. If a cut is unavailable, we’ll agree on an alternative with you.",
+    "control2Title": "Weight and price",
+    "control2Text": "You’ll know the price per kilogram upfront. We’ll confirm the final amount after weighing.",
+    "control3Title": "Delivery and the full total",
+    "control3Text": "We’ll agree on the address, delivery time and full cost before you confirm your order.",
+    "deliveryText": "Our couriers deliver in Vake, Saburtalo and Didi Dighomi. We’ll check nearby addresses before confirming an order.",
+    "checkAddress": "Check your delivery address",
+    "b2b1Title": "Cuts and specifications",
+    "b2b1Text": "To suit your menu and requirements",
+    "b2b2Title": "Quantity and frequency",
+    "b2b2Text": "One-off or ongoing requirements",
+    "b2b3Title": "Clear terms",
+    "b2b3Text": "Prices, schedule and the first delivery",
+    "faq4Q": "What if I don’t know the name of the cut?",
+    "faq4A": "Tell us the dish or cooking method, and how many people you’re feeding. We’ll help you choose suitable meat.",
+    "faq5Q": "Can I add other groceries?",
+    "faq5A": "Yes. You can ask for vegetables, fruit and eggs. We’ll agree on availability, quantities and prices with you.",
+    "faq6Q": "Do I need an account?",
+    "faq6A": "No. You can message us directly on WhatsApp. Any details you select on the site will be included in a message you can review before sending.",
+    "closingTitle": "Let’s start with your meal",
+    "closingText": "Tell us what you’re cooking. We’ll work out the meat and delivery together.",
+    "contextLabel": "Your selection",
+    "clearContext": "Clear selection",
+    "messageCut": "Preferred cut",
+    "messageDish": "Dish",
+    "messagePeople": "Number of people",
+    "messageExtraList": "Also interested in"
   }
 };
 const config = window.MEATCO_CONFIG || {};
@@ -302,6 +539,10 @@ const note = document.getElementById('order-note');
 const error = document.getElementById('quantity-error');
 const status = document.getElementById('form-status');
 let lastOpener = null;
+let guideChoice = 'ojakhuri';
+let context = {cut:'',dish:'',people:''};
+const guideMeta = {ojakhuri:['Ojakhuri','pork'],stew:['Stew','beef'],grill:['Grill','any'],own:['Own','any']};
+const extraKeys = {vegetables:'extraVegetables',fruit:'extraFruit',eggs:'extraEggs'};
 let attribution = {};
 try {
  const params = new URLSearchParams(location.search);
@@ -340,7 +581,11 @@ function message() {
  if (weight && validWeight(weight)) lines.push(text('messageWeight') + ': ' + weight.replace(',','.') + ' ' + text('kg'));
  if (district.value) lines.push(text('messageDistrict') + ': ' + text(district.value === 'nearby' ? 'otherDistrict' : district.value));
  if (note.value.trim()) lines.push(text('messageNote') + ': ' + note.value.trim());
- if (document.getElementById('add-extras').checked) lines.push(text('messageExtras'));
+ if (context.cut) lines.push(text('messageCut') + ': ' + text(context.cut));
+ if (context.dish) lines.push(text('messageDish') + ': ' + text('guide'+guideMeta[context.dish][0]));
+ if (context.people) lines.push(text('messagePeople') + ': ' + context.people);
+ const extra = chosenExtras();
+ if (extra.length) lines.push(text('messageExtraList') + ': ' + extra.map(k=>text(extraKeys[k])).join(', '));
  lines.push('',text('messageEnd'));
  return lines.join('\n');
 }
@@ -368,6 +613,7 @@ function setLanguage(next, persist = true) {
  for (const link of document.querySelectorAll('[data-wholesale]')) link.href = whatsappUrl(text('b2bMessage')) || 'tel:+995568258118';
  if (!error.hidden) error.textContent = text('quantityError');
  status.replaceChildren();
+ renderGuide(); renderExtras(); renderContext();
  updatePreview();
  if (persist) {
   try { localStorage.setItem('meatco:language',language); } catch {}
@@ -378,7 +624,9 @@ for (const button of document.querySelectorAll('[data-lang]')) button.addEventLi
 for (const button of document.querySelectorAll('[data-order]')) button.addEventListener('click',() => {
  const category = ['pork','beef'].includes(button.dataset.order) ? button.dataset.order : 'any';
  form.querySelector('input[name="meat"][value="' + category + '"]').checked = true;
- if (button.dataset.extra === 'true') document.getElementById('add-extras').checked = true;
+ context = {cut:button.dataset.cut || '',dish:button.dataset.dish || '',people:button.dataset.dish ? document.getElementById('guide-people').value : ''};
+ if (button.dataset.district) district.value = button.dataset.district;
+ renderContext();
  lastOpener = button;
  status.replaceChildren(); error.hidden = true; quantity.removeAttribute('aria-invalid');
  updatePreview();
@@ -400,7 +648,10 @@ form.addEventListener('input',() => {
  if (validWeight(quantity.value.trim())) { error.hidden = true; quantity.removeAttribute('aria-invalid'); }
  updatePreview();
 });
-form.addEventListener('change',updatePreview);
+form.addEventListener('change',event => {
+ if (event.target.name === 'meat') { context = {cut:'',dish:'',people:''}; renderContext(); }
+ renderExtras(); updatePreview();
+});
 form.addEventListener('submit',event => {
  event.preventDefault();
  const weight = quantity.value.trim();
@@ -417,6 +668,56 @@ form.addEventListener('submit',event => {
 });
 for (const link of document.querySelectorAll('[data-whatsapp]')) link.addEventListener('click',() => track('meatco_whatsapp_click',{source:'direct'}));
 for (const link of document.querySelectorAll('[data-wholesale]')) link.addEventListener('click',() => track('meatco_whatsapp_click',{source:'restaurant_supply',segment:'b2b'}));
+
+function chosenExtras() { return [...form.querySelectorAll('input[name="extra"]:checked')].map(input=>input.value); }
+function renderExtras() {
+ const selected = chosenExtras();
+ for (const button of document.querySelectorAll('[data-extra-choice]')) {
+  const active = selected.includes(button.dataset.extraChoice);
+  button.setAttribute('aria-pressed',String(active));
+  button.querySelector('.extra-checkmark').textContent = active ? '✓' : '+';
+ }
+ document.getElementById('extras-summary').textContent = selected.length ? text('extrasSelected') + ': ' + selected.map(k=>text(extraKeys[k])).join(', ') : text('extrasNone');
+}
+function renderGuide() {
+ const [key,category] = guideMeta[guideChoice];
+ for (const tab of document.querySelectorAll('[data-guide]')) {
+  const active = tab.dataset.guide === guideChoice;
+  tab.setAttribute('aria-selected',String(active)); tab.tabIndex = active ? 0 : -1;
+ }
+ document.getElementById('guide-panel').setAttribute('aria-labelledby','tab-'+guideChoice);
+ document.getElementById('guide-need').textContent = text('guide'+key+'Need');
+ document.getElementById('guide-dish-title').textContent = text('guide'+key+'Title');
+ document.getElementById('guide-dish-text').textContent = text('guide'+key+'Text');
+ const order = document.getElementById('guide-order'); order.dataset.order = category; order.dataset.dish = guideChoice;
+}
+function renderContext() {
+ const parts = [];
+ if (context.cut) parts.push(text(context.cut));
+ if (context.dish) parts.push(text('guide'+guideMeta[context.dish][0]));
+ if (context.people) parts.push(context.people+' '+text('peopleUnit'));
+ document.getElementById('order-context').hidden = !parts.length;
+ document.getElementById('order-context-text').textContent = text('contextLabel')+': '+parts.join(' · ');
+}
+for (const tab of document.querySelectorAll('[data-guide]')) {
+ tab.addEventListener('click',()=>{guideChoice=tab.dataset.guide;renderGuide();});
+ tab.addEventListener('keydown',event=>{
+  const tabs=[...document.querySelectorAll('[data-guide]')]; let next=tabs.indexOf(tab);
+  if(event.key==='ArrowRight') next=(next+1)%tabs.length;
+  else if(event.key==='ArrowLeft') next=(next+tabs.length-1)%tabs.length;
+  else if(event.key==='Home') next=0;
+  else if(event.key==='End') next=tabs.length-1;
+  else return;
+  event.preventDefault(); guideChoice=tabs[next].dataset.guide;renderGuide();tabs[next].focus();
+ });
+}
+for (const button of document.querySelectorAll('[data-extra-choice]')) button.addEventListener('click',()=>{
+ const input=form.querySelector('input[name="extra"][value="'+button.dataset.extraChoice+'"]');
+ input.checked=!input.checked;renderExtras();updatePreview();
+});
+document.getElementById('clear-context').addEventListener('click',()=>{context={cut:'',dish:'',people:''};renderContext();updatePreview();});
+
+
 let initial = config.defaultLanguage || 'ka';
 try { const saved = localStorage.getItem('meatco:language'); if (supported.includes(saved)) initial = saved; } catch {}
 const requested = new URLSearchParams(location.search).get('lang');

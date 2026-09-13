@@ -14,8 +14,8 @@ for (const lang of ['ka','ru','en']) {
  for (const key of keys) assert.ok(typeof dict[lang][key] === 'string' && dict[lang][key].trim(),lang+': missing '+key);
  assert.deepEqual(Object.keys(dict[lang]).sort(),Object.keys(dict.ka).sort());
 }
-const references = [...html.matchAll(/(?:src|href)="(\/[^"#?]+)"/g)].map(m=>m[1]);
-references.push(...[...css.matchAll(/url\(['"]?(\/[^)'"]+)/g)].map(m=>m[1]));
+const references = [...html.matchAll(/(?:src|href)="(\.\/[^"#?]+)"/g)].map(m=>m[1]);
+references.push(...[...css.matchAll(/url\(['"]?(\.\/[^)'"]+)/g)].map(m=>m[1]));
 for (const ref of references) assert.ok(fs.existsSync(path.join(root,ref)), 'Missing '+ref);
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(ids.length,new Set(ids).size,'Duplicate IDs');
