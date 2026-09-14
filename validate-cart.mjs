@@ -12,7 +12,7 @@ for(const language of ['ka','ru','en']){
  const fields={'cart-district':{value:'Test address 3'},'cart-note':{value:'TEST: no salt'},'cart-photo':{checked:true}};
  const sandbox={
   language,basket:{'pork-ribs':1.5,chicken:2,'offal-tripe':1},
-  MIN_ORDER:50,config:{hours:'10:00–18:00'},
+  MIN_ORDER:50,config:{hours:'10:00–18:00',freeDeliveryThreshold:200},
   cutAvailable:c=>!!c&&c.available!==false,
   preparationNotes:new Map([['pork-ribs','TEST: thicker cuts']]),
   slotKeys:{'12-14':'slotMidday','14-16':'slotAfternoon','16-18':'slotEvening',tomorrow:'slotTomorrow',chat:'slotUnknown'},
@@ -23,7 +23,7 @@ for(const language of ['ka','ru','en']){
  };
  vm.createContext(sandbox);vm.runInContext(quantityValidation+cartFunctions,sandbox);
  const message=vm.runInContext('cartMessage()',sandbox);
- for(const line of vm.runInContext('[...cartMessageItems(),cartMessageEstimate(),cartMessageSlot()]',sandbox))assert.ok(message.includes(line),'The visible preview must use the exact outgoing order values');
+ for(const line of vm.runInContext('[...cartMessageItems(),cartMessageEstimate(),cartMessageDelivery(),cartMessageSlot()]',sandbox))assert.ok(message.includes(line),'The visible preview must use the exact outgoing order values');
  assert.equal(vm.runInContext('cartSubtotal()',sandbox),64);
  assert.ok(message.includes(cuts.find(c=>c.id==='pork-ribs').name[language]));
  assert.ok(message.startsWith('MeatCO\n'));
@@ -47,6 +47,18 @@ for(const language of ['ka','ru','en']){
   sandbox.basket=basket;assert.equal(vm.runInContext('cartMinimumRemaining()',sandbox),remaining);
  }
  sandbox.MIN_ORDER=null;assert.equal(vm.runInContext('cartMinimumRemaining()',sandbox),0);
+ for(const [weight,free] of [[9.5,false],[9.999,false],[10,true],[10.5,true]]){
+  sandbox.basket={'pork-ribs':weight};assert.equal(vm.runInContext('deliveryIsFree()',sandbox),free);
+  const delivery=locale[language].messageDelivery+': '+(free?locale[language].messageDeliveryFree.replace('{amount}','200 ₾'):locale[language].messageDeliveryExtra);
+  assert.ok(vm.runInContext('cartMessage()',sandbox).includes(delivery));
+ }
+ for(const cut of cuts.filter(c=>!c.price)){
+  sandbox.quoteCut=cut;
+  const quote=vm.runInContext("priceRequestMessage(quoteCut,1.5,'TEST: cut note')",sandbox);
+  assert.ok(quote.startsWith(locale[language].priceRequestGreeting+'\n'+cut.name[language]));
+  assert.ok(quote.includes(locale[language].priceRequestWeight)&&quote.includes('TEST: cut note'));
+  assert.ok(!quote.includes(locale[language].messageEstimate)&&!quote.includes('• ')&&!quote.includes('pork-ribs'));
+ }
  scenarios+=19;
 }
 console.log(`Cart: ${scenarios} multilingual calculation, note, photo and validation checks passed.`);
@@ -61,6 +73,7 @@ edit.basket={};vm.runInContext("addToBasket('test-cut')",edit);assert.equal(edit
 vm.runInContext("addToBasket('test-cut',2,true)",edit);assert.equal(edit.basket['test-cut'],2);
 vm.runInContext("addToBasket('test-cut',.5)",edit);assert.equal(edit.basket['test-cut'],2.5);
 oneCut.available=false;vm.runInContext("addToBasket('test-cut',4,true)",edit);assert.equal(edit.basket['test-cut'],2.5);
+oneCut.available=true;oneCut.price=null;vm.runInContext("addToBasket('test-cut')",edit);assert.equal(edit.basket['test-cut'],2.5,'Unpriced items use a price inquiry, not a new basket line');oneCut.available=false;oneCut.price=20;
 vm.runInContext(source.slice(source.indexOf('const cartUnavailable='),source.indexOf('function cartMessage')),edit);assert.equal(vm.runInContext('cartUnavailable().length',edit),1);
 const slotSource=source.slice(source.indexOf('function refreshDeliverySlots'),source.indexOf('function validCartQuantity'));
 for(const [utcHour,disabled] of [[5,[]],[10,['12-14']],[12,['12-14','14-16']],[14,['12-14','14-16','16-18']]]){
@@ -76,23 +89,25 @@ console.log('Pre-launch: product update/add, sold-out guards and Tbilisi workday
 // Every offered add-on is priced, available, absent from the cart, and its shown
 // half-kilogram quantity actually brings this cart to the minimum in one tap.
 const suggestionCuts=structuredClone(cuts);
+const familiar=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh','pork-grill','pork-leg','beef-brisket'];
 const upsell={basket:{},MIN_ORDER:50,invalidCart:new Set(),cutById:id=>suggestionCuts.find(c=>c.id===id),cutAvailable:c=>!!c&&c.available!==false};
 upsell.content={cuts:suggestionCuts};
 vm.createContext(upsell);vm.runInContext(cartFunctions,upsell);
 for(const basket of [{'pork-flesh':1},{'beef-round':1.5},{chicken:1},{'mixed-mince':.01,'pork-ribs':.01,'offal-beef-liver':.01,'pork-flesh':.01},{'offal-tripe':1}]){
  upsell.basket=basket;
  const suggestions=vm.runInContext('cartSuggestions()',upsell),subtotal=vm.runInContext('cartSubtotal()',upsell);
- assert.ok(suggestions.length>=1&&suggestions.length<=3);
+ assert.ok(suggestions.length<=3);
  assert.equal(new Set(suggestions.map(s=>s.id)).size,suggestions.length);
  assert.deepEqual(Array.from(suggestions,s=>s.amount),Array.from(suggestions,s=>s.amount).sort((a,b)=>a-b),'Cheapest increment must come first');
- const cheapest=suggestionCuts.filter(c=>c.available!==false&&c.price>0&&c.unit==='kg'&&!basket[c.id]).flatMap(c=>[.5,1].map(q=>Math.round(c.price*q*100)/100).filter(amount=>subtotal+amount>=50));
- assert.equal(suggestions[0].amount,Math.min(...cheapest),'Do not skip a cheaper eligible increment');
+ const cheapest=suggestionCuts.filter(c=>familiar.includes(c.id)&&c.available!==false&&c.price>0&&c.unit==='kg'&&!basket[c.id]).flatMap(c=>[.5,1].map(q=>Math.round(c.price*q*100)/100).filter(amount=>subtotal+amount>=50&&subtotal+amount<=70));
+ if(!Object.keys(basket).some(id=>!upsell.cutById(id).price))assert.equal(suggestions[0]?.amount,cheapest.length?Math.min(...cheapest):undefined,'Use the cheapest familiar cut, or return to the catalog');
  for(const s of suggestions){
   const c=upsell.cutById(s.id);assert.ok(!basket[s.id]&&c.available!==false&&c.price>0&&c.unit==='kg');
   assert.ok([.5,1].includes(s.quantity));
   if(s.quantity===1)assert.ok(subtotal+Math.round(c.price*.5*100)/100<50,'Use 0.5 kg whenever it reaches the minimum');
   assert.equal(s.amount,Math.round(c.price*s.quantity*100)/100);
   assert.ok(subtotal+s.amount>=50);
+  assert.ok(subtotal+s.amount<=70&&familiar.includes(s.id));
  }
 }
 upsell.basket={'pork-ribs':2.5};assert.equal(vm.runInContext('cartSuggestions().length',upsell),0);
@@ -101,7 +116,7 @@ upsell.basket={};assert.equal(vm.runInContext('cartSuggestions().length',upsell)
 const rankingCuts=[{id:'seed',price:33,unit:'kg'},...suggestionCuts.filter(c=>['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh','beef-tenderloin'].includes(c.id)).map(c=>({...c}))];
 const ranking={basket:{seed:1},MIN_ORDER:50,invalidCart:new Set(),content:{cuts:rankingCuts},cutById:id=>rankingCuts.find(c=>c.id===id),cutAvailable:c=>!!c&&c.available!==false};
 vm.createContext(ranking);vm.runInContext(cartFunctions,ranking);
-assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-ribs',1,20],['mixed-mince',1,23],['beef-tenderloin',.5,30]]);
+assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-ribs',1,20],['mixed-mince',1,23]]);
 rankingCuts[0].price=43;
 assert.deepEqual(Array.from(vm.runInContext('cartSuggestions()',ranking),s=>[s.id,s.quantity,s.amount]),[['pork-flesh',.5,7],['pork-ribs',.5,10],['offal-beef-liver',1,10]]);
 rankingCuts[0].price=44;

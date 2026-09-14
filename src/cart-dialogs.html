@@ -7,10 +7,12 @@
 <div id="cart-items"></div>
 <p id="cart-unavailable" class="cart-note" role="status" hidden></p>
 <div class="cart-estimate"><span data-i18n="cartEstimate"></span><strong id="cart-total"></strong></div>
+<div class="cart-delivery-summary"><div><span data-i18n="deliveryLabel"></span><strong id="cart-delivery-price"></strong></div><p id="cart-delivery-note"></p></div>
 <p id="cart-unpriced" class="cart-note" data-i18n="cartUnpriced" hidden></p>
 <p class="weight-confirmation" data-i18n="weightConfirm"></p>
 <p id="cart-minimum" class="cart-note" aria-live="polite"></p>
 <section id="cart-suggestions" class="cart-suggestions" aria-labelledby="cart-suggestions-title" hidden><h3 id="cart-suggestions-title"></h3><div id="cart-suggestion-list"></div></section>
+<a id="cart-more-cuts" class="text-button" data-local href="./catalog.html" data-i18n="goCatalog" hidden></a>
 <div class="cart-address"><label for="cart-district" data-i18n="districtLabel"></label><input id="cart-district" name="address" type="text" autocomplete="street-address" maxlength="250" data-placeholder="addressPlaceholder"></div>
 <fieldset class="delivery-slots"><legend data-i18n="desiredTime"></legend>
 <label><input type="radio" name="cart-slot" value="12-14"><span data-i18n="slotMidday"></span></label>
@@ -21,8 +23,9 @@
 </fieldset><p class="cart-note" data-i18n="slotNote"></p>
 <div class="cart-comment"><label for="cart-note" data-i18n="cartNoteLabel"></label><textarea id="cart-note" rows="2" maxlength="500" data-placeholder="preparationPlaceholder"></textarea></div>
 <label class="photo-check"><input type="checkbox" id="cart-photo"><span data-i18n="photoRequest"></span></label>
+<p class="cart-note" data-i18n="paymentMethods"></p>
 </form>
-<div class="cart-checkout" id="cart-checkout" hidden><div class="cart-message-preview"><p id="cart-preview-title" data-i18n="cartPreviewTitle"></p><div id="cart-message"><p id="cart-preview-items" tabindex="0" role="region" aria-labelledby="cart-preview-title"></p><p id="cart-preview-total"></p><p id="cart-preview-slot"></p></div></div><button id="cart-submit" type="submit" form="cart-form" class="button primary" data-i18n="cartSend" aria-describedby="cart-minimum cart-reply-note"></button><p id="cart-reply-note" class="checkout-note" data-i18n="cartReplyNote"></p><p id="cart-status" role="status"></p></div>
+<div class="cart-checkout" id="cart-checkout" hidden><div class="cart-message-preview"><p id="cart-preview-title" data-i18n="cartPreviewTitle"></p><div id="cart-message"><p id="cart-preview-items" tabindex="0" role="region" aria-labelledby="cart-preview-title"></p><p id="cart-preview-total"></p><p id="cart-preview-delivery"></p><p id="cart-preview-slot"></p></div></div><button id="cart-submit" type="submit" form="cart-form" class="button primary" data-i18n="cartSend" aria-describedby="cart-minimum cart-delivery-note cart-reply-note"></button><p id="cart-reply-note" class="checkout-note" data-i18n="cartReplyNote"></p><p id="cart-status" role="status"></p></div>
 </dialog>
 <dialog id="product-dialog" class="product-dialog app-sheet" aria-labelledby="product-title">
 <button class="dialog-close" type="button" data-close data-aria="close" aria-label="დახურვა">×</button>
@@ -32,7 +35,7 @@
 <div id="product-presets" class="product-presets" role="group" data-aria="weightPresets"></div>
 <div class="product-quantity-control"><button type="button" data-product-step="-1" data-aria="decrease">−</button><input id="product-quantity" type="text" inputmode="decimal" value="1" maxlength="8" aria-describedby="product-quantity-error"><button type="button" data-product-step="1" data-aria="increase">+</button></div><p class="field-error" id="product-quantity-error" hidden></p>
 <label for="product-note" data-i18n="preparationLabel"></label><input id="product-note" type="text" maxlength="160" data-placeholder="preparationPlaceholder">
-</form><a id="product-question" class="text-button product-question" data-i18n="productQuestion" target="_blank" rel="noopener noreferrer"></a><p class="product-weight-note" data-i18n="weightConfirm"></p></div></div>
+</form><p id="product-format-note" class="product-support-note" hidden></p><p class="product-support-note" data-i18n="deliveryPolicy"></p><p class="product-support-note" data-i18n="paymentMethods"></p><a id="product-question" class="text-button product-question" data-i18n="productQuestion" target="_blank" rel="noopener noreferrer"></a><p class="product-weight-note" data-i18n="weightConfirm"></p><p id="product-query-status" role="status" hidden></p></div></div>
 <div class="product-checkout"><div><span data-i18n="productEstimate"></span><strong id="product-live-total"></strong><small id="product-live-quantity"></small></div><button id="product-submit" type="submit" form="product-form" class="button primary"></button></div></dialog>
 <div class="cart-toast" id="cart-toast" role="status" hidden><span id="cart-toast-text"></span><button type="button" data-cart-open data-i18n="cartOpen"></button></div>
 <button id="cart-checkout-hint" class="cart-checkout-hint" type="button" data-cart-open aria-controls="cart-dialog" aria-haspopup="dialog" hidden><span id="cart-hint-total" aria-live="polite"></span><strong id="cart-hint-action"></strong><span aria-hidden="true">↗</span></button>

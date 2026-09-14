@@ -380,23 +380,22 @@ window.MEATCO_CONTENT = {
       ],
       "method": "boil",
       "cuts": [
-        "offal-tripe",
-        "offal-feet"
+        "offal-tripe"
       ],
       "ka": [
         "ხაში",
-        "ფაშვისა და ფეხების ნელი ხარშვით მიღებული ბულიონი.",
-        "ფაშვი და ფეხები. ხაშისთვის საჭირო სახეობასა და გასუფთავების მდგომარეობას წინასწარ დავაზუსტებთ."
+        "ფაშვით მომზადებული ნოყიერი ბულიონი.",
+        "ფაშვი ხაშისთვის. სხვა საჭირო ნაწილების ხელმისაწვდომობა WhatsApp-ში დააზუსტეთ."
       ],
       "ru": [
         "Хаши",
-        "Насыщенный бульон из рубца и говяжьих ножек.",
-        "Рубец и ножки. Нужный вид и степень очистки для хаши уточним заранее."
+        "Насыщенный бульон с рубцом.",
+        "Рубец для хаши. Наличие других нужных частей уточните в WhatsApp."
       ],
       "en": [
         "Khashi",
-        "A slow-simmered broth of beef tripe and feet.",
-        "Tripe and feet. We’ll confirm the type and cleaning required for khashi."
+        "A rich broth with tripe.",
+        "Tripe for khashi. Ask on WhatsApp about any other cuts you need."
       ],
       "image": "./assets/dishes/khashi.webp"
     },
@@ -927,9 +926,9 @@ window.MEATCO_CONTENT = {
         "en": "Pork trotters"
       },
       "use": {
-        "ka": "ხაშისა და ლაბისთვის",
-        "ru": "Для хаши и холодца",
-        "en": "For khashi and meat jelly"
+        "ka": "მუჟუჟისა და ლაბისთვის",
+        "ru": "Для мужужи и холодца",
+        "en": "For muzhuzhi and meat jelly"
       },
       "image": "./assets/products/feet.webp"
     },
@@ -942,9 +941,9 @@ window.MEATCO_CONTENT = {
         "en": "Cleaned pork trotters"
       },
       "use": {
-        "ka": "ხაშისა და ლაბისთვის",
-        "ru": "Для хаши и холодца",
-        "en": "For khashi and meat jelly"
+        "ka": "მუჟუჟისა და ლაბისთვის",
+        "ru": "Для мужужи и холодца",
+        "en": "For muzhuzhi and meat jelly"
       },
       "price": 5,
       "unit": "kg",

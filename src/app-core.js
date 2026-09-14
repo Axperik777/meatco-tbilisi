@@ -239,9 +239,14 @@ function setLanguage(next,persist=true){
 }
 function homeHoursKey(now=new Date()){
  const hour=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',hour:'2-digit',hourCycle:'h23'}).format(now));
- return hour>=18?'homeAfterHoursNow':'homeAfterHours';
+ return hour>=18?'homeAfterHoursNow':hour<10?'homeBeforeHours':'homeAfterHours';
+}
+function homeOperationsKey(now=new Date()){
+ const period=homeHoursKey(now);return period==='homeAfterHoursNow'?'afterCloseOperations':period==='homeBeforeHours'?'beforeOpenOperations':'todayOperations';
 }
 function renderOperations(){
+ for(const el of document.querySelectorAll('[data-i18n="todayOperations"]'))el.textContent=text(homeOperationsKey());
+ for(const el of document.querySelectorAll('[data-i18n="appHeroCopy"]'))el.textContent=text(homeHoursKey()==='homeAfterHoursNow'?'homeCutOutsideHours':'appHeroCopy');
  for(const el of document.querySelectorAll('[data-minimum-order]'))el.textContent=MIN_ORDER?text(el.dataset.minimumOrder||'minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  for(const el of document.querySelectorAll('[data-working-hours]'))el.textContent=config.hours?text('workingHours').replace('{hours}',config.hours):text('workingHoursUnknown');
  for(const el of document.querySelectorAll('[data-home-hours-note]'))el.textContent=text(homeHoursKey());
@@ -279,8 +284,8 @@ for(const dialog of document.querySelectorAll('dialog')){
 }
 $('privacy-open').addEventListener('click',e=>showDialog($('privacy-dialog'),e.currentTarget));
 $('dish-order').addEventListener('click',()=>{
- const selection={category:activeDish.category,dish:activeDish.id,people:$('dish-people').value};
- const opener=openers.get(dishDialog);dishDialog.close();openOrder(opener,selection);
+ if(!activeDish)return;
+ const url=new URL('./catalog.html',location.href);url.searchParams.set('lang',language);url.searchParams.set('q',activeDish[language][0]);dishDialog.close();location.assign(url);
 });
 $('clear-context').addEventListener('click',()=>{context={cut:'',dish:'',people:''};renderContext();updatePreview();});
 form.addEventListener('input',()=>{status.replaceChildren();if(validQuantity(quantity.value.trim())){error.hidden=true;quantity.removeAttribute('aria-invalid');}updatePreview();});

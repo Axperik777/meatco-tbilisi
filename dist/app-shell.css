@@ -43,7 +43,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--forest);outline-
 .header-inner{min-height:var(--header-h);max-width:calc(var(--catalog-max) - var(--page-pad-x)*2);display:flex;align-items:center;justify-content:space-between;gap:var(--space-2)}
 .brand-lockup{display:flex;align-items:center;min-height:var(--hit-min);flex:none}
 .brand-logo{width:128px;height:auto;display:block;object-fit:contain;mix-blend-mode:multiply}
-.header .brand-logo{filter:grayscale(1) invert(1) brightness(1.2) sepia(.18);mix-blend-mode:screen}
+.header .brand-logo{filter:grayscale(1) contrast(1.35) invert(1) brightness(1.2) sepia(.18);mix-blend-mode:screen}
 .header-actions{margin-left:auto;display:flex;align-items:center;gap:var(--space-2)}
 .languages{display:flex;gap:0;padding:0;background:transparent;border-radius:var(--radius-s)}
 .languages button{position:relative;isolation:isolate;min-width:var(--hit-min);min-height:var(--hit-min);padding:var(--space-1);font-size:var(--fs-ui);line-height:var(--lh-body);font-weight:600;border:0;border-radius:var(--radius-s);background:transparent;color:var(--surface)}
@@ -251,6 +251,12 @@ dialog h2{font:700 var(--fs-section)/var(--lh-title) var(--font-sans);margin:0 0
 .cart-estimate>span{font-size:var(--fs-body);line-height:var(--lh-body)}
 .cart-estimate strong{font-size:var(--fs-price);line-height:var(--lh-title);font-weight:700}
 .cart-estimate strong.is-unpriced{font-size:var(--fs-body)}
+.cart-delivery-summary{margin:0 0 var(--space-4);font-size:var(--fs-ui);line-height:var(--lh-body)}
+.cart-delivery-summary>div{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4)}
+.cart-delivery-summary strong{text-align:right;font-weight:600}
+.cart-delivery-summary p{font-size:var(--fs-caption);color:var(--muted);margin:var(--space-2) 0 0}
+.cart-price-query{display:inline-flex;align-items:center;min-height:var(--hit-min);font-size:var(--fs-ui);color:var(--forest);text-decoration:underline;text-underline-offset:3px}
+.catalog-terms{flex-basis:100%;color:var(--forest)}
 .weight-confirmation{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);padding:0 0 0 var(--space-3);border-radius:0;border-left:2px solid var(--ink);background:none;max-width:var(--readable-max);margin:0 0 var(--space-6)}
 .cart-note{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--muted);max-width:var(--readable-max);margin:var(--space-3) 0 var(--space-6)}
 .cart-address{margin:0 0 var(--space-6)}

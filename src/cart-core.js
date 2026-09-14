@@ -32,6 +32,27 @@ const currency=value=>new Intl.NumberFormat(language,{maximumFractionDigits:2,mi
 const quantityText=(c,q)=>new Intl.NumberFormat(language,{maximumFractionDigits:3}).format(q)+' '+text(c.unit==='piece'?'perPiece':'perKg');
 const lineAmount=(c,q)=>Math.round(((c.price||0)*q+Number.EPSILON)*100)/100;
 const cartSubtotal=()=>Object.entries(basket).reduce((sum,[id,q])=>sum+lineAmount(cutById(id),q),0);
+const deliveryIsFree=(amount=cartSubtotal())=>Number(config.freeDeliveryThreshold)>0&&amount>=config.freeDeliveryThreshold;
+const cartMessageDelivery=()=>text('messageDelivery')+': '+(deliveryIsFree()?text('messageDeliveryFree').replace('{amount}',currency(config.freeDeliveryThreshold)):text('messageDeliveryExtra'));
+function priceRequestMessage(c,quantity=null,note=''){
+ const lines=[text('priceRequestGreeting'),c.name[language]];
+ if(quantity!==null)lines.push(text('priceRequestWeight')+': '+quantityText(c,quantity));
+ if(note.trim())lines.push(text('messageComment')+': '+note.trim());
+ return lines.join('\n');
+}
+function showChatFallback(target,url){
+ const label=document.createElement('span');label.textContent=text('chatFallback')+' ';
+ const phone=document.createElement('a');phone.href='tel:+995568258118';phone.textContent='+995 568 258 118';
+ const retry=document.createElement('a');retry.href=url;retry.target='_blank';retry.rel='noopener noreferrer';retry.textContent=text('retryWhatsapp');
+ target.replaceChildren(label,phone,document.createElement('br'),retry);target.hidden=false;
+}
+function openPriceRequest(c,quantity=null,note='',target=null){
+ if(!cutAvailable(c))return;
+ const url=whatsappUrl(priceRequestMessage(c,quantity,note));if(!url)return;
+ window.open(url,'_blank','noopener,noreferrer');
+ if(target)showChatFallback(target,url);
+}
+const cartLineTotal=(c,quantity)=>c.price>0?esc(currency(lineAmount(c,quantity))):`<a class="cart-price-query" target="_blank" rel="noopener noreferrer" href="${esc(whatsappUrl(priceRequestMessage(c,quantity)))}">${esc(text('priceAsk'))}</a>`;
 function cartMinimumRemaining(){
  return MIN_ORDER?Math.max(0,Math.round((MIN_ORDER-cartSubtotal())*100)/100):0;
 }
@@ -49,7 +70,7 @@ const cartMessageSlot=()=>text('messageTime')+': '+text(slotKeys[selectedSlot()]
 function cartMessage(){
  const lines=['MeatCO','',...cartMessageItems()];
  const unpriced=Object.keys(basket).map(cutById).filter(c=>!c.price);
- lines.push('',cartMessageEstimate());
+ lines.push('',cartMessageEstimate(),cartMessageDelivery());
  if(unpriced.length)lines.push(text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', ')));
  if(unpriced.length&&MIN_ORDER)lines.push(text('minimumOrder').replace('{amount}',currency(MIN_ORDER)));
  lines.push(text('messageAddress')+': '+($('cart-district').value.trim()||text('messageTbc')));
@@ -60,20 +81,21 @@ function cartMessage(){
 }
 function cartSuggestions(){
  const remaining=cartMinimumRemaining();
- if(!cartHasItems()||!remaining||invalidCart.size||cartUnavailable().length)return [];
+ if(!cartHasItems()||!remaining||invalidCart.size||cartUnavailable().length||Object.keys(basket).some(id=>!cutById(id).price))return [];
  const eligible=id=>{const c=cutById(id);return cutAvailable(c)&&c.price>0&&c.unit==='kg'&&!basket[id];};
  const preferred=['mixed-mince','pork-ribs','offal-beef-liver','pork-flesh','pork-grill','pork-leg','beef-brisket'];
- const ids=[...preferred,...content.cuts.map(c=>c.id).filter(id=>!preferred.includes(id))].filter(eligible);
+ const ids=preferred.filter(eligible);
  const suggestions=ids.map(id=>{
   const c=cutById(id),quantity=[.5,1].find(q=>lineAmount(c,q)>=remaining);
   return quantity?{id,quantity,amount:lineAmount(c,quantity)}:null;
  }).filter(Boolean).sort((a,b)=>a.amount-b.amount);
  // Lowest extra cost first; keep familiar cuts ahead when costs are equal.
  const closeToThreshold=suggestions.filter(s=>s.amount-remaining<=20);
- return (closeToThreshold.length>=2?closeToThreshold:suggestions).slice(0,3);
+ return closeToThreshold.slice(0,3);
 }
 function renderCartSuggestions(){
  const suggestions=cartSuggestions();$('cart-suggestions').hidden=!suggestions.length;
+ $('cart-more-cuts').hidden=!cartHasItems()||!cartMinimumRemaining()||suggestions.length>0||invalidCart.size>0||cartUnavailable().length>0;
  $('cart-suggestions-title').textContent=text('cartSuggestionTitle').replace('{amount}',currency(MIN_ORDER||0));
  $('cart-suggestion-list').innerHTML=suggestions.map(({id,quantity,amount})=>{
   const c=cutById(id),details=quantityText(c,quantity)+' · +'+currency(amount);
@@ -86,7 +108,7 @@ function renderCheckoutHint(){
  const ids=Object.keys(basket),hasPriced=ids.some(id=>cutById(id).price>0),unpriced=ids.some(id=>!cutById(id).price);
  const money=value=>currency(value).replace(/ ₾$/,'\u00a0₾');
  const amount=invalidCart.size?'—':hasPriced?money(cartSubtotal())+(unpriced?' +':''):text('priceAsk');
- $('cart-hint-total').textContent=text('cartHintTotal').replace('{amount}',amount);
+ $('cart-hint-total').textContent=text(hasPriced&&!deliveryIsFree()?'cartHintTotalDelivery':'cartHintTotal').replace('{amount}',amount);
  $('cart-hint-action').textContent=invalidCart.size||cartUnavailable().length?text('cartHintCheck'):remaining?text('cartHintRemaining').replace('{amount}',money(remaining)):text('cartHintCheckout');
  syncCartHintSpace();
 }
@@ -112,8 +134,11 @@ function renderCartControls(){
   const add=card.querySelector('[data-add-cut]'),control=card.querySelector('[data-card-quantity]');
   const available=cutAvailable(c);card.classList.toggle('is-unavailable',!available);
   card.querySelector('[data-stock-status]').hidden=available;
-  add.hidden=qty>0&&available;control.hidden=!qty||!available;add.disabled=!available;
-  add.setAttribute('aria-label',text('addToCart')+': '+c.name[language]);
+  const unpriced=!(c.price>0),label=unpriced?'priceAsk':'addShort';
+  add.hidden=qty>0&&available&&!unpriced;control.hidden=!qty||!available||unpriced;add.disabled=!available;
+  add.querySelector('[data-i18n]').dataset.i18n=label;add.querySelector('[data-i18n]').textContent=text(label);
+  add.querySelector('[aria-hidden]').hidden=unpriced;
+  add.setAttribute('aria-label',text(unpriced?'priceAsk':'addToCart')+': '+c.name[language]);
   card.querySelector('.meat-photo').setAttribute('aria-label',c.name[language]);
   const value=control.querySelector('.card-quantity-value');value.textContent=quantityText(c,qty);value.setAttribute('aria-label',text('cartOpen')+': '+c.name[language]+', '+quantityText(c,qty));
   for(const button of control.querySelectorAll('[data-cart-step]'))button.setAttribute('aria-label',text(button.dataset.cartStep==='1'?'increase':'decrease')+': '+c.name[language]);
@@ -127,7 +152,10 @@ function updateCartSummary(){
  $('cart-unpriced').textContent=text('cartUnpriced').replace('{items}',unpriced.map(c=>c.name[language]).join(', '));
  $('cart-preview-items').textContent=cartMessageItems().join('\n');
  $('cart-preview-total').textContent=cartMessageEstimate();
+ $('cart-preview-delivery').textContent=cartMessageDelivery();
  $('cart-preview-slot').textContent=cartMessageSlot();
+ $('cart-delivery-price').textContent=text(!invalidCart.size&&deliveryIsFree()?'deliveryFree':'deliveryByAddress');
+ $('cart-delivery-note').textContent=!invalidCart.size&&deliveryIsFree()?text('deliveryFreeNote').replace('{amount}',currency(config.freeDeliveryThreshold)):text('deliveryExtra');
  const remaining=cartMinimumRemaining();
  $('cart-minimum').textContent=remaining?text('minimumRemaining').replace('{amount}',currency(remaining)).replace('{minimum}',currency(MIN_ORDER)):MIN_ORDER?text('minimumOrder').replace('{amount}',currency(MIN_ORDER)):text('minimumUnknown');
  $('cart-minimum').classList.toggle('minimum-unmet',remaining>0);
@@ -143,7 +171,7 @@ function renderCart(){
  const ids=Object.keys(basket);
  $('cart-empty').hidden=!!ids.length;$('cart-form').hidden=!ids.length;$('cart-checkout').hidden=!ids.length;
  $('cart-items').innerHTML=ids.map(id=>{
-  const c=cutById(id),qty=basket[id];return `<article class="cart-line" data-cart-line="${id}"><img ${thumbnailAttrs(c,64)} alt=""><div class="cart-line-name"><h3>${esc(c.name[language])}</h3><p>${esc(formatPrice(c))}</p>${preparationNotes.has(id)?`<p class="cart-preparation">${esc(preparationNotes.get(id))}</p>`:''}</div><button type="button" class="cart-remove" data-cart-remove="${id}" aria-label="${esc(text('cartRemove')+': '+c.name[language])}">×</button><div class="cart-line-controls"><div class="cart-quantity"><button type="button" data-cart-id="${id}" data-cart-step="-1" aria-label="${esc(text('decrease')+': '+c.name[language])}">−</button><label class="sr-only" for="cart-q-${id}">${esc(text('cartLineQuantity').replace('{name}',c.name[language]))}</label><input id="cart-q-${id}" data-cart-quantity="${id}" value="${qty}" maxlength="8" type="text" inputmode="${c.unit==='piece'?'numeric':'decimal'}" aria-describedby="cart-error-${id}"><span>${esc(text(c.unit==='piece'?'perPiece':'perKg'))}</span><button type="button" data-cart-id="${id}" data-cart-step="1" aria-label="${esc(text('increase')+': '+c.name[language])}">+</button></div><strong class="cart-line-total">${c.price>0?esc(currency(c.price*qty)):esc(text('priceAsk'))}</strong></div><p class="field-error" id="cart-error-${id}" hidden></p></article>`;
+  const c=cutById(id),qty=basket[id];return `<article class="cart-line" data-cart-line="${id}"><img ${thumbnailAttrs(c,64)} alt=""><div class="cart-line-name"><h3>${esc(c.name[language])}</h3><p>${esc(formatPrice(c))}</p>${preparationNotes.has(id)?`<p class="cart-preparation">${esc(preparationNotes.get(id))}</p>`:''}</div><button type="button" class="cart-remove" data-cart-remove="${id}" aria-label="${esc(text('cartRemove')+': '+c.name[language])}">×</button><div class="cart-line-controls"><div class="cart-quantity"><button type="button" data-cart-id="${id}" data-cart-step="-1" aria-label="${esc(text('decrease')+': '+c.name[language])}">−</button><label class="sr-only" for="cart-q-${id}">${esc(text('cartLineQuantity').replace('{name}',c.name[language]))}</label><input id="cart-q-${id}" data-cart-quantity="${id}" value="${qty}" maxlength="8" type="text" inputmode="${c.unit==='piece'?'numeric':'decimal'}" aria-describedby="cart-error-${id}"><span>${esc(text(c.unit==='piece'?'perPiece':'perKg'))}</span><button type="button" data-cart-id="${id}" data-cart-step="1" aria-label="${esc(text('increase')+': '+c.name[language])}">+</button></div><strong class="cart-line-total">${cartLineTotal(c,qty)}</strong></div><p class="field-error" id="cart-error-${id}" hidden></p></article>`;
  }).join('');
  for(const id of [...invalidCart])if(!ids.includes(id)){invalidCart.delete(id);cartDrafts.delete(id);}
  for(const id of invalidCart){
@@ -162,7 +190,7 @@ function notifyAdded(c,updated=false){
  toastTimer=setTimeout(()=>{$('cart-toast').hidden=true;},3500);
 }
 function addToBasket(id,qty=1,replace=false){
- const c=cutById(id);if(!cutAvailable(c)||!validCartQuantity(c,qty))return;
+ const c=cutById(id);if(!cutAvailable(c)||!(c.price>0)||!validCartQuantity(c,qty))return;
  const updated=replace&&!!basket[id];
  basket[id]=Math.min(9999,Math.round(((replace?0:basket[id]||0)+Number(qty))*1000)/1000);
  invalidCart.delete(id);cartDrafts.delete(id);saveBasket();renderCart();notifyAdded(c,updated);track(updated?'meatco_update_cart':'meatco_add_to_cart',{product_id:id,quantity:qty});
@@ -190,12 +218,14 @@ function renderProductDetail(){
  $('product-title').textContent=c.name[language];$('product-category').textContent=text(c.category);
  $('product-use').textContent=c.use[language].replace(/[.!?]$/,'')+'. '+text(c.unit==='piece'?'productDescriptionPiece':'productDescriptionKg');$('product-price').textContent=formatPrice(c);
  $('product-preparation-hint').hidden=!preparableCuts.has(c.id);
+ const formatKey=c.id==='offal-tongue'?'tongueConfirm':['young-pig','turkey'].includes(c.id)?'productFormatConfirm':null;
+ $('product-format-note').hidden=!formatKey;$('product-format-note').textContent=formatKey?text(formatKey):'';
  $('product-unit-note').hidden=c.unit==='piece'||!(c.price>0);
  $('product-question').href=whatsappUrl(questionMessage(c))||'tel:+995568258118';
  $('product-quantity-label').textContent=text(c.unit==='piece'?'quantityPiece':'quantityKg');
  $('product-quantity').inputMode=c.unit==='piece'?'numeric':'decimal';
  $('product-submit').disabled=!cutAvailable(c);
- $('product-submit').textContent=text(!cutAvailable(c)?'soldOut':basket[c.id]?'updateCart':'addToCart');
+ $('product-submit').textContent=text(!cutAvailable(c)?'soldOut':!(c.price>0)?'priceAsk':basket[c.id]?'updateCart':'addToCart');
  const focusedPreset=document.activeElement?.dataset.quantityPreset;
  $('product-presets').innerHTML=(c.unit==='piece'?[1,2,3]:[.5,1,1.5,2]).map(q=>`<button type="button" data-quantity-preset="${q}" aria-pressed="${Number($('product-quantity').value.replace(',','.'))===q}">${quantityText(c,q)}</button>`).join('');
  if(focusedPreset)$('product-presets').querySelector(`[data-quantity-preset="${focusedPreset}"]`)?.focus({preventScroll:true});
@@ -205,7 +235,7 @@ function validateCartInput(input,showError=false){
  const id=input.dataset.cartQuantity,c=cutById(id),value=input.value.trim(),valid=validCartQuantity(c,value);
  if(valid){
   basket[id]=Number(value.replace(',','.'));invalidCart.delete(id);cartDrafts.delete(id);saveBasket();input.removeAttribute('aria-invalid');$('cart-error-'+id).hidden=true;
-  input.closest('.cart-line').querySelector('.cart-line-total').textContent=c.price>0?currency(c.price*basket[id]):text('priceAsk');
+  input.closest('.cart-line').querySelector('.cart-line-total').innerHTML=cartLineTotal(c,basket[id]);
  }else{
   invalidCart.add(id);cartDrafts.set(id,input.value);
   if(showError){input.setAttribute('aria-invalid','true');$('cart-error-'+id).textContent=text(c.unit==='piece'?'piecesError':'quantityError');$('cart-error-'+id).hidden=false;}
@@ -214,7 +244,10 @@ function validateCartInput(input,showError=false){
 }
 document.addEventListener('click',event=>{
  const el=event.target.closest('button,a');if(!el)return;
- if(el.matches('[data-add-cut]')){addToBasket(el.dataset.addCut);keepCardControlVisible(el);}
+ if(el.matches('[data-add-cut]')){
+  const c=cutById(el.dataset.addCut);
+  if(c.price>0){addToBasket(c.id);keepCardControlVisible(el);}else openPriceRequest(c);
+ }
  if(el.matches('[data-cart-suggestion]')){
   const suggestion=cartSuggestions().find(s=>s.id===el.dataset.cartSuggestion);
   if(suggestion){addToBasket(suggestion.id,suggestion.quantity);$('cart-submit').focus({preventScroll:true});}
@@ -224,6 +257,7 @@ document.addEventListener('click',event=>{
  if(el.matches('[data-cart-open]'))openCart(el);
  if(el.matches('[data-view-product]')){
   activeProduct=cutById(el.dataset.viewProduct);if(!activeProduct)return;
+  $('product-query-status').hidden=true;$('product-query-status').replaceChildren();
   $('product-note').value=preparationNotes.get(activeProduct.id)||'';$('product-quantity').value=String(basket[activeProduct.id]||1);$('product-quantity').removeAttribute('aria-invalid');$('product-quantity-error').hidden=true;
   renderProductDetail();showDialog(productDialog,el);
  }
@@ -239,7 +273,9 @@ $('product-form').addEventListener('submit',event=>{
  event.preventDefault();const value=$('product-quantity').value.trim();
  if(!cutAvailable(activeProduct))return;
  if(!validCartQuantity(activeProduct,value)){$('product-quantity').setAttribute('aria-invalid','true');$('product-quantity-error').textContent=text(activeProduct.unit==='piece'?'piecesError':'quantityError');$('product-quantity-error').hidden=false;$('product-quantity').focus();return;}
- const preparation=$('product-note').value.trim();if(preparation)preparationNotes.set(activeProduct.id,preparation);else preparationNotes.delete(activeProduct.id);
+ const preparation=$('product-note').value.trim();
+ if(!(activeProduct.price>0)){openPriceRequest(activeProduct,Number(value.replace(',','.')),preparation,$('product-query-status'));return;}
+ if(preparation)preparationNotes.set(activeProduct.id,preparation);else preparationNotes.delete(activeProduct.id);
  addToBasket(activeProduct.id,Number(value.replace(',','.')),true);productDialog.close();
 });
 $('cart-form').addEventListener('input',event=>{

@@ -53,8 +53,11 @@ for(const [date,key] of [
  ['2026-09-14T13:59:59Z','homeAfterHours'],
  ['2026-09-14T14:00:00Z','homeAfterHoursNow'],
  ['2026-09-14T19:59:59Z','homeAfterHoursNow'],
- ['2026-09-14T20:00:00Z','homeAfterHours']
+ ['2026-09-14T20:00:00Z','homeBeforeHours'],
+ ['2026-09-14T05:59:59Z','homeBeforeHours'],
+ ['2026-09-14T06:00:00Z','homeAfterHours']
 ])assert.equal(vm.runInContext(`homeHoursKey(new Date('${date}'))`,hoursSandbox),key);
+for(const [date,key] of [['2026-09-14T05:59:59Z','beforeOpenOperations'],['2026-09-14T06:00:00Z','todayOperations'],['2026-09-14T14:00:00Z','afterCloseOperations']])assert.equal(vm.runInContext(`homeOperationsKey(new Date('${date}'))`,hoursSandbox),key);
 // Preparation copy is restricted to known suitable cuts, not category-wide.
 vm.runInContext(core.slice(core.indexOf('const preparableCuts='),core.indexOf('const defaultProductOrder=')),hoursSandbox);
 const preparable=vm.runInContext('[...preparableCuts]',hoursSandbox);
@@ -63,6 +66,7 @@ for(const id of ['chicken','marrow-bone','mixed-mince','offal-beef-liver','beef-
 vm.runInNewContext(fs.readFileSync(path.join(root,'config.js'),'utf8'),sandbox);
 assert.equal(sandbox.window.MEATCO_CONFIG.hours,'10:00–18:00');
 assert.equal(sandbox.window.MEATCO_CONFIG.minimumOrder,50);
+assert.equal(sandbox.window.MEATCO_CONFIG.freeDeliveryThreshold,200);
 assert.ok(!/Ваке|Сабуртало|Диди Дигоми|Vake|Saburtalo|Didi Dighomi|ვაკე|საბურთალო|დიდი დიღომი/.test(JSON.stringify(locales)),'District lists removed from all locales');
 for(const suffix of ['','-small']){
  const hashes=photographed.map(c=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,c.image.replace('.webp',suffix+'.webp')))).digest('hex'));

@@ -7,6 +7,7 @@ window.MEATCO_CONFIG = {
   defaultLanguage: 'ka',
   deliveryFee: null,
   minimumOrder: 50,
+  freeDeliveryThreshold: 200,
   pickupAvailable: true,
   analytics: { enabled: false, consentRequired: true },
 };

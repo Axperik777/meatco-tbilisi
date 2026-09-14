@@ -44,7 +44,7 @@ document.addEventListener('click',event=>{
   event.preventDefault();for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();
   const anchor=url.hash.slice(1);
   const next=file==='catalog.html'||anchor==='catalog'?'catalog':['delivery','restaurants','faq'].includes(anchor)?'help':'home';
-  if(next==='catalog'){const cat=url.searchParams.get('category');category=categories.includes(cat)?cat:'all';productLimit=6;renderCatalog();updateUrl('category',category==='all'?'':category);}
+  if(next==='catalog'){const cat=url.searchParams.get('category');category=categories.includes(cat)?cat:'all';productLimit=6;$('product-search').value=url.searchParams.get('q')||'';renderCatalog();updateUrl('q',$('product-search').value);updateUrl('category',category==='all'?'':category);}
   switchAppScreen(next,{anchor:['delivery','restaurants','faq'].includes(anchor)?anchor:'',focus:true});
  }
 });
